@@ -1,0 +1,2534 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: 1099 Operations
+  description: Includes endpoints for managing 1099 forms.
+paths:
+  /payments/collaborator/{id}/download-1099/{year}/{index}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: year
+        description: Year
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: index
+        description: Index
+        schema:
+          type: string
+      summary: Retrieve Form 1099 PDF for a Collaborator by Year and Index
+      operationId: getForm1099PDF
+      x-speakeasy-name-override: get_form_1099
+      tags:
+      - 1099 Operations
+      description: Facilitates downloading of the specified 1099 form for a given collaborator, corresponding to the provided year and index.
+      responses:
+        '200':
+          description: Download1099Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Download1099Response'
+  /payments/collaborator/{id}/download-w9:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve Form W9 PDF for a Collaborator
+      operationId: getFormW9PDF
+      x-speakeasy-name-override: get_form_w9
+      tags:
+      - 1099 Operations
+      description: Enables the downloading of the W9 form for the specified collaborator, ensuring compliance and streamlined financial procedures.
+      responses:
+        '200':
+          description: A file stream for a W9 PDF download.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadW9Response'
+  /payments/collaborator/1099/calculate:
+    post:
+      summary: Determine 1099 Amounts for Collaborators
+      operationId: calculate1099Amounts
+      x-speakeasy-name-override: calculate
+      tags:
+      - 1099 Operations
+      description: Analyzes and calculates the appropriate 1099 amounts for collaborators based on provided data and relevant financial parameters.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Calculate1099Request'
+      responses:
+        '200':
+          description: Calculate 1099 amounts response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Calculate1099Response'
+  /payments/collaborator/1099/remail:
+    post:
+      summary: Request a new mailing of the 1099 form for a collaborator
+      operationId: remail1099Form
+      x-speakeasy-name-override: remail
+      tags:
+      - 1099 Operations
+      description: Initiates a process to resend the 1099 form to a collaborator in the event of a previous failed delivery or at the request of the collaborator.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Remail1099Request'
+      responses:
+        '200':
+          description: Remail 1099 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Remail1099Response'
+  /payments/collaborator/1099/mark-undelivered:
+    post:
+      summary: Indicate a collaborator's 1099 form was returned undelivered
+      operationId: markUndelivered1099Form
+      x-speakeasy-name-override: mark
+      tags:
+      - 1099 Operations
+      description: Mark a specific 1099 submission for a collaborator as undelivered, typically due to mail return or incorrect address details.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mark1099AsUndeliveredRequest'
+      responses:
+        '200':
+          description: Mark 1099 as undelivered response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mark1099AsUndeliveredResponse'
+  /payments/bulk/calculation1099/batch:
+    get:
+      summary: Retrieve all bulk calculation 1099 batches
+      operationId: listCalculation1099Batches
+      x-speakeasy-name-override: list_batch_calculation
+      tags:
+      - 1099 Operations
+      description: Fetches a comprehensive list of all batches created for bulk 1099 calculations.
+      responses:
+        '200':
+          description: A list of bulk calculation 1099 batches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkCalculation1099Batch'
+    post:
+      summary: Initialize a new batch for bulk calculation 1099
+      operationId: createCalculation1099Batch
+      x-speakeasy-name-override: create_batch_calculation
+      tags:
+      - 1099 Operations
+      description: Allows users to create a new batch for facilitating bulk 1099 calculations by providing necessary batch details.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkBatchCreate'
+      responses:
+        '200':
+          description: A batch of items for importing as calculation 1099s
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCalculation1099Batch'
+  /payments/bulk/calculation1099/batch/{batchId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Retrieve specific details of a bulk calculation 1099 batch
+      operationId: getCalculation1099Batch
+      x-speakeasy-name-override: get_batch_calculation
+      tags:
+      - 1099 Operations
+      description: Fetches detailed information about a specific batch meant for bulk 1099 calculations using its unique batch identifier.
+      responses:
+        '200':
+          description: A batch of items for importing as calculation 1099s
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCalculation1099Batch'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Modify the details of a specific bulk calculation 1099 batch
+      operationId: updateCalculation1099Batch
+      x-speakeasy-name-override: update_batch_calculation
+      tags:
+      - 1099 Operations
+      description: Provides the ability to update or alter attributes of a given batch for bulk 1099 calculations by using its unique batch identifier.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkBatchUpdate'
+      responses:
+        '200':
+          description: A batch of items for importing as calculation 1099s
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCalculation1099Batch'
+  /payments/bulk/calculation1099/batch/{batchId}/item:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Retrieve all items from a calculation 1099 batch
+      operationId: listCalculation1099BatchItems
+      x-speakeasy-name-override: list_item
+      tags:
+      - 1099 Operations
+      description: Access a comprehensive list of items contained within a specified calculation 1099 batch, useful for verifying or inspecting batch contents.
+      responses:
+        '200':
+          description: A list of bulk calculation 1099 items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkCalculation1099Item'
+    post:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Add a new item to a calculation 1099 batch
+      operationId: createCalculation1099BatchItem
+      x-speakeasy-name-override: create_item
+      tags:
+      - 1099 Operations
+      description: Facilitates the incorporation of a new item into the specified calculation 1099 batch, streamlining the process of batch expansion.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCalculation1099ItemCreate'
+      responses:
+        '200':
+          description: An item that will be converted into a calculation 1099
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCalculation1099Item'
+  /payments/bulk/calculation1099/batch/{batchId}/item/{batchItemId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Fetch details of a specific item from a calculation 1099 batch
+      operationId: getCalculation1099BatchItem
+      x-speakeasy-name-override: get_item
+      tags:
+      - 1099 Operations
+      description: Gain insights into a particular item's attributes and data stored within a calculation 1099 batch, enhancing data management and verification.
+      responses:
+        '200':
+          description: An item that will be converted into a calculation 1099
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCalculation1099Item'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Revise the attributes of an item in a calculation 1099 batch
+      operationId: updateCalculation1099BatchItem
+      x-speakeasy-name-override: update_item
+      tags:
+      - 1099 Operations
+      description: Make alterations or updates to a specific item within the calculation 1099 batch, ensuring accurate and up-to-date record-keeping.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCalculation1099ItemUpdate'
+      responses:
+        '200':
+          description: An item that will be converted into a payable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPayableItem'
+  /payments/tax-form:
+    get:
+      summary: Fetch 1099 tax forms.
+      operationId: list1099TaxForms
+      x-speakeasy-name-override: list_tax_form
+      tags:
+      - 1099 Operations
+      description: Fetch tax forms for a payee or a payer and specified year.
+      responses:
+        '200':
+          description: List of 1099 Tax form objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaxFormResponse'
+    post:
+      summary: Create a new tax form.
+      operationId: create1099TaxForm
+      x-speakeasy-name-override: create_tax_form
+      tags:
+      - 1099 Operations
+      description: Create a tax form for a new recipient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxFormCreateRequest'
+      responses:
+        '200':
+          description: 1099 Tax form object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxFormResponse'
+  /payments/tax-form/{taxFormId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: taxFormId
+        description: Unique tax Form Id
+        schema:
+          type: string
+      summary: Fetch tax form.
+      operationId: getTaxForm
+      x-speakeasy-name-override: get
+      tags:
+      - 1099 Operations
+      description: Fetches the specified tax form if it exists
+      responses:
+        '200':
+          description: 1099 Tax form object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxFormResponse'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: taxFormId
+        description: Unique tax Form Id
+        schema:
+          type: string
+      summary: Update a tax form.
+      operationId: updateTaxForm
+      x-speakeasy-name-override: update
+      tags:
+      - 1099 Operations
+      description: Updates a tax form with provided information.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxFormUpdateRequest'
+      responses:
+        '200':
+          description: 1099 Tax form object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxFormResponse'
+  /payments/tax-form/{taxFormId}/resync:
+    post:
+      parameters:
+      - in: path
+        required: true
+        name: taxFormId
+        description: Unique tax Form Id
+        schema:
+          type: string
+      summary: Re-enable recipient sync on a tax form.
+      operationId: createRecipientSync
+      x-speakeasy-name-override: create
+      tags:
+      - 1099 Operations
+      description: Re-enables recipient sync for a tax form. Reverts to last provided recipient data and triggers payable calculations. Does nothing if sync is already enabled.
+      responses:
+        '200':
+          description: 1099 Tax form object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxFormResponse'
+  /payments/tax-form/{taxFormId}/verify-identity:
+    post:
+      parameters:
+      - in: path
+        required: true
+        name: taxFormId
+        description: Unique tax Form Id
+        schema:
+          type: string
+      summary: Provide Recipient Proof of Identity
+      operationId: createRecipientProof
+      x-speakeasy-name-override: create_proof
+      tags:
+      - 1099 Operations
+      description: Allows recipient of a tax form to verify their identity in order to access a non-redacted tax form.
+      responses:
+        '200':
+          description: 1099 Tax form object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxFormResponse'
+  /payments/tax-form/submit-w9:
+    post:
+      summary: Submit Payee W9 Information.
+      operationId: updatePayeeW9Information
+      x-speakeasy-name-override: update_w9
+      tags:
+      - 1099 Operations
+      description: Updates 1099 tax forms for the current year with W9 information wherever W9 sharing is enabled.
+      responses:
+        '200':
+          description: List of 1099 Tax form objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaxFormResponse'
+  /payments/tax-form/verify-tin:
+    post:
+      summary: Submit Payee TIN for verification
+      operationId: submitPayeeTIN
+      x-speakeasy-name-override: submit
+      tags:
+      - 1099 Operations
+      description: Asynchronously verifies the TIN on file with the IRS. May return a pending status if waiting on IRS response.
+      responses:
+        '200':
+          description: Status of TIN verification
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TinVerificationResponse'
+  /payments/tax-form/resend-invite:
+    post:
+      summary: Request a new 1099 invite email.
+      operationId: request1099InviteEmail
+      x-speakeasy-name-override: request
+      tags:
+      - 1099 Operations
+      description: Requests a new 1099 invite email to be sent to the recipient. Only sends if the email exists and the user has tax forms.
+      responses:
+        '200':
+          description: Basic response indicating success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxFormInviteResponse'
+components:
+  schemas:
+    BulkBatchCreate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+    ExternalIds:
+      type: object
+      properties:
+        bulk:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ExternalIdsBulkImport'
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ExternalIdsQuickbooks'
+        stripe:
+          type:
+          - string
+          - 'null'
+    BulkCalculation1099Batch:
+      type: object
+      properties:
+        bulkCalculation1099BatchId:
+          type: string
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        statistics:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
+      required:
+      - bulkCalculation1099BatchId
+      - clientId
+      - createdAt
+      - eventActors
+      - labels
+      - status
+      - updatedAt
+      - userRoles
+    TaxFormEvents:
+      type: object
+      properties:
+        createdAt:
+          type:
+          - string
+          - 'null'
+        updatedAt:
+          type:
+          - string
+          - 'null'
+    CompanyLinks:
+      type: object
+      properties:
+        instagramUrl:
+          type:
+          - string
+          - 'null'
+        linkedInUrl:
+          type:
+          - string
+          - 'null'
+        otherUrl:
+          type:
+          - string
+          - 'null'
+        twitterUrl:
+          type:
+          - string
+          - 'null'
+        websiteUrl:
+          type:
+          - string
+          - 'null'
+    TaxFormRedactedEvent:
+      type: object
+      properties:
+        eventType:
+          type: string
+          enum:
+          - PayerUpdatedData
+          - PayerManuallyUpdatedStatus
+          - RecipientUpdatedData
+          - RecipientSyncEnabled
+          - InvitationSent
+          - InvitationOpened
+          - RecipientSignedUp
+          - RecipientSharedW9Info
+          - TINVerificationRequested
+          - TINVerificationSucceeded
+          - TINVerificationFailed
+          - FormSubmittedToIRS
+          - FormAcceptedByIRS
+          - FormRejectedByIRS
+          - CorrectionRequested
+          - CorrectionAccepted
+          - CorrectionRejected
+          - Emailed1099CopyDelivered
+          - Emailed1099CopyOpened
+          - Emailed1099CopyDownloaded
+          - Mailed1099CopyDelivered
+          - Mailed1099CopyReturnedToSender
+          - Remailed1099CopyDelivered
+        timestamp:
+          type: string
+        triggeredBy:
+          type: string
+          enum:
+          - Payer
+          - Payee
+          - System
+        data:
+          oneOf:
+          - type: 'null'
+          - type: object
+        eventActor:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/RedactedMember'
+        eventActorId:
+          type:
+          - string
+          - 'null'
+        previousData:
+          oneOf:
+          - type: 'null'
+          - type: object
+        recipientSyncToggled:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Enabled
+          - Disabled
+          - null
+      required:
+      - eventType
+      - timestamp
+      - triggeredBy
+    3d33fba3f009de957b3be92fba006d6383af7e39f823cc1fd213506f6205100f:
+      type: object
+      properties:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/d86c1fba5267ac3d9ce2954a6e46b70e471c0f91a44abbe94565ae50e6e9e863'
+    TaxFormSubmissionEvents:
+      type: object
+      properties:
+        acceptedByIrsAt:
+          type:
+          - string
+          - 'null'
+        deliveredByMailAt:
+          type:
+          - string
+          - 'null'
+        deliveredElectronicallyAt:
+          type:
+          - string
+          - 'null'
+        mailDeliveryFailedAt:
+          type:
+          - string
+          - 'null'
+        openedByCollaboratorAt:
+          type:
+          - string
+          - 'null'
+        redeliveredByMailAt:
+          type:
+          - string
+          - 'null'
+        rejectedByIrsAt:
+          type:
+          - string
+          - 'null'
+        remailingFailedAt:
+          type:
+          - string
+          - 'null'
+        resentByMailAt:
+          type:
+          - string
+          - 'null'
+        returnedToSenderAt:
+          type:
+          - string
+          - 'null'
+        sentByMailAt:
+          type:
+          - string
+          - 'null'
+        submittedAt:
+          type:
+          - string
+          - 'null'
+    MemberClientEvents:
+      type: object
+      properties:
+        activeAt:
+          type:
+          - string
+          - 'null'
+        pendingAt:
+          type:
+          - string
+          - 'null'
+    Form1099Correction:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - type: object
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        totalAmount:
+          type:
+          - number
+          - 'null'
+    RedactedTaxFormW9Info:
+      type: object
+      properties:
+        addressLine1:
+          type:
+          - string
+          - 'null'
+        addressLine2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        country:
+          type:
+          - string
+          - 'null'
+        disregardedEntityName:
+          type:
+          - string
+          - 'null'
+        dob:
+          type:
+          - string
+          - 'null'
+        ein:
+          type:
+          - string
+          - 'null'
+        einLastFour:
+          type:
+          - string
+          - 'null'
+        exemptFatcaCode:
+          type:
+          - string
+          - 'null'
+        exemptPayeeCode:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        tinType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Individual
+          - Business
+          - null
+    BulkCalculation1099Item:
+      type: object
+      properties:
+        bulkCalculation1099BatchId:
+          type: string
+        bulkCalculation1099ItemId:
+          type: string
+        calculationType:
+          type: string
+          enum:
+          - Balances
+          - Submissions
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        year:
+          type: number
+        metadata:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/865969bc2d9a3cb12c3263d4f941da6e1c7783024804b469db4a6eab9bc12f14'
+      required:
+      - bulkCalculation1099BatchId
+      - bulkCalculation1099ItemId
+      - calculationType
+      - clientId
+      - createdAt
+      - eventActors
+      - labels
+      - status
+      - updatedAt
+      - userRoles
+      - year
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
+    TaxFormRedactedSubmissionData:
+      type: object
+      properties:
+        adjustments:
+          type:
+          - number
+          - 'null'
+        deliveryMethod:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Electronic
+          - Mail
+          - null
+        filingStateCode:
+          type:
+          - string
+          - 'null'
+        paymentProcessingFees:
+          type:
+          - number
+          - 'null'
+        platformIncome:
+          type:
+          - number
+          - 'null'
+        totalAmount:
+          type:
+          - number
+          - 'null'
+        w9Info:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/RedactedTaxFormW9Info'
+    7b49dbbd81f36ab6d7b4f07c5e2e53f40e36eb7b83d1488f379e993b830eec56:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5:
+      type: object
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        comment:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Open
+          - Accepted
+          - Rejected
+          - null
+    TaxFormSubmission:
+      type: object
+      properties:
+        correctionType:
+          type: string
+          enum:
+          - None
+          - Type1
+          - Type2
+        deliveryMethod:
+          type: string
+          enum:
+          - Electronic
+          - Mail
+        externalDocumentId:
+          type: string
+        isCorrected:
+          type: boolean
+        status:
+          type: string
+          enum:
+          - Pending
+          - ReadyToSubmitToIrs
+          - SubmittedToIrs
+          - AcceptedByIrs
+          - RejectedByIrs
+          - PendingCorrection
+          - Excluded
+          - Ineligible
+        submissionData:
+          $ref: '#/components/schemas/TaxFormSubmissionData'
+        submissionId:
+          type: string
+        events:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/TaxFormSubmissionEvents'
+        externalMailingId:
+          type:
+          - string
+          - 'null'
+        previousExternalMailingIds:
+          oneOf:
+          - type: 'null'
+          - {}
+      required:
+      - correctionType
+      - deliveryMethod
+      - externalDocumentId
+      - isCorrected
+      - status
+      - submissionData
+      - submissionId
+    6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11:
+      type: object
+      properties:
+        billClassId:
+          type:
+          - string
+          - 'null'
+        billCustomerId:
+          type:
+          - string
+          - 'null'
+        expenseAccountId:
+          type:
+          - string
+          - 'null'
+        invoiceClassId:
+          type:
+          - string
+          - 'null'
+        itemId:
+          type:
+          - string
+          - 'null'
+    TaxFormUpdateRequest:
+      type: object
+      properties:
+        data:
+          type: object
+        payerConfirmedW9Info:
+          type:
+          - boolean
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Pending
+          - ReadyToSubmitToIrs
+          - SubmittedToIrs
+          - AcceptedByIrs
+          - RejectedByIrs
+          - PendingCorrection
+          - Excluded
+          - Ineligible
+          - null
+      required:
+      - data
+    MemberClientForm1099Balances:
+      type: object
+      properties:
+        adjustments:
+          type: number
+        deliveryMethod:
+          type: string
+          enum:
+          - Electronic
+          - Mail
+        exclusionReason:
+          type: string
+          enum:
+          - BelowThreshold
+          - CompanyStructure
+          - NonUsEntity
+        form1099Generated:
+          type: boolean
+        paymentProcessingFees:
+          type: number
+        platformIncome:
+          type: number
+        status:
+          type: string
+          enum:
+          - Ready
+          - NeedsActionInfo
+          - NeedsActionDispute
+          - Submitted
+          - Rejected
+          - Accepted
+          - Excluded
+        type:
+          type: string
+          enum:
+          - NEC
+        correction:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Form1099Correction'
+        dispute:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5'
+        events:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Form1099Events'
+        taxForm:
+          oneOf:
+          - type: 'null'
+          - type: object
+        taxFormId:
+          type:
+          - string
+          - 'null'
+      required:
+      - adjustments
+      - deliveryMethod
+      - exclusionReason
+      - form1099Generated
+      - paymentProcessingFees
+      - platformIncome
+      - status
+      - type
+    ClientData:
+      type: object
+      properties:
+        autoPayStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - All
+          - None
+          - null
+        externalId:
+          type:
+          - string
+          - 'null'
+        verificationStratgy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - All
+          - null
+    Remail1099Response:
+      type: object
+      properties: {}
+    PayerTaxFormResponse:
+      type: object
+      properties:
+        activeSubmissionId:
+          type: string
+        adjustments:
+          type: number
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        data:
+          $ref: '#/components/schemas/TaxFormRedactedSubmissionData'
+        deliveryMethod:
+          type: string
+          enum:
+          - Electronic
+          - Mail
+        deprecatedTaxForm:
+          type: object
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        eventHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaxFormRedactedEvent'
+        filingStateCode:
+          type: string
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        memberId:
+          type: string
+        payerPayeeId:
+          type: string
+        paymentProcessingFees:
+          type: number
+        platformIncome:
+          type: number
+        recipientConfirmedW9Info:
+          type: boolean
+        recipientReadyToSubmitW9:
+          type: boolean
+        recipientSyncEnabled:
+          type: boolean
+        status:
+          type: string
+          enum:
+          - Pending
+          - ReadyToSubmitToIrs
+          - SubmittedToIrs
+          - AcceptedByIrs
+          - RejectedByIrs
+          - PendingCorrection
+          - Excluded
+          - Ineligible
+        submissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaxFormSubmission'
+        taxFormId:
+          type: string
+        type:
+          type: string
+          enum:
+          - Form1099Nec
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        year:
+          type: number
+        correction:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Form1099Correction'
+        events:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/TaxFormEvents'
+        memberEmail:
+          type:
+          - string
+          - 'null'
+        memberExternalId:
+          type:
+          - string
+          - 'null'
+        payee:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/RedactedMember'
+        payer:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/RedactedMember'
+        payerConfirmedW9Info:
+          type:
+          - boolean
+          - 'null'
+        payerPayee:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/8d013dd0cdafb98addfde478aafc44fc8914592071f79bc8d2aa0096744c099f'
+        recipientVerification:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/RecipientVerification'
+        tinVerification:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/TinVerification'
+        unsyncedRecipientData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/TaxFormRedactedSubmissionData'
+        unsyncedUpdateAvailable:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - activeSubmissionId
+      - adjustments
+      - clientId
+      - createdAt
+      - data
+      - deliveryMethod
+      - deprecatedTaxForm
+      - eventActors
+      - eventHistory
+      - filingStateCode
+      - labels
+      - memberId
+      - payerPayeeId
+      - paymentProcessingFees
+      - platformIncome
+      - recipientConfirmedW9Info
+      - recipientReadyToSubmitW9
+      - recipientSyncEnabled
+      - status
+      - submissions
+      - taxFormId
+      - type
+      - updatedAt
+      - userRoles
+      - year
+    BulkBatchUpdate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+          - null
+    865969bc2d9a3cb12c3263d4f941da6e1c7783024804b469db4a6eab9bc12f14:
+      type: object
+      properties:
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        failedMemberClients:
+          type:
+          - number
+          - 'null'
+        processedMemberClients:
+          type:
+          - number
+          - 'null'
+    RecipientVerification:
+      type: object
+      properties:
+        failureCount:
+          type: number
+        tinType:
+          type: string
+          enum:
+          - Individual
+          - Business
+        verified:
+          type: boolean
+      required:
+      - failureCount
+      - tinType
+      - verified
+    RedactedMember:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/RedactedUser'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
+      required:
+      - user
+    MemberClientRequirementResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        collaboratorGroupId:
+          type: string
+        eligibilityRequirementId:
+          type: string
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        document:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentResponse'
+        documentId:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - New
+          - Sent
+          - Pending
+          - Complete
+          - null
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - clientId
+      - collaboratorGroupId
+      - eligibilityRequirementId
+      - requirementType
+    b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c:
+      type: object
+      properties:
+        '2021':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientForm1099Balances'
+        '2022':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientForm1099Balances'
+    UserRoles:
+      type: object
+      properties:
+        ownerIds:
+          type: array
+          items:
+            type: string
+        viewerIds:
+          type: array
+          items:
+            type: string
+      required:
+      - ownerIds
+      - viewerIds
+    MemberClientFormW9Info:
+      type: object
+      properties:
+        addressLine1:
+          type:
+          - string
+          - 'null'
+        addressLine2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        country:
+          type:
+          - string
+          - 'null'
+        dob:
+          type:
+          - string
+          - 'null'
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+    MemberClientWireAccount:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        bankName:
+          type: string
+        routingNumber:
+          type:
+          - string
+          - 'null'
+        swiftCode:
+          type:
+          - string
+          - 'null'
+      required:
+      - accountNumber
+      - bankName
+    ExternalIdsQuickbooksData:
+      type: object
+      properties:
+        id:
+          type: string
+        syncToken:
+          type: string
+        doCreate:
+          type:
+          - boolean
+          - 'null'
+        doDelete:
+          type:
+          - boolean
+          - 'null'
+        doUpdate:
+          type:
+          - boolean
+          - 'null'
+        updatedAt:
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - syncToken
+    BulkPayableItem:
+      type: object
+      properties:
+        amount:
+          type: number
+        bulkPayableBatchId:
+          type: string
+        bulkPayableItemId:
+          type: string
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        dueDate:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        lineItemDescription:
+          type: string
+        paidDate:
+          type: string
+        payableStatus:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        attachmentId:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemReference:
+          type:
+          - string
+          - 'null'
+        collaboratorEmail:
+          type:
+          - string
+          - 'null'
+        collaboratorExternalId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/InvoiceIntegrations'
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        metadata:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ff870c34e17f41323279d1c2fe8e2d03accac4d93d8aa050ddce7dbba094dbcb'
+        payableNotes:
+          type:
+          - string
+          - 'null'
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        workflowSubStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Submitted
+          - null
+      required:
+      - amount
+      - bulkPayableBatchId
+      - bulkPayableItemId
+      - clientId
+      - createdAt
+      - dueDate
+      - eventActors
+      - labels
+      - lineItemDescription
+      - paidDate
+      - payableStatus
+      - status
+      - updatedAt
+      - userRoles
+    TaxFormInviteResponse:
+      type: object
+      properties:
+        success: {}
+      required:
+      - success
+    Form1099Events:
+      type: object
+      properties:
+        acceptedByCollaboratorAt:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type:
+          - string
+          - 'null'
+        postFilingSuggestionMadeAt:
+          type:
+          - string
+          - 'null'
+        postFilingSuggestionResolvedAt:
+          type:
+          - string
+          - 'null'
+        submittedForCollaboratorReviewAt:
+          type:
+          - string
+          - 'null'
+        suggestionMadeAt:
+          type:
+          - string
+          - 'null'
+        suggestionResolvedAt:
+          type:
+          - string
+          - 'null'
+        updatedAt:
+          type:
+          - string
+          - 'null'
+    a0c9e6ffe8bb5721b33f3c5938cd400a6967bc933f64c5c77038ac40045e9412:
+      type: object
+      properties:
+        shareTaxDocument:
+          type: string
+          enum:
+          - Unspecified
+          - Allow
+          - Decline
+      required:
+      - shareTaxDocument
+    DownloadW9Response:
+      type: object
+      properties: {}
+    ff870c34e17f41323279d1c2fe8e2d03accac4d93d8aa050ddce7dbba094dbcb:
+      type: object
+      properties:
+        deductionId:
+          type:
+          - string
+          - 'null'
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        payableId:
+          type:
+          - string
+          - 'null'
+        resolvedClientId:
+          type:
+          - string
+          - 'null'
+        resolvedCollaboratorId:
+          type:
+          - string
+          - 'null'
+    TaxFormSubmissionData:
+      type: object
+      properties:
+        adjustments:
+          type:
+          - number
+          - 'null'
+        deliveryMethod:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Electronic
+          - Mail
+          - null
+        filingStateCode:
+          type:
+          - string
+          - 'null'
+        paymentProcessingFees:
+          type:
+          - number
+          - 'null'
+        platformIncome:
+          type:
+          - number
+          - 'null'
+        totalAmount:
+          type:
+          - number
+          - 'null'
+        w9Info:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/TaxFormW9Info'
+    DocumentResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        documentId:
+          type: string
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Required
+          - Approved
+          - Invalid
+          - ReceivedFront
+          - ReceivedBack
+          - PendingReview
+        templateId:
+          type: string
+        title:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        events:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentEvents'
+        files:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentFiles'
+      required:
+      - clientId
+      - documentId
+      - memberId
+      - status
+      - templateId
+      - title
+      - userRoles
+    TaxFormCreateRequest:
+      type: object
+      properties:
+        clientId:
+          type: string
+        data:
+          type: object
+        memberId:
+          type: string
+      required:
+      - clientId
+      - data
+      - memberId
+    DocumentFiles:
+      type: object
+      properties:
+        client:
+          type:
+          - string
+          - 'null'
+        member:
+          type:
+          - string
+          - 'null'
+    TinVerificationResponse:
+      type: object
+      properties:
+        verificationStatus:
+          type: string
+          enum:
+          - None
+          - Pending
+          - Failed
+          - Verified
+      required:
+      - verificationStatus
+    CompanyPerson:
+      type: object
+      properties:
+        memberId:
+          type: string
+        ownershipPercentage:
+          type:
+          - number
+          - 'null'
+      required:
+      - memberId
+    Calculate1099Request:
+      type: object
+      properties:
+        memberClientId:
+          type: string
+        year:
+          type: number
+      required:
+      - memberClientId
+      - year
+    TinVerification:
+      type: object
+      properties:
+        lastVerifiedTimestamp:
+          type: number
+        message:
+          type: string
+        status:
+          type: string
+          enum:
+          - error
+          - lockedOut
+          - mismatch
+          - pending
+          - unverified
+          - verified
+        unlockTimestamp:
+          type: number
+      required:
+      - lastVerifiedTimestamp
+      - message
+      - status
+      - unlockTimestamp
+    Company:
+      type: object
+      properties:
+        banking:
+          type:
+          - boolean
+          - 'null'
+        companyOwners:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CompanyPerson'
+        description:
+          type:
+          - string
+          - 'null'
+        disregardedEntityName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        links:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CompanyLinks'
+        name:
+          type:
+          - string
+          - 'null'
+        stateOfIncorporation:
+          type:
+          - string
+          - 'null'
+        structure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        supportEmail:
+          type:
+          - string
+          - 'null'
+        taxId:
+          type:
+          - string
+          - 'null'
+        website:
+          type:
+          - string
+          - 'null'
+        yearOfIncorporation:
+          type:
+          - string
+          - 'null'
+    DocumentEvents:
+      type: object
+      properties:
+        clientSignedAt:
+          type:
+          - string
+          - 'null'
+        memberSignedAt:
+          type:
+          - string
+          - 'null'
+    4afb8b96a33dad0e93c635638ea44eb6117d8f72c867558efb847ad635a79193:
+      type: object
+      properties:
+        payeeExternalId:
+          type:
+          - string
+          - 'null'
+    757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2:
+      type: object
+      properties:
+        itemsFailed:
+          type: number
+        itemsProcessed:
+          type: number
+        itemsTotal:
+          type: number
+      required:
+      - itemsFailed
+      - itemsProcessed
+      - itemsTotal
+    ExternalIdsQuickbooks:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/ExternalIdsQuickbooksData'
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    BulkCalculation1099ItemUpdate:
+      type: object
+      properties:
+        calculationType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Balances
+          - Submissions
+          - null
+        clientId:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        year:
+          type:
+          - number
+          - 'null'
+    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
+      type: object
+      properties:
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    BulkCalculation1099ItemCreate:
+      type: object
+      properties:
+        clientId:
+          type: string
+        year:
+          type: number
+        calculationType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Balances
+          - Submissions
+          - null
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+      required:
+      - clientId
+      - year
+    RedactedUser:
+      type: object
+      properties:
+        email:
+          type:
+          - string
+          - 'null'
+        phone:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
+        settings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Pending
+          - Active
+          - Disabled
+          - null
+        tag:
+          type:
+          - string
+          - 'null'
+    Calculate1099Response:
+      type: object
+      properties:
+        memberClient:
+          $ref: '#/components/schemas/MemberClient'
+      required:
+      - memberClient
+    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        company:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Company'
+        logoUrl:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+    MemberClient:
+      type: object
+      properties:
+        achCreditAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        client:
+          $ref: '#/components/schemas/RedactedMember'
+        clientData:
+          $ref: '#/components/schemas/ClientData'
+        clientId:
+          type: string
+        clientUserAccountType:
+          type: string
+          enum:
+          - member
+          - enterprise
+        createdAt:
+          type: string
+        emailTo:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        events:
+          $ref: '#/components/schemas/MemberClientEvents'
+        externalIds:
+          $ref: '#/components/schemas/ExternalIds'
+        form1099Balances:
+          $ref: '#/components/schemas/b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c'
+        formW9Data:
+          $ref: '#/components/schemas/MemberClientFormW9Info'
+        internationalWireAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberClientId:
+          type: string
+        memberData:
+          $ref: '#/components/schemas/MemberData'
+        memberId:
+          type: string
+        parentMemberClientId:
+          type: string
+        payerPayeeId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        taxStatus:
+          type: string
+          enum:
+          - Complete
+          - Failed
+          - Pending
+          - Incomplete
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        collaboratorGroupId:
+          type:
+          - string
+          - 'null'
+        collaboratorGroupIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        company:
+          type:
+          - string
+          - 'null'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/MemberClientRequirementResponse'
+        emailCC:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/3d33fba3f009de957b3be92fba006d6383af7e39f823cc1fd213506f6205100f'
+        name:
+          type:
+          - string
+          - 'null'
+      required:
+      - achCreditAccount
+      - client
+      - clientData
+      - clientId
+      - clientUserAccountType
+      - createdAt
+      - emailTo
+      - eventActors
+      - events
+      - externalIds
+      - form1099Balances
+      - formW9Data
+      - internal
+      - internationalWireAccount
+      - labels
+      - member
+      - memberClientId
+      - memberData
+      - memberId
+      - parentMemberClientId
+      - payerPayeeId
+      - status
+      - taxStatus
+      - updatedAt
+      - userRoles
+    Mark1099AsUndeliveredResponse:
+      type: object
+      properties: {}
+    Address:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    InvoiceIntegrations:
+      type: object
+      properties:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11'
+    Download1099Response:
+      type: object
+      properties: {}
+    TaxFormW9Info:
+      type: object
+      properties:
+        addressLine1:
+          type:
+          - string
+          - 'null'
+        addressLine2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        country:
+          type:
+          - string
+          - 'null'
+        disregardedEntityName:
+          type:
+          - string
+          - 'null'
+        dob:
+          type:
+          - string
+          - 'null'
+        ein:
+          type:
+          - string
+          - 'null'
+        einLastFour:
+          type:
+          - string
+          - 'null'
+        exemptFatcaCode:
+          type:
+          - string
+          - 'null'
+        exemptPayeeCode:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        tinType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Individual
+          - Business
+          - null
+    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+    9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b:
+      type: object
+      properties:
+        userAccountType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - member
+          - enterprise
+          - null
+    Remail1099Request:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/7b49dbbd81f36ab6d7b4f07c5e2e53f40e36eb7b83d1488f379e993b830eec56'
+        memberId:
+          type: string
+        year:
+          type: number
+        documentIndex:
+          type:
+          - number
+          - 'null'
+      required:
+      - address
+      - memberId
+      - year
+    MemberData:
+      type: object
+      properties:
+        autoPayRequirement:
+          type:
+          - string
+          - 'null'
+          enum:
+          - All
+          - None
+          - null
+        externalId:
+          type:
+          - string
+          - 'null'
+        shareTaxDocument:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Allow
+          - Decline
+          - null
+    ExternalIdsBulkImport:
+      type: object
+      properties:
+        bulkItemMergeKey:
+          type:
+          - string
+          - 'null'
+    TaxFormResponse:
+      oneOf:
+      - $ref: '#/components/schemas/PayerTaxFormResponse'
+      - type: array
+        items:
+          $ref: '#/components/schemas/PayerTaxFormResponse'
+    Mark1099AsUndeliveredRequest:
+      type: object
+      properties:
+        memberId:
+          type: string
+        submissionIndex:
+          type: number
+        year:
+          type: number
+      required:
+      - memberId
+      - submissionIndex
+      - year
+    d86c1fba5267ac3d9ce2954a6e46b70e471c0f91a44abbe94565ae50e6e9e863:
+      type: object
+      properties:
+        customerId:
+          type:
+          - string
+          - 'null'
+        expenseAccountId:
+          type:
+          - string
+          - 'null'
+        itemId:
+          type:
+          - string
+          - 'null'
+        vendorId:
+          type:
+          - string
+          - 'null'
+    8d013dd0cdafb98addfde478aafc44fc8914592071f79bc8d2aa0096744c099f:
+      type: object
+      properties:
+        id:
+          type: string
+        payeeOwnedData:
+          $ref: '#/components/schemas/a0c9e6ffe8bb5721b33f3c5938cd400a6967bc933f64c5c77038ac40045e9412'
+        payerOwnedData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/4afb8b96a33dad0e93c635638ea44eb6117d8f72c867558efb847ad635a79193'
+      required:
+      - id
+      - payeeOwnedData
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

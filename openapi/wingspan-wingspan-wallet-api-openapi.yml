@@ -1,0 +1,359 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Wingspan Wallet API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Wingspan Wallet
+  description: Operations related to Wingspan Wallet
+paths:
+  /payments/banking/card:
+    get:
+      summary: List All Stored Wingspan Wallet Cards
+      operationId: listStoredWingspanWalletCards
+      x-speakeasy-name-override: list
+      tags:
+      - Wingspan Wallet
+      description: Retrieve a comprehensive list of all stored  Wingspan Wallet cards within the system. This includes both active and deactivated cards.
+      responses:
+        '200':
+          description: A list of card summaries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Card'
+    post:
+      summary: Register a New  Wingspan Wallet Card
+      operationId: createStoredWingspanWalletCard
+      x-speakeasy-name-override: create
+      tags:
+      - Wingspan Wallet
+      description: Add a new  Wingspan Wallet card to the system, allowing it to be used for future transactions.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CardCreateRequest'
+      responses:
+        '200':
+          description: A card summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+  /payments/banking/card/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve card details by its unique ID
+      operationId: getStoredWingspanWalletCard
+      x-speakeasy-name-override: get
+      tags:
+      - Wingspan Wallet
+      description: Fetches detailed information about a Wingspan Wallet card associated with the given unique identifier.
+      responses:
+        '200':
+          description: A card summary with additional details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardDetails'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify card details by its unique ID
+      operationId: updateStoredWingspanWalletCard
+      x-speakeasy-name-override: update
+      tags:
+      - Wingspan Wallet
+      description: Updates specific information about a Wingspan Wallet card using the provided data.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CardUpdateRequest'
+      responses:
+        '200':
+          description: A card summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Remove a card using its unique ID
+      operationId: deleteStoredWingspanWalletCard
+      x-speakeasy-name-override: delete
+      tags:
+      - Wingspan Wallet
+      description: Deletes a Wingspan Wallet card from the system based on its unique identifier. This action is irreversible.
+      responses:
+        '200':
+          description: A card summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+  /payments/banking/card/{id}/token:
+    post:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Request a verification code for card authentication
+      operationId: requestCardAuthentication
+      x-speakeasy-name-override: request
+      tags:
+      - Wingspan Wallet
+      description: Sends a verification code to the users registered contact method for additional Wingspan Wallet card authentication.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CardCodeRequest'
+      responses:
+        '200':
+          description: A card code response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardCodeResponse'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Validate verification code to receive a token
+      operationId: validateReceiveToken
+      x-speakeasy-name-override: validate
+      tags:
+      - Wingspan Wallet
+      description: Validates the received verification code and, if correct, returns a token for Wingspan Wallet card operations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CardTokenRequest'
+      responses:
+        '200':
+          description: A card token response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardTokenResponse'
+components:
+  schemas:
+    CardTokenResponse:
+      type: object
+      properties:
+        cardId:
+          type: string
+        token:
+          type: string
+      required:
+      - cardId
+      - token
+    Card:
+      type: object
+      properties:
+        brand:
+          type: string
+        createdAt:
+          type: string
+        expirationDate:
+          type: string
+        last4Digits:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Stolen
+          - Lost
+          - Frozen
+          - ClosedByCustomer
+          - SuspectedFraud
+        type:
+          type: string
+          enum:
+          - individualDebitCard
+          - businessDebitCard
+          - individualVirtualDebitCard
+          - businessVirtualDebitCard
+      required:
+      - brand
+      - createdAt
+      - expirationDate
+      - internal
+      - last4Digits
+      - status
+      - type
+    Address:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    CardTokenRequest:
+      type: object
+      properties:
+        verificationCode:
+          type: string
+        verificationToken:
+          type: string
+      required:
+      - verificationCode
+      - verificationToken
+    CardCreateRequest:
+      type: object
+      properties:
+        requestPhysicalCard:
+          type:
+          - boolean
+          - 'null'
+        shippingAddress:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+    CardUpdateRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Stolen
+          - Lost
+          - Frozen
+          - ClosedByCustomer
+      required:
+      - status
+    CardCodeRequest:
+      type: object
+      properties:
+        channel:
+          type: string
+      required:
+      - channel
+    CardDetails:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+        brand:
+          type: string
+        createdAt:
+          type: string
+        expirationDate:
+          type: string
+        last4Digits:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Stolen
+          - Lost
+          - Frozen
+          - ClosedByCustomer
+          - SuspectedFraud
+        type:
+          type: string
+          enum:
+          - individualDebitCard
+          - businessDebitCard
+          - individualVirtualDebitCard
+          - businessVirtualDebitCard
+        pinSet:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - address
+      - brand
+      - createdAt
+      - expirationDate
+      - internal
+      - last4Digits
+      - name
+      - status
+      - type
+    CardCodeResponse:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+        verificationToken:
+          type: string
+      required:
+      - phoneNumber
+      - verificationToken
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

@@ -1,0 +1,1798 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Collaborator Management API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Collaborator Management
+  description: This category includes endpoints that manage relationships and interactions with collaborators. This includes collaborator settings, and various operations related to collaborators.
+paths:
+  /payments/collaborator-deduction:
+    post:
+      summary: Register a New Deduction for a Collaborator
+      operationId: createDeductionCollaborator
+      x-speakeasy-name-override: create_collaborator_deduction
+      tags:
+      - Collaborator Management
+      description: Create and add a new deduction entry for a collaborator based on the provided data.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeductionCreateRequest'
+      responses:
+        '200':
+          description: A deduction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeductionResponse'
+    get:
+      summary: Retrieve All Deductions for Collaborators
+      operationId: listDeductionCollaborators
+      x-speakeasy-name-override: list_collaborator_deduction
+      tags:
+      - Collaborator Management
+      description: Fetch a list of all deduction entries currently registered for collaborators.
+      responses:
+        '200':
+          description: A list of deductions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeductionResponse'
+  /payments/collaborator-deduction/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve Specific Deduction Details
+      operationId: getDeductionCollaborator
+      x-speakeasy-name-override: get_collaborator_deduction
+      tags:
+      - Collaborator Management
+      description: Fetch details of a specific deduction entry for a collaborator based on its unique identifier.
+      responses:
+        '200':
+          description: A deduction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeductionResponse'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify Details of a Specific Deduction
+      operationId: updateDeductionCollaborator
+      x-speakeasy-name-override: update_collaborator_deduction
+      tags:
+      - Collaborator Management
+      description: Update attributes or data related to an existing deduction entry for a collaborator.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeductionUpdateRequest'
+      responses:
+        '200':
+          description: A deduction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeductionResponse'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Erase a Specific Deduction Entry
+      operationId: deleteDeductionCollaborator
+      x-speakeasy-name-override: delete_collaborator_deduction
+      tags:
+      - Collaborator Management
+      description: Delete a specific deduction entry, eliminating its record from the system.
+      responses:
+        '200':
+          description: A deduction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeductionResponse'
+  /payments/collaborator/{id}/events:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve Events Associated with a Collaborator
+      operationId: getEventAssociatedCollaborator
+      x-speakeasy-name-override: get_event_associated
+      tags:
+      - Collaborator Management
+      description: Fetch a list of all events linked to a collaborator based on the provided collaborator ID.
+      responses:
+        '200':
+          description: List of events on collaborator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorEvents'
+  /payments/collaborator/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve Details of a Specific Collaborator
+      operationId: getCollaborator
+      x-speakeasy-name-override: get
+      tags:
+      - Collaborator Management
+      description: Fetch detailed information about a specific collaborator using its unique identifier.
+      responses:
+        '200':
+          description: A collaborator is a contractor that can receive payments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorSchema'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify Collaborator Details
+      operationId: updateCollaborator
+      x-speakeasy-name-override: update
+      tags:
+      - Collaborator Management
+      description: Update specific details or attributes related to an existing collaborator.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollaboratorUpdateRequest'
+      responses:
+        '200':
+          description: A collaborator is a contractor that can receive payments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorSchema'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Remove a Specific Collaborator Record
+      operationId: deleteCollaborator
+      x-speakeasy-name-override: delete
+      tags:
+      - Collaborator Management
+      description: Permanently delete the record of a specific collaborator from the system.
+      responses:
+        '200':
+          description: A collaborator is a contractor that can receive payments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorSchema'
+  /payments/collaborator:
+    get:
+      summary: Retrieve All Registered Collaborators
+      operationId: listRegisteredCollaborators
+      x-speakeasy-name-override: list_registered
+      tags:
+      - Collaborator Management
+      description: Fetch a comprehensive list of all collaborators currently registered in the system.
+      responses:
+        '200':
+          description: ' A list of collaborators'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CollaboratorSchema'
+    post:
+      summary: Register a New Collaborator
+      operationId: createCollaborator
+      x-speakeasy-name-override: create
+      tags:
+      - Collaborator Management
+      description: Add a new collaborator to the system, allowing them to be eligible for payments.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollaboratorCreateRequest'
+      responses:
+        '200':
+          description: A collaborator is a contractor that can receive payments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorSchema'
+  /payments/collaborator/{id}/add-group/{groupId}:
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: groupId
+        description: Unique group Id
+        schema:
+          type: string
+      summary: Associate Collaborator with a Specific Group
+      operationId: associateCollaboratorWithGroup
+      x-speakeasy-name-override: associate
+      tags:
+      - Collaborator Management
+      description: Add the specified collaborator to the designated group, allowing group-specific configurations and permissions.
+      responses:
+        '200':
+          description: A collaborator is a contractor that can receive payments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorSchema'
+  /payments/collaborator/{id}/remove-group/{groupId}:
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: groupId
+        description: Unique group Id
+        schema:
+          type: string
+      summary: Disassociate Collaborator from a Specific Group
+      operationId: disassociateCollaboratorWithGroup
+      x-speakeasy-name-override: disassociate
+      tags:
+      - Collaborator Management
+      description: Remove the collaborator from the designated group, revoking any group-specific configurations and permissions.
+      responses:
+        '200':
+          description: A collaborator is a contractor that can receive payments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorSchema'
+  /payments/collaborator-group:
+    get:
+      summary: Retrieve All Collaborator Groups
+      operationId: listCollaboratorGroups
+      x-speakeasy-name-override: list_collaborator_groups
+      tags:
+      - Collaborator Management
+      description: Fetch a comprehensive list of all collaborator groups created by the client, showcasing configurations and member details.
+      responses:
+        '200':
+          description: A list of Collaborator Configurations created by client
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CollaboratorGroupResponse'
+    post:
+      summary: Generate New Collaborator Group
+      operationId: createCollaboratorGroup
+      x-speakeasy-name-override: create_collaborator_group
+      tags:
+      - Collaborator Management
+      description: Create a new collaborator group with specific configurations and permissions as defined by the client.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollaboratorGroupCreateRequest'
+      responses:
+        '200':
+          description: Collaborator Configuration Per Group
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorGroupResponse'
+  /payments/v2/collaborator:
+    get:
+      summary: Retrieve All Collaborators (Version 2)
+      operationId: listCollaborators
+      x-speakeasy-name-override: list
+      tags:
+      - Collaborator Management
+      description: Fetches a comprehensive list of collaborators formatted in the V2 standard, providing an overview of all collaborator data.
+      responses:
+        '200':
+          description: List of V2 Collaborators
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CollaboratorV2'
+  /payments/v2/collaborator/{memberId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: memberId
+        description: Unique identifier of a member
+        schema:
+          type: string
+      summary: Retrieve Specific Collaborator Details (Version 2)
+      operationId: listSpecificCollaboratorDetails
+      x-speakeasy-name-override: list_specific_collaborator_detail
+      tags:
+      - Collaborator Management
+      description: Fetches detailed information of a specific collaborator, identified by the memberId, in the V2 format.
+      responses:
+        '200':
+          description: A single V2 Collaborator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorV2'
+components:
+  schemas:
+    CompanyLinks:
+      type: object
+      properties:
+        instagramUrl:
+          type:
+          - string
+          - 'null'
+        linkedInUrl:
+          type:
+          - string
+          - 'null'
+        otherUrl:
+          type:
+          - string
+          - 'null'
+        twitterUrl:
+          type:
+          - string
+          - 'null'
+        websiteUrl:
+          type:
+          - string
+          - 'null'
+    Form1099Correction:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - type: object
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        totalAmount:
+          type:
+          - number
+          - 'null'
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
+    8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5:
+      type: object
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        comment:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Open
+          - Accepted
+          - Rejected
+          - null
+    DeductionResponse:
+      type: object
+      properties:
+        amount:
+          type: number
+        application:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeductionApplication'
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        currency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        deductionId:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        memberId:
+          type: string
+        name:
+          type: string
+        priority:
+          type: number
+        startDate:
+          type: string
+        status:
+          type: string
+          enum:
+          - Pending
+          - PartiallyApplied
+          - Complete
+        type:
+          type: string
+          enum:
+          - PrePayment
+          - PostPayment
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        deductionTemplateId:
+          type:
+          - string
+          - 'null'
+        disbursement:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/PostPaymentDeductionDisbursement'
+        sourceInvoiceId:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - application
+      - clientId
+      - createdAt
+      - currency
+      - deductionId
+      - eventActors
+      - labels
+      - memberId
+      - name
+      - priority
+      - startDate
+      - status
+      - type
+      - updatedAt
+      - userRoles
+    6a65bb5a9fe6d1135b7182baff68e9bc6612ee2c1ab942926fe2804c58663cf4:
+      type: object
+      properties:
+        expenseAccountId:
+          type:
+          - string
+          - 'null'
+        vendorId:
+          type:
+          - string
+          - 'null'
+    MemberClientForm1099Balances:
+      type: object
+      properties:
+        adjustments:
+          type: number
+        deliveryMethod:
+          type: string
+          enum:
+          - Electronic
+          - Mail
+        exclusionReason:
+          type: string
+          enum:
+          - BelowThreshold
+          - CompanyStructure
+          - NonUsEntity
+        form1099Generated:
+          type: boolean
+        paymentProcessingFees:
+          type: number
+        platformIncome:
+          type: number
+        status:
+          type: string
+          enum:
+          - Ready
+          - NeedsActionInfo
+          - NeedsActionDispute
+          - Submitted
+          - Rejected
+          - Accepted
+          - Excluded
+        type:
+          type: string
+          enum:
+          - NEC
+        correction:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Form1099Correction'
+        dispute:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5'
+        events:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Form1099Events'
+        taxForm:
+          oneOf:
+          - type: 'null'
+          - type: object
+        taxFormId:
+          type:
+          - string
+          - 'null'
+      required:
+      - adjustments
+      - deliveryMethod
+      - exclusionReason
+      - form1099Generated
+      - paymentProcessingFees
+      - platformIncome
+      - status
+      - type
+    ClientData:
+      type: object
+      properties:
+        autoPayStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - All
+          - None
+          - null
+        externalId:
+          type:
+          - string
+          - 'null'
+        verificationStratgy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - All
+          - null
+    CollaboratorV2:
+      type: object
+      properties:
+        achCreditAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        clientId:
+          type: string
+        collaborations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collaboration'
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        firstCollaborationId:
+          type: string
+        form1099Balances:
+          $ref: '#/components/schemas/b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c'
+        formW9Data:
+          $ref: '#/components/schemas/CollaboratorV2FormW9Info'
+        internationalWireAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberId:
+          type: string
+        primaryCollaborationId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        taxStatus:
+          type: string
+          enum:
+          - Complete
+          - Failed
+          - Pending
+          - Incomplete
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        clientData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ClientData'
+        memberData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberData'
+        memberEvents:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CollaboratorEvents'
+      required:
+      - achCreditAccount
+      - clientId
+      - collaborations
+      - createdAt
+      - eventActors
+      - firstCollaborationId
+      - form1099Balances
+      - formW9Data
+      - internal
+      - internationalWireAccount
+      - labels
+      - member
+      - memberId
+      - primaryCollaborationId
+      - status
+      - taxStatus
+      - updatedAt
+      - userRoles
+    b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c:
+      type: object
+      properties:
+        '2021':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientForm1099Balances'
+        '2022':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientForm1099Balances'
+    MemberClientFormW9Info:
+      type: object
+      properties:
+        addressLine1:
+          type:
+          - string
+          - 'null'
+        addressLine2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        country:
+          type:
+          - string
+          - 'null'
+        dob:
+          type:
+          - string
+          - 'null'
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+    MemberClientRequirementResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        collaboratorGroupId:
+          type: string
+        eligibilityRequirementId:
+          type: string
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        document:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentResponse'
+        documentId:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - New
+          - Sent
+          - Pending
+          - Complete
+          - null
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - clientId
+      - collaboratorGroupId
+      - eligibilityRequirementId
+      - requirementType
+    RedactedMember:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/RedactedUser'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
+      required:
+      - user
+    UserRoles:
+      type: object
+      properties:
+        ownerIds:
+          type: array
+          items:
+            type: string
+        viewerIds:
+          type: array
+          items:
+            type: string
+      required:
+      - ownerIds
+      - viewerIds
+    MemberClientWireAccount:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        bankName:
+          type: string
+        routingNumber:
+          type:
+          - string
+          - 'null'
+        swiftCode:
+          type:
+          - string
+          - 'null'
+      required:
+      - accountNumber
+      - bankName
+    CollaboratorGroupResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        collaboratorGroupId:
+          type: string
+        defaultGroup:
+          type: boolean
+        description:
+          type: string
+        name:
+          type: string
+        collaboratorSettings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/EligibilityRequirement'
+      required:
+      - clientId
+      - collaboratorGroupId
+      - defaultGroup
+      - description
+      - name
+    CollaboratorUpdateRequest:
+      type: object
+      properties:
+        clientData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ClientData'
+        form1099Balances:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/90f96495b02c2509fff131505484d46479a91b7d23ed2b0f438ca117d0bccad7'
+        formW9Data:
+          oneOf:
+          - type: 'null'
+          - type: object
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Inactive
+          - Pending
+          - null
+    26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4:
+      type: object
+      properties:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/6a65bb5a9fe6d1135b7182baff68e9bc6612ee2c1ab942926fe2804c58663cf4'
+    EligibilityRequirement:
+      type: object
+      properties:
+        clientId:
+          type: string
+        eligibilityRequirementId:
+          type: string
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - clientId
+      - eligibilityRequirementId
+      - requirementType
+    CollaboratorV2FormW9Info:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        companyStructure:
+          type: string
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+        country:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+        dob:
+          type:
+          - string
+          - 'null'
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - companyStructure
+      - country
+      - postalCode
+      - state
+    ce853dbef33b2b91880690c84bc5314340c1301fd7b3503dd6ce79c844e2a481:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - type: object
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        totalAmount:
+          type:
+          - number
+          - 'null'
+    Form1099Events:
+      type: object
+      properties:
+        acceptedByCollaboratorAt:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type:
+          - string
+          - 'null'
+        postFilingSuggestionMadeAt:
+          type:
+          - string
+          - 'null'
+        postFilingSuggestionResolvedAt:
+          type:
+          - string
+          - 'null'
+        submittedForCollaboratorReviewAt:
+          type:
+          - string
+          - 'null'
+        suggestionMadeAt:
+          type:
+          - string
+          - 'null'
+        suggestionResolvedAt:
+          type:
+          - string
+          - 'null'
+        updatedAt:
+          type:
+          - string
+          - 'null'
+    DocumentResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        documentId:
+          type: string
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Required
+          - Approved
+          - Invalid
+          - ReceivedFront
+          - ReceivedBack
+          - PendingReview
+        templateId:
+          type: string
+        title:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        events:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentEvents'
+        files:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentFiles'
+      required:
+      - clientId
+      - documentId
+      - memberId
+      - status
+      - templateId
+      - title
+      - userRoles
+    DocumentFiles:
+      type: object
+      properties:
+        client:
+          type:
+          - string
+          - 'null'
+        member:
+          type:
+          - string
+          - 'null'
+    DeductionCreateRequest:
+      type: object
+      properties:
+        amount:
+          type: number
+        clientId:
+          type: string
+        currency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        memberId:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - PrePayment
+          - PostPayment
+        priority:
+          type:
+          - number
+          - 'null'
+        sourceInvoiceId:
+          type:
+          - string
+          - 'null'
+        startDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - clientId
+      - currency
+      - memberId
+      - name
+      - type
+    CompanyPerson:
+      type: object
+      properties:
+        memberId:
+          type: string
+        ownershipPercentage:
+          type:
+          - number
+          - 'null'
+      required:
+      - memberId
+    Company:
+      type: object
+      properties:
+        banking:
+          type:
+          - boolean
+          - 'null'
+        companyOwners:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CompanyPerson'
+        description:
+          type:
+          - string
+          - 'null'
+        disregardedEntityName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        links:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CompanyLinks'
+        name:
+          type:
+          - string
+          - 'null'
+        stateOfIncorporation:
+          type:
+          - string
+          - 'null'
+        structure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        supportEmail:
+          type:
+          - string
+          - 'null'
+        taxId:
+          type:
+          - string
+          - 'null'
+        website:
+          type:
+          - string
+          - 'null'
+        yearOfIncorporation:
+          type:
+          - string
+          - 'null'
+    DocumentEvents:
+      type: object
+      properties:
+        clientSignedAt:
+          type:
+          - string
+          - 'null'
+        memberSignedAt:
+          type:
+          - string
+          - 'null'
+    CollaboratorGroupRequirement:
+      type: object
+      properties:
+        eligibilityRequirementId:
+          type:
+          - string
+          - 'null'
+    PostPaymentDeductionDisbursement:
+      type: object
+      properties:
+        inputs:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        strategy:
+          type: string
+      required:
+      - inputs
+      - strategy
+    CollaboratorForm1099BalancesUpdateRequest:
+      type: object
+      properties:
+        adjustments:
+          type:
+          - number
+          - 'null'
+        correction:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ce853dbef33b2b91880690c84bc5314340c1301fd7b3503dd6ce79c844e2a481'
+        deliveryMethod:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Electronic
+          - Mail
+          - Both
+          - null
+        dispute:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5'
+        events:
+          oneOf:
+          - type: 'null'
+          - type: object
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Ready
+          - NeedsActionInfo
+          - NeedsActionDispute
+          - Submitted
+          - Rejected
+          - Accepted
+          - Excluded
+          - null
+    CollaboratorSchema:
+      type: object
+      properties:
+        achCreditAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        clientId:
+          type: string
+        collaboratorId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        form1099Balances:
+          $ref: '#/components/schemas/b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c'
+        internationalWireAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        taxStatus:
+          type: string
+          enum:
+          - Complete
+          - Failed
+          - Pending
+          - Incomplete
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        clientData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ClientData'
+        collaboratorGroupIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/MemberClientRequirementResponse'
+        formW9Data:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientFormW9Info'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4'
+        memberData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberData'
+      required:
+      - achCreditAccount
+      - clientId
+      - collaboratorId
+      - createdAt
+      - eventActors
+      - form1099Balances
+      - internationalWireAccount
+      - labels
+      - member
+      - memberId
+      - status
+      - taxStatus
+      - updatedAt
+      - userRoles
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
+      type: object
+      properties:
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    CollaboratorEvents:
+      type: object
+      properties:
+        knowYourCustomerVerifiedAt:
+          type: string
+        payoutMethodFirstAddedAt:
+          type: string
+        taxDocumentationVerifiedAt:
+          type: string
+        signedUpAt:
+          type:
+          - string
+          - 'null'
+      required:
+      - knowYourCustomerVerifiedAt
+      - payoutMethodFirstAddedAt
+      - taxDocumentationVerifiedAt
+    RedactedUser:
+      type: object
+      properties:
+        email:
+          type:
+          - string
+          - 'null'
+        phone:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
+        settings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Pending
+          - Active
+          - Disabled
+          - null
+        tag:
+          type:
+          - string
+          - 'null'
+    CollaboratorGroupCreateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+        collaboratorSettings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CollaboratorGroupRequirement'
+      required:
+      - description
+      - name
+    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        company:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Company'
+        logoUrl:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+    Collaboration:
+      type: object
+      properties:
+        collaboratorId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        clientData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ClientData'
+        collaboratorGroupIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/MemberClientRequirementResponse'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4'
+      required:
+      - collaboratorId
+      - status
+    Address:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    CollaboratorCreateRequest:
+      type: object
+      properties:
+        clientId:
+          type: string
+        clientData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ClientData'
+        collaboratorGroupId:
+          type:
+          - string
+          - 'null'
+        formW9Data:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientFormW9Info'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        memberCompany:
+          type:
+          - string
+          - 'null'
+        memberEmail:
+          type:
+          - string
+          - 'null'
+        memberId:
+          type:
+          - string
+          - 'null'
+        memberName:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Inactive
+          - Pending
+          - null
+      required:
+      - clientId
+    90f96495b02c2509fff131505484d46479a91b7d23ed2b0f438ca117d0bccad7:
+      type: object
+      properties:
+        '2021':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CollaboratorForm1099BalancesUpdateRequest'
+        '2022':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CollaboratorForm1099BalancesUpdateRequest'
+    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+    DeductionUpdateRequest:
+      type: object
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        currency:
+          type:
+          - string
+          - 'null'
+          enum:
+          - USD
+          - CAD
+          - null
+        name:
+          type:
+          - string
+          - 'null'
+        priority:
+          type:
+          - number
+          - 'null'
+        sourceInvoiceId:
+          type:
+          - string
+          - 'null'
+        startDate:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+          enum:
+          - PrePayment
+          - PostPayment
+          - null
+    9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b:
+      type: object
+      properties:
+        userAccountType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - member
+          - enterprise
+          - null
+    MemberData:
+      type: object
+      properties:
+        autoPayRequirement:
+          type:
+          - string
+          - 'null'
+          enum:
+          - All
+          - None
+          - null
+        externalId:
+          type:
+          - string
+          - 'null'
+        shareTaxDocument:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Allow
+          - Decline
+          - null
+    DeductionApplication:
+      type: object
+      properties:
+        amountDeducted:
+          type: number
+        payableId:
+          type: string
+        disbursementId:
+          type:
+          - string
+          - 'null'
+      required:
+      - amountDeducted
+      - payableId
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

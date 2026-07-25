@@ -1,0 +1,387 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Payroll Settings API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Payroll Settings
+  description: Covers endpoints that manage payout settings and related configurations.
+paths:
+  /payments/payroll-settings/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve Individual Payroll Settings
+      operationId: getPayrollSetting
+      x-speakeasy-name-override: get
+      tags:
+      - Payroll Settings
+      description: Fetch the detailed payroll settings associated with the provided unique identifier.
+      responses:
+        '200':
+          description: The payroll settings for a member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollSettings'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify Existing Payroll Settings
+      operationId: updatePayrollSetting
+      x-speakeasy-name-override: update
+      tags:
+      - Payroll Settings
+      description: Update certain attributes or details of payroll settings associated with the provided identifier.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayrollSettingsUpdate'
+      responses:
+        '200':
+          description: The payroll settings for a member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollSettings'
+components:
+  schemas:
+    FrequencyUpdate:
+      type: object
+      properties:
+        daily:
+          type:
+          - boolean
+          - 'null'
+        dayInInterval:
+          type:
+          - number
+          - 'null'
+        endDate:
+          type:
+          - string
+          - 'null'
+        every:
+          type:
+          - number
+          - 'null'
+        interval:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Week
+          - Month
+          - null
+        startDate:
+          type:
+          - string
+          - 'null'
+        twicePerMonth:
+          type:
+          - boolean
+          - 'null'
+    ScheduleDateUpdate:
+      type: object
+      properties:
+        date:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
+          - null
+    PayrollSettingsUpdate:
+      type: object
+      properties:
+        calculationSettings1099:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CalculationSettings1099'
+        enablePlannedPayroll:
+          type:
+          - boolean
+          - 'null'
+        enableProcessDaysBeforeDue:
+          type:
+          - boolean
+          - 'null'
+        frequency:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FrequencyUpdate'
+        fundingSource:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FundingSource'
+        issue1099s:
+          type:
+          - boolean
+          - 'null'
+        processDaysBeforeDue:
+          type:
+          - number
+          - 'null'
+        scheduleDates:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/ScheduleDateUpdate'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Draft
+          - Expired
+          - Cancelled
+          - null
+        workflow:
+          type:
+          - string
+          - 'null'
+          enum:
+          - SingleStage
+          - DualStage
+          - null
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
+    FundingSource:
+      type: object
+      properties:
+        fundingSourceCurrency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        fundingSourceId:
+          type: string
+        fundingSourceType:
+          type: string
+          enum:
+          - InternalAccount
+          - Account
+          - PaymentCard
+      required:
+      - fundingSourceCurrency
+      - fundingSourceId
+      - fundingSourceType
+    PayrollSettings:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - Active
+          - Draft
+          - Expired
+          - Cancelled
+        calculationSettings1099:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CalculationSettings1099'
+        enablePlannedPayroll:
+          type:
+          - boolean
+          - 'null'
+        enableProcessDaysBeforeDue:
+          type:
+          - boolean
+          - 'null'
+        frequency:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Frequency'
+        fundingSource:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FundingSource'
+        internationalPayroll:
+          type:
+          - string
+          - 'null'
+          enum:
+          - All
+          - None
+          - null
+        issue1099s:
+          type:
+          - boolean
+          - 'null'
+        processDaysBeforeDue:
+          type:
+          - number
+          - 'null'
+        runsPayroll:
+          type:
+          - boolean
+          - 'null'
+        scheduleDates:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/ScheduleDate'
+        workflow:
+          type:
+          - string
+          - 'null'
+          enum:
+          - SingleStage
+          - DualStage
+          - null
+      required:
+      - status
+    ScheduleDate:
+      type: object
+      properties:
+        date:
+          type: string
+        status:
+          type: string
+          enum:
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
+        cutOffDate:
+          type:
+          - string
+          - 'null'
+        invoiceId:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
+      required:
+      - date
+      - status
+    Frequency:
+      type: object
+      properties:
+        startDate:
+          type: string
+        daily:
+          type:
+          - boolean
+          - 'null'
+        dayInInterval:
+          type:
+          - number
+          - 'null'
+        endDate:
+          type:
+          - string
+          - 'null'
+        every:
+          type:
+          - number
+          - 'null'
+        interval:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Week
+          - Month
+          - null
+        twicePerMonth:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - startDate
+    CalculationSettings1099:
+      type: object
+      properties:
+        cardProcessingFees:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Include
+          - Exclude
+          - null
+        offPlatformPayments:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Include
+          - Exclude
+          - null
+        reimbursableExpenses:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Include
+          - Exclude
+          - null
+        stateTaxId:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        thresholdAmount:
+          type:
+          - number
+          - 'null'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

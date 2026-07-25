@@ -1,0 +1,64 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Merchant Category Codes API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Merchant Category Codes
+  description: Endpoint that provides a comprehensive list of available Merchant Category Codes.
+paths:
+  /payments/mcc:
+    get:
+      summary: Retrieve Merchant Category Codes (MCC)
+      operationId: getMerchantCategoryCodes
+      x-speakeasy-name-override: get
+      tags:
+      - Merchant Category Codes
+      description: This endpoint provides a comprehensive list of available Merchant Category Codes (MCC) which are used to classify businesses by the type of services or goods they provide.
+      responses:
+        '200':
+          description: A list of MCC
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MccResponse'
+components:
+  schemas:
+    MccResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        title:
+          type: string
+      required:
+      - code
+      - title
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

@@ -1,0 +1,331 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Deprecated API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Deprecated
+  description: Deprecated Endpoints.
+paths:
+  /payments/banking/instant-payout:
+    get:
+      summary: Deprecated Retrieve Instant Payout Information
+      operationId: getInstantPayoutInformation
+      x-speakeasy-name-override: get_instant_payout
+      tags:
+      - Deprecated
+      description: Fetch detailed information about the current status and details of instant payouts configured in the system.
+      responses:
+        '200':
+          description: Instant Payout details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstantPayoutResponse'
+    delete:
+      summary: Deprecated Remove Instant Payout Configuration
+      operationId: deleteInstantPayoutInformation
+      x-speakeasy-name-override: delete_instant_payout
+      tags:
+      - Deprecated
+      description: Delete the existing instant payout configuration, preventing any further instant payouts unless reconfigured.
+      responses:
+        '200':
+          description: Instant Payout details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstantPayoutResponse'
+    post:
+      summary: Deprecated Set Up Instant Payout Configuration
+      operationId: updateInstantPayoutInformation
+      x-speakeasy-name-override: update_instant_payout
+      tags:
+      - Deprecated
+      description: Configure a new instant payout setting, specifying details like amount, frequency, and destination.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InstantPayoutRequest'
+      responses:
+        '200':
+          description: Instant Payout details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstantPayoutResponse'
+  /payments/collaborator-settings/additional-data:
+    post:
+      summary: Register New Custom Data for Collaborator-Member Relationship
+      operationId: createCustomDataCollaboratorMember
+      x-speakeasy-name-override: create
+      tags:
+      - Deprecated
+      deprecated: true
+      description: '[Deprecated - use /payments/custom-fields] Create custom fields that can be associated with the memberClient object to provide extra details about the relationship between a collaborator and a member.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdditionalData'
+      responses:
+        '200':
+          description: Custom fields that are set on memberClient object to describe collaborator-member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdditionalData'
+    get:
+      summary: Retrieve All Collaborator-Member Custom Data Points
+      operationId: listCustomDataCollaboratorMembers
+      x-speakeasy-name-override: list
+      tags:
+      - Deprecated
+      deprecated: true
+      description: '[Deprecated - use /payments/custom-fields] Fetch all custom data fields that are associated with the memberClient objects, giving insight into additional details between collaborators and members.'
+      responses:
+        '200':
+          description: A list of custom data-points
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdditionalData'
+  /payments/collaborator-settings/additional-data/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve Specific Collaborator Custom Data
+      operationId: getCustomDataCollaboratorMember
+      x-speakeasy-name-override: get
+      tags:
+      - Deprecated
+      deprecated: true
+      description: Deprecated - use /payments/custom-fields/:id
+      responses:
+        '200':
+          description: Custom fields that are set on memberClient object to describe collaborator-member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdditionalData'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify a Specific Collaborator-Member Custom Data
+      operationId: updateCustomDataCollaboratorMember
+      x-speakeasy-name-override: update
+      tags:
+      - Deprecated
+      deprecated: true
+      description: '[Deprecated - use /payments/custom-fields] Update details or attributes of an existing custom data point associated with the relationship between a collaborator and a member.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdditionalDataUpdateRequest'
+      responses:
+        '200':
+          description: Custom fields that are set on memberClient object to describe collaborator-member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdditionalData'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Erase a Specific Collaborator-Member Custom Data
+      operationId: deleteCustomDataCollaboratorMember
+      x-speakeasy-name-override: delete
+      tags:
+      - Deprecated
+      deprecated: true
+      description: '[Deprecated - use /payments/custom-fields] Remove a specific custom data point, eliminating the additional details provided about a collaborator-member relationship.'
+      responses:
+        '200':
+          description: Custom fields that are set on memberClient object to describe collaborator-member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdditionalData'
+components:
+  schemas:
+    AdditionalDataUpdateRequest:
+      type: object
+      properties:
+        key:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        required:
+          type:
+          - boolean
+          - 'null'
+        resourceType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Collaborator
+          - LineItem
+          - null
+        type:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Boolean
+          - String
+          - null
+    InstantPayoutRequest:
+      type: object
+      properties:
+        externalPayoutAccountToken:
+          type: string
+      required:
+      - externalPayoutAccountToken
+    8212ee55b9e13fc32935c9417826f64b3550a203b665a04aacb02c4cac363c1f:
+      type: object
+      properties:
+        IBAN:
+          type:
+          - string
+          - 'null'
+        accountNumber:
+          type:
+          - string
+          - 'null'
+        accountRouting:
+          type:
+          - string
+          - 'null'
+        brand:
+          type:
+          - string
+          - 'null'
+        expiryMonth:
+          type:
+          - string
+          - 'null'
+        expiryYear:
+          type:
+          - string
+          - 'null'
+        last4:
+          type:
+          - string
+          - 'null'
+    FundsTransferAccount:
+      type: object
+      properties:
+        country:
+          type: string
+        currency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        holderName:
+          type: string
+        numbers:
+          $ref: '#/components/schemas/8212ee55b9e13fc32935c9417826f64b3550a203b665a04aacb02c4cac363c1f'
+        type:
+          type: string
+          enum:
+          - Card
+          - BankAccount
+          - InternalAccount
+          - StripeAccount
+        userId:
+          type:
+          - string
+          - 'null'
+      required:
+      - country
+      - currency
+      - holderName
+      - internal
+      - numbers
+      - type
+    InstantPayoutResponse:
+      type: object
+      properties:
+        instantPayoutAccount:
+          $ref: '#/components/schemas/FundsTransferAccount'
+        instantPayoutAccountId:
+          type: string
+      required:
+      - instantPayoutAccount
+      - instantPayoutAccountId
+    AdditionalData:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        required:
+          type: boolean
+        resourceType:
+          type: string
+          enum:
+          - Collaborator
+          - LineItem
+        type:
+          type: string
+          enum:
+          - Boolean
+          - String
+      required:
+      - key
+      - name
+      - required
+      - resourceType
+      - type
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

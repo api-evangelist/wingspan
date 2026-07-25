@@ -1,0 +1,1049 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Reporting and Analytics API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Reporting and Analytics
+  description: Includes endpoints for generating various reports and analytics, such as payables reports, collaborators reports, and aging reports.
+paths:
+  /payments/reports/collaborators:
+    get:
+      summary: Retrieve detailed information on all collaborators
+      operationId: listDetailedInformationCollaborators
+      x-speakeasy-name-override: list_detailed_collaborator
+      tags:
+      - Reporting and Analytics
+      description: Fetches comprehensive data on all collaborators, including their activities and current status, as listed in the reports.
+      responses:
+        '200':
+          description: Collaborators list in the report
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CollaboratorsReportResponse'
+  /payments/reports/collaborators/payables-summary:
+    get:
+      summary: Obtain a summarized report of payable amounts for each collaborator
+      operationId: getSummarizedReport
+      x-speakeasy-name-override: get
+      tags:
+      - Reporting and Analytics
+      description: Gathers and presents a concise summary showcasing the payable amounts due to each collaborator, helping in financial planning and payout strategies.
+      responses:
+        '200':
+          description: Collaborators payouts summary report
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CollaboratorsPayoutsSummaryReportResponse'
+  /payments/reports/payroll/{payrollId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: payrollId
+        description: Unique identifier of a invoice with some constraints like invoice type
+        schema:
+          type: string
+      summary: Extract detailed report of payables associated with a particular payroll run
+      operationId: getPayrollDetailedReport
+      x-speakeasy-name-override: get_payroll_report
+      tags:
+      - Reporting and Analytics
+      description: Offers a deep dive into the payables connected to a specific payroll run, facilitating better management and reconciliation of payroll-related finances.
+      responses:
+        '200':
+          description: Payroll report with line items and payroll summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollReportResponse'
+  /payments/reports/aging/payables:
+    get:
+      summary: Retrieve Aging Report for Payables
+      operationId: listAgingReportPayables
+      x-speakeasy-name-override: list_payable
+      tags:
+      - Reporting and Analytics
+      description: Access a detailed report that showcases the list of payables categorized by age.
+      responses:
+        '200':
+          description: Payables list grouped by age
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PayableAgingReportResponse'
+  /payments/reports/aging/line-items:
+    get:
+      summary: Obtain Aging Report for Line Items
+      operationId: listAgingReportLineItems
+      x-speakeasy-name-override: list_line_item
+      tags:
+      - Reporting and Analytics
+      description: Retrieve a comprehensive report detailing line items that have been open for a set number of days.
+      responses:
+        '200':
+          description: Line items list grouped by age
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineItemsAgingReportResponse'
+components:
+  schemas:
+    PayrollReportLineItem:
+      type: object
+      properties:
+        costPerUnit:
+          type: number
+        createdAt:
+          type: string
+        index:
+          type: number
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        labelsBak2:
+          $ref: '#/components/schemas/LabelsDictionary'
+        quantity:
+          type: number
+        reimbursableExpense:
+          type: boolean
+        totalCost:
+          type: number
+        unit:
+          type: string
+        updatedAt:
+          type: string
+        amount:
+          type:
+          - number
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        detail:
+          type:
+          - string
+          - 'null'
+        discount:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/facb8048736dba546c4c76242d9f8c7111011a7a7483528f37d80226698a1f2b'
+        discountTotal:
+          type:
+          - number
+          - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/InvoiceIntegrations'
+      required:
+      - costPerUnit
+      - createdAt
+      - index
+      - labels
+      - labelsBak2
+      - quantity
+      - reimbursableExpense
+      - totalCost
+      - unit
+      - updatedAt
+    CollaboratorsPayoutsSummaryReportResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        collaboratorGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/66ad6f986038e3285c36e0faa5c61b52a02882d1460acb116b601a30abfb6c1d'
+        createdAt:
+          type: string
+        inviteEmail:
+          type: string
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberClientId:
+          type: string
+        memberId:
+          type: string
+        payoutsSummary:
+          $ref: '#/components/schemas/CollaboratorPayoutsSummary'
+        servicesStatus:
+          $ref: '#/components/schemas/b22a2532acff782df851c03041e55a58727ff8e8805b1738c7dcb4dd1dd2505a'
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        taxStatus:
+          type: string
+          enum:
+          - Complete
+          - Failed
+          - Pending
+          - Incomplete
+        updatedAt:
+          type: string
+        externalId:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - type: object
+        memberEvents:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CollaboratorEvents'
+        taxDocumentStared:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - clientId
+      - collaboratorGroups
+      - createdAt
+      - inviteEmail
+      - member
+      - memberClientId
+      - memberId
+      - payoutsSummary
+      - servicesStatus
+      - status
+      - taxStatus
+      - updatedAt
+    CompanyLinks:
+      type: object
+      properties:
+        instagramUrl:
+          type:
+          - string
+          - 'null'
+        linkedInUrl:
+          type:
+          - string
+          - 'null'
+        otherUrl:
+          type:
+          - string
+          - 'null'
+        twitterUrl:
+          type:
+          - string
+          - 'null'
+        websiteUrl:
+          type:
+          - string
+          - 'null'
+    PayableAgingReportResponse:
+      type: object
+      properties:
+        ageGroup:
+          type: string
+        amount:
+          type: number
+        createdAt:
+          type: string
+        currency:
+          type: string
+        dueDate:
+          type: string
+        invoiceId:
+          type: string
+        invoiceNumber:
+          type: string
+        invoicePdf:
+          type: string
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberClientId:
+          type: string
+        memberId:
+          type: string
+        receiptPdf:
+          type: string
+        status:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Overdue
+          - Cancelled
+          - Pending
+          - PaymentInTransit
+          - Paid
+        updatedAt:
+          type: string
+        approverName:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - type: object
+        memberExternalId:
+          type:
+          - number
+          - 'null'
+        notes:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        payoutDestination:
+          type:
+          - string
+          - 'null'
+        projectName:
+          type:
+          - string
+          - 'null'
+        purchaseOrderNumber:
+          type:
+          - string
+          - 'null'
+        sentDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - ageGroup
+      - amount
+      - createdAt
+      - currency
+      - dueDate
+      - invoiceId
+      - invoiceNumber
+      - invoicePdf
+      - member
+      - memberClientId
+      - memberId
+      - receiptPdf
+      - status
+      - updatedAt
+    CollaboratorPayoutsSummary:
+      type: object
+      properties:
+        deductionsCount:
+          type: number
+        payablesCount:
+          type: number
+        totalDeducted:
+          type: number
+        totalPaid:
+          type: number
+        firstPaidDate:
+          type:
+          - string
+          - 'null'
+        lastPaidDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - deductionsCount
+      - payablesCount
+      - totalDeducted
+      - totalPaid
+    LineItemsAgingReportLineItem:
+      type: object
+      properties:
+        costPerUnit:
+          type: number
+        createdAt:
+          type: string
+        index:
+          type: number
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        labelsBak2:
+          $ref: '#/components/schemas/LabelsDictionary'
+        quantity:
+          type: number
+        reimbursableExpense:
+          type: boolean
+        totalCost:
+          type: number
+        unit:
+          type: string
+        updatedAt:
+          type: string
+        amount:
+          type:
+          - number
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        detail:
+          type:
+          - string
+          - 'null'
+        discount:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/facb8048736dba546c4c76242d9f8c7111011a7a7483528f37d80226698a1f2b'
+        discountTotal:
+          type:
+          - number
+          - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/InvoiceIntegrations'
+      required:
+      - costPerUnit
+      - createdAt
+      - index
+      - labels
+      - labelsBak2
+      - quantity
+      - reimbursableExpense
+      - totalCost
+      - unit
+      - updatedAt
+    RedactedMember:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/RedactedUser'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
+      required:
+      - user
+    b22a2532acff782df851c03041e55a58727ff8e8805b1738c7dcb4dd1dd2505a:
+      type: object
+      properties:
+        incomeAndExpenses:
+          type: boolean
+        taxWithholdings:
+          type: boolean
+      required:
+      - incomeAndExpenses
+      - taxWithholdings
+    CollaboratorsReportResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        collaboratorGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/66ad6f986038e3285c36e0faa5c61b52a02882d1460acb116b601a30abfb6c1d'
+        createdAt:
+          type: string
+        inviteEmail:
+          type: string
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberClientId:
+          type: string
+        memberId:
+          type: string
+        servicesStatus:
+          $ref: '#/components/schemas/b22a2532acff782df851c03041e55a58727ff8e8805b1738c7dcb4dd1dd2505a'
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        taxStatus:
+          type: string
+          enum:
+          - Complete
+          - Failed
+          - Pending
+          - Incomplete
+        updatedAt:
+          type: string
+        externalId:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - type: object
+        memberEvents:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CollaboratorEvents'
+        taxDocumentStared:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - clientId
+      - collaboratorGroups
+      - createdAt
+      - inviteEmail
+      - member
+      - memberClientId
+      - memberId
+      - servicesStatus
+      - status
+      - taxStatus
+      - updatedAt
+    66ad6f986038e3285c36e0faa5c61b52a02882d1460acb116b601a30abfb6c1d:
+      type: object
+      properties:
+        collaboratorGroupId:
+          type: string
+        description:
+          type: string
+        name:
+          type: string
+      required:
+      - collaboratorGroupId
+      - description
+      - name
+    fcbf27c731b13d8b05460d28c0f87d3355c006cefcc1528c739ebdcf7cb45c8c:
+      type: object
+      properties:
+        approvedBy:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/RedactedMember'
+        preApprovedBy:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/RedactedMember'
+    PayrollReportResponse:
+      type: object
+      properties:
+        invoices:
+          type: array
+          items:
+            $ref: '#/components/schemas/PayrollReportInvoice'
+        parentInvoice:
+          $ref: '#/components/schemas/42f004011439ceedfeb392c84d36ad40443a5a0446d1efa02369c56e930a1c07'
+      required:
+      - invoices
+      - parentInvoice
+    LineItemsAgingReportResponse:
+      type: object
+      properties:
+        ageGroup:
+          type: string
+        amount:
+          type: number
+        createdAt:
+          type: string
+        currency:
+          type: string
+        dueDate:
+          type: string
+        invoiceId:
+          type: string
+        invoiceNumber:
+          type: string
+        invoicePdf:
+          type: string
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItemsAgingReportLineItem'
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberClientId:
+          type: string
+        memberId:
+          type: string
+        receiptPdf:
+          type: string
+        status:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Overdue
+          - Cancelled
+          - Pending
+          - PaymentInTransit
+          - Paid
+        updatedAt:
+          type: string
+        approverName:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - type: object
+        memberExternalId:
+          type:
+          - number
+          - 'null'
+        notes:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        payoutDestination:
+          type:
+          - string
+          - 'null'
+        projectName:
+          type:
+          - string
+          - 'null'
+        purchaseOrderNumber:
+          type:
+          - string
+          - 'null'
+        sentDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - ageGroup
+      - amount
+      - createdAt
+      - currency
+      - dueDate
+      - invoiceId
+      - invoiceNumber
+      - invoicePdf
+      - lineItems
+      - member
+      - memberClientId
+      - memberId
+      - receiptPdf
+      - status
+      - updatedAt
+    CompanyPerson:
+      type: object
+      properties:
+        memberId:
+          type: string
+        ownershipPercentage:
+          type:
+          - number
+          - 'null'
+      required:
+      - memberId
+    Company:
+      type: object
+      properties:
+        banking:
+          type:
+          - boolean
+          - 'null'
+        companyOwners:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CompanyPerson'
+        description:
+          type:
+          - string
+          - 'null'
+        disregardedEntityName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        links:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CompanyLinks'
+        name:
+          type:
+          - string
+          - 'null'
+        stateOfIncorporation:
+          type:
+          - string
+          - 'null'
+        structure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        supportEmail:
+          type:
+          - string
+          - 'null'
+        taxId:
+          type:
+          - string
+          - 'null'
+        website:
+          type:
+          - string
+          - 'null'
+        yearOfIncorporation:
+          type:
+          - string
+          - 'null'
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
+      type: object
+      properties:
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    CollaboratorEvents:
+      type: object
+      properties:
+        knowYourCustomerVerifiedAt:
+          type: string
+        payoutMethodFirstAddedAt:
+          type: string
+        taxDocumentationVerifiedAt:
+          type: string
+        signedUpAt:
+          type:
+          - string
+          - 'null'
+      required:
+      - knowYourCustomerVerifiedAt
+      - payoutMethodFirstAddedAt
+      - taxDocumentationVerifiedAt
+    RedactedUser:
+      type: object
+      properties:
+        email:
+          type:
+          - string
+          - 'null'
+        phone:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
+        settings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Pending
+          - Active
+          - Disabled
+          - null
+        tag:
+          type:
+          - string
+          - 'null'
+    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        company:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Company'
+        logoUrl:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+    Address:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    InvoiceIntegrations:
+      type: object
+      properties:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11'
+    PayrollReportInvoice:
+      type: object
+      properties:
+        amount:
+          type: number
+        createdAt:
+          type: string
+        currency:
+          type: string
+        dueDate:
+          type: string
+        invoiceId:
+          type: string
+        invoiceNumber:
+          type: string
+        invoicePdf:
+          type: string
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/PayrollReportLineItem'
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberClientId:
+          type: string
+        memberId:
+          type: string
+        receiptPdf:
+          type: string
+        status:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Overdue
+          - Cancelled
+          - Pending
+          - PaymentInTransit
+          - Paid
+        updatedAt:
+          type: string
+        approverName:
+          type:
+          - string
+          - 'null'
+        eventActors:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/fcbf27c731b13d8b05460d28c0f87d3355c006cefcc1528c739ebdcf7cb45c8c'
+        labels:
+          oneOf:
+          - type: 'null'
+          - type: object
+        memberExternalId:
+          type:
+          - number
+          - 'null'
+        notes:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        payoutDestination:
+          type:
+          - string
+          - 'null'
+        projectName:
+          type:
+          - string
+          - 'null'
+        purchaseOrderNumber:
+          type:
+          - string
+          - 'null'
+        sentDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - createdAt
+      - currency
+      - dueDate
+      - invoiceId
+      - invoiceNumber
+      - invoicePdf
+      - lineItems
+      - member
+      - memberClientId
+      - memberId
+      - receiptPdf
+      - status
+      - updatedAt
+    facb8048736dba546c4c76242d9f8c7111011a7a7483528f37d80226698a1f2b:
+      type: object
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        percentage:
+          type:
+          - number
+          - 'null'
+    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+    9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b:
+      type: object
+      properties:
+        userAccountType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - member
+          - enterprise
+          - null
+    42f004011439ceedfeb392c84d36ad40443a5a0446d1efa02369c56e930a1c07:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        dueDate:
+          type: string
+        invoiceId:
+          type: string
+        invoiceNumber:
+          type: string
+        status:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Overdue
+          - Cancelled
+          - Pending
+          - PaymentInTransit
+          - Paid
+        updatedAt:
+          type: string
+        depositedDate:
+          type:
+          - string
+          - 'null'
+        notes:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - createdAt
+      - dueDate
+      - invoiceId
+      - invoiceNumber
+      - status
+      - updatedAt
+    6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11:
+      type: object
+      properties:
+        billClassId:
+          type:
+          - string
+          - 'null'
+        billCustomerId:
+          type:
+          - string
+          - 'null'
+        expenseAccountId:
+          type:
+          - string
+          - 'null'
+        invoiceClassId:
+          type:
+          - string
+          - 'null'
+        itemId:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

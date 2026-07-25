@@ -1,0 +1,226 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Custom Field Management API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Custom Field Management
+  description: Focuses on endpoints for managing custom fields related to payments and collaborators.
+paths:
+  /payments/custom-fields:
+    post:
+      summary: Add a New Custom Field
+      operationId: createCustomField
+      x-speakeasy-name-override: create
+      tags:
+      - Custom Field Management
+      description: Define a new custom field for payments using additional data provided.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdditionalData'
+      responses:
+        '200':
+          description: Custom fields that are set on resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomField'
+    get:
+      summary: Retrieve All Custom Fields
+      operationId: listCustomFields
+      x-speakeasy-name-override: list
+      tags:
+      - Custom Field Management
+      description: Obtain a list of all user-defined custom fields associated with payments.
+      responses:
+        '200':
+          description: A list of user defined custom fields
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomField'
+  /payments/custom-fields/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Fetch Details of a Specific Custom Field
+      operationId: getCustomField
+      x-speakeasy-name-override: get
+      tags:
+      - Custom Field Management
+      description: Retrieve detailed information for a custom field based on its unique identifier.
+      responses:
+        '200':
+          description: Custom fields that are set on resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomField'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify Details of a Specific Custom Field
+      operationId: updateCustomField
+      x-speakeasy-name-override: update
+      tags:
+      - Custom Field Management
+      description: Update specific attributes or data for an existing custom field.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdditionalDataUpdateRequest'
+      responses:
+        '200':
+          description: Custom fields that are set on resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomField'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Remove a Specific Custom Field
+      operationId: deleteCustomField
+      x-speakeasy-name-override: delete
+      tags:
+      - Custom Field Management
+      description: Permanently delete a custom field from the system based on its unique identifier.
+      responses:
+        '200':
+          description: Custom fields that are set on resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomField'
+components:
+  schemas:
+    AdditionalDataUpdateRequest:
+      type: object
+      properties:
+        key:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        required:
+          type:
+          - boolean
+          - 'null'
+        resourceType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Collaborator
+          - LineItem
+          - null
+        type:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Boolean
+          - String
+          - null
+    CustomField:
+      type: object
+      properties:
+        id:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        required:
+          type: boolean
+        resourceType:
+          type: string
+          enum:
+          - Collaborator
+          - LineItem
+        type:
+          type: string
+          enum:
+          - Boolean
+          - String
+      required:
+      - id
+      - key
+      - name
+      - required
+      - resourceType
+      - type
+    AdditionalData:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        required:
+          type: boolean
+        resourceType:
+          type: string
+          enum:
+          - Collaborator
+          - LineItem
+        type:
+          type: string
+          enum:
+          - Boolean
+          - String
+      required:
+      - key
+      - name
+      - required
+      - resourceType
+      - type
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

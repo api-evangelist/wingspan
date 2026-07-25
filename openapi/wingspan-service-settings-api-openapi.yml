@@ -1,0 +1,65 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Service Settings API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Service Settings
+  description: Covers endpoints that manage service statuses and related configurations.
+paths:
+  /payments:
+    get:
+      summary: Check Service Status
+      operationId: getServiceStatus
+      x-speakeasy-name-override: get
+      tags:
+      - Service Settings
+      description: Use this endpoint to determine the operational status of the payment service by obtaining the current timestamp and service name.
+      responses:
+        '200':
+          description: timestamp and name of service being pinged
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ping'
+components:
+  schemas:
+    Ping:
+      type: object
+      properties:
+        code:
+          type: number
+        message:
+          type: string
+        status:
+          type: string
+      required:
+      - code
+      - message
+      - status
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

@@ -1,0 +1,2564 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Bulk Operations API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Bulk Operations
+  description: This category includes endpoints for managing bulk operations like bulk payables, bulk invoices, and bulk collaborator management.
+paths:
+  /payments/bulk/payable/batch:
+    get:
+      summary: Retrieve All Bulk Payable Batches
+      operationId: listPayableBatches
+      x-speakeasy-name-override: list_payable
+      tags:
+      - Bulk Operations
+      description: Fetches a list of all the batches created for bulk payables, providing an overview of the bulk payment operations.
+      responses:
+        '200':
+          description: A list of bulk payable batches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkPayableBatch'
+    post:
+      summary: Initiate a New Bulk Payable Batch
+      operationId: createPayableBatch
+      x-speakeasy-name-override: create_payable
+      tags:
+      - Bulk Operations
+      description: Creates a new batch for importing multiple payables at once, streamlining the bulk payment operations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkPayableBatchCreate'
+      responses:
+        '200':
+          description: A batch of items for importing as payables
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPayableBatch'
+  /payments/bulk/payable/batch/{batchId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Retrieve Details of a Specific Bulk Payable Batch
+      operationId: getPayableBatch
+      x-speakeasy-name-override: get_payable
+      tags:
+      - Bulk Operations
+      description: Fetches detailed information of a specific batch created for bulk payables, using the provided batch ID.
+      responses:
+        '200':
+          description: A batch of items for importing as payables
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPayableBatch'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Modify a Specific Bulk Payable Batch
+      operationId: updatePayableBatch
+      x-speakeasy-name-override: update_payable
+      tags:
+      - Bulk Operations
+      description: Updates the information or items of a specific bulk payable batch, given its unique batch ID.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkPayableBatchUpdate'
+      responses:
+        '200':
+          description: A batch of items for importing as payables
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPayableBatch'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Remove a Specific Bulk Payable Batch
+      operationId: deletePayableBatch
+      x-speakeasy-name-override: delete_payable
+      tags:
+      - Bulk Operations
+      description: Deletes a specific batch for bulk payables, using the provided batch ID, preventing any further operations on it.
+      responses:
+        '200':
+          description: A batch of items for importing as payables
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPayableBatch'
+  /payments/bulk/payable/batch/{batchId}/item:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Retrieve all items from a specific bulk payable batch
+      operationId: listPayableBatchItems
+      x-speakeasy-name-override: list_batch_item
+      tags:
+      - Bulk Operations
+      description: Fetches and lists all individual payable items associated with a specified bulk payable batch. Useful for tracking and verifying batch details.
+      responses:
+        '200':
+          description: A list of bulk payable items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkPayableItem'
+    post:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Add a new item to a specific bulk payable batch
+      operationId: createPayableBatchItem
+      x-speakeasy-name-override: create_batch_item
+      tags:
+      - Bulk Operations
+      description: Allows for the creation and addition of a new individual payable item into an existing bulk payable batch. This enhances batch management and payable tracking.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkPayableItemCreate'
+      responses:
+        '200':
+          description: An item that will be converted into a payable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPayableItem'
+  /payments/bulk/payable/batch/{batchId}/import-summary:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Fetch the import summary for a specific bulk payable batch
+      operationId: getPayableBatchItem
+      x-speakeasy-name-override: get_batch_item
+      tags:
+      - Bulk Operations
+      description: Provides an overview and summary of the import process for a given bulk payable batch, allowing for tracking of imported items, errors, and other relevant batch statistics.
+      responses:
+        '200':
+          description: Summary of the bulk payable import
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPayableImportSummary'
+  /payments/bulk/payable/batch/{batchId}/item/{batchItemId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Retrieve a Specific Item from a Bulk Payable Batch
+      operationId: getSpecificPayableBatchItem
+      x-speakeasy-name-override: get_specific
+      tags:
+      - Bulk Operations
+      description: Fetches detailed information of a specific item within a bulk payable batch, using both the batch ID and the item ID.
+      responses:
+        '200':
+          description: An item that will be converted into a payable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPayableItem'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Modify a Specific Item in a Bulk Payable Batch
+      operationId: updateSpecificPayableBatchItem
+      x-speakeasy-name-override: update_specific
+      tags:
+      - Bulk Operations
+      description: Updates the details or status of a specific item within a bulk payable batch, given both the batch ID and the item ID.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkPayableItemUpdate'
+      responses:
+        '200':
+          description: An item that will be converted into a payable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPayableItem'
+  /payments/bulk/invoice/batch:
+    get:
+      summary: Retrieve All Bulk Invoice Batches
+      operationId: listInvoiceBatches
+      x-speakeasy-name-override: list
+      tags:
+      - Bulk Operations
+      description: Fetches a list of all the batches created for bulk invoices, providing an overview of the bulk invoicing operations.
+      responses:
+        '200':
+          description: A list of bulk invoice batches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkInvoiceBatch'
+    post:
+      summary: Initiate a New Bulk Invoice Batch
+      operationId: createInvoiceBatch
+      x-speakeasy-name-override: create
+      tags:
+      - Bulk Operations
+      description: Creates a new batch for importing multiple invoices at once, streamlining the bulk invoicing operations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkInvoiceBatchCreate'
+      responses:
+        '200':
+          description: A batch of items for importing as invoices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkInvoiceBatch'
+  /payments/bulk/invoice/batch/{batchId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Retrieve details of a specific bulk invoice batch
+      operationId: getInvoiceBatch
+      x-speakeasy-name-override: get
+      tags:
+      - Bulk Operations
+      description: Allows for the retrieval of a specified batch of bulk invoices by providing its unique batch identifier.
+      responses:
+        '200':
+          description: A batch of items for importing as invoices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkInvoiceBatch'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Modify the details of a specific bulk invoice batch
+      operationId: updateInvoiceBatch
+      x-speakeasy-name-override: update
+      tags:
+      - Bulk Operations
+      description: Enables the user to update or modify the attributes of a given batch of bulk invoices by specifying its unique batch identifier.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkInvoiceBatchUpdate'
+      responses:
+        '200':
+          description: A batch of items for importing as invoices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkInvoiceBatch'
+  /payments/bulk/invoice/batch/{batchId}/item:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Fetch all items from a specific bulk invoice batch
+      operationId: listSpecificInvoiceBatches
+      x-speakeasy-name-override: list_specific_invoice
+      tags:
+      - Bulk Operations
+      description: Provides a list of all the items within a specified batch of bulk invoices, identified by its unique batch identifier.
+      responses:
+        '200':
+          description: A list of bulk invoice items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkInvoiceItem'
+    post:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Add a new item to a specific bulk invoice batch
+      operationId: createSpecificInvoiceBatch
+      x-speakeasy-name-override: create_specific_invoice
+      tags:
+      - Bulk Operations
+      description: Allows users to append a new item to a given batch of bulk invoices by supplying its unique batch identifier and the details of the new item.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkInvoiceItemCreate'
+      responses:
+        '200':
+          description: An item that will be converted into a invoice
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkInvoiceItem'
+  /payments/bulk/invoice/batch/{batchId}/item/{batchItemId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Retrieve a specific item from a bulk invoice batch
+      operationId: getSpecificInvoiceBatch
+      x-speakeasy-name-override: get_specific_invoice
+      tags:
+      - Bulk Operations
+      description: Fetches detailed information about a specific item located within a designated bulk invoice batch. Useful for obtaining particular item data without browsing the entire batch.
+      responses:
+        '200':
+          description: An item that will be converted into a invoice
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkInvoiceItem'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Modify a specific item within a bulk invoice batch
+      operationId: updateSpecificInvoiceBatch
+      x-speakeasy-name-override: update_specific_invoice
+      tags:
+      - Bulk Operations
+      description: Allows for updates or edits to be made to a specific items details within an existing bulk invoice batch. Enhances the flexibility and management of invoice data.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkInvoiceItemUpdate'
+      responses:
+        '200':
+          description: An item that will be converted into a invoice
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkInvoiceItem'
+  /payments/bulk/collaborator/batch:
+    get:
+      summary: Fetch all bulk collaborator batches
+      operationId: listCollaboratorBatches
+      x-speakeasy-name-override: list_collaborator
+      tags:
+      - Bulk Operations
+      description: Provides a list of all existing bulk collaborator batches, allowing users to view and manage batches that have been created for collaboration purposes.
+      responses:
+        '200':
+          description: A list of bulk collaborator batches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkCollaboratorBatch'
+    post:
+      summary: Initiate a new bulk collaborator batch.
+      operationId: createCollaboratorBatch
+      x-speakeasy-name-override: create_collaborator
+      tags:
+      - Bulk Operations
+      description: Enables the creation of a new bulk collaborator batch, facilitating the bulk management and addition of collaborators for various projects or tasks.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkBatchCreate'
+      responses:
+        '200':
+          description: A batch of items for importing as collaborators
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCollaboratorBatch'
+  /payments/bulk/collaborator/batch/{batchId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Retrieve Details of a Specific Collaborator Batch
+      operationId: getCollaboratorBatch
+      x-speakeasy-name-override: get_collaborator
+      tags:
+      - Bulk Operations
+      description: Fetches detailed information of a specific bulk collaborator batch, using the provided batch ID.
+      responses:
+        '200':
+          description: A batch of items for importing as collaborators
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCollaboratorBatch'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Modify Details of a Bulk Collaborator Batch
+      operationId: updateCollaboratorBatch
+      x-speakeasy-name-override: update_collaborator
+      tags:
+      - Bulk Operations
+      description: Allows for updating or altering the details and items within a specific bulk collaborator batch using the given batch ID.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkBatchUpdate'
+      responses:
+        '200':
+          description: A batch of items for importing as collaborators
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCollaboratorBatch'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Remove a Specific Collaborator Batch
+      operationId: deleteCollaboratorBatch
+      x-speakeasy-name-override: delete_collaborator
+      tags:
+      - Bulk Operations
+      description: Deletes a specific bulk collaborator batch using its unique identifier. Once deleted, the batch cannot be recovered.
+      responses:
+        '200':
+          description: A batch of items for importing as collaborators
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCollaboratorBatch'
+  /payments/bulk/collaborator/batch/{batchId}/item:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Retrieve all items from a specific collaborator batch
+      operationId: listSpecificCollaboratorBatchItems
+      x-speakeasy-name-override: list_specific_collaborator_item
+      tags:
+      - Bulk Operations
+      description: Provides a comprehensive list of items present within a specified batch of collaborators, identifiable through its unique batch identifier.
+      responses:
+        '200':
+          description: A list of bulk collaborator items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkCollaboratorItem'
+    post:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Append a new item to a specific collaborator batch
+      operationId: createSpecificCollaboratorBatchItem
+      x-speakeasy-name-override: create_specific_collaborator_item
+      tags:
+      - Bulk Operations
+      description: Allows for the addition of a new item to an existing batch of collaborators by providing the batchs unique identifier and item details.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCollaboratorItemCreate'
+      responses:
+        '200':
+          description: An item that will be converted into a collaborator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCollaboratorItem'
+  /payments/bulk/collaborator/batch/{batchId}/item/{batchItemId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Retrieve details of a specific item from a collaborator batch
+      operationId: getSpecificCollaboratorBatchItem
+      x-speakeasy-name-override: get_specific_collaborator_item
+      tags:
+      - Bulk Operations
+      description: Enables fetching of detailed information about an individual item from a specified batch of collaborators using both the batch and item unique identifiers.
+      responses:
+        '200':
+          description: An item that will be converted into a collaborator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCollaboratorItem'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Modify the details of a specific item within a collaborator batch
+      operationId: updateSpecificCollaboratorBatchItem
+      x-speakeasy-name-override: update_specific_collaborator_item
+      tags:
+      - Bulk Operations
+      description: Provides the functionality to update or alter the attributes of an item present in a given collaborator batch using the unique identifiers for both the batch and the item.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCollaboratorItemUpdate'
+      responses:
+        '200':
+          description: An item that will be converted into a collaborator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCollaboratorItem'
+  /payments/bulk/client/batch:
+    get:
+      summary: Retrieve all bulk client batches
+      operationId: listClientBatches
+      x-speakeasy-name-override: list_client
+      tags:
+      - Bulk Operations
+      description: Provides an overview of all existing bulk client batches, allowing users to quickly ascertain and manage batches created for the purpose of client onboarding or import.
+      responses:
+        '200':
+          description: A list of bulk client batches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkClientBatch'
+    post:
+      summary: Create a new bulk client batch
+      operationId: createClientBatch
+      x-speakeasy-name-override: create_client
+      tags:
+      - Bulk Operations
+      description: Initiates the creation of a fresh bulk client batch, streamlining the process of adding multiple clients in one go.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkBatchCreate'
+      responses:
+        '200':
+          description: A batch of items for importing as clients
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkClientBatch'
+  /payments/bulk/client/batch/{batchId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Fetch Details of a Specific Item from a Client Batch
+      operationId: getClientBatch
+      x-speakeasy-name-override: get_client
+      tags:
+      - Bulk Operations
+      description: Retrieves the detailed information of a specific item within the bulk client batch using both batch and item unique identifiers.
+      responses:
+        '200':
+          description: A batch of items for importing as clients
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkClientBatch'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Modify Details of a Specific Item in a Client Batch
+      operationId: updateClientBatch
+      x-speakeasy-name-override: update_client
+      tags:
+      - Bulk Operations
+      description: Allows modification of the details of a specific item within the bulk client batch, using the provided item and batch identifiers.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkBatchUpdate'
+      responses:
+        '200':
+          description: A batch of items for importing as clients
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkClientBatch'
+  /payments/bulk/client/batch/{batchId}/item:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Retrieve All Items from a Client Batch
+      operationId: listClientBatchItems
+      x-speakeasy-name-override: list_client_item
+      tags:
+      - Bulk Operations
+      description: Fetches all items present in the specified bulk client batch, providing a comprehensive view of all client data in the batch.
+      responses:
+        '200':
+          description: A list of bulk client items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkClientItem'
+    post:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      summary: Add a New Item to a Client Batch
+      operationId: createClientBatchItem
+      x-speakeasy-name-override: create_client_item
+      tags:
+      - Bulk Operations
+      description: Inserts a new item into the specified bulk client batch, allowing for further expansion of client data within the batch.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkClientItemCreate'
+      responses:
+        '200':
+          description: An item that will be converted into a client
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkClientItem'
+  /payments/bulk/client/batch/{batchId}/item/{batchItemId}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Fetch Details of a Specific Item from a Client Batch
+      operationId: getClientBatchItem
+      x-speakeasy-name-override: get_client_item
+      tags:
+      - Bulk Operations
+      description: Retrieves the detailed information of a specific item within the bulk client batch using both batch and item unique identifiers.
+      responses:
+        '200':
+          description: An item that will be converted into a client
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkClientItem'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: batchId
+        description: Unique identifier for a batch
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: batchItemId
+        description: Unique identifier for an item in a batch
+        schema:
+          type: string
+      summary: Modify Details of a Specific Item in a Client Batch
+      operationId: updateClientBatchItem
+      x-speakeasy-name-override: update_client_item
+      tags:
+      - Bulk Operations
+      description: Allows modification of the details of a specific item within the bulk client batch, using the provided item and batch identifiers.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkClientItemUpdate'
+      responses:
+        '200':
+          description: An item that will be converted into a client
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkClientItem'
+components:
+  schemas:
+    CompanyLinks:
+      type: object
+      properties:
+        instagramUrl:
+          type:
+          - string
+          - 'null'
+        linkedInUrl:
+          type:
+          - string
+          - 'null'
+        otherUrl:
+          type:
+          - string
+          - 'null'
+        twitterUrl:
+          type:
+          - string
+          - 'null'
+        websiteUrl:
+          type:
+          - string
+          - 'null'
+    BulkPayableBatchCreate:
+      type: object
+      properties:
+        processingStrategy:
+          type: string
+          enum:
+          - Merge
+          - Single
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+      required:
+      - processingStrategy
+    BulkPayableImportSummary:
+      type: object
+      properties:
+        deductionCollaboratorsCount:
+          type: number
+        netImportAmount:
+          type: number
+        payableCollaboratorsCount:
+          type: number
+        toBeCreatedDeductionsCount:
+          type: number
+        toBeCreatedPayablesCount:
+          type: number
+        toBeUpdatedDeductionsCount:
+          type: number
+        toBeUpdatedPayablesCount:
+          type: number
+        totalDeductionsAmount:
+          type: number
+        totalPayableItems:
+          type: number
+        totalPayablesAmount:
+          type: number
+      required:
+      - deductionCollaboratorsCount
+      - netImportAmount
+      - payableCollaboratorsCount
+      - toBeCreatedDeductionsCount
+      - toBeCreatedPayablesCount
+      - toBeUpdatedDeductionsCount
+      - toBeUpdatedPayablesCount
+      - totalDeductionsAmount
+      - totalPayableItems
+      - totalPayablesAmount
+    BulkInvoiceBatchCreate:
+      type: object
+      properties:
+        processingStrategy:
+          type: string
+          enum:
+          - Merge
+          - Single
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+      required:
+      - processingStrategy
+    BulkInvoiceBatchUpdate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+          - null
+    4091c2911630f24a45153ca60a204edf3efba15902cef686d412c191e0c18cac:
+      type: object
+      properties:
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        resolvedMemberClientId:
+          type:
+          - string
+          - 'null'
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
+    6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11:
+      type: object
+      properties:
+        billClassId:
+          type:
+          - string
+          - 'null'
+        billCustomerId:
+          type:
+          - string
+          - 'null'
+        expenseAccountId:
+          type:
+          - string
+          - 'null'
+        invoiceClassId:
+          type:
+          - string
+          - 'null'
+        itemId:
+          type:
+          - string
+          - 'null'
+    BulkInvoiceBatch:
+      type: object
+      properties:
+        bulkInvoiceBatchId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        memberId:
+          type: string
+        processingStrategy:
+          type: string
+          enum:
+          - Merge
+          - Single
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        statistics:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
+      required:
+      - bulkInvoiceBatchId
+      - createdAt
+      - eventActors
+      - labels
+      - memberId
+      - processingStrategy
+      - status
+      - updatedAt
+      - userRoles
+    BulkCollaboratorItemUpdate:
+      type: object
+      properties:
+        collaboratorGroupId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
+        collaboratorStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Inactive
+          - Pending
+          - null
+        company:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        externalId:
+          type:
+          - string
+          - 'null'
+        firstLastName:
+          type:
+          - string
+          - 'null'
+        formW9Data:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientFormW9Info'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        orgSubAccountId:
+          type:
+          - string
+          - 'null'
+    BulkBatchUpdate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+          - null
+    BulkBatchCreate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+    RedactedMember:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/RedactedUser'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
+      required:
+      - user
+    d750b2d9403b5bcbdb3c96c89f1cc713df563d587f16e5f39f5ab546c08a20a0:
+      type: object
+      properties:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/64846136a354aa510825c1f23c3a978f4c816d8d4184311e7294a570f73727dc'
+    MemberClientFormW9Info:
+      type: object
+      properties:
+        addressLine1:
+          type:
+          - string
+          - 'null'
+        addressLine2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        country:
+          type:
+          - string
+          - 'null'
+        dob:
+          type:
+          - string
+          - 'null'
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+    UserRoles:
+      type: object
+      properties:
+        ownerIds:
+          type: array
+          items:
+            type: string
+        viewerIds:
+          type: array
+          items:
+            type: string
+      required:
+      - ownerIds
+      - viewerIds
+    BulkPayableItem:
+      type: object
+      properties:
+        amount:
+          type: number
+        bulkPayableBatchId:
+          type: string
+        bulkPayableItemId:
+          type: string
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        dueDate:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        lineItemDescription:
+          type: string
+        paidDate:
+          type: string
+        payableStatus:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        attachmentId:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemReference:
+          type:
+          - string
+          - 'null'
+        collaboratorEmail:
+          type:
+          - string
+          - 'null'
+        collaboratorExternalId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/InvoiceIntegrations'
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        metadata:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ff870c34e17f41323279d1c2fe8e2d03accac4d93d8aa050ddce7dbba094dbcb'
+        payableNotes:
+          type:
+          - string
+          - 'null'
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        workflowSubStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Submitted
+          - null
+      required:
+      - amount
+      - bulkPayableBatchId
+      - bulkPayableItemId
+      - clientId
+      - createdAt
+      - dueDate
+      - eventActors
+      - labels
+      - lineItemDescription
+      - paidDate
+      - payableStatus
+      - status
+      - updatedAt
+      - userRoles
+    BulkInvoiceItemCreate:
+      type: object
+      properties:
+        amount:
+          type: number
+        bulkInvoiceBatchId:
+          type: string
+        dueDate:
+          type: string
+        invoiceStatus:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+        lineItemDescription:
+          type: string
+        acceptedPaymentMethods:
+          type:
+          - array
+          - 'null'
+          items:
+            enum:
+            - Credit
+            - ACH
+            - Manual
+            - null
+            type:
+            - string
+            - 'null'
+        bulkInvoiceItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkInvoiceItemReference:
+          type:
+          - string
+          - 'null'
+        clientEmail:
+          type:
+          - string
+          - 'null'
+        clientExternalId:
+          type:
+          - string
+          - 'null'
+        creditFeeHandling:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FeeHandlingConfig'
+        invoiceNotes:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        memberClientId:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        projectName:
+          type:
+          - string
+          - 'null'
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        sendDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - bulkInvoiceBatchId
+      - dueDate
+      - invoiceStatus
+      - lineItemDescription
+    BulkCollaboratorItem:
+      type: object
+      properties:
+        bulkCollaboratorBatchId:
+          type: string
+        bulkCollaboratorItemId:
+          type: string
+        clientId:
+          type: string
+        collaboratorStatus:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        collaboratorGroupId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
+        company:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        externalId:
+          type:
+          - string
+          - 'null'
+        firstLastName:
+          type:
+          - string
+          - 'null'
+        formW9Data:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientFormW9Info'
+        memberId:
+          type:
+          - string
+          - 'null'
+        metadata:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/8cf19a7bc90727398c2780566a4070199559f4723ec14c01c448dc0356efffa1'
+        orgSubAccountId:
+          type:
+          - string
+          - 'null'
+      required:
+      - bulkCollaboratorBatchId
+      - bulkCollaboratorItemId
+      - clientId
+      - collaboratorStatus
+      - createdAt
+      - eventActors
+      - labels
+      - status
+      - updatedAt
+      - userRoles
+    BulkClientBatch:
+      type: object
+      properties:
+        bulkClientBatchId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        statistics:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
+      required:
+      - bulkClientBatchId
+      - createdAt
+      - eventActors
+      - labels
+      - memberId
+      - status
+      - updatedAt
+      - userRoles
+    ff870c34e17f41323279d1c2fe8e2d03accac4d93d8aa050ddce7dbba094dbcb:
+      type: object
+      properties:
+        deductionId:
+          type:
+          - string
+          - 'null'
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        payableId:
+          type:
+          - string
+          - 'null'
+        resolvedClientId:
+          type:
+          - string
+          - 'null'
+        resolvedCollaboratorId:
+          type:
+          - string
+          - 'null'
+    8cf19a7bc90727398c2780566a4070199559f4723ec14c01c448dc0356efffa1:
+      type: object
+      properties:
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        resolvedCollaboratorId:
+          type:
+          - string
+          - 'null'
+    BulkPayableItemCreate:
+      type: object
+      properties:
+        amount:
+          type: number
+        bulkPayableBatchId:
+          type: string
+        dueDate:
+          type: string
+        lineItemDescription:
+          type: string
+        payableStatus:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+        attachmentId:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemReference:
+          type:
+          - string
+          - 'null'
+        clientId:
+          type:
+          - string
+          - 'null'
+        collaboratorEmail:
+          type:
+          - string
+          - 'null'
+        collaboratorExternalId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        payableNotes:
+          type:
+          - string
+          - 'null'
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        workflowSubStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Submitted
+          - null
+      required:
+      - amount
+      - bulkPayableBatchId
+      - dueDate
+      - lineItemDescription
+      - payableStatus
+    CompanyPerson:
+      type: object
+      properties:
+        memberId:
+          type: string
+        ownershipPercentage:
+          type:
+          - number
+          - 'null'
+      required:
+      - memberId
+    BulkPayableBatch:
+      type: object
+      properties:
+        bulkPayableBatchId:
+          type: string
+        client:
+          $ref: '#/components/schemas/RedactedMember'
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        processingStrategy:
+          type: string
+          enum:
+          - Merge
+          - Single
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        statistics:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
+      required:
+      - bulkPayableBatchId
+      - client
+      - clientId
+      - createdAt
+      - eventActors
+      - labels
+      - processingStrategy
+      - status
+      - updatedAt
+      - userRoles
+    BulkPayableItemUpdate:
+      type: object
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        attachmentId:
+          type:
+          - string
+          - 'null'
+        bulkPayableBatchId:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemReference:
+          type:
+          - string
+          - 'null'
+        clientId:
+          type:
+          - string
+          - 'null'
+        collaboratorEmail:
+          type:
+          - string
+          - 'null'
+        collaboratorExternalId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
+        dueDate:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        lineItemDescription:
+          type:
+          - string
+          - 'null'
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        payableNotes:
+          type:
+          - string
+          - 'null'
+        payableStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+          - null
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        workflowSubStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Submitted
+          - null
+    Company:
+      type: object
+      properties:
+        banking:
+          type:
+          - boolean
+          - 'null'
+        companyOwners:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CompanyPerson'
+        description:
+          type:
+          - string
+          - 'null'
+        disregardedEntityName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        links:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CompanyLinks'
+        name:
+          type:
+          - string
+          - 'null'
+        stateOfIncorporation:
+          type:
+          - string
+          - 'null'
+        structure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        supportEmail:
+          type:
+          - string
+          - 'null'
+        taxId:
+          type:
+          - string
+          - 'null'
+        website:
+          type:
+          - string
+          - 'null'
+        yearOfIncorporation:
+          type:
+          - string
+          - 'null'
+    64846136a354aa510825c1f23c3a978f4c816d8d4184311e7294a570f73727dc:
+      type: object
+      properties:
+        customerId:
+          type:
+          - string
+          - 'null'
+        itemId:
+          type:
+          - string
+          - 'null'
+    BulkPayableBatchUpdate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+          - null
+    757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2:
+      type: object
+      properties:
+        itemsFailed:
+          type: number
+        itemsProcessed:
+          type: number
+        itemsTotal:
+          type: number
+      required:
+      - itemsFailed
+      - itemsProcessed
+      - itemsTotal
+    BulkInvoiceItem:
+      type: object
+      properties:
+        amount:
+          type: number
+        bulkInvoiceBatchId:
+          type: string
+        bulkInvoiceItemId:
+          type: string
+        createdAt:
+          type: string
+        dueDate:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        invoiceStatus:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        lineItemDescription:
+          type: string
+        memberId:
+          type: string
+        paidDate:
+          type: string
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        acceptedPaymentMethods:
+          type:
+          - array
+          - 'null'
+          items:
+            enum:
+            - Credit
+            - ACH
+            - Manual
+            - null
+            type:
+            - string
+            - 'null'
+        bulkInvoiceItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkInvoiceItemReference:
+          type:
+          - string
+          - 'null'
+        clientEmail:
+          type:
+          - string
+          - 'null'
+        clientExternalId:
+          type:
+          - string
+          - 'null'
+        creditFeeHandling:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FeeHandlingConfig'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/InvoiceIntegrations'
+        invoiceDate:
+          type:
+          - string
+          - 'null'
+        invoiceNotes:
+          type:
+          - string
+          - 'null'
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        memberClientId:
+          type:
+          - string
+          - 'null'
+        metadata:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/c1b9877fd1d35a4292006c3c09941c1c5c21bbe2e0e87488661804eebf2a3e4a'
+        projectName:
+          type:
+          - string
+          - 'null'
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        sendDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - bulkInvoiceBatchId
+      - bulkInvoiceItemId
+      - createdAt
+      - dueDate
+      - eventActors
+      - invoiceStatus
+      - labels
+      - lineItemDescription
+      - memberId
+      - paidDate
+      - status
+      - updatedAt
+      - userRoles
+    BulkInvoiceItemUpdate:
+      type: object
+      properties:
+        acceptedPaymentMethods:
+          type:
+          - array
+          - 'null'
+          items:
+            enum:
+            - Credit
+            - ACH
+            - Manual
+            - null
+            type:
+            - string
+            - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+        bulkInvoiceBatchId:
+          type:
+          - string
+          - 'null'
+        bulkInvoiceItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkInvoiceItemReference:
+          type:
+          - string
+          - 'null'
+        clientEmail:
+          type:
+          - string
+          - 'null'
+        clientExternalId:
+          type:
+          - string
+          - 'null'
+        creditFeeHandling:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FeeHandlingConfig'
+        dueDate:
+          type:
+          - string
+          - 'null'
+        invoiceNotes:
+          type:
+          - string
+          - 'null'
+        invoiceStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+          - null
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        lineItemDescription:
+          type:
+          - string
+          - 'null'
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        memberClientId:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        projectName:
+          type:
+          - string
+          - 'null'
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        sendDate:
+          type:
+          - string
+          - 'null'
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    BulkCollaboratorBatch:
+      type: object
+      properties:
+        bulkCollaboratorBatchId:
+          type: string
+        client:
+          $ref: '#/components/schemas/RedactedMember'
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        statistics:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
+      required:
+      - bulkCollaboratorBatchId
+      - client
+      - clientId
+      - createdAt
+      - eventActors
+      - labels
+      - status
+      - updatedAt
+      - userRoles
+    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
+      type: object
+      properties:
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    BulkClientItemCreate:
+      type: object
+      properties:
+        clientStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Inactive
+          - Pending
+          - null
+        company:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        externalId:
+          type:
+          - string
+          - 'null'
+        firstLastName:
+          type:
+          - string
+          - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/d750b2d9403b5bcbdb3c96c89f1cc713df563d587f16e5f39f5ab546c08a20a0'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        memberData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberData'
+    RedactedUser:
+      type: object
+      properties:
+        email:
+          type:
+          - string
+          - 'null'
+        phone:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
+        settings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Pending
+          - Active
+          - Disabled
+          - null
+        tag:
+          type:
+          - string
+          - 'null'
+    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        company:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Company'
+        logoUrl:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+    BulkClientItem:
+      type: object
+      properties:
+        bulkClientBatchId:
+          type: string
+        bulkClientItemId:
+          type: string
+        clientStatus:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        company:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        externalId:
+          type:
+          - string
+          - 'null'
+        firstLastName:
+          type:
+          - string
+          - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/d750b2d9403b5bcbdb3c96c89f1cc713df563d587f16e5f39f5ab546c08a20a0'
+        memberClientId:
+          type:
+          - string
+          - 'null'
+        memberData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberData'
+        metadata:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/4091c2911630f24a45153ca60a204edf3efba15902cef686d412c191e0c18cac'
+      required:
+      - bulkClientBatchId
+      - bulkClientItemId
+      - clientStatus
+      - createdAt
+      - eventActors
+      - labels
+      - memberId
+      - status
+      - updatedAt
+      - userRoles
+    Address:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    InvoiceIntegrations:
+      type: object
+      properties:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11'
+    BulkCollaboratorItemCreate:
+      type: object
+      properties:
+        collaboratorGroupId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
+        collaboratorStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Inactive
+          - Pending
+          - null
+        company:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        externalId:
+          type:
+          - string
+          - 'null'
+        firstLastName:
+          type:
+          - string
+          - 'null'
+        formW9Data:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientFormW9Info'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        orgSubAccountId:
+          type:
+          - string
+          - 'null'
+    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+    9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b:
+      type: object
+      properties:
+        userAccountType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - member
+          - enterprise
+          - null
+    FeeHandlingConfig:
+      type: object
+      properties:
+        clientAbsolutePercentage:
+          type:
+          - number
+          - 'null'
+        clientPays:
+          type:
+          - number
+          - 'null'
+        memberPays:
+          type:
+          - number
+          - 'null'
+    MemberData:
+      type: object
+      properties:
+        autoPayRequirement:
+          type:
+          - string
+          - 'null'
+          enum:
+          - All
+          - None
+          - null
+        externalId:
+          type:
+          - string
+          - 'null'
+        shareTaxDocument:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Allow
+          - Decline
+          - null
+    BulkClientItemUpdate:
+      type: object
+      properties:
+        clientStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Inactive
+          - Pending
+          - null
+        company:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        externalId:
+          type:
+          - string
+          - 'null'
+        firstLastName:
+          type:
+          - string
+          - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/d750b2d9403b5bcbdb3c96c89f1cc713df563d587f16e5f39f5ab546c08a20a0'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        memberData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberData'
+    c1b9877fd1d35a4292006c3c09941c1c5c21bbe2e0e87488661804eebf2a3e4a:
+      type: object
+      properties:
+        deductionId:
+          type:
+          - string
+          - 'null'
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        invoiceId:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
+        resolvedMemberClientId:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

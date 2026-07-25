@@ -1,0 +1,518 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Banking Management API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Banking Management
+  description: These endpoints cater to fetching, storing, and managing documents related to electronic signatures, including retrieval of signing URLs and saving e-signed documents.
+paths:
+  /payments/banking/statement:
+    get:
+      summary: Retrieve All Bank Statements
+      operationId: listBankStatements
+      x-speakeasy-name-override: list_statements
+      tags:
+      - Banking Management
+      description: Fetch a comprehensive list of all bank statements available in the system, providing an overview of financial transactions.
+      responses:
+        '200':
+          description: A list of bank statements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BankStatement'
+  /payments/banking/statement/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve Specific Bank Statement
+      operationId: getBankStatement
+      x-speakeasy-name-override: get
+      tags:
+      - Banking Management
+      description: Fetch details of a specific bank statement using its unique identifier, providing a detailed view of its transactions.
+      responses:
+        '200':
+          description: A list of bank statements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BankStatement'
+  /payments/banking/statement/{id}/download:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Download a specific bank statement as a PDF
+      operationId: downloadBankStatementAsPDF
+      x-speakeasy-name-override: download
+      tags:
+      - Banking Management
+      description: Retrieve and download the specified bank statement in PDF format using the provided unique identifier.
+      responses:
+        '204':
+          description: This is a default response
+  /payments/service/banking/{memberId}/application:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: memberId
+        description: Unique identifier of a member
+        schema:
+          type: string
+      summary: Fetch the application link for setting up a clearing bank account
+      operationId: getApplicationLink
+      x-speakeasy-name-override: get_application_link
+      tags:
+      - Banking Management
+      description: Get the application link required for a member to initiate the creation of a clearing bank account.
+      responses:
+        '200':
+          description: A Bank Application form
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankingApplicationForm'
+  /payments/banking/institution/{routingNumber}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: routingNumber
+        description: Bank Routing Number
+        schema:
+          type: string
+      summary: Retrieve banking institution details by its routing number
+      operationId: getBankingInstitution
+      x-speakeasy-name-override: get_institution
+      tags:
+      - Banking Management
+      description: Fetches comprehensive information about a banking institution based on the provided routing number.
+      responses:
+        '200':
+          description: Institution Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstitutionResponse'
+  /payments/payout-settings/{memberId}/debit-card:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: memberId
+        description: Unique identifier of a member
+        schema:
+          type: string
+      summary: Fetch all registered payout debit cards for a member
+      operationId: listDebitCards
+      x-speakeasy-name-override: list
+      tags:
+      - Banking Management
+      description: Retrieves a list of all debit cards linked to a member's profile for payout purposes.
+      responses:
+        '200':
+          description: A list of payout debit cards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CheckbookCard'
+    post:
+      parameters:
+      - in: path
+        required: true
+        name: memberId
+        description: Unique identifier of a member
+        schema:
+          type: string
+      summary: Register a new payout debit card for a member
+      operationId: createDebitCard
+      x-speakeasy-name-override: create
+      tags:
+      - Banking Management
+      description: Allows the addition of a new debit card to a member's profile for payout transactions.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckbookCardCreate'
+      responses:
+        '200':
+          description: A payout debit card
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckbookCard'
+  /payments/payout-settings/{memberId}/debit-card/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: memberId
+        description: Unique identifier of a member
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve a specific payout debit card linked to a member
+      operationId: getDebitCard
+      x-speakeasy-name-override: get_debit_card
+      tags:
+      - Banking Management
+      description: Fetches detailed information of a specific debit card linked to a member's profile for payout purposes.
+      responses:
+        '200':
+          description: A payout debit card
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckbookCard'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: memberId
+        description: Unique identifier of a member
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Unlink and delete a specific payout debit card from a member's profile
+      operationId: deleteDebitCard
+      x-speakeasy-name-override: delete
+      tags:
+      - Banking Management
+      description: Initiates a process to remove and permanently delete a specific debit card from a member's payout settings.
+      responses:
+        '200':
+          description: A payout debit card
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckbookCard'
+  /payments/payout-settings/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve payout settings for a specific member
+      operationId: getPayoutSetting
+      x-speakeasy-name-override: get_payout_setting
+      tags:
+      - Banking Management
+      description: Fetches the payout configuration, including linked debit cards and payout preferences, for a specific member.
+      responses:
+        '200':
+          description: The payout settings for a member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayoutSettingsResponse'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify and update payout settings for a specific member
+      operationId: updatePayoutSetting
+      x-speakeasy-name-override: update
+      tags:
+      - Banking Management
+      description: Allows adjustments and updates to a member's payout configuration, including changing linked debit cards and adjusting payout preferences.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayoutSettingsUpdate'
+      responses:
+        '200':
+          description: The payout settings for a member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayoutSettingsResponse'
+components:
+  schemas:
+    PayoutSettingsResponse:
+      type: object
+      properties:
+        payoutDestinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/PayoutDestinationResponse'
+        payoutPreferences:
+          type: string
+          enum:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+      required:
+      - payoutDestinations
+      - payoutPreferences
+    InstitutionResponse:
+      type: object
+      properties:
+        address:
+          type: string
+        isACHSupported:
+          type: boolean
+        isRTPSupported:
+          type: boolean
+        isWireSupported:
+          type: boolean
+        name:
+          type: string
+        routingNumber:
+          type: string
+      required:
+      - address
+      - isACHSupported
+      - isRTPSupported
+      - isWireSupported
+      - name
+      - routingNumber
+    BankStatement:
+      type: object
+      properties:
+        accountId:
+          type: string
+        date:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - accountId
+      - date
+      - id
+      - name
+    PayoutSettingsUpdate:
+      type: object
+      properties:
+        payoutDestinations:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/PayoutDestinationUpdate'
+        payoutPreferences:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+          - null
+    Address:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    PayoutDestinationResponse:
+      type: object
+      properties:
+        destinationId:
+          type: string
+        destinationType:
+          type: string
+          enum:
+          - Account
+          - Card
+          - WeGift
+        name:
+          type: string
+        payoutMethod:
+          type: string
+          enum:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+        percentage:
+          type: number
+        last4:
+          type:
+          - string
+          - 'null'
+      required:
+      - destinationId
+      - destinationType
+      - name
+      - payoutMethod
+      - percentage
+    BankingApplicationForm:
+      type: object
+      properties:
+        applicationLink:
+          type: string
+        memberId:
+          type: string
+      required:
+      - applicationLink
+      - memberId
+    PayoutDestinationUpdate:
+      type: object
+      properties:
+        destinationId:
+          type:
+          - string
+          - 'null'
+        destinationType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Account
+          - Card
+          - WeGift
+          - null
+        payoutMethod:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+          - null
+        percentage:
+          type:
+          - number
+          - 'null'
+    CheckbookCardCreate:
+      type: object
+      properties:
+        cardNumber:
+          type: string
+        expMM:
+          type: string
+        expYYYY:
+          type: string
+        name:
+          type: string
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        cvv:
+          type:
+          - string
+          - 'null'
+      required:
+      - cardNumber
+      - expMM
+      - expYYYY
+      - name
+    CheckbookCard:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+        brand:
+          type: string
+          enum:
+          - AmericanExpress
+          - Visa
+          - Mastercard
+          - Discover
+          - DinersClub
+          - JCB
+        cardId:
+          type: string
+        expirationMM:
+          type: string
+        expirationYYYY:
+          type: string
+        last4:
+          type: string
+      required:
+      - address
+      - brand
+      - cardId
+      - expirationMM
+      - expirationYYYY
+      - last4
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

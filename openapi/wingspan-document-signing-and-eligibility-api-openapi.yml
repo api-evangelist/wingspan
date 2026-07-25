@@ -1,0 +1,511 @@
+openapi: 3.1.0
+info:
+  title: Wingspan Payments 1099 Operations Document Signing and Eligibility API
+  description: Payments
+  termsOfService: https://www.wingspan.app
+  contact:
+    name: Wingspan API Support
+    url: https://www.wingspan.app
+    email: support@wingspan.app
+  license:
+    name: UNLICENSED
+    url: https://UNLICENSED
+  version: 1.0.0-oas3.1
+servers:
+- url: https://api.wingspan.app
+  description: Wingspan's Payments API in Production
+  x-speakeasy-server-id: prod
+- url: https://stagingapi.wingspan.app
+  description: Wingspan's Payments API in Staging
+  x-speakeasy-server-id: staging
+security:
+- BearerAuth: []
+tags:
+- name: Document Signing and Eligibility
+  description: Focuses on endpoints for managing eligibility requirements and custom fields related to payments.
+paths:
+  /payments/collaborator-settings/eligibility-requirement:
+    post:
+      summary: Establish a new Eligibility Requirement
+      operationId: establishEligibilityRequirement
+      x-speakeasy-name-override: establish
+      tags:
+      - Document Signing and Eligibility
+      description: Define and create a new eligibility requirement for collaborators.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EligibilityRequirementCreateRequest'
+      responses:
+        '200':
+          description: Eligibility Requirement
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EligibilityRequirement'
+    get:
+      summary: Retrieve all Eligibility Requirements
+      operationId: listEligibilityRequirements
+      x-speakeasy-name-override: list
+      tags:
+      - Document Signing and Eligibility
+      description: List and display all the set eligibility requirements for collaborators.
+      responses:
+        '200':
+          description: List of Eligibility Requirements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EligibilityRequirement'
+  /payments/collaborator-settings/eligibility-requirement/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve a Specific Eligibility Requirement
+      operationId: getEligibilityRequirement
+      x-speakeasy-name-override: get
+      tags:
+      - Document Signing and Eligibility
+      description: Fetch details for a given eligibility requirement based on its unique identifier.
+      responses:
+        '200':
+          description: List of Eligibility Requirements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EligibilityRequirement'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify a Specific Eligibility Requirement
+      operationId: updateEligibilityRequirement
+      x-speakeasy-name-override: update
+      tags:
+      - Document Signing and Eligibility
+      description: Update specific details or attributes of an existing eligibility requirement.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EligibilityRequirementUpdateRequest'
+      responses:
+        '200':
+          description: List of Eligibility Requirements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EligibilityRequirement'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Remove a Specific Eligibility Requirement
+      operationId: deleteEligibilityRequirement
+      x-speakeasy-name-override: delete
+      tags:
+      - Document Signing and Eligibility
+      description: Delete an eligibility requirement from the system based on its unique identifier.
+      responses:
+        '200':
+          description: List of Eligibility Requirements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EligibilityRequirement'
+  /payments/collaborator-settings/payment-eligibility:
+    post:
+      summary: Add a New Payment Eligibility Requirement
+      operationId: createPaymentEligibilityRequirement
+      x-speakeasy-name-override: create
+      tags:
+      - Document Signing and Eligibility
+      description: Define a new payment eligibility requirement for collaborators in the system.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentEligibility'
+      responses:
+        '200':
+          description: See payment eligibility requirements on member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentEligibility'
+    get:
+      summary: Retrieve All Payment Eligibility Requirements
+      operationId: listPaymentEligibilityRequirements
+      x-speakeasy-name-override: list_payment
+      tags:
+      - Document Signing and Eligibility
+      description: Obtain a list of all payment eligibility requirements configured for collaborators.
+      responses:
+        '200':
+          description: See payment eligibility requirements on member
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PaymentEligibility'
+  /payments/collaborator-settings/payment-eligibility/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve details of a specific Payment Eligibility Requirement
+      operationId: getPaymentEligibilityRequirement
+      x-speakeasy-name-override: get_payment
+      tags:
+      - Document Signing and Eligibility
+      description: Fetch detailed information about a particular payment eligibility requirement using its unique identifier.
+      responses:
+        '200':
+          description: See payment eligibility requirements on member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentEligibility'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify a specific Payment Eligibility Requirement
+      operationId: updatePaymentEligibilityRequirement
+      x-speakeasy-name-override: update_payment
+      tags:
+      - Document Signing and Eligibility
+      description: Update attributes or criteria of an existing payment eligibility requirement using its unique identifier.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentEligibilityUpdateRequest'
+      responses:
+        '200':
+          description: See payment eligibility requirements on member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentEligibility'
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Remove a specific Payment Eligibility Requirement
+      operationId: deletePaymentEligibilityRequirement
+      x-speakeasy-name-override: delete_payment
+      tags:
+      - Document Signing and Eligibility
+      description: Delete an existing payment eligibility requirement based on its unique identifier, removing associated criteria for a member's payment eligibility.
+      responses:
+        '200':
+          description: See payment eligibility requirements on member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentEligibility'
+  /payments/collaborator-group/{id}/eligibility-requirement/{eligibilityRequirementId}:
+    delete:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: eligibilityRequirementId
+        description: Unique eligibility Requirement Id
+        schema:
+          type: string
+      summary: Remove Eligibility Requirement from Collaborator Group
+      operationId: deleteEligibilityRequirementCollaboratorGroup
+      x-speakeasy-name-override: delete_collaborator_group
+      tags:
+      - Document Signing and Eligibility
+      description: Delete a specific eligibility requirement from the designated collaborator group.
+      responses:
+        '200':
+          description: Collaborator Configuration Per Group
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorGroupResponse'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: eligibilityRequirementId
+        description: Unique eligibility Requirement Id
+        schema:
+          type: string
+      summary: Modify Eligibility Requirement for Collaborator Group
+      operationId: updateEligibilityRequirementCollaboratorGroup
+      x-speakeasy-name-override: update_collaborator_group
+      tags:
+      - Document Signing and Eligibility
+      description: Update details or attributes of a specific eligibility requirement linked to a collaborator group.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollaboratorGroupRequirementUpdate'
+      responses:
+        '200':
+          description: Collaborator Configuration Per Group
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorGroupResponse'
+  /payments/collaborator-group/{id}:
+    get:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Retrieve Specific Collaborator Group Configuration
+      operationId: getCollaboratorGroupConfiguration
+      x-speakeasy-name-override: get_group_configuration
+      tags:
+      - Document Signing and Eligibility
+      description: Fetch detailed configuration and attributes associated with a specific collaborator group.
+      responses:
+        '200':
+          description: Collaborator Configuration Per Group
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorGroupResponse'
+    patch:
+      parameters:
+      - in: path
+        required: true
+        name: id
+        description: Unique identifier
+        schema:
+          type: string
+      summary: Modify Collaborator Group Configuration
+      operationId: updateCollaboratorGroupConfiguration
+      x-speakeasy-name-override: update_group_configuration
+      tags:
+      - Document Signing and Eligibility
+      description: Update specific attributes or configuration details of an existing collaborator group.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollaboratorGroupUpdateRequest'
+      responses:
+        '200':
+          description: Collaborator Configuration Per Group
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorGroupResponse'
+components:
+  schemas:
+    EligibilityRequirementUpdateRequest:
+      type: object
+      properties:
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - requirementType
+    CollaboratorGroupRequirementUpdate:
+      type: object
+      properties:
+        newEligibilityRequirementId:
+          type: string
+      required:
+      - newEligibilityRequirementId
+    CollaboratorGroupResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        collaboratorGroupId:
+          type: string
+        defaultGroup:
+          type: boolean
+        description:
+          type: string
+        name:
+          type: string
+        collaboratorSettings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/EligibilityRequirement'
+      required:
+      - clientId
+      - collaboratorGroupId
+      - defaultGroup
+      - description
+      - name
+    CollaboratorGroupRequirement:
+      type: object
+      properties:
+        eligibilityRequirementId:
+          type:
+          - string
+          - 'null'
+    EligibilityRequirement:
+      type: object
+      properties:
+        clientId:
+          type: string
+        eligibilityRequirementId:
+          type: string
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - clientId
+      - eligibilityRequirementId
+      - requirementType
+    CollaboratorGroupUpdateRequest:
+      type: object
+      properties:
+        collaboratorSettings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        description:
+          type:
+          - string
+          - 'null'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CollaboratorGroupRequirement'
+        name:
+          type:
+          - string
+          - 'null'
+    PaymentEligibilityUpdateRequest:
+      type: object
+      properties:
+        field:
+          type:
+          - string
+          - 'null'
+        value:
+          oneOf:
+          - type: 'null'
+          - type: object
+    EligibilityRequirementCreateRequest:
+      type: object
+      properties:
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - requirementType
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    PaymentEligibility:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: string
+      required:
+      - field
+      - value
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true
