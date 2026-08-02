@@ -1,0 +1,533 @@
+{
+  "info": {
+    "_postman_id": "bd3e9e5c-6229-426d-89d6-b9e6e01dc461",
+    "name": "Wingspan Payments 1099 Operations Custom Field Management API",
+    "description": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:31:21.000Z",
+    "updatedAt": "2026-07-28T03:31:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bd3e9e5c-6229-426d-89d6-b9e6e01dc461"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "custom-fields",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Fetch Details of a Specific Custom Field",
+                  "id": "9d7c4308-4ad8-488c-aa43-e2f3d2958aa3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/custom-fields/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "custom-fields",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "413c3ec3-30c1-48a5-83be-b86acbc62393",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve detailed information for a custom field based on its unique identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "31a566ab-6504-4944-9ade-d27195797fd8",
+                      "name": "Custom fields that are set on resource",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/custom-fields/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "custom-fields",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                      "createdAt": "2026-07-28T03:31:21.000Z",
+                      "updatedAt": "2026-07-28T03:31:21.000Z",
+                      "uid": "35240-31a566ab-6504-4944-9ade-d27195797fd8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:21.000Z",
+                  "updatedAt": "2026-07-28T03:31:21.000Z",
+                  "uid": "35240-9d7c4308-4ad8-488c-aa43-e2f3d2958aa3"
+                },
+                {
+                  "name": "Modify Details of a Specific Custom Field",
+                  "id": "a74b7aa3-83ab-4a5b-abef-28cc04c14981",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"required\": \"<boolean,null>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/custom-fields/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "custom-fields",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fdf00a23-6fc2-4735-a8d9-cbcaafced6c7",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Update specific attributes or data for an existing custom field."
+                  },
+                  "response": [
+                    {
+                      "id": "59d1cb43-ed29-4677-8c5b-e23ec99c525a",
+                      "name": "Custom fields that are set on resource",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"required\": \"<boolean,null>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": null\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/custom-fields/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "custom-fields",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                      "createdAt": "2026-07-28T03:31:21.000Z",
+                      "updatedAt": "2026-07-28T03:31:21.000Z",
+                      "uid": "35240-59d1cb43-ed29-4677-8c5b-e23ec99c525a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:21.000Z",
+                  "updatedAt": "2026-07-28T03:31:21.000Z",
+                  "uid": "35240-a74b7aa3-83ab-4a5b-abef-28cc04c14981"
+                },
+                {
+                  "name": "Remove a Specific Custom Field",
+                  "id": "67a88692-e4c0-4d26-af33-8bfb4b2867bc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/custom-fields/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "custom-fields",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6c3eb142-69ae-462d-b9e7-6345d003de11",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Permanently delete a custom field from the system based on its unique identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "6f74990a-a95a-4b9a-a2be-48efe2225da8",
+                      "name": "Custom fields that are set on resource",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/custom-fields/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "custom-fields",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                      "createdAt": "2026-07-28T03:31:21.000Z",
+                      "updatedAt": "2026-07-28T03:31:21.000Z",
+                      "uid": "35240-6f74990a-a95a-4b9a-a2be-48efe2225da8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:21.000Z",
+                  "updatedAt": "2026-07-28T03:31:21.000Z",
+                  "uid": "35240-67a88692-e4c0-4d26-af33-8bfb4b2867bc"
+                }
+              ],
+              "id": "5400ad8a-7eea-408f-ae96-87fac4457c7c",
+              "createdAt": "2026-07-28T03:31:21.000Z",
+              "updatedAt": "2026-07-28T03:31:21.000Z",
+              "uid": "35240-5400ad8a-7eea-408f-ae96-87fac4457c7c"
+            },
+            {
+              "name": "Add a New Custom Field",
+              "id": "4a6086fd-d6a2-49ff-b365-dd6ace9ba095",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"String\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments/custom-fields",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "custom-fields"
+                  ]
+                },
+                "description": "Define a new custom field for payments using additional data provided."
+              },
+              "response": [
+                {
+                  "id": "0eaea024-b7c4-435f-be35-bea05c7e96b9",
+                  "name": "Custom fields that are set on resource",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"String\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/custom-fields",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "custom-fields"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                  "createdAt": "2026-07-28T03:31:21.000Z",
+                  "updatedAt": "2026-07-28T03:31:21.000Z",
+                  "uid": "35240-0eaea024-b7c4-435f-be35-bea05c7e96b9"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:21.000Z",
+              "updatedAt": "2026-07-28T03:31:21.000Z",
+              "uid": "35240-4a6086fd-d6a2-49ff-b365-dd6ace9ba095"
+            },
+            {
+              "name": "Retrieve All Custom Fields",
+              "id": "bd9bb8a0-ca1b-44e8-acde-c0fd4f1e4787",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/custom-fields",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "custom-fields"
+                  ]
+                },
+                "description": "Obtain a list of all user-defined custom fields associated with payments."
+              },
+              "response": [
+                {
+                  "id": "79d38972-4324-4011-b7c9-ebe541a93a8e",
+                  "name": "A list of user defined custom fields",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/custom-fields",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "custom-fields"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"key\": \"<string>\",\n    \"name\": \"<string>\",\n    \"required\": \"<boolean>\",\n    \"resourceType\": \"LineItem\",\n    \"type\": \"Boolean\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"key\": \"<string>\",\n    \"name\": \"<string>\",\n    \"required\": \"<boolean>\",\n    \"resourceType\": \"LineItem\",\n    \"type\": \"Boolean\"\n  }\n]",
+                  "createdAt": "2026-07-28T03:31:21.000Z",
+                  "updatedAt": "2026-07-28T03:31:21.000Z",
+                  "uid": "35240-79d38972-4324-4011-b7c9-ebe541a93a8e"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:21.000Z",
+              "updatedAt": "2026-07-28T03:31:21.000Z",
+              "uid": "35240-bd9bb8a0-ca1b-44e8-acde-c0fd4f1e4787"
+            }
+          ],
+          "id": "edf7935e-b49b-4f7c-900d-bfcfd2ea47c0",
+          "createdAt": "2026-07-28T03:31:21.000Z",
+          "updatedAt": "2026-07-28T03:31:21.000Z",
+          "uid": "35240-edf7935e-b49b-4f7c-900d-bfcfd2ea47c0"
+        }
+      ],
+      "id": "2f08ea82-ba29-42a0-b616-423fda4a7aa7",
+      "createdAt": "2026-07-28T03:31:21.000Z",
+      "updatedAt": "2026-07-28T03:31:21.000Z",
+      "uid": "35240-2f08ea82-ba29-42a0-b616-423fda4a7aa7"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wingspan.app"
+    }
+  ]
+}

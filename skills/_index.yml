@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: generated
+notes: >-
+  Generated Agent Skills for the marquee Wingspan Payments API flows, grounded in
+  operationIds verified against openapi/wingspan-payments-openapi-original.yml and the
+  captured conventions/errors/rate-limits artifacts. No provider-published skills or
+  AGENTS.md were found in the docs or the wingspanHQ GitHub org as of 2026-07-21.
+skills:
+  - file: wingspan-invite-and-pay-contractor.md
+    name: Invite and pay a contractor with Wingspan
+    api: openapi/wingspan-payments-openapi-original.yml
+    operations: [createCollaborator, getCollaborator, createPayable, getPayable, getApprovedPayables, executeApprovedPayrollTransaction]
+  - file: wingspan-bulk-payables-batch.md
+    name: Bulk-import payables with batches
+    api: openapi/wingspan-payments-openapi-original.yml
+    operations: [createPayableBatch, createPayableBatchItem, listPayableBatchItems, getPayableBatch, updatePayableBatch]
+  - file: wingspan-1099-tax-forms.md
+    name: Manage 1099 tax forms for contractors
+    api: openapi/wingspan-payments-openapi-original.yml
+    operations: [calculate1099Amounts, list1099TaxForms, create1099TaxForm, getTaxForm, updateTaxForm, getForm1099PDF, remail1099Form, request1099InviteEmail]

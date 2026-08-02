@@ -1,0 +1,42 @@
+{
+  "provider": "wingspan",
+  "sources": [
+    "wingspan-1099-operations-api-openapi.yml",
+    "wingspan-banking-management-api-openapi.yml",
+    "wingspan-bulk-operations-api-openapi.yml",
+    "wingspan-client-management-api-openapi.yml",
+    "wingspan-collaborator-management-api-openapi.yml",
+    "wingspan-custom-field-management-api-openapi.yml",
+    "wingspan-deprecated-api-openapi.yml",
+    "wingspan-document-signing-and-eligibility-api-openapi.yml",
+    "wingspan-invoice-management-api-openapi.yml",
+    "wingspan-merchant-category-codes-api-openapi.yml",
+    "wingspan-payables-management-api-openapi.yml",
+    "wingspan-payroll-settings-api-openapi.yml",
+    "wingspan-reporting-and-analytics-api-openapi.yml",
+    "wingspan-service-settings-api-openapi.yml",
+    "wingspan-wingspan-wallet-api-openapi.yml"
+  ],
+  "outputs": [
+    "wingspan-1099-operations-api-openapi.yml",
+    "wingspan-banking-management-api-openapi.yml",
+    "wingspan-bulk-operations-api-openapi.yml",
+    "wingspan-client-management-api-openapi.yml",
+    "wingspan-collaborator-management-api-openapi.yml",
+    "wingspan-custom-field-management-api-openapi.yml",
+    "wingspan-deprecated-api-openapi.yml",
+    "wingspan-document-signing-and-eligibility-api-openapi.yml",
+    "wingspan-invoice-management-api-openapi.yml",
+    "wingspan-merchant-category-codes-api-openapi.yml",
+    "wingspan-payables-management-api-openapi.yml",
+    "wingspan-payroll-settings-api-openapi.yml",
+    "wingspan-reporting-and-analytics-api-openapi.yml",
+    "wingspan-service-settings-api-openapi.yml",
+    "wingspan-wingspan-wallet-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

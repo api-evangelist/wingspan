@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.wingspan.app/docs/get-started-with-the-wingspan-api
+format: json-error-envelope
+notes: >-
+  The published Wingspan Payments OpenAPI does not declare per-operation 4xx/5xx
+  response bodies, so this catalog is assembled from the documented HTTP
+  behaviors and error envelope in the API guides. The error envelope is a flat
+  JSON object of shape {"error": "<message>"}. Standard HTTP status codes are
+  used across the resource-oriented REST API.
+envelope:
+  shape: '{"error": "string"}'
+  content_type: application/json
+problems:
+  - status: 401
+    title: Unauthorized
+    meaning: Missing or malformed Authorization header / invalid bearer token.
+    remediation: 'Send a valid `Authorization: Bearer <API Token>` header.'
+  - status: 403
+    title: Session expired
+    example: '{"error":"Session expired"}'
+    meaning: Bearer token is expired or invalid.
+    remediation: Regenerate the API token on the Developer page in the Wingspan web app.
+  - status: 404
+    title: Not found
+    meaning: The requested resource (by id) does not exist.
+  - status: 429
+    title: Too many requests
+    meaning: Rate limit exceeded (200 req/s reads, 100 req/s writes).
+    remediation: Retry with jittered exponential backoff; stagger/queue requests.
+    source: https://docs.wingspan.app/docs/api-rate-limiting
+  - status: 500
+    title: Internal server error
+    meaning: Unexpected server-side error.

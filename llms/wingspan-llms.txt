@@ -1,0 +1,200 @@
+# Wingspan Documentation
+
+> Documentation for Wingspan
+
+## Guides
+- [Wingspan overview](https://docs.wingspan.app/docs/wingspan-overview.md): Wingspan is a payroll platform built specifically for independent contractors.
+- [How it works](https://docs.wingspan.app/docs/the-wingspan-advantage.md): Wingspan works best when contractors and enterprises work together.
+- [Wingspan concepts](https://docs.wingspan.app/docs/wingspan-concepts.md)
+- [Terminology Update (February 2026)](https://docs.wingspan.app/docs/terminology-update-february-2026.md): We've updated Engagements terminology in Wingspan.
+- [Environments & authentication](https://docs.wingspan.app/docs/get-started-with-the-wingspan-api.md): To ensure the best accessibility across platforms, Wingspan built its REST API with OpenAPI specification version 3.0.0.
+- [Glossary](https://docs.wingspan.app/docs/glossary.md)
+- [Webhooks](https://docs.wingspan.app/docs/configure-a-webhook-for-payment-events-in-wingspan.md)
+- [Filtering with query parameters](https://docs.wingspan.app/docs/use-url-query-parameters-with-wingspan-apis.md)
+- [Custom fields in Wingspan](https://docs.wingspan.app/docs/custom-fields-in-wingspan.md)
+- [API Rate Limiting](https://docs.wingspan.app/docs/api-rate-limiting.md)
+- [Invite and Pay a Contractor with Wingspan](https://docs.wingspan.app/docs/invite-and-pay-a-contractor-with-wingspan.md): Learn how to create and pay your first contractor
+- [Add Collaborators to Collaborator Groups](https://docs.wingspan.app/docs/add-collaborators-to-collaborator-groups.md)
+- [Create a Collaborator Group](https://docs.wingspan.app/docs/create-a-collaborator-group.md)
+- [Assign an existing Collaborator to a Collaborator Group](https://docs.wingspan.app/docs/assign-an-existing-collaborator-to-a-collaborator-group.md)
+- [Invite a contractor and add them to a Collaborator group](https://docs.wingspan.app/docs/invite-a-contractor-and-add-them-to-a-collaborator-group.md)
+- [Payables](https://docs.wingspan.app/docs/configuring-payables.md): Understanding Payers, Payees, and Transactions in Wingspan
+- [Migrate your project to Wingspan](https://docs.wingspan.app/docs/manage-your-project-to-wingspan.md): The business world is as varied as it is volatile and no one solution can fit all needs. However, with Wingspan, you can seamlessly onboard new contractors, manage existing ones, and integrate your accounting and payroll infrastructure to facilitate payments.
+- [Components of a Payable](https://docs.wingspan.app/docs/components-of-a-payable.md)
+- [Payer to Payee payment lifecycle](https://docs.wingspan.app/docs/payer-to-payee-payment-lifecycle.md)
+- [Processing Payables](https://docs.wingspan.app/docs/processing-payables.md)
+- [Create and process a single Payable](https://docs.wingspan.app/docs/create-and-run-a-single-payable.md)
+- [Create and process a bulk Payable](https://docs.wingspan.app/docs/create-and-process-a-bulk-payable.md)
+- [Update a line item in a bulk Payable](https://docs.wingspan.app/docs/update-a-line-item-in-a-bulk-payable.md)
+- [Configure payroll funding](https://docs.wingspan.app/docs/configure-payroll-funding.md)
+- [Change Payout or Payment methods](https://docs.wingspan.app/docs/change-payout-or-payment-methods.md)
+- [Payroll settings](https://docs.wingspan.app/docs/payroll-settings.md)
+- [Locate incomplete Payables](https://docs.wingspan.app/docs/locate-incomplete-payables.md)
+- [Issue a refund](https://docs.wingspan.app/docs/issue-a-refund.md)
+- [Understanding Payables & Payroll Schedule](https://docs.wingspan.app/docs/understanding-payables-payroll-schedule.md): Understanding the key payables terminology and payroll scheduling in Wingspan.
+- [Understanding payable statuses in Wingspan's UI](https://docs.wingspan.app/docs/understanding-payable-statuses-in-wingspan-ui.md): This guide explains the different statuses that your payables (invoices) can have, what each status means, and what conditions lead to them. Understanding these statuses will help you manage payments to your contractors effectively.
+- [Document requirements in Wingspan](https://docs.wingspan.app/docs/document-requirements-in-wingspan.md)
+- [Manage document requirements with the API](https://docs.wingspan.app/docs/manage-document-requirements-with-the-api.md)
+- [Manage document requirements in Wingspan app](https://docs.wingspan.app/docs/manage-document-requirements-in-wingspan-app.md)
+- [Work Logging & Rate Calculation](https://docs.wingspan.app/docs/work-logging-rate-calculation-api-guide.md): The Wingspan Work Logging API transforms how businesses track and pay for contractor work. Instead of wrestling with spreadsheets, manual calculations, and error-prone processes, you can define structured work types, automate complex rate calculations, and seamlessly convert tracked work into invoices.
+- [Payers Submitting Work Logs/Converting to Payables](https://docs.wingspan.app/docs/payers-submitting-work-logsconverting-to-payables.md)
+- [Invoices](https://docs.wingspan.app/docs/invoices-in-wingspan.md)
+- [Invoice components](https://docs.wingspan.app/docs/invoice-components.md)
+- [Invoice process flow](https://docs.wingspan.app/docs/invoice-process-flow.md): A note should be added on when and how an invoice can be updated
+- [Invoice features and functionality in Wingspan](https://docs.wingspan.app/docs/invoice-features-and-functionality-in-wingspan.md)
+- [Create an invoice in Wingspan](https://docs.wingspan.app/docs/create-an-invoice-in-wingspan.md)
+- [Create an invoice with the API](https://docs.wingspan.app/docs/create-an-invoice-with-the-api.md)
+- [1099 Tax Filing Overview for 2025](https://docs.wingspan.app/docs/1099-tax-filing-overview.md): Use Wingspan’s 1099 filing to create, file, and deliver Form 1099-NEC and Form 1099-MISC (Box 6: Medical and health care payments) for your contractor accounts.
+- [1. Guidelines for a Successful 1099 Season](https://docs.wingspan.app/docs/guidelines-1099-season.md): Helpful tips and recommendations for payers filing 1099 forms with Wingspan.
+- [Communication Timeline & Guide](https://docs.wingspan.app/docs/communication-guide.md): Review Wingspan’s communication to your contractors, and additional recommended communication Wingspan recommends you send.
+- [Contractors FAQs Template](https://docs.wingspan.app/docs/contractor-faqs-template.md): Frequently asked questions from contractors you can publish in your own help documentation.
+- [Contractor Experience Walkthrough](https://docs.wingspan.app/docs/contractor-experience-walkthrough.md): Review the user experience your contractors will go through to verify their tax information and access their 1099s.
+- [Payer Responsibilities & Support Ownership](https://docs.wingspan.app/docs/responsibilities-support.md): Describes the types of questions handled by Wingspan support, and what will be escalated to your team.
+- [Limitations of Tax Filing Support at Wingspan](https://docs.wingspan.app/docs/limitations-of-wingspan-filing-service.md): Describes the limitations of Wingspan's 1099 filing service and experience.
+- [Other Payer FAQs](https://docs.wingspan.app/docs/payer-faqs.md): Answers to other frequently asked questions from 1099 filers / payers.
+- [What’s New for 2025](https://docs.wingspan.app/docs/whats-new-for-2025.md): Updates to Wingspan Tax Filing and Contractor Management
+- [2. Preparing for 1099 Filing](https://docs.wingspan.app/docs/preparing-for-1099-filing.md): Step-by-step walkthroughs in preparation for 1099 filing.
+- [Set Up 1099 Filing](https://docs.wingspan.app/docs/setup-1099-filing.md): Configure Wingspan to collect contractor details, choose 1099-NEC or 1099-MISC (Box 6), and prepare payment data ahead of the 2025 filing season.
+- [Bulk Uploading Contractors into Wingspan](https://docs.wingspan.app/docs/bulk-uploading-contractors-into-wingspan.md): How to upload new contractors to Wingspan to confirm their tax information so they can receive a 1099.
+- [Bulk Uploading Off-platform Payments](https://docs.wingspan.app/docs/bulk-uploading-off-platform-payments.md): Include payments made outside of Wingspan so they count toward your 1099-NEC or 1099-MISC (Box 6) totals.
+- [Add Individual Contractors](https://docs.wingspan.app/docs/add-individual-contractors.md): How to individually add new contractors so they can receive 1099 forms.
+- [Team Permissions for 1099 Management](https://docs.wingspan.app/docs/team-permissions-for-1099-management.md): Guidelines for Team Collaboration and Data Access in Wingspan's 1099 Management
+- [3. Generating & Managing Tax Forms](https://docs.wingspan.app/docs/generating-managing-tax-forms.md): Step-by-step walkthroughs to generate and manage tax forms.
+- [Generating 1099s](https://docs.wingspan.app/docs/generating-1099-amounts-statuses.md): How to generate, track, and manage 1099 tax forms in Wingspan, including prerequisites, filing statuses, sync options, payment tracking, and form history management.
+- [Understanding 1099 Statuses](https://docs.wingspan.app/docs/understanding-1099-statuses-2025.md): Understanding the key statuses, eligibility requirements, and action criteria for 1099 processing in Wingspan.
+- [Contractor Information for 1099 Forms](https://docs.wingspan.app/docs/recipient-information-determination-logic-for-1099-forms-2025.md): The logic Wingspan uses to determine what contractor information will appear on the Form 1099.
+- [Updating Tax Forms](https://docs.wingspan.app/docs/updating-tax-forms-2025.md): A comprehensive overview of how to update 1099 forms within Wingspan
+- [Split Tax Forms](https://docs.wingspan.app/docs/split-tax-forms.md): An overview of how to split a single 1099 into separate forms in Wingspan for mid-year changes in TIN.
+- [4. Filing 1099s and Corrections](https://docs.wingspan.app/docs/filing-1099s-and-corrections.md): Step-by-step walkthroughs to file 1099s and manage corrections.
+- [File & Deliver Your 1099s](https://docs.wingspan.app/docs/file-deliver-1099s.md): File 1099-NEC or 1099-MISC (Box 6) forms with federal and state authorities and deliver copies to your contractors with Wingspan.
+- [Correct Tax Forms](https://docs.wingspan.app/docs/correct-tax-forms-2025.md): How to correct 1099 forms after filing
+- [State Filing](https://docs.wingspan.app/docs/state-filing.md): Learn how Wingspan handles state-level 1099 filings, including supported jurisdictions, filing determination rules, and comprehensive state-by-state requirements for the 2025 tax year.
+- [Canadian T4-A Filing Overview for 2025](https://docs.wingspan.app/docs/canadian-t4-a-filing-overview.md): This article explains how Canadian T4A slips are generated and distributed through Wingspan, covering payer and contractor responsibilities, CRA deadlines, and how to access T4A PDFs and XML files.
+- [Organizations](https://docs.wingspan.app/docs/organization-overview.md): With Wingspan Organizations you can create additional Wingspan User Accounts that match your organization's structure.
+- [Organization Account Integration and Customization Guide](https://docs.wingspan.app/docs/create-an-organization-child-account.md): Step‐by‐step reference for creating and managing organization child accounts and customizing their settings. It covers the entire workflow—from creating a child account and associating it into your organization’s hierarchy to leveraging inheritance, managing sessions via impersonation, and updating customization settings.
+- [Embed Wingspan Into Your App](https://docs.wingspan.app/docs/embed-wingspan-into-your-app.md): Easily onboard contractors with our pre-built onboarding & settings UIs.
+- [Applicant Tracking Systems](https://docs.wingspan.app/docs/applicant-tracking-system-ats-and-customer-relationship-management-crm-integration-guide.md): Applicant Tracking System (ATS) and Customer Relationship Management (CRM) Integration Guide
+- [HCM and Payroll Platforms](https://docs.wingspan.app/docs/hcm-and-payroll-platforms.md): Integrating with Wingspan’s API: A Guide for HCM and Payroll Platforms
+- [Gig Marketplace Companies](https://docs.wingspan.app/docs/gig-economy.md): Integrating with Wingspan’s API: A Guide for Gig Marketplace Companies
+- [QuickBooks Online](https://docs.wingspan.app/docs/quickbooks.md)
+- [Spend Management Platforms](https://docs.wingspan.app/docs/spend-management-platforms.md): Integrating with Wingspan’s API: A Guide for Spend Management Platforms
+- [API Error Dictionary](https://docs.wingspan.app/docs/error-management-guide-1.md): This guide covers the error codes and common error messages you may encounter when integrating with the Wingspan API, along with recommended solutions.
+
+## API Reference
+- [Retrieve Summary of All Payables](https://docs.wingspan.app/reference/get_payments-summary-payables.md): This endpoint provides a comprehensive summary of all the payables, offering insights into the current state of pending and completed payments. Ideal for clients and financial departments looking for a snapshot view of their payment obligations.
+- [Retrieve Approved Payables Ready for Immediate Payroll](https://docs.wingspan.app/reference/get_payments-payroll-immediate-payable.md): Fetches all payables that have been approved and are awaiting immediate payroll processing. This provides a quick view of all payments that are due for immediate payroll execution.
+- [List All Payables Associated with a Client](https://docs.wingspan.app/reference/get_payments-payable.md): Provides an list of all Payables associated with a specific client, facilitating easier management and overview of the client's financial obligations.
+- [Create a New Payable for a Member on Behalf of a Client](https://docs.wingspan.app/reference/post_payments-payable.md): Allows for the generation of a new Payables for a specific member on behalf of a client. This ensures streamlined billing and effective financial tracking between clients and members.
+- [Retrieve Payable Details by Payable ID](https://docs.wingspan.app/reference/get_payments-payable-id.md): This API endpoint is designed to fetch the detailed Payable information of a member using a unique Payable ID.
+- [Update Client Payable Information by Payable ID](https://docs.wingspan.app/reference/patch_payments-payable-id.md): This API endpoint facilitates the updating of existing payable details related to a client using a unique Payable ID.
+- [Delete Client Payable by Payable ID](https://docs.wingspan.app/reference/delete_payments-payable-id.md): This API endpoint is designed to remove the payable information related to a client using a unique Payable ID.
+- [Execute Approved Payroll Transactions](https://docs.wingspan.app/reference/post_payments-pay-approved.md): Processes all approved payroll transactions, ensuring employees and vendors are compensated as per their respective invoices.
+- [Retrieve Summary of All Payables](https://docs.wingspan.app/reference/get_payments-summary-payables-1.md): This endpoint provides a comprehensive summary of all the payables, offering insights into the current state of pending and completed payments. Ideal for clients and financial departments looking for a snapshot view of their payment obligations.
+- [Retrieve Approved Payables Ready for Immediate Payroll](https://docs.wingspan.app/reference/get_payments-payroll-immediate-payable-1.md): Fetches all payables that have been approved and are awaiting immediate payroll processing. This provides a quick view of all payments that are due for immediate payroll execution.
+- [List All Payables Associated with a Client](https://docs.wingspan.app/reference/get_payments-payable-1.md): Provides an list of all Payables associated with a specific client, facilitating easier management and overview of the client's financial obligations.
+- [Create a New Payable for a Member on Behalf of a Client](https://docs.wingspan.app/reference/post_payments-payable-1.md): Allows for the generation of a new Payables for a specific member on behalf of a client. This ensures streamlined billing and effective financial tracking between clients and members.
+- [Retrieve Payable Details by Payable ID](https://docs.wingspan.app/reference/get_payments-payable-id-1.md): This API endpoint is designed to fetch the detailed Payable information of a member using a unique Payable ID.
+- [Update Client Payable Information by Payable ID](https://docs.wingspan.app/reference/patch_payments-payable-id-1.md): This API endpoint facilitates the updating of existing payable details related to a client using a unique Payable ID.
+- [Delete Client Payable by Payable ID](https://docs.wingspan.app/reference/delete_payments-payable-id-1.md): This API endpoint is designed to remove the payable information related to a client using a unique Payable ID.
+- [Execute Approved Payroll Transactions](https://docs.wingspan.app/reference/post_payments-pay-approved-1.md): Processes all approved payroll transactions, ensuring employees and vendors are compensated as per their respective invoices.
+- [Retrieve All Member Invoices](https://docs.wingspan.app/reference/get_payments-invoice.md): Fetch a complete list of invoices associated with members, providing a comprehensive overview of all member-related billing details.
+- [Initiate New Invoice for a Member](https://docs.wingspan.app/reference/post_payments-invoice.md): Facilitates the creation of a new invoice for a member using the provided invoice details. Useful for adding new billing records.
+- [Fetch Invoice by ID](https://docs.wingspan.app/reference/get_payments-invoice-id.md): Retrieve the specifics of an individual invoice associated with a member using its unique ID. Ideal for diving into invoice details.
+- [Modify Existing Invoice Details](https://docs.wingspan.app/reference/patch_payments-invoice-id.md): Allows updates to the details of an existing member invoice using its unique ID. Useful for making corrections or updates to billing records.
+- [Remove Invoice Record by ID](https://docs.wingspan.app/reference/delete_payments-invoice-id.md): Enables the deletion of a specific member's invoice using its unique ID, helping in maintaining accurate billing records.
+- [Retrieve All Invoices Generated by a Client](https://docs.wingspan.app/reference/get_payments-client-invoice.md): Fetch a comprehensive list of invoices that have been generated by a client, offering an overview of all client-related billing records.
+- [Generate a New Invoice on Behalf of the Client](https://docs.wingspan.app/reference/post_payments-client-invoice.md): Enables the creation of a new invoice on behalf of a client using the provided details, facilitating new billing records.
+- [Fetch Specific Client-Generated Invoice by ID](https://docs.wingspan.app/reference/get_payments-client-invoice-id.md): Retrieve detailed information of an individual invoice created by a client using its unique ID for in-depth billing analysis.
+- [Modify an Existing Client-Generated Invoice](https://docs.wingspan.app/reference/patch_payments-client-invoice-id.md): Allows for modifications to a client-generated invoice using its unique ID, ensuring billing details remain current and accurate.
+- [Execute Payment for a Client-Generated Invoice](https://docs.wingspan.app/reference/post_payments-client-invoice-invoice-id-pay.md): Process a payment for a specific client-generated invoice using the provided details, ensuring the invoice is marked as settled.
+- [Retrieve all available invoice templates](https://docs.wingspan.app/reference/get_payments-invoice-template.md): Fetches a comprehensive list of all invoice templates in the system.
+- [Create a new invoice template](https://docs.wingspan.app/reference/post_payments-invoice-template.md): Creates a new invoice template based on the provided details.
+- [Retrieve a specific invoice template by ID](https://docs.wingspan.app/reference/get_payments-invoice-template-id.md): Fetches details of the invoice template corresponding to the provided unique identifier.
+- [Modify details of an existing invoice template](https://docs.wingspan.app/reference/patch_payments-invoice-template-id.md): Updates details of the specified invoice template based on the provided information.
+- [Remove a specific invoice template](https://docs.wingspan.app/reference/delete_payments-invoice-template-id.md): Deletes the invoice template associated with the provided unique identifier.
+- [Retrieve all client-generated invoice templates](https://docs.wingspan.app/reference/get_payments-client-invoice-template.md): Fetches a comprehensive list of all invoice templates created by clients in the system.
+- [Create a new client-generated invoice template](https://docs.wingspan.app/reference/post_payments-client-invoice-template.md): Allows clients to create a new invoice template based on the provided details.
+- [Fetch a specific client-generated invoice template by ID](https://docs.wingspan.app/reference/get_payments-client-invoice-template-id.md): Provides details of the client-generated invoice template associated with the provided unique identifier.
+- [Modify a client-generated invoice template](https://docs.wingspan.app/reference/patch_payments-client-invoice-template-id.md): Updates the specified client-generated invoice template with the provided modifications.
+- [Generate a PDF for a specific invoice](https://docs.wingspan.app/reference/post_payments-invoice-invoice-id-generate.md): This endpoint allows for the dynamic generation of a PDF document for a given invoice, identified by its unique ID.
+- [Send an invoice by email](https://docs.wingspan.app/reference/post_payments-invoice-invoice-id-send.md): Use this endpoint to send an invoice by email using its unique ID for identification.
+- [Refund a deposited invoice](https://docs.wingspan.app/reference/post_payments-invoice-invoice-id-refund.md): Use this endpoint to refund a specific amount of a deposited invoice.
+- [Try to pay an invoice using the Client's autopay settings](https://docs.wingspan.app/reference/post_payments-invoice-invoice-id-pay.md): This endpoint can only be used on invoices generated from a template, and invokes the autopayment logic.
+- [Retrieve Fees Associated with a Client's Invoice](https://docs.wingspan.app/reference/get_payments-client-invoice-invoice-id-fees.md): Obtain a detailed breakdown of all the fees associated with a specific client's invoice, identified by its unique ID.
+- [Generate Test Invoice for a Client](https://docs.wingspan.app/reference/post_payments-invoice-test-create.md): Use this endpoint to create a test invoice for testing and validation purposes. This invoice will mimic a client's real invoice.
+- [Retrieve All Member Invoices](https://docs.wingspan.app/reference/get_payments-invoice-1.md): Fetch a complete list of invoices associated with members, providing a comprehensive overview of all member-related billing details.
+- [Initiate New Invoice for a Member](https://docs.wingspan.app/reference/post_payments-invoice-1.md): Facilitates the creation of a new invoice for a member using the provided invoice details. Useful for adding new billing records.
+- [Fetch Invoice by ID](https://docs.wingspan.app/reference/get_payments-invoice-id-1.md): Retrieve the specifics of an individual invoice associated with a member using its unique ID. Ideal for diving into invoice details.
+- [Modify Existing Invoice Details](https://docs.wingspan.app/reference/patch_payments-invoice-id-1.md): Allows updates to the details of an existing member invoice using its unique ID. Useful for making corrections or updates to billing records.
+- [Remove Invoice Record by ID](https://docs.wingspan.app/reference/delete_payments-invoice-id-1.md): Enables the deletion of a specific member's invoice using its unique ID, helping in maintaining accurate billing records.
+- [Retrieve All Invoices Generated by a Client](https://docs.wingspan.app/reference/get_payments-client-invoice-1.md): Fetch a comprehensive list of invoices that have been generated by a client, offering an overview of all client-related billing records.
+- [Generate a New Invoice on Behalf of the Client](https://docs.wingspan.app/reference/post_payments-client-invoice-1.md): Enables the creation of a new invoice on behalf of a client using the provided details, facilitating new billing records.
+- [Fetch Specific Client-Generated Invoice by ID](https://docs.wingspan.app/reference/get_payments-client-invoice-id-1.md): Retrieve detailed information of an individual invoice created by a client using its unique ID for in-depth billing analysis.
+- [Modify an Existing Client-Generated Invoice](https://docs.wingspan.app/reference/patch_payments-client-invoice-id-1.md): Allows for modifications to a client-generated invoice using its unique ID, ensuring billing details remain current and accurate.
+- [Execute Payment for a Client-Generated Invoice](https://docs.wingspan.app/reference/post_payments-client-invoice-invoice-id-pay-1.md): Process a payment for a specific client-generated invoice using the provided details, ensuring the invoice is marked as settled.
+- [Retrieve all available invoice templates](https://docs.wingspan.app/reference/get_payments-invoice-template-1.md): Fetches a comprehensive list of all invoice templates in the system.
+- [Create a new invoice template](https://docs.wingspan.app/reference/post_payments-invoice-template-1.md): Creates a new invoice template based on the provided details.
+- [Retrieve a specific invoice template by ID](https://docs.wingspan.app/reference/get_payments-invoice-template-id-1.md): Fetches details of the invoice template corresponding to the provided unique identifier.
+- [Modify details of an existing invoice template](https://docs.wingspan.app/reference/patch_payments-invoice-template-id-1.md): Updates details of the specified invoice template based on the provided information.
+- [Remove a specific invoice template](https://docs.wingspan.app/reference/delete_payments-invoice-template-id-1.md): Deletes the invoice template associated with the provided unique identifier.
+- [Retrieve all client-generated invoice templates](https://docs.wingspan.app/reference/get_payments-client-invoice-template-1.md): Fetches a comprehensive list of all invoice templates created by clients in the system.
+- [Create a new client-generated invoice template](https://docs.wingspan.app/reference/post_payments-client-invoice-template-1.md): Allows clients to create a new invoice template based on the provided details.
+- [Fetch a specific client-generated invoice template by ID](https://docs.wingspan.app/reference/get_payments-client-invoice-template-id-1.md): Provides details of the client-generated invoice template associated with the provided unique identifier.
+- [Modify a client-generated invoice template](https://docs.wingspan.app/reference/patch_payments-client-invoice-template-id-1.md): Updates the specified client-generated invoice template with the provided modifications.
+- [Generate a PDF for a specific invoice](https://docs.wingspan.app/reference/post_payments-invoice-invoice-id-generate-1.md): This endpoint allows for the dynamic generation of a PDF document for a given invoice, identified by its unique ID.
+- [Send an invoice by email](https://docs.wingspan.app/reference/post_payments-invoice-invoice-id-send-1.md): Use this endpoint to send an invoice by email using its unique ID for identification.
+- [Refund a deposited invoice](https://docs.wingspan.app/reference/post_payments-invoice-invoice-id-refund-1.md): Use this endpoint to refund a specific amount of a deposited invoice.
+- [Try to pay an invoice using the Client's autopay settings](https://docs.wingspan.app/reference/post_payments-invoice-invoice-id-pay-1.md): This endpoint can only be used on invoices generated from a template, and invokes the autopayment logic.
+- [Retrieve Fees Associated with a Client's Invoice](https://docs.wingspan.app/reference/get_payments-client-invoice-invoice-id-fees-1.md): Obtain a detailed breakdown of all the fees associated with a specific client's invoice, identified by its unique ID.
+- [Generate Test Invoice for a Client](https://docs.wingspan.app/reference/post_payments-invoice-test-create-1.md): Use this endpoint to create a test invoice for testing and validation purposes. This invoice will mimic a client's real invoice.
+- [Retrieve All Collaborator Groups](https://docs.wingspan.app/reference/get_payments-collaborator-group.md): Fetch a comprehensive list of all collaborator groups created by the client, showcasing configurations and member details.
+- [Generate New Collaborator Group](https://docs.wingspan.app/reference/post_payments-collaborator-group.md): Create a new collaborator group with specific configurations and permissions as defined by the client.
+- [Register a New Deduction for a Collaborator](https://docs.wingspan.app/reference/post_payments-collaborator-deduction.md): [Deprecated] Create and add a new deduction entry for a collaborator based on the provided data.
+- [Retrieve All Deductions for Collaborators](https://docs.wingspan.app/reference/get_payments-collaborator-deduction.md): [Deprecated] Fetch a list of all deduction entries currently registered for collaborators.
+- [Retrieve Specific Deduction Details](https://docs.wingspan.app/reference/get_payments-collaborator-deduction-id.md): [Deprecated] Fetch details of a specific deduction entry for a collaborator based on its unique identifier.
+- [Modify Details of a Specific Deduction](https://docs.wingspan.app/reference/patch_payments-collaborator-deduction-id.md): [Deprecated] Update attributes or data related to an existing deduction entry for a collaborator.
+- [Erase a Specific Deduction Entry](https://docs.wingspan.app/reference/delete_payments-collaborator-deduction-id.md): [Deprecated] Delete a specific deduction entry, eliminating its record from the system.
+- [Retrieve Events Associated with a Collaborator](https://docs.wingspan.app/reference/get_payments-collaborator-id-events.md): [Deprecated] Fetch a list of all events linked to a collaborator based on the provided collaborator ID.
+- [Retrieve Details of a Specific Collaborator](https://docs.wingspan.app/reference/get_payments-collaborator-id.md): [Deprecated] Fetch detailed information about a specific collaborator using its unique identifier.
+- [Modify Collaborator Details](https://docs.wingspan.app/reference/patch_payments-collaborator-id.md): [Deprecated] Update specific details or attributes related to an existing collaborator.
+- [Remove a Specific Collaborator Record](https://docs.wingspan.app/reference/delete_payments-collaborator-id.md): [Deprecated] Permanently delete the record of a specific collaborator from the system.
+- [Retrieve All Registered Collaborators](https://docs.wingspan.app/reference/get_payments-collaborator.md): [Deprecated] Fetch a comprehensive list of all collaborators currently registered in the system.
+- [Register a New Collaborator](https://docs.wingspan.app/reference/post_payments-collaborator.md): [Deprecated] Add a new collaborator to the system, allowing them to be eligible for payments.
+- [Associate Collaborator with a Specific Group](https://docs.wingspan.app/reference/patch_payments-collaborator-id-add-group-groupid.md): [Deprecated] Add the specified collaborator to the designated group, allowing group-specific configurations and permissions.
+- [Disassociate Collaborator from a Specific Group](https://docs.wingspan.app/reference/patch_payments-collaborator-id-remove-group-groupid.md): [Deprecated] Remove the collaborator from the designated group, revoking any group-specific configurations and permissions.
+- [Retrieve All Collaborators (Version 2)](https://docs.wingspan.app/reference/get_payments-v2-collaborator.md): [Deprecated] Fetches a comprehensive list of collaborators formatted in the V2 standard, providing an overview of all collaborator data.
+- [Retrieve Specific Collaborator Details (Version 2)](https://docs.wingspan.app/reference/get_payments-v2-collaborator-memberid.md): [Deprecated] Fetches detailed information of a specific collaborator, identified by the memberId, in the V2 format.
+- [Retrieve All Collaborator Groups](https://docs.wingspan.app/reference/get_payments-collaborator-group-1.md): Fetch a comprehensive list of all collaborator groups created by the client, showcasing configurations and member details.
+- [Generate New Collaborator Group](https://docs.wingspan.app/reference/post_payments-collaborator-group-1.md): Create a new collaborator group with specific configurations and permissions as defined by the client.
+- [Retrieve detailed information of a specific member-client relationship](https://docs.wingspan.app/reference/get_payments-memberclient-id.md): [Deprecated] Fetches comprehensive details of the association between a member and a client using the provided unique identifier.
+- [Register a New Client Deduction](https://docs.wingspan.app/reference/post_payments-client-deduction.md): Allows for the creation of a new client deduction based on the provided details.
+- [Update information of a specific member-client relationship](https://docs.wingspan.app/reference/patch_payments-memberclient-id.md): [Deprecated] Modifies details of the association between a member and a client based on the provided data.
+- [Retrieve All Client Deductions](https://docs.wingspan.app/reference/get_payments-client-deduction.md): Fetches a comprehensive list of all client deductions present in the system.
+- [Remove a specific member-client relationship from the system](https://docs.wingspan.app/reference/delete_payments-memberclient-id.md): [Deprecated] Deletes the association between a member and a client using the provided unique identifier. Once deleted, this relationship data can't be recovered.
+- [Fetch Specific Client Deduction Details](https://docs.wingspan.app/reference/get_payments-client-deduction-id.md): Provides detailed information for a client deduction based on its unique identifier.
+- [Modify a Client Deduction](https://docs.wingspan.app/reference/patch_payments-client-deduction-id.md): Allows for updating specific details or attributes of an existing client deduction.
+- [Remove a Client Deduction](https://docs.wingspan.app/reference/delete_payments-client-deduction-id.md): Allows for the deletion of a client deduction based on its unique identifier, removing it permanently from the system.
+- [Retrieve All Clients (Version 2)](https://docs.wingspan.app/reference/get_payments-v2-client.md): [Deprecated] Fetches a comprehensive list of clients formatted in the V2 standard, providing an overview of all client data.
+- [Retrieve Specific Client Details (Version 2)](https://docs.wingspan.app/reference/get_payments-v2-client-clientid.md): [Deprecated] Fetches detailed information of a specific client, identified by the clientId, in the V2 format.
+- [Register a New Client Deduction](https://docs.wingspan.app/reference/post_payments-client-deduction-1.md): Allows for the creation of a new client deduction based on the provided details.
+- [Retrieve All Client Deductions](https://docs.wingspan.app/reference/get_payments-client-deduction-1.md): Fetches a comprehensive list of all client deductions present in the system.
+- [Fetch Specific Client Deduction Details](https://docs.wingspan.app/reference/get_payments-client-deduction-id-1.md): Provides detailed information for a client deduction based on its unique identifier.
+- [Modify a Client Deduction](https://docs.wingspan.app/reference/patch_payments-client-deduction-id-1.md): Allows for updating specific details or attributes of an existing client deduction.
+- [Remove a Client Deduction](https://docs.wingspan.app/reference/delete_payments-client-deduction-id-1.md): Allows for the deletion of a client deduction based on its unique identifier, removing it permanently from the system.
+- [Retrieve All Bank Statements](https://docs.wingspan.app/reference/get_payments-banking-statement.md): Fetch a comprehensive list of all bank statements available in the system, providing an overview of financial transactions.
+- [Retrieve Specific Bank Statement](https://docs.wingspan.app/reference/get_payments-banking-statement-id.md): Fetch details of a specific bank statement using its unique identifier, providing a detailed view of its transactions.
+- [Download a specific bank statement as a PDF](https://docs.wingspan.app/reference/get_payments-banking-statement-id-download.md): Retrieve and download the specified bank statement in PDF format using the provided unique identifier.
+- [Deprecated Retrieve Instant Payout Information](https://docs.wingspan.app/reference/get_payments-banking-instant-payout.md): Fetch detailed information about the current status and details of instant payouts configured in the system.
+- [Fetch the application link for setting up a clearing bank account](https://docs.wingspan.app/reference/get_payments-service-banking-memberid-application.md): Get the application link required for a member to initiate the creation of a clearing bank account.
+- [Deprecated Remove Instant Payout Configuration](https://docs.wingspan.app/reference/delete_payments-banking-instant-payout.md): Delete the existing instant payout configuration, preventing any further instant payouts unless reconfigured.
+- [Retrieve banking institution details by its routing number](https://docs.wingspan.app/reference/get_payments-banking-institution-routingnumber.md): Fetches comprehensive information about a banking institution based on the provided routing number.
+- [Deprecated Set Up Instant Payout Configuration](https://docs.wingspan.app/reference/post_payments-banking-instant-payout.md): Configure a new instant payout setting, specifying details like amount, frequency, and destination.
+- [Fetch all registered payout debit cards for a member](https://docs.wingspan.app/reference/get_payments-payout-settings-memberid-debit-card.md): Retrieves a list of all debit cards linked to a member's profile for payout purposes.
+- [Register a new payout debit card for a member](https://docs.wingspan.app/reference/post_payments-payout-settings-memberid-debit-card.md): Allows the addition of a new debit card to a member's profile for payout transactions.
+- [Retrieve a specific payout debit card linked to a member](https://docs.wingspan.app/reference/get_payments-payout-settings-memberid-debit-card-id.md): Fetches detailed information of a specific debit card linked to a member's profile for payout purposes.
+- [Unlink and delete a specific payout debit card from a member's profile](https://docs.wingspan.app/reference/delete_payments-payout-settings-memberid-debit-card-id.md): Initiates a process to remove and permanently delete a specific debit card from a member's payout settings.
+- [Retrieve payout settings for a specific member](https://docs.wingspan.app/reference/get_payments-payout-settings-id.md): Fetches the payout configuration, including linked debit cards and payout preferences, for a specific member.
+- [Modify and update payout settings for a specific member](https://docs.wingspan.app/reference/patch_payments-payout-settings-id.md): Allows adjustments and updates to a member's payout configuration, including changing linked debit cards and adjusting payout preferences.
+- [Fetch all registered payout debit cards for a member](https://docs.wingspan.app/reference/get_payments-payout-settings-memberid-debit-card-1.md): Retrieves a list of all debit cards linked to a member's profile for payout purposes.
+- [Register a new payout debit card for a member](https://docs.wingspan.app/reference/post_payments-payout-settings-memberid-debit-card-1.md): Allows the addition of a new debit card to a member's profile for payout transactions.
+- [Retrieve a specific payout debit card linked to a member](https://docs.wingspan.app/reference/get_payments-payout-settings-memberid-debit-card-id-1.md): Fetches detailed information of a specific debit card linked to a member's profile for payout purposes.

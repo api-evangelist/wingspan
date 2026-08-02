@@ -1,0 +1,818 @@
+{
+  "info": {
+    "_postman_id": "5e50f349-dadd-4454-9839-38cd4f2c85e7",
+    "name": "Wingspan Payments 1099 Operations Payables Management API",
+    "description": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:31:27.000Z",
+    "updatedAt": "2026-07-28T03:31:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5e50f349-dadd-4454-9839-38cd4f2c85e7"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "summary",
+          "item": [
+            {
+              "name": "payables",
+              "item": [
+                {
+                  "name": "Retrieve Summary of All Payables",
+                  "id": "64a0b1b4-8208-424c-ae0e-5cac219a7a34",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/summary/payables",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "summary",
+                        "payables"
+                      ]
+                    },
+                    "description": "This endpoint provides a comprehensive summary of all the payables, offering insights into the current state of pending and completed payments. Ideal for clients and financial departments looking for a snapshot view of their payment obligations."
+                  },
+                  "response": [
+                    {
+                      "id": "8bcc3d76-18ae-4ae1-9566-5aac86d35d79",
+                      "name": "A payables summary, with current payables numbers",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/summary/payables",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "summary",
+                            "payables"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"invoicesApproved\": \"<number>\",\n  \"invoicesDraft\": \"<number>\",\n  \"invoicesOpen\": \"<number>\",\n  \"invoicesOverdue\": \"<number>\",\n  \"invoicesPaid\": \"<number>\",\n  \"invoicesPending\": \"<number>\",\n  \"memberId\": \"<string>\",\n  \"totalApproved\": \"<number>\",\n  \"totalOpen\": \"<number>\",\n  \"totalOverdue\": \"<number>\",\n  \"totalPaid\": \"<number>\"\n}",
+                      "createdAt": "2026-07-28T03:31:27.000Z",
+                      "updatedAt": "2026-07-28T03:31:27.000Z",
+                      "uid": "35240-8bcc3d76-18ae-4ae1-9566-5aac86d35d79"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:27.000Z",
+                  "updatedAt": "2026-07-28T03:31:27.000Z",
+                  "uid": "35240-64a0b1b4-8208-424c-ae0e-5cac219a7a34"
+                }
+              ],
+              "id": "6137638d-1a46-4103-8416-62083e837aa3",
+              "createdAt": "2026-07-28T03:31:27.000Z",
+              "updatedAt": "2026-07-28T03:31:27.000Z",
+              "uid": "35240-6137638d-1a46-4103-8416-62083e837aa3"
+            }
+          ],
+          "id": "19119889-dc4a-47de-8342-7a87dc91b4d3",
+          "createdAt": "2026-07-28T03:31:27.000Z",
+          "updatedAt": "2026-07-28T03:31:27.000Z",
+          "uid": "35240-19119889-dc4a-47de-8342-7a87dc91b4d3"
+        },
+        {
+          "name": "payroll",
+          "item": [
+            {
+              "name": "immediate",
+              "item": [
+                {
+                  "name": "payable",
+                  "item": [
+                    {
+                      "name": "Retrieve Approved Payables Ready for Immediate Payroll",
+                      "id": "b5510007-ed45-42ea-acd1-60413aa2d285",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/payroll/immediate/payable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "payroll",
+                            "immediate",
+                            "payable"
+                          ]
+                        },
+                        "description": "Fetches all payables that have been approved and are awaiting immediate payroll processing. This provides a quick view of all payments that are due for immediate payroll execution."
+                      },
+                      "response": [
+                        {
+                          "id": "317c0185-1b6f-4451-8dfb-afc559942a5d",
+                          "name": "A list of payables",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/payroll/immediate/payable",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "payroll",
+                                "immediate",
+                                "payable"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"amount\": \"<number>\",\n    \"attachments\": {\n      \"customAttachmentIds\": null,\n      \"customAttachmentInfo\": null,\n      \"invoiceLink\": \"<string,null>\",\n      \"invoicePdf\": \"<string,null>\",\n      \"receiptPdf\": \"<string,null>\"\n    },\n    \"client\": {\n      \"comment\": \"<string,null>\",\n      \"payDate\": \"<string,null>\",\n      \"workflowStatus\": null,\n      \"workflowSubStatus\": \"Submitted\"\n    },\n    \"clientId\": \"<string>\",\n    \"collaboratorId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"creditFeeHandling\": {\n      \"clientAbsolutePercentage\": \"<number,null>\",\n      \"clientPays\": \"<number,null>\",\n      \"memberPays\": \"<number,null>\"\n    },\n    \"currency\": \"CAD\",\n    \"dueDate\": \"<string>\",\n    \"eventActors\": {\n      \"dolor_3_\": \"<string>\",\n      \"adipisicingd7\": \"<string>\",\n      \"et_04\": \"<string>\"\n    },\n    \"events\": {\n      \"approvedAt\": \"<string,null>\",\n      \"cancelledAt\": \"<string,null>\",\n      \"clientDeclinedAt\": \"<string,null>\",\n      \"clientResolvedDisputeAt\": \"<string,null>\",\n      \"depositedAt\": \"<string,null>\",\n      \"depositedToPayoutPlatformAt\": \"<string,null>\",\n      \"disputedAt\": \"<string,null>\",\n      \"emailMarkedAsSpamAt\": \"<string,null>\",\n      \"emailReceivedAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"emailUndeliverableAt\": \"<string,null>\",\n      \"emailViewedAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"estimatedDepositAt\": \"<string,null>\",\n      \"instantPayoutAt\": \"<string,null>\",\n      \"instantPayoutEligibleAt\": \"<string,null>\",\n      \"instantPayoutFailedAt\": \"<string,null>\",\n      \"markedPaidAt\": \"<string,null>\",\n      \"memberAcceptedAt\": \"<string,null>\",\n      \"memberDisputedAt\": \"<string,null>\",\n      \"memberResubmittedAt\": \"<string,null>\",\n      \"openedAt\": \"<string,null>\",\n      \"paidAt\": \"<string,null>\",\n      \"payAfterAccountVerified\": \"<string,null>\",\n      \"paymentFailedAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"paymentInTransitAt\": \"<string,null>\",\n      \"paymentRetriedAt\": null,\n      \"payoutFailedAt\": \"<string,null>\",\n      \"preApprovedAt\": \"<string,null>\",\n      \"refundedAt\": \"<string,null>\",\n      \"sentAt\": \"<string,null>\",\n      \"sentDue3DaysAgoAt\": \"<string,null>\",\n      \"sentDue7DaysAgoAt\": \"<string,null>\",\n      \"sentDueIn3DaysAt\": \"<string,null>\",\n      \"sentDueTodayAt\": \"<string,null>\",\n      \"sentInstantPayoutFailedToMember\": \"<string,null>\",\n      \"sentManuallyAt\": null,\n      \"sentPaymentConfirmationToClient\": \"<string,null>\",\n      \"sentPaymentConfirmationToMember\": \"<string,null>\",\n      \"sentPaymentInTransitReminderAt\": \"<string,null>\",\n      \"sentPayoutMightBeDelayedToClient\": \"<string,null>\",\n      \"sentRecurringPaymentFailedAt\": \"<string,null>\"\n    },\n    \"integration\": {\n      \"quickbooks\": \"<null>\"\n    },\n    \"invoiceNotes\": \"<string>\",\n    \"invoiceNumber\": \"<string>\",\n    \"invoiceTemplateId\": \"<string>\",\n    \"labels\": {\n      \"sint_8\": \"<string>\",\n      \"mollit3f\": \"<string>\",\n      \"pariatur4_\": \"<string>\"\n    },\n    \"lateFeeHandling\": {\n      \"frequency\": {\n        \"startDate\": \"<string>\",\n        \"daily\": \"<boolean,null>\",\n        \"dayInInterval\": \"<number,null>\",\n        \"endDate\": \"<string,null>\",\n        \"every\": \"<number,null>\",\n        \"interval\": \"Month\",\n        \"twicePerMonth\": \"<boolean,null>\"\n      },\n      \"lateFeeAmount\": \"<number,null>\",\n      \"lateFeePercentage\": \"<number,null>\"\n    },\n    \"lineItems\": [\n      {\n        \"costPerUnit\": \"<number>\",\n        \"createdAt\": \"<string>\",\n        \"labels\": {\n          \"amet8\": \"<string>\",\n          \"labore_2b3\": \"<string>\",\n          \"Excepteur_cfc\": \"<string>\"\n        },\n        \"labelsBak2\": {\n          \"dolor_d\": \"<string>\",\n          \"minim_91\": \"<string>\"\n        },\n        \"quantity\": \"<number>\",\n        \"reimbursableExpense\": \"<boolean>\",\n        \"totalCost\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"description\": \"<string,null>\",\n        \"detail\": \"<string,null>\",\n        \"discount\": \"<null>\",\n        \"integration\": \"<null>\"\n      },\n      {\n        \"costPerUnit\": \"<number>\",\n        \"createdAt\": \"<string>\",\n        \"labels\": {\n          \"exercitation_d\": \"<string>\"\n        },\n        \"labelsBak2\": {\n          \"nostrudacb\": \"<string>\",\n          \"in_5f_\": \"<string>\"\n        },\n        \"quantity\": \"<number>\",\n        \"reimbursableExpense\": \"<boolean>\",\n        \"totalCost\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"description\": \"<string,null>\",\n        \"detail\": \"<string,null>\",\n        \"discount\": \"<null>\",\n        \"integration\": \"<null>\"\n      }\n    ],\n    \"member\": {\n      \"comment\": \"<string,null>\",\n      \"payoutPreferences\": \"ECheck\",\n      \"workflowStatus\": \"Disputed\",\n      \"workflowSubStatus\": null\n    },\n    \"memberAddress\": {\n      \"addressLine1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"addressLine2\": \"<string,null>\"\n    },\n    \"memberId\": \"<string>\",\n    \"notificationPreferences\": {\n      \"sendReminders\": \"<boolean>\",\n      \"sendInvoice\": \"<boolean,null>\",\n      \"sendReceipt\": \"<boolean,null>\"\n    },\n    \"payableId\": \"<string>\",\n    \"status\": \"PaymentInTransit\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"acceptedPaymentMethods\": [\n      null,\n      \"Manual\"\n    ],\n    \"accountId\": \"<string,null>\",\n    \"bankTransferInfo\": \"<null>\",\n    \"chargedFees\": \"<null>\",\n    \"internationalBankTransferInfo\": \"<null>\",\n    \"memberFormattedAddressLines\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"metadata\": \"<null>\",\n    \"nextPayrollExecutionDate\": \"<null>\",\n    \"paymentMethodId\": \"<string,null>\",\n    \"sourceId\": \"<string,null>\"\n  },\n  {\n    \"amount\": \"<number>\",\n    \"attachments\": {\n      \"customAttachmentIds\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"customAttachmentInfo\": null,\n      \"invoiceLink\": \"<string,null>\",\n      \"invoicePdf\": \"<string,null>\",\n      \"receiptPdf\": \"<string,null>\"\n    },\n    \"client\": {\n      \"comment\": \"<string,null>\",\n      \"payDate\": \"<string,null>\",\n      \"workflowStatus\": null,\n      \"workflowSubStatus\": null\n    },\n    \"clientId\": \"<string>\",\n    \"collaboratorId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"creditFeeHandling\": {\n      \"clientAbsolutePercentage\": \"<number,null>\",\n      \"clientPays\": \"<number,null>\",\n      \"memberPays\": \"<number,null>\"\n    },\n    \"currency\": \"CAD\",\n    \"dueDate\": \"<string>\",\n    \"eventActors\": {\n      \"adipisicing_f8\": \"<string>\",\n      \"proident2\": \"<string>\"\n    },\n    \"events\": {\n      \"approvedAt\": \"<string,null>\",\n      \"cancelledAt\": \"<string,null>\",\n      \"clientDeclinedAt\": \"<string,null>\",\n      \"clientResolvedDisputeAt\": \"<string,null>\",\n      \"depositedAt\": \"<string,null>\",\n      \"depositedToPayoutPlatformAt\": \"<string,null>\",\n      \"disputedAt\": \"<string,null>\",\n      \"emailMarkedAsSpamAt\": \"<string,null>\",\n      \"emailReceivedAt\": null,\n      \"emailUndeliverableAt\": \"<string,null>\",\n      \"emailViewedAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"estimatedDepositAt\": \"<string,null>\",\n      \"instantPayoutAt\": \"<string,null>\",\n      \"instantPayoutEligibleAt\": \"<string,null>\",\n      \"instantPayoutFailedAt\": \"<string,null>\",\n      \"markedPaidAt\": \"<string,null>\",\n      \"memberAcceptedAt\": \"<string,null>\",\n      \"memberDisputedAt\": \"<string,null>\",\n      \"memberResubmittedAt\": \"<string,null>\",\n      \"openedAt\": \"<string,null>\",\n      \"paidAt\": \"<string,null>\",\n      \"payAfterAccountVerified\": \"<string,null>\",\n      \"paymentFailedAt\": null,\n      \"paymentInTransitAt\": \"<string,null>\",\n      \"paymentRetriedAt\": null,\n      \"payoutFailedAt\": \"<string,null>\",\n      \"preApprovedAt\": \"<string,null>\",\n      \"refundedAt\": \"<string,null>\",\n      \"sentAt\": \"<string,null>\",\n      \"sentDue3DaysAgoAt\": \"<string,null>\",\n      \"sentDue7DaysAgoAt\": \"<string,null>\",\n      \"sentDueIn3DaysAt\": \"<string,null>\",\n      \"sentDueTodayAt\": \"<string,null>\",\n      \"sentInstantPayoutFailedToMember\": \"<string,null>\",\n      \"sentManuallyAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"sentPaymentConfirmationToClient\": \"<string,null>\",\n      \"sentPaymentConfirmationToMember\": \"<string,null>\",\n      \"sentPaymentInTransitReminderAt\": \"<string,null>\",\n      \"sentPayoutMightBeDelayedToClient\": \"<string,null>\",\n      \"sentRecurringPaymentFailedAt\": \"<string,null>\"\n    },\n    \"integration\": {\n      \"quickbooks\": \"<null>\"\n    },\n    \"invoiceNotes\": \"<string>\",\n    \"invoiceNumber\": \"<string>\",\n    \"invoiceTemplateId\": \"<string>\",\n    \"labels\": {\n      \"dolor_9\": \"<string>\",\n      \"dod42\": \"<string>\"\n    },\n    \"lateFeeHandling\": {\n      \"frequency\": {\n        \"startDate\": \"<string>\",\n        \"daily\": \"<boolean,null>\",\n        \"dayInInterval\": \"<number,null>\",\n        \"endDate\": \"<string,null>\",\n        \"every\": \"<number,null>\",\n        \"interval\": \"Week\",\n        \"twicePerMonth\": \"<boolean,null>\"\n      },\n      \"lateFeeAmount\": \"<number,null>\",\n      \"lateFeePercentage\": \"<number,null>\"\n    },\n    \"lineItems\": [\n      {\n        \"costPerUnit\": \"<number>\",\n        \"createdAt\": \"<string>\",\n        \"labels\": {\n          \"exercitation_cca\": \"<string>\",\n          \"aliquip_59a\": \"<string>\",\n          \"proident_8b\": \"<string>\"\n        },\n        \"labelsBak2\": {\n          \"non_\": \"<string>\",\n          \"amet53\": \"<string>\"\n        },\n        \"quantity\": \"<number>\",\n        \"reimbursableExpense\": \"<boolean>\",\n        \"totalCost\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"description\": \"<string,null>\",\n        \"detail\": \"<string,null>\",\n        \"discount\": \"<null>\",\n        \"integration\": \"<null>\"\n      },\n      {\n        \"costPerUnit\": \"<number>\",\n        \"createdAt\": \"<string>\",\n        \"labels\": {\n          \"minim_8f\": \"<string>\"\n        },\n        \"labelsBak2\": {\n          \"in_ca\": \"<string>\",\n          \"enim_43d\": \"<string>\"\n        },\n        \"quantity\": \"<number>\",\n        \"reimbursableExpense\": \"<boolean>\",\n        \"totalCost\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"description\": \"<string,null>\",\n        \"detail\": \"<string,null>\",\n        \"discount\": \"<null>\",\n        \"integration\": \"<null>\"\n      }\n    ],\n    \"member\": {\n      \"comment\": \"<string,null>\",\n      \"payoutPreferences\": \"Expedited\",\n      \"workflowStatus\": null,\n      \"workflowSubStatus\": \"Submitted\"\n    },\n    \"memberAddress\": {\n      \"addressLine1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"addressLine2\": \"<string,null>\"\n    },\n    \"memberId\": \"<string>\",\n    \"notificationPreferences\": {\n      \"sendReminders\": \"<boolean>\",\n      \"sendInvoice\": \"<boolean,null>\",\n      \"sendReceipt\": \"<boolean,null>\"\n    },\n    \"payableId\": \"<string>\",\n    \"status\": \"PaymentInTransit\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"acceptedPaymentMethods\": null,\n    \"accountId\": \"<string,null>\",\n    \"bankTransferInfo\": \"<null>\",\n    \"chargedFees\": \"<null>\",\n    \"internationalBankTransferInfo\": \"<null>\",\n    \"memberFormattedAddressLines\": null,\n    \"metadata\": \"<null>\",\n    \"nextPayrollExecutionDate\": \"<null>\",\n    \"paymentMethodId\": \"<string,null>\",\n    \"sourceId\": \"<string,null>\"\n  }\n]",
+                          "createdAt": "2026-07-28T03:31:27.000Z",
+                          "updatedAt": "2026-07-28T03:31:27.000Z",
+                          "uid": "35240-317c0185-1b6f-4451-8dfb-afc559942a5d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:27.000Z",
+                      "updatedAt": "2026-07-28T03:31:27.000Z",
+                      "uid": "35240-b5510007-ed45-42ea-acd1-60413aa2d285"
+                    }
+                  ],
+                  "id": "d06486d0-f74a-459a-9ed1-3e6586b5ea04",
+                  "createdAt": "2026-07-28T03:31:27.000Z",
+                  "updatedAt": "2026-07-28T03:31:27.000Z",
+                  "uid": "35240-d06486d0-f74a-459a-9ed1-3e6586b5ea04"
+                }
+              ],
+              "id": "a8849100-f57a-4b3a-be03-af48381d372e",
+              "createdAt": "2026-07-28T03:31:27.000Z",
+              "updatedAt": "2026-07-28T03:31:27.000Z",
+              "uid": "35240-a8849100-f57a-4b3a-be03-af48381d372e"
+            }
+          ],
+          "id": "07209065-9acc-4ae9-90de-160281962caf",
+          "createdAt": "2026-07-28T03:31:27.000Z",
+          "updatedAt": "2026-07-28T03:31:27.000Z",
+          "uid": "35240-07209065-9acc-4ae9-90de-160281962caf"
+        },
+        {
+          "name": "payable",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve Payable Details by Payable ID",
+                  "id": "55cc6915-9d07-437e-8c95-9658c2019fc0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/payable/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "payable",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f981654f-9c1a-49cf-974e-5a4280d0efd4",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "This API endpoint is designed to fetch the detailed Payable information of a member using a unique Payable ID."
+                  },
+                  "response": [
+                    {
+                      "id": "7035ec52-0572-450d-85c8-5eedc503c427",
+                      "name": "A payable",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/payable/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "payable",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"amount\": \"<number>\",\n  \"attachments\": {\n    \"customAttachmentIds\": null,\n    \"customAttachmentInfo\": null,\n    \"invoiceLink\": \"<string,null>\",\n    \"invoicePdf\": \"<string,null>\",\n    \"receiptPdf\": \"<string,null>\"\n  },\n  \"client\": {\n    \"comment\": \"<string,null>\",\n    \"payDate\": \"<string,null>\",\n    \"workflowStatus\": \"PaymentInitiated\",\n    \"workflowSubStatus\": \"Submitted\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"creditFeeHandling\": {\n    \"clientAbsolutePercentage\": \"<number,null>\",\n    \"clientPays\": \"<number,null>\",\n    \"memberPays\": \"<number,null>\"\n  },\n  \"currency\": \"CAD\",\n  \"dueDate\": \"<string>\",\n  \"eventActors\": {\n    \"velit_ac\": \"<string>\",\n    \"laborum_1\": \"<string>\",\n    \"non_2_\": \"<string>\"\n  },\n  \"events\": {\n    \"approvedAt\": \"<string,null>\",\n    \"cancelledAt\": \"<string,null>\",\n    \"clientDeclinedAt\": \"<string,null>\",\n    \"clientResolvedDisputeAt\": \"<string,null>\",\n    \"depositedAt\": \"<string,null>\",\n    \"depositedToPayoutPlatformAt\": \"<string,null>\",\n    \"disputedAt\": \"<string,null>\",\n    \"emailMarkedAsSpamAt\": \"<string,null>\",\n    \"emailReceivedAt\": null,\n    \"emailUndeliverableAt\": \"<string,null>\",\n    \"emailViewedAt\": null,\n    \"estimatedDepositAt\": \"<string,null>\",\n    \"instantPayoutAt\": \"<string,null>\",\n    \"instantPayoutEligibleAt\": \"<string,null>\",\n    \"instantPayoutFailedAt\": \"<string,null>\",\n    \"markedPaidAt\": \"<string,null>\",\n    \"memberAcceptedAt\": \"<string,null>\",\n    \"memberDisputedAt\": \"<string,null>\",\n    \"memberResubmittedAt\": \"<string,null>\",\n    \"openedAt\": \"<string,null>\",\n    \"paidAt\": \"<string,null>\",\n    \"payAfterAccountVerified\": \"<string,null>\",\n    \"paymentFailedAt\": null,\n    \"paymentInTransitAt\": \"<string,null>\",\n    \"paymentRetriedAt\": null,\n    \"payoutFailedAt\": \"<string,null>\",\n    \"preApprovedAt\": \"<string,null>\",\n    \"refundedAt\": \"<string,null>\",\n    \"sentAt\": \"<string,null>\",\n    \"sentDue3DaysAgoAt\": \"<string,null>\",\n    \"sentDue7DaysAgoAt\": \"<string,null>\",\n    \"sentDueIn3DaysAt\": \"<string,null>\",\n    \"sentDueTodayAt\": \"<string,null>\",\n    \"sentInstantPayoutFailedToMember\": \"<string,null>\",\n    \"sentManuallyAt\": null,\n    \"sentPaymentConfirmationToClient\": \"<string,null>\",\n    \"sentPaymentConfirmationToMember\": \"<string,null>\",\n    \"sentPaymentInTransitReminderAt\": \"<string,null>\",\n    \"sentPayoutMightBeDelayedToClient\": \"<string,null>\",\n    \"sentRecurringPaymentFailedAt\": \"<string,null>\"\n  },\n  \"integration\": {\n    \"quickbooks\": \"<null>\"\n  },\n  \"invoiceNotes\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceTemplateId\": \"<string>\",\n  \"labels\": {\n    \"commodo_a\": \"<string>\",\n    \"laborea_\": \"<string>\"\n  },\n  \"lateFeeHandling\": {\n    \"frequency\": {\n      \"startDate\": \"<string>\",\n      \"daily\": \"<boolean,null>\",\n      \"dayInInterval\": \"<number,null>\",\n      \"endDate\": \"<string,null>\",\n      \"every\": \"<number,null>\",\n      \"interval\": null,\n      \"twicePerMonth\": \"<boolean,null>\"\n    },\n    \"lateFeeAmount\": \"<number,null>\",\n    \"lateFeePercentage\": \"<number,null>\"\n  },\n  \"lineItems\": [\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"nisi_85\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"ullamco_490\": \"<string>\",\n        \"nostrud_2f0\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    },\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"proident_52\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"officia_2\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    }\n  ],\n  \"member\": {\n    \"comment\": \"<string,null>\",\n    \"payoutPreferences\": \"Check\",\n    \"workflowStatus\": \"Accepted\",\n    \"workflowSubStatus\": null\n  },\n  \"memberAddress\": {\n    \"addressLine1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"addressLine2\": \"<string,null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"notificationPreferences\": {\n    \"sendReminders\": \"<boolean>\",\n    \"sendInvoice\": \"<boolean,null>\",\n    \"sendReceipt\": \"<boolean,null>\"\n  },\n  \"payableId\": \"<string>\",\n  \"status\": \"PaymentInTransit\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"acceptedPaymentMethods\": [\n    null,\n    \"ACH\"\n  ],\n  \"accountId\": \"<string,null>\",\n  \"bankTransferInfo\": \"<null>\",\n  \"chargedFees\": \"<null>\",\n  \"internationalBankTransferInfo\": \"<null>\",\n  \"memberFormattedAddressLines\": null,\n  \"metadata\": \"<null>\",\n  \"nextPayrollExecutionDate\": \"<null>\",\n  \"paymentMethodId\": \"<string,null>\",\n  \"sourceId\": \"<string,null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:27.000Z",
+                      "updatedAt": "2026-07-28T03:31:27.000Z",
+                      "uid": "35240-7035ec52-0572-450d-85c8-5eedc503c427"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:27.000Z",
+                  "updatedAt": "2026-07-28T03:31:27.000Z",
+                  "uid": "35240-55cc6915-9d07-437e-8c95-9658c2019fc0"
+                },
+                {
+                  "name": "Update Client Payable Information by Payable ID",
+                  "id": "677679b0-4b19-43ba-902d-595562b6c165",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"acceptedPaymentMethods\": null,\n  \"attachments\": \"<null>\",\n  \"chargedFees\": \"<null>\",\n  \"client\": \"<null>\",\n  \"collaborators\": null,\n  \"creditFeeHandling\": \"<null>\",\n  \"dueDate\": \"<string,null>\",\n  \"integration\": \"<null>\",\n  \"invoiceNotes\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lateFeeHandling\": \"<null>\",\n  \"lineItems\": null,\n  \"member\": \"<null>\",\n  \"memberClientId\": \"<string,null>\",\n  \"metadata\": \"<null>\",\n  \"notificationPreferences\": \"<null>\",\n  \"paymentMethods\": [\n    \"Manual\",\n    null\n  ],\n  \"status\": \"Draft\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/payable/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "payable",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "06e100b2-c08d-49c4-a71d-abf6d005f2ce",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "This API endpoint facilitates the updating of existing payable details related to a client using a unique Payable ID."
+                  },
+                  "response": [
+                    {
+                      "id": "81806dd6-e336-4f91-aebd-2e8e87b7a577",
+                      "name": "A payable",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"acceptedPaymentMethods\": null,\n  \"attachments\": \"<null>\",\n  \"chargedFees\": \"<null>\",\n  \"client\": \"<null>\",\n  \"collaborators\": null,\n  \"creditFeeHandling\": \"<null>\",\n  \"dueDate\": \"<string,null>\",\n  \"integration\": \"<null>\",\n  \"invoiceNotes\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lateFeeHandling\": \"<null>\",\n  \"lineItems\": null,\n  \"member\": \"<null>\",\n  \"memberClientId\": \"<string,null>\",\n  \"metadata\": \"<null>\",\n  \"notificationPreferences\": \"<null>\",\n  \"paymentMethods\": [\n    \"Manual\",\n    null\n  ],\n  \"status\": \"Draft\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/payable/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "payable",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"amount\": \"<number>\",\n  \"attachments\": {\n    \"customAttachmentIds\": null,\n    \"customAttachmentInfo\": null,\n    \"invoiceLink\": \"<string,null>\",\n    \"invoicePdf\": \"<string,null>\",\n    \"receiptPdf\": \"<string,null>\"\n  },\n  \"client\": {\n    \"comment\": \"<string,null>\",\n    \"payDate\": \"<string,null>\",\n    \"workflowStatus\": \"PaymentInitiated\",\n    \"workflowSubStatus\": \"Submitted\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"creditFeeHandling\": {\n    \"clientAbsolutePercentage\": \"<number,null>\",\n    \"clientPays\": \"<number,null>\",\n    \"memberPays\": \"<number,null>\"\n  },\n  \"currency\": \"CAD\",\n  \"dueDate\": \"<string>\",\n  \"eventActors\": {\n    \"velit_ac\": \"<string>\",\n    \"laborum_1\": \"<string>\",\n    \"non_2_\": \"<string>\"\n  },\n  \"events\": {\n    \"approvedAt\": \"<string,null>\",\n    \"cancelledAt\": \"<string,null>\",\n    \"clientDeclinedAt\": \"<string,null>\",\n    \"clientResolvedDisputeAt\": \"<string,null>\",\n    \"depositedAt\": \"<string,null>\",\n    \"depositedToPayoutPlatformAt\": \"<string,null>\",\n    \"disputedAt\": \"<string,null>\",\n    \"emailMarkedAsSpamAt\": \"<string,null>\",\n    \"emailReceivedAt\": null,\n    \"emailUndeliverableAt\": \"<string,null>\",\n    \"emailViewedAt\": null,\n    \"estimatedDepositAt\": \"<string,null>\",\n    \"instantPayoutAt\": \"<string,null>\",\n    \"instantPayoutEligibleAt\": \"<string,null>\",\n    \"instantPayoutFailedAt\": \"<string,null>\",\n    \"markedPaidAt\": \"<string,null>\",\n    \"memberAcceptedAt\": \"<string,null>\",\n    \"memberDisputedAt\": \"<string,null>\",\n    \"memberResubmittedAt\": \"<string,null>\",\n    \"openedAt\": \"<string,null>\",\n    \"paidAt\": \"<string,null>\",\n    \"payAfterAccountVerified\": \"<string,null>\",\n    \"paymentFailedAt\": null,\n    \"paymentInTransitAt\": \"<string,null>\",\n    \"paymentRetriedAt\": null,\n    \"payoutFailedAt\": \"<string,null>\",\n    \"preApprovedAt\": \"<string,null>\",\n    \"refundedAt\": \"<string,null>\",\n    \"sentAt\": \"<string,null>\",\n    \"sentDue3DaysAgoAt\": \"<string,null>\",\n    \"sentDue7DaysAgoAt\": \"<string,null>\",\n    \"sentDueIn3DaysAt\": \"<string,null>\",\n    \"sentDueTodayAt\": \"<string,null>\",\n    \"sentInstantPayoutFailedToMember\": \"<string,null>\",\n    \"sentManuallyAt\": null,\n    \"sentPaymentConfirmationToClient\": \"<string,null>\",\n    \"sentPaymentConfirmationToMember\": \"<string,null>\",\n    \"sentPaymentInTransitReminderAt\": \"<string,null>\",\n    \"sentPayoutMightBeDelayedToClient\": \"<string,null>\",\n    \"sentRecurringPaymentFailedAt\": \"<string,null>\"\n  },\n  \"integration\": {\n    \"quickbooks\": \"<null>\"\n  },\n  \"invoiceNotes\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceTemplateId\": \"<string>\",\n  \"labels\": {\n    \"commodo_a\": \"<string>\",\n    \"laborea_\": \"<string>\"\n  },\n  \"lateFeeHandling\": {\n    \"frequency\": {\n      \"startDate\": \"<string>\",\n      \"daily\": \"<boolean,null>\",\n      \"dayInInterval\": \"<number,null>\",\n      \"endDate\": \"<string,null>\",\n      \"every\": \"<number,null>\",\n      \"interval\": null,\n      \"twicePerMonth\": \"<boolean,null>\"\n    },\n    \"lateFeeAmount\": \"<number,null>\",\n    \"lateFeePercentage\": \"<number,null>\"\n  },\n  \"lineItems\": [\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"nisi_85\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"ullamco_490\": \"<string>\",\n        \"nostrud_2f0\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    },\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"proident_52\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"officia_2\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    }\n  ],\n  \"member\": {\n    \"comment\": \"<string,null>\",\n    \"payoutPreferences\": \"Check\",\n    \"workflowStatus\": \"Accepted\",\n    \"workflowSubStatus\": null\n  },\n  \"memberAddress\": {\n    \"addressLine1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"addressLine2\": \"<string,null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"notificationPreferences\": {\n    \"sendReminders\": \"<boolean>\",\n    \"sendInvoice\": \"<boolean,null>\",\n    \"sendReceipt\": \"<boolean,null>\"\n  },\n  \"payableId\": \"<string>\",\n  \"status\": \"PaymentInTransit\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"acceptedPaymentMethods\": [\n    null,\n    \"ACH\"\n  ],\n  \"accountId\": \"<string,null>\",\n  \"bankTransferInfo\": \"<null>\",\n  \"chargedFees\": \"<null>\",\n  \"internationalBankTransferInfo\": \"<null>\",\n  \"memberFormattedAddressLines\": null,\n  \"metadata\": \"<null>\",\n  \"nextPayrollExecutionDate\": \"<null>\",\n  \"paymentMethodId\": \"<string,null>\",\n  \"sourceId\": \"<string,null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:27.000Z",
+                      "updatedAt": "2026-07-28T03:31:27.000Z",
+                      "uid": "35240-81806dd6-e336-4f91-aebd-2e8e87b7a577"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:27.000Z",
+                  "updatedAt": "2026-07-28T03:31:27.000Z",
+                  "uid": "35240-677679b0-4b19-43ba-902d-595562b6c165"
+                },
+                {
+                  "name": "Delete Client Payable by Payable ID",
+                  "id": "04167ea6-5ee5-4bdd-bd8e-b7132c807821",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/payable/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "payable",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b2fd9676-9ea3-4590-9df6-87569240d2b6",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "This API endpoint is designed to remove the payable information related to a client using a unique Payable ID."
+                  },
+                  "response": [
+                    {
+                      "id": "34044ae9-7932-444d-a8c4-53b1d70c50a6",
+                      "name": "A payable",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/payable/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "payable",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"amount\": \"<number>\",\n  \"attachments\": {\n    \"customAttachmentIds\": null,\n    \"customAttachmentInfo\": null,\n    \"invoiceLink\": \"<string,null>\",\n    \"invoicePdf\": \"<string,null>\",\n    \"receiptPdf\": \"<string,null>\"\n  },\n  \"client\": {\n    \"comment\": \"<string,null>\",\n    \"payDate\": \"<string,null>\",\n    \"workflowStatus\": \"PaymentInitiated\",\n    \"workflowSubStatus\": \"Submitted\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"creditFeeHandling\": {\n    \"clientAbsolutePercentage\": \"<number,null>\",\n    \"clientPays\": \"<number,null>\",\n    \"memberPays\": \"<number,null>\"\n  },\n  \"currency\": \"CAD\",\n  \"dueDate\": \"<string>\",\n  \"eventActors\": {\n    \"velit_ac\": \"<string>\",\n    \"laborum_1\": \"<string>\",\n    \"non_2_\": \"<string>\"\n  },\n  \"events\": {\n    \"approvedAt\": \"<string,null>\",\n    \"cancelledAt\": \"<string,null>\",\n    \"clientDeclinedAt\": \"<string,null>\",\n    \"clientResolvedDisputeAt\": \"<string,null>\",\n    \"depositedAt\": \"<string,null>\",\n    \"depositedToPayoutPlatformAt\": \"<string,null>\",\n    \"disputedAt\": \"<string,null>\",\n    \"emailMarkedAsSpamAt\": \"<string,null>\",\n    \"emailReceivedAt\": null,\n    \"emailUndeliverableAt\": \"<string,null>\",\n    \"emailViewedAt\": null,\n    \"estimatedDepositAt\": \"<string,null>\",\n    \"instantPayoutAt\": \"<string,null>\",\n    \"instantPayoutEligibleAt\": \"<string,null>\",\n    \"instantPayoutFailedAt\": \"<string,null>\",\n    \"markedPaidAt\": \"<string,null>\",\n    \"memberAcceptedAt\": \"<string,null>\",\n    \"memberDisputedAt\": \"<string,null>\",\n    \"memberResubmittedAt\": \"<string,null>\",\n    \"openedAt\": \"<string,null>\",\n    \"paidAt\": \"<string,null>\",\n    \"payAfterAccountVerified\": \"<string,null>\",\n    \"paymentFailedAt\": null,\n    \"paymentInTransitAt\": \"<string,null>\",\n    \"paymentRetriedAt\": null,\n    \"payoutFailedAt\": \"<string,null>\",\n    \"preApprovedAt\": \"<string,null>\",\n    \"refundedAt\": \"<string,null>\",\n    \"sentAt\": \"<string,null>\",\n    \"sentDue3DaysAgoAt\": \"<string,null>\",\n    \"sentDue7DaysAgoAt\": \"<string,null>\",\n    \"sentDueIn3DaysAt\": \"<string,null>\",\n    \"sentDueTodayAt\": \"<string,null>\",\n    \"sentInstantPayoutFailedToMember\": \"<string,null>\",\n    \"sentManuallyAt\": null,\n    \"sentPaymentConfirmationToClient\": \"<string,null>\",\n    \"sentPaymentConfirmationToMember\": \"<string,null>\",\n    \"sentPaymentInTransitReminderAt\": \"<string,null>\",\n    \"sentPayoutMightBeDelayedToClient\": \"<string,null>\",\n    \"sentRecurringPaymentFailedAt\": \"<string,null>\"\n  },\n  \"integration\": {\n    \"quickbooks\": \"<null>\"\n  },\n  \"invoiceNotes\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceTemplateId\": \"<string>\",\n  \"labels\": {\n    \"commodo_a\": \"<string>\",\n    \"laborea_\": \"<string>\"\n  },\n  \"lateFeeHandling\": {\n    \"frequency\": {\n      \"startDate\": \"<string>\",\n      \"daily\": \"<boolean,null>\",\n      \"dayInInterval\": \"<number,null>\",\n      \"endDate\": \"<string,null>\",\n      \"every\": \"<number,null>\",\n      \"interval\": null,\n      \"twicePerMonth\": \"<boolean,null>\"\n    },\n    \"lateFeeAmount\": \"<number,null>\",\n    \"lateFeePercentage\": \"<number,null>\"\n  },\n  \"lineItems\": [\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"nisi_85\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"ullamco_490\": \"<string>\",\n        \"nostrud_2f0\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    },\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"proident_52\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"officia_2\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    }\n  ],\n  \"member\": {\n    \"comment\": \"<string,null>\",\n    \"payoutPreferences\": \"Check\",\n    \"workflowStatus\": \"Accepted\",\n    \"workflowSubStatus\": null\n  },\n  \"memberAddress\": {\n    \"addressLine1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"addressLine2\": \"<string,null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"notificationPreferences\": {\n    \"sendReminders\": \"<boolean>\",\n    \"sendInvoice\": \"<boolean,null>\",\n    \"sendReceipt\": \"<boolean,null>\"\n  },\n  \"payableId\": \"<string>\",\n  \"status\": \"PaymentInTransit\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"acceptedPaymentMethods\": [\n    null,\n    \"ACH\"\n  ],\n  \"accountId\": \"<string,null>\",\n  \"bankTransferInfo\": \"<null>\",\n  \"chargedFees\": \"<null>\",\n  \"internationalBankTransferInfo\": \"<null>\",\n  \"memberFormattedAddressLines\": null,\n  \"metadata\": \"<null>\",\n  \"nextPayrollExecutionDate\": \"<null>\",\n  \"paymentMethodId\": \"<string,null>\",\n  \"sourceId\": \"<string,null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:27.000Z",
+                      "updatedAt": "2026-07-28T03:31:27.000Z",
+                      "uid": "35240-34044ae9-7932-444d-a8c4-53b1d70c50a6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:27.000Z",
+                  "updatedAt": "2026-07-28T03:31:27.000Z",
+                  "uid": "35240-04167ea6-5ee5-4bdd-bd8e-b7132c807821"
+                }
+              ],
+              "id": "0574b435-fc8c-422d-bfcd-b7ce2acc81f4",
+              "createdAt": "2026-07-28T03:31:27.000Z",
+              "updatedAt": "2026-07-28T03:31:27.000Z",
+              "uid": "35240-0574b435-fc8c-422d-bfcd-b7ce2acc81f4"
+            },
+            {
+              "name": "List All Payables Associated with a Client",
+              "id": "ab826ed3-e423-480b-9ef3-80a20b2d3d80",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/payable",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "payable"
+                  ]
+                },
+                "description": "Provides an list of all Payables associated with a specific client, facilitating easier management and overview of the client's financial obligations."
+              },
+              "response": [
+                {
+                  "id": "19134de4-5865-46a5-8672-8f574d85a484",
+                  "name": "A list of payables",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/payable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "payable"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"amount\": \"<number>\",\n    \"attachments\": {\n      \"customAttachmentIds\": null,\n      \"customAttachmentInfo\": null,\n      \"invoiceLink\": \"<string,null>\",\n      \"invoicePdf\": \"<string,null>\",\n      \"receiptPdf\": \"<string,null>\"\n    },\n    \"client\": {\n      \"comment\": \"<string,null>\",\n      \"payDate\": \"<string,null>\",\n      \"workflowStatus\": null,\n      \"workflowSubStatus\": \"Submitted\"\n    },\n    \"clientId\": \"<string>\",\n    \"collaboratorId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"creditFeeHandling\": {\n      \"clientAbsolutePercentage\": \"<number,null>\",\n      \"clientPays\": \"<number,null>\",\n      \"memberPays\": \"<number,null>\"\n    },\n    \"currency\": \"CAD\",\n    \"dueDate\": \"<string>\",\n    \"eventActors\": {\n      \"dolor_3_\": \"<string>\",\n      \"adipisicingd7\": \"<string>\",\n      \"et_04\": \"<string>\"\n    },\n    \"events\": {\n      \"approvedAt\": \"<string,null>\",\n      \"cancelledAt\": \"<string,null>\",\n      \"clientDeclinedAt\": \"<string,null>\",\n      \"clientResolvedDisputeAt\": \"<string,null>\",\n      \"depositedAt\": \"<string,null>\",\n      \"depositedToPayoutPlatformAt\": \"<string,null>\",\n      \"disputedAt\": \"<string,null>\",\n      \"emailMarkedAsSpamAt\": \"<string,null>\",\n      \"emailReceivedAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"emailUndeliverableAt\": \"<string,null>\",\n      \"emailViewedAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"estimatedDepositAt\": \"<string,null>\",\n      \"instantPayoutAt\": \"<string,null>\",\n      \"instantPayoutEligibleAt\": \"<string,null>\",\n      \"instantPayoutFailedAt\": \"<string,null>\",\n      \"markedPaidAt\": \"<string,null>\",\n      \"memberAcceptedAt\": \"<string,null>\",\n      \"memberDisputedAt\": \"<string,null>\",\n      \"memberResubmittedAt\": \"<string,null>\",\n      \"openedAt\": \"<string,null>\",\n      \"paidAt\": \"<string,null>\",\n      \"payAfterAccountVerified\": \"<string,null>\",\n      \"paymentFailedAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"paymentInTransitAt\": \"<string,null>\",\n      \"paymentRetriedAt\": null,\n      \"payoutFailedAt\": \"<string,null>\",\n      \"preApprovedAt\": \"<string,null>\",\n      \"refundedAt\": \"<string,null>\",\n      \"sentAt\": \"<string,null>\",\n      \"sentDue3DaysAgoAt\": \"<string,null>\",\n      \"sentDue7DaysAgoAt\": \"<string,null>\",\n      \"sentDueIn3DaysAt\": \"<string,null>\",\n      \"sentDueTodayAt\": \"<string,null>\",\n      \"sentInstantPayoutFailedToMember\": \"<string,null>\",\n      \"sentManuallyAt\": null,\n      \"sentPaymentConfirmationToClient\": \"<string,null>\",\n      \"sentPaymentConfirmationToMember\": \"<string,null>\",\n      \"sentPaymentInTransitReminderAt\": \"<string,null>\",\n      \"sentPayoutMightBeDelayedToClient\": \"<string,null>\",\n      \"sentRecurringPaymentFailedAt\": \"<string,null>\"\n    },\n    \"integration\": {\n      \"quickbooks\": \"<null>\"\n    },\n    \"invoiceNotes\": \"<string>\",\n    \"invoiceNumber\": \"<string>\",\n    \"invoiceTemplateId\": \"<string>\",\n    \"labels\": {\n      \"sint_8\": \"<string>\",\n      \"mollit3f\": \"<string>\",\n      \"pariatur4_\": \"<string>\"\n    },\n    \"lateFeeHandling\": {\n      \"frequency\": {\n        \"startDate\": \"<string>\",\n        \"daily\": \"<boolean,null>\",\n        \"dayInInterval\": \"<number,null>\",\n        \"endDate\": \"<string,null>\",\n        \"every\": \"<number,null>\",\n        \"interval\": \"Month\",\n        \"twicePerMonth\": \"<boolean,null>\"\n      },\n      \"lateFeeAmount\": \"<number,null>\",\n      \"lateFeePercentage\": \"<number,null>\"\n    },\n    \"lineItems\": [\n      {\n        \"costPerUnit\": \"<number>\",\n        \"createdAt\": \"<string>\",\n        \"labels\": {\n          \"amet8\": \"<string>\",\n          \"labore_2b3\": \"<string>\",\n          \"Excepteur_cfc\": \"<string>\"\n        },\n        \"labelsBak2\": {\n          \"dolor_d\": \"<string>\",\n          \"minim_91\": \"<string>\"\n        },\n        \"quantity\": \"<number>\",\n        \"reimbursableExpense\": \"<boolean>\",\n        \"totalCost\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"description\": \"<string,null>\",\n        \"detail\": \"<string,null>\",\n        \"discount\": \"<null>\",\n        \"integration\": \"<null>\"\n      },\n      {\n        \"costPerUnit\": \"<number>\",\n        \"createdAt\": \"<string>\",\n        \"labels\": {\n          \"exercitation_d\": \"<string>\"\n        },\n        \"labelsBak2\": {\n          \"nostrudacb\": \"<string>\",\n          \"in_5f_\": \"<string>\"\n        },\n        \"quantity\": \"<number>\",\n        \"reimbursableExpense\": \"<boolean>\",\n        \"totalCost\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"description\": \"<string,null>\",\n        \"detail\": \"<string,null>\",\n        \"discount\": \"<null>\",\n        \"integration\": \"<null>\"\n      }\n    ],\n    \"member\": {\n      \"comment\": \"<string,null>\",\n      \"payoutPreferences\": \"ECheck\",\n      \"workflowStatus\": \"Disputed\",\n      \"workflowSubStatus\": null\n    },\n    \"memberAddress\": {\n      \"addressLine1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"addressLine2\": \"<string,null>\"\n    },\n    \"memberId\": \"<string>\",\n    \"notificationPreferences\": {\n      \"sendReminders\": \"<boolean>\",\n      \"sendInvoice\": \"<boolean,null>\",\n      \"sendReceipt\": \"<boolean,null>\"\n    },\n    \"payableId\": \"<string>\",\n    \"status\": \"PaymentInTransit\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"acceptedPaymentMethods\": [\n      null,\n      \"Manual\"\n    ],\n    \"accountId\": \"<string,null>\",\n    \"bankTransferInfo\": \"<null>\",\n    \"chargedFees\": \"<null>\",\n    \"internationalBankTransferInfo\": \"<null>\",\n    \"memberFormattedAddressLines\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"metadata\": \"<null>\",\n    \"nextPayrollExecutionDate\": \"<null>\",\n    \"paymentMethodId\": \"<string,null>\",\n    \"sourceId\": \"<string,null>\"\n  },\n  {\n    \"amount\": \"<number>\",\n    \"attachments\": {\n      \"customAttachmentIds\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"customAttachmentInfo\": null,\n      \"invoiceLink\": \"<string,null>\",\n      \"invoicePdf\": \"<string,null>\",\n      \"receiptPdf\": \"<string,null>\"\n    },\n    \"client\": {\n      \"comment\": \"<string,null>\",\n      \"payDate\": \"<string,null>\",\n      \"workflowStatus\": null,\n      \"workflowSubStatus\": null\n    },\n    \"clientId\": \"<string>\",\n    \"collaboratorId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"creditFeeHandling\": {\n      \"clientAbsolutePercentage\": \"<number,null>\",\n      \"clientPays\": \"<number,null>\",\n      \"memberPays\": \"<number,null>\"\n    },\n    \"currency\": \"CAD\",\n    \"dueDate\": \"<string>\",\n    \"eventActors\": {\n      \"adipisicing_f8\": \"<string>\",\n      \"proident2\": \"<string>\"\n    },\n    \"events\": {\n      \"approvedAt\": \"<string,null>\",\n      \"cancelledAt\": \"<string,null>\",\n      \"clientDeclinedAt\": \"<string,null>\",\n      \"clientResolvedDisputeAt\": \"<string,null>\",\n      \"depositedAt\": \"<string,null>\",\n      \"depositedToPayoutPlatformAt\": \"<string,null>\",\n      \"disputedAt\": \"<string,null>\",\n      \"emailMarkedAsSpamAt\": \"<string,null>\",\n      \"emailReceivedAt\": null,\n      \"emailUndeliverableAt\": \"<string,null>\",\n      \"emailViewedAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"estimatedDepositAt\": \"<string,null>\",\n      \"instantPayoutAt\": \"<string,null>\",\n      \"instantPayoutEligibleAt\": \"<string,null>\",\n      \"instantPayoutFailedAt\": \"<string,null>\",\n      \"markedPaidAt\": \"<string,null>\",\n      \"memberAcceptedAt\": \"<string,null>\",\n      \"memberDisputedAt\": \"<string,null>\",\n      \"memberResubmittedAt\": \"<string,null>\",\n      \"openedAt\": \"<string,null>\",\n      \"paidAt\": \"<string,null>\",\n      \"payAfterAccountVerified\": \"<string,null>\",\n      \"paymentFailedAt\": null,\n      \"paymentInTransitAt\": \"<string,null>\",\n      \"paymentRetriedAt\": null,\n      \"payoutFailedAt\": \"<string,null>\",\n      \"preApprovedAt\": \"<string,null>\",\n      \"refundedAt\": \"<string,null>\",\n      \"sentAt\": \"<string,null>\",\n      \"sentDue3DaysAgoAt\": \"<string,null>\",\n      \"sentDue7DaysAgoAt\": \"<string,null>\",\n      \"sentDueIn3DaysAt\": \"<string,null>\",\n      \"sentDueTodayAt\": \"<string,null>\",\n      \"sentInstantPayoutFailedToMember\": \"<string,null>\",\n      \"sentManuallyAt\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"sentPaymentConfirmationToClient\": \"<string,null>\",\n      \"sentPaymentConfirmationToMember\": \"<string,null>\",\n      \"sentPaymentInTransitReminderAt\": \"<string,null>\",\n      \"sentPayoutMightBeDelayedToClient\": \"<string,null>\",\n      \"sentRecurringPaymentFailedAt\": \"<string,null>\"\n    },\n    \"integration\": {\n      \"quickbooks\": \"<null>\"\n    },\n    \"invoiceNotes\": \"<string>\",\n    \"invoiceNumber\": \"<string>\",\n    \"invoiceTemplateId\": \"<string>\",\n    \"labels\": {\n      \"dolor_9\": \"<string>\",\n      \"dod42\": \"<string>\"\n    },\n    \"lateFeeHandling\": {\n      \"frequency\": {\n        \"startDate\": \"<string>\",\n        \"daily\": \"<boolean,null>\",\n        \"dayInInterval\": \"<number,null>\",\n        \"endDate\": \"<string,null>\",\n        \"every\": \"<number,null>\",\n        \"interval\": \"Week\",\n        \"twicePerMonth\": \"<boolean,null>\"\n      },\n      \"lateFeeAmount\": \"<number,null>\",\n      \"lateFeePercentage\": \"<number,null>\"\n    },\n    \"lineItems\": [\n      {\n        \"costPerUnit\": \"<number>\",\n        \"createdAt\": \"<string>\",\n        \"labels\": {\n          \"exercitation_cca\": \"<string>\",\n          \"aliquip_59a\": \"<string>\",\n          \"proident_8b\": \"<string>\"\n        },\n        \"labelsBak2\": {\n          \"non_\": \"<string>\",\n          \"amet53\": \"<string>\"\n        },\n        \"quantity\": \"<number>\",\n        \"reimbursableExpense\": \"<boolean>\",\n        \"totalCost\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"description\": \"<string,null>\",\n        \"detail\": \"<string,null>\",\n        \"discount\": \"<null>\",\n        \"integration\": \"<null>\"\n      },\n      {\n        \"costPerUnit\": \"<number>\",\n        \"createdAt\": \"<string>\",\n        \"labels\": {\n          \"minim_8f\": \"<string>\"\n        },\n        \"labelsBak2\": {\n          \"in_ca\": \"<string>\",\n          \"enim_43d\": \"<string>\"\n        },\n        \"quantity\": \"<number>\",\n        \"reimbursableExpense\": \"<boolean>\",\n        \"totalCost\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"description\": \"<string,null>\",\n        \"detail\": \"<string,null>\",\n        \"discount\": \"<null>\",\n        \"integration\": \"<null>\"\n      }\n    ],\n    \"member\": {\n      \"comment\": \"<string,null>\",\n      \"payoutPreferences\": \"Expedited\",\n      \"workflowStatus\": null,\n      \"workflowSubStatus\": \"Submitted\"\n    },\n    \"memberAddress\": {\n      \"addressLine1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"addressLine2\": \"<string,null>\"\n    },\n    \"memberId\": \"<string>\",\n    \"notificationPreferences\": {\n      \"sendReminders\": \"<boolean>\",\n      \"sendInvoice\": \"<boolean,null>\",\n      \"sendReceipt\": \"<boolean,null>\"\n    },\n    \"payableId\": \"<string>\",\n    \"status\": \"PaymentInTransit\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"acceptedPaymentMethods\": null,\n    \"accountId\": \"<string,null>\",\n    \"bankTransferInfo\": \"<null>\",\n    \"chargedFees\": \"<null>\",\n    \"internationalBankTransferInfo\": \"<null>\",\n    \"memberFormattedAddressLines\": null,\n    \"metadata\": \"<null>\",\n    \"nextPayrollExecutionDate\": \"<null>\",\n    \"paymentMethodId\": \"<string,null>\",\n    \"sourceId\": \"<string,null>\"\n  }\n]",
+                  "createdAt": "2026-07-28T03:31:27.000Z",
+                  "updatedAt": "2026-07-28T03:31:27.000Z",
+                  "uid": "35240-19134de4-5865-46a5-8672-8f574d85a484"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:27.000Z",
+              "updatedAt": "2026-07-28T03:31:27.000Z",
+              "uid": "35240-ab826ed3-e423-480b-9ef3-80a20b2d3d80"
+            },
+            {
+              "name": "Create a New Payable for a Member on Behalf of a Client",
+              "id": "350fd209-11cb-4f1d-a2b1-fc45b9827af5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collaboratorId\": \"<string>\",\n  \"creditFeeHandling\": {\n    \"clientAbsolutePercentage\": \"<number,null>\",\n    \"clientPays\": \"<number,null>\",\n    \"memberPays\": \"<number,null>\"\n  },\n  \"dueDate\": \"<string>\",\n  \"lineItems\": [\n    {\n      \"costPerUnit\": \"<number,null>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\",\n      \"labels\": \"<null>\",\n      \"quantity\": \"<number,null>\",\n      \"reimbursableExpense\": \"<boolean,null>\",\n      \"totalCost\": \"<number,null>\",\n      \"unit\": \"<string,null>\"\n    },\n    {\n      \"costPerUnit\": \"<number,null>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\",\n      \"labels\": \"<null>\",\n      \"quantity\": \"<number,null>\",\n      \"reimbursableExpense\": \"<boolean,null>\",\n      \"totalCost\": \"<number,null>\",\n      \"unit\": \"<string,null>\"\n    }\n  ],\n  \"acceptedPaymentMethods\": null,\n  \"attachments\": \"<null>\",\n  \"client\": \"<null>\",\n  \"currency\": null,\n  \"integration\": \"<null>\",\n  \"invoiceNotes\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lateFeeHandling\": \"<null>\",\n  \"member\": \"<null>\",\n  \"memberClientId\": \"<string,null>\",\n  \"metadata\": \"<null>\",\n  \"notificationPreferences\": \"<null>\",\n  \"status\": \"Paid\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments/payable",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "payable"
+                  ]
+                },
+                "description": "Allows for the generation of a new Payables for a specific member on behalf of a client. This ensures streamlined billing and effective financial tracking between clients and members."
+              },
+              "response": [
+                {
+                  "id": "61b66ca3-663f-4ab3-90ff-d3faa7be3a10",
+                  "name": "A payable",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"collaboratorId\": \"<string>\",\n  \"creditFeeHandling\": {\n    \"clientAbsolutePercentage\": \"<number,null>\",\n    \"clientPays\": \"<number,null>\",\n    \"memberPays\": \"<number,null>\"\n  },\n  \"dueDate\": \"<string>\",\n  \"lineItems\": [\n    {\n      \"costPerUnit\": \"<number,null>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\",\n      \"labels\": \"<null>\",\n      \"quantity\": \"<number,null>\",\n      \"reimbursableExpense\": \"<boolean,null>\",\n      \"totalCost\": \"<number,null>\",\n      \"unit\": \"<string,null>\"\n    },\n    {\n      \"costPerUnit\": \"<number,null>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\",\n      \"labels\": \"<null>\",\n      \"quantity\": \"<number,null>\",\n      \"reimbursableExpense\": \"<boolean,null>\",\n      \"totalCost\": \"<number,null>\",\n      \"unit\": \"<string,null>\"\n    }\n  ],\n  \"acceptedPaymentMethods\": null,\n  \"attachments\": \"<null>\",\n  \"client\": \"<null>\",\n  \"currency\": null,\n  \"integration\": \"<null>\",\n  \"invoiceNotes\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lateFeeHandling\": \"<null>\",\n  \"member\": \"<null>\",\n  \"memberClientId\": \"<string,null>\",\n  \"metadata\": \"<null>\",\n  \"notificationPreferences\": \"<null>\",\n  \"status\": \"Paid\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/payable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "payable"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"amount\": \"<number>\",\n  \"attachments\": {\n    \"customAttachmentIds\": null,\n    \"customAttachmentInfo\": null,\n    \"invoiceLink\": \"<string,null>\",\n    \"invoicePdf\": \"<string,null>\",\n    \"receiptPdf\": \"<string,null>\"\n  },\n  \"client\": {\n    \"comment\": \"<string,null>\",\n    \"payDate\": \"<string,null>\",\n    \"workflowStatus\": \"PaymentInitiated\",\n    \"workflowSubStatus\": \"Submitted\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"creditFeeHandling\": {\n    \"clientAbsolutePercentage\": \"<number,null>\",\n    \"clientPays\": \"<number,null>\",\n    \"memberPays\": \"<number,null>\"\n  },\n  \"currency\": \"CAD\",\n  \"dueDate\": \"<string>\",\n  \"eventActors\": {\n    \"velit_ac\": \"<string>\",\n    \"laborum_1\": \"<string>\",\n    \"non_2_\": \"<string>\"\n  },\n  \"events\": {\n    \"approvedAt\": \"<string,null>\",\n    \"cancelledAt\": \"<string,null>\",\n    \"clientDeclinedAt\": \"<string,null>\",\n    \"clientResolvedDisputeAt\": \"<string,null>\",\n    \"depositedAt\": \"<string,null>\",\n    \"depositedToPayoutPlatformAt\": \"<string,null>\",\n    \"disputedAt\": \"<string,null>\",\n    \"emailMarkedAsSpamAt\": \"<string,null>\",\n    \"emailReceivedAt\": null,\n    \"emailUndeliverableAt\": \"<string,null>\",\n    \"emailViewedAt\": null,\n    \"estimatedDepositAt\": \"<string,null>\",\n    \"instantPayoutAt\": \"<string,null>\",\n    \"instantPayoutEligibleAt\": \"<string,null>\",\n    \"instantPayoutFailedAt\": \"<string,null>\",\n    \"markedPaidAt\": \"<string,null>\",\n    \"memberAcceptedAt\": \"<string,null>\",\n    \"memberDisputedAt\": \"<string,null>\",\n    \"memberResubmittedAt\": \"<string,null>\",\n    \"openedAt\": \"<string,null>\",\n    \"paidAt\": \"<string,null>\",\n    \"payAfterAccountVerified\": \"<string,null>\",\n    \"paymentFailedAt\": null,\n    \"paymentInTransitAt\": \"<string,null>\",\n    \"paymentRetriedAt\": null,\n    \"payoutFailedAt\": \"<string,null>\",\n    \"preApprovedAt\": \"<string,null>\",\n    \"refundedAt\": \"<string,null>\",\n    \"sentAt\": \"<string,null>\",\n    \"sentDue3DaysAgoAt\": \"<string,null>\",\n    \"sentDue7DaysAgoAt\": \"<string,null>\",\n    \"sentDueIn3DaysAt\": \"<string,null>\",\n    \"sentDueTodayAt\": \"<string,null>\",\n    \"sentInstantPayoutFailedToMember\": \"<string,null>\",\n    \"sentManuallyAt\": null,\n    \"sentPaymentConfirmationToClient\": \"<string,null>\",\n    \"sentPaymentConfirmationToMember\": \"<string,null>\",\n    \"sentPaymentInTransitReminderAt\": \"<string,null>\",\n    \"sentPayoutMightBeDelayedToClient\": \"<string,null>\",\n    \"sentRecurringPaymentFailedAt\": \"<string,null>\"\n  },\n  \"integration\": {\n    \"quickbooks\": \"<null>\"\n  },\n  \"invoiceNotes\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceTemplateId\": \"<string>\",\n  \"labels\": {\n    \"commodo_a\": \"<string>\",\n    \"laborea_\": \"<string>\"\n  },\n  \"lateFeeHandling\": {\n    \"frequency\": {\n      \"startDate\": \"<string>\",\n      \"daily\": \"<boolean,null>\",\n      \"dayInInterval\": \"<number,null>\",\n      \"endDate\": \"<string,null>\",\n      \"every\": \"<number,null>\",\n      \"interval\": null,\n      \"twicePerMonth\": \"<boolean,null>\"\n    },\n    \"lateFeeAmount\": \"<number,null>\",\n    \"lateFeePercentage\": \"<number,null>\"\n  },\n  \"lineItems\": [\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"nisi_85\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"ullamco_490\": \"<string>\",\n        \"nostrud_2f0\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    },\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"proident_52\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"officia_2\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    }\n  ],\n  \"member\": {\n    \"comment\": \"<string,null>\",\n    \"payoutPreferences\": \"Check\",\n    \"workflowStatus\": \"Accepted\",\n    \"workflowSubStatus\": null\n  },\n  \"memberAddress\": {\n    \"addressLine1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"addressLine2\": \"<string,null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"notificationPreferences\": {\n    \"sendReminders\": \"<boolean>\",\n    \"sendInvoice\": \"<boolean,null>\",\n    \"sendReceipt\": \"<boolean,null>\"\n  },\n  \"payableId\": \"<string>\",\n  \"status\": \"PaymentInTransit\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"acceptedPaymentMethods\": [\n    null,\n    \"ACH\"\n  ],\n  \"accountId\": \"<string,null>\",\n  \"bankTransferInfo\": \"<null>\",\n  \"chargedFees\": \"<null>\",\n  \"internationalBankTransferInfo\": \"<null>\",\n  \"memberFormattedAddressLines\": null,\n  \"metadata\": \"<null>\",\n  \"nextPayrollExecutionDate\": \"<null>\",\n  \"paymentMethodId\": \"<string,null>\",\n  \"sourceId\": \"<string,null>\"\n}",
+                  "createdAt": "2026-07-28T03:31:27.000Z",
+                  "updatedAt": "2026-07-28T03:31:27.000Z",
+                  "uid": "35240-61b66ca3-663f-4ab3-90ff-d3faa7be3a10"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:27.000Z",
+              "updatedAt": "2026-07-28T03:31:27.000Z",
+              "uid": "35240-350fd209-11cb-4f1d-a2b1-fc45b9827af5"
+            }
+          ],
+          "id": "b9410a2a-9b03-4ae7-86ea-fc5295f2dbde",
+          "createdAt": "2026-07-28T03:31:27.000Z",
+          "updatedAt": "2026-07-28T03:31:27.000Z",
+          "uid": "35240-b9410a2a-9b03-4ae7-86ea-fc5295f2dbde"
+        },
+        {
+          "name": "pay-approved",
+          "item": [
+            {
+              "name": "Execute Approved Payroll Transactions",
+              "id": "47da9800-d478-464a-b5a0-ba5cfccaca3c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/pay-approved",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "pay-approved"
+                  ]
+                },
+                "description": "Processes all approved payroll transactions, ensuring employees and vendors are compensated as per their respective invoices."
+              },
+              "response": [
+                {
+                  "id": "b5792f7a-be08-49da-a6a0-218816f096b4",
+                  "name": "An invoice",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/pay-approved",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "pay-approved"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"amount\": \"<number>\",\n  \"client\": {\n    \"comment\": \"<string,null>\",\n    \"payDate\": \"<string,null>\",\n    \"workflowStatus\": \"Declined\",\n    \"workflowSubStatus\": null\n  },\n  \"createdAt\": \"<string>\",\n  \"currency\": \"CAD\",\n  \"dueDate\": \"<string>\",\n  \"eventActors\": {\n    \"fugiat6c5\": \"<string>\",\n    \"dolore_9e\": \"<string>\"\n  },\n  \"events\": {\n    \"approvedAt\": \"<string,null>\",\n    \"cancelledAt\": \"<string,null>\",\n    \"clientDeclinedAt\": \"<string,null>\",\n    \"clientResolvedDisputeAt\": \"<string,null>\",\n    \"depositedAt\": \"<string,null>\",\n    \"depositedToPayoutPlatformAt\": \"<string,null>\",\n    \"disputedAt\": \"<string,null>\",\n    \"emailMarkedAsSpamAt\": \"<string,null>\",\n    \"emailReceivedAt\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"emailUndeliverableAt\": \"<string,null>\",\n    \"emailViewedAt\": null,\n    \"estimatedDepositAt\": \"<string,null>\",\n    \"instantPayoutAt\": \"<string,null>\",\n    \"instantPayoutEligibleAt\": \"<string,null>\",\n    \"instantPayoutFailedAt\": \"<string,null>\",\n    \"markedPaidAt\": \"<string,null>\",\n    \"memberAcceptedAt\": \"<string,null>\",\n    \"memberDisputedAt\": \"<string,null>\",\n    \"memberResubmittedAt\": \"<string,null>\",\n    \"openedAt\": \"<string,null>\",\n    \"paidAt\": \"<string,null>\",\n    \"payAfterAccountVerified\": \"<string,null>\",\n    \"paymentFailedAt\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"paymentInTransitAt\": \"<string,null>\",\n    \"paymentRetriedAt\": null,\n    \"payoutFailedAt\": \"<string,null>\",\n    \"preApprovedAt\": \"<string,null>\",\n    \"refundedAt\": \"<string,null>\",\n    \"sentAt\": \"<string,null>\",\n    \"sentDue3DaysAgoAt\": \"<string,null>\",\n    \"sentDue7DaysAgoAt\": \"<string,null>\",\n    \"sentDueIn3DaysAt\": \"<string,null>\",\n    \"sentDueTodayAt\": \"<string,null>\",\n    \"sentInstantPayoutFailedToMember\": \"<string,null>\",\n    \"sentManuallyAt\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"sentPaymentConfirmationToClient\": \"<string,null>\",\n    \"sentPaymentConfirmationToMember\": \"<string,null>\",\n    \"sentPaymentInTransitReminderAt\": \"<string,null>\",\n    \"sentPayoutMightBeDelayedToClient\": \"<string,null>\",\n    \"sentRecurringPaymentFailedAt\": \"<string,null>\"\n  },\n  \"externalIds\": {\n    \"bulk\": \"<null>\",\n    \"quickbooks\": \"<null>\",\n    \"stripe\": \"<string,null>\"\n  },\n  \"invoiceId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"labels\": {\n    \"laboris_8a6\": \"<string>\"\n  },\n  \"lineItems\": [\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"eac_\": \"<string>\",\n        \"irure_c1f\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"culpa08_\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    },\n    {\n      \"costPerUnit\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"labels\": {\n        \"cupidatatc3\": \"<string>\"\n      },\n      \"labelsBak2\": {\n        \"eu8\": \"<string>\",\n        \"in71d\": \"<string>\",\n        \"culpa_4b6\": \"<string>\"\n      },\n      \"quantity\": \"<number>\",\n      \"reimbursableExpense\": \"<boolean>\",\n      \"totalCost\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"description\": \"<string,null>\",\n      \"detail\": \"<string,null>\",\n      \"discount\": \"<null>\",\n      \"integration\": \"<null>\"\n    }\n  ],\n  \"member\": {\n    \"comment\": \"<string,null>\",\n    \"payoutPreferences\": \"Expedited\",\n    \"workflowStatus\": null,\n    \"workflowSubStatus\": \"Submitted\"\n  },\n  \"memberAddress\": {\n    \"addressLine1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"addressLine2\": \"<string,null>\"\n  },\n  \"memberClientId\": \"<string>\",\n  \"memberId\": \"<string>\",\n  \"payments\": [\n    {\n      \"amount\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"events\": {\n        \"clearedAt\": \"<string,null>\",\n        \"failedAt\": \"<string,null>\",\n        \"pendingAt\": \"<string,null>\",\n        \"returnedAt\": \"<string,null>\",\n        \"sentAt\": \"<string,null>\"\n      },\n      \"labels\": {\n        \"voluptate_1b\": \"<string>\",\n        \"mollit4f\": \"<string>\"\n      },\n      \"paymentId\": \"<string>\",\n      \"sourceId\": \"<string>\",\n      \"sourceMetadata\": {\n        \"institution\": \"<string,null>\",\n        \"mask\": \"<string,null>\"\n      },\n      \"sourceType\": \"InternalAccount\",\n      \"status\": \"Sent\",\n      \"updatedAt\": \"<string>\",\n      \"statusReason\": \"AccountNotFound\"\n    },\n    {\n      \"amount\": \"<number>\",\n      \"createdAt\": \"<string>\",\n      \"events\": {\n        \"clearedAt\": \"<string,null>\",\n        \"failedAt\": \"<string,null>\",\n        \"pendingAt\": \"<string,null>\",\n        \"returnedAt\": \"<string,null>\",\n        \"sentAt\": \"<string,null>\"\n      },\n      \"labels\": {\n        \"ut_3bd\": \"<string>\",\n        \"ut63\": \"<string>\",\n        \"aliquaa1\": \"<string>\"\n      },\n      \"paymentId\": \"<string>\",\n      \"sourceId\": \"<string>\",\n      \"sourceMetadata\": {\n        \"institution\": \"<string,null>\",\n        \"mask\": \"<string,null>\"\n      },\n      \"sourceType\": \"Card\",\n      \"status\": \"Cleared\",\n      \"updatedAt\": \"<string>\",\n      \"statusReason\": \"GenericCardError\"\n    }\n  ],\n  \"status\": \"Draft\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"acceptedPaymentMethods\": [\n    \"Credit\",\n    \"Credit\"\n  ],\n  \"accountId\": \"<string,null>\",\n  \"amountDetails\": \"<null>\",\n  \"attachments\": \"<null>\",\n  \"bankTransferInfo\": \"<null>\",\n  \"chargedFees\": \"<null>\",\n  \"clientId\": \"<string,null>\",\n  \"collaborators\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"creditFeeHandling\": \"<null>\",\n  \"deductions\": null,\n  \"integration\": \"<null>\",\n  \"internationalBankTransferInfo\": \"<null>\",\n  \"invoiceNotes\": \"<string,null>\",\n  \"invoiceTemplateId\": \"<string,null>\",\n  \"lateFeeHandling\": \"<null>\",\n  \"memberFormattedAddressLines\": [\n    \"<string,null>\",\n    \"<string,null>\"\n  ],\n  \"metadata\": \"<null>\",\n  \"notificationPreferences\": \"<null>\",\n  \"parentInvoiceId\": \"<string,null>\",\n  \"paymentInfo\": \"<null>\",\n  \"paymentMethodId\": \"<string,null>\",\n  \"payoutDestinations\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"processingFees\": \"<null>\",\n  \"refundDestinations\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"sourceId\": \"<string,null>\",\n  \"withholdings\": \"<null>\"\n}",
+                  "createdAt": "2026-07-28T03:31:27.000Z",
+                  "updatedAt": "2026-07-28T03:31:27.000Z",
+                  "uid": "35240-b5792f7a-be08-49da-a6a0-218816f096b4"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:27.000Z",
+              "updatedAt": "2026-07-28T03:31:27.000Z",
+              "uid": "35240-47da9800-d478-464a-b5a0-ba5cfccaca3c"
+            }
+          ],
+          "id": "65747a27-5077-4db9-a6d8-96010d37c39e",
+          "createdAt": "2026-07-28T03:31:27.000Z",
+          "updatedAt": "2026-07-28T03:31:27.000Z",
+          "uid": "35240-65747a27-5077-4db9-a6d8-96010d37c39e"
+        }
+      ],
+      "id": "ad5c2d59-a5df-412a-81d1-86f84813b14c",
+      "createdAt": "2026-07-28T03:31:27.000Z",
+      "updatedAt": "2026-07-28T03:31:27.000Z",
+      "uid": "35240-ad5c2d59-a5df-412a-81d1-86f84813b14c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wingspan.app"
+    }
+  ]
+}

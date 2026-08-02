@@ -1,0 +1,14 @@
+{
+  "repo": "wingspan",
+  "feeds": [
+    {
+      "source": "https://help.wingspan.app/en/",
+      "feed_url": "https://help.wingspan.app/en/feed.xml",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-01T15:49:00Z"
+}

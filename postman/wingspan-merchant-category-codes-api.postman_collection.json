@@ -1,0 +1,123 @@
+{
+  "info": {
+    "_postman_id": "633a64e3-b940-4995-ac59-7499454fe10a",
+    "name": "Wingspan Payments 1099 Operations Merchant Category Codes API",
+    "description": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:31:25.000Z",
+    "updatedAt": "2026-07-28T03:31:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-633a64e3-b940-4995-ac59-7499454fe10a"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "mcc",
+          "item": [
+            {
+              "name": "Retrieve Merchant Category Codes (MCC)",
+              "id": "aa6dfaee-eaef-4397-8f43-b6747d4e9665",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/mcc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "mcc"
+                  ]
+                },
+                "description": "This endpoint provides a comprehensive list of available Merchant Category Codes (MCC) which are used to classify businesses by the type of services or goods they provide."
+              },
+              "response": [
+                {
+                  "id": "1e2c3d0e-8a0e-43f8-b82c-c5f31abe3a42",
+                  "name": "A list of MCC",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/mcc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "mcc"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"code\": \"<string>\",\n    \"title\": \"<string>\"\n  },\n  {\n    \"code\": \"<string>\",\n    \"title\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T03:31:26.000Z",
+                  "updatedAt": "2026-07-28T03:31:26.000Z",
+                  "uid": "35240-1e2c3d0e-8a0e-43f8-b82c-c5f31abe3a42"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:26.000Z",
+              "updatedAt": "2026-07-28T03:31:26.000Z",
+              "uid": "35240-aa6dfaee-eaef-4397-8f43-b6747d4e9665"
+            }
+          ],
+          "id": "cf66d275-aeb3-45b9-a175-3bcc4cee4d07",
+          "createdAt": "2026-07-28T03:31:26.000Z",
+          "updatedAt": "2026-07-28T03:31:26.000Z",
+          "uid": "35240-cf66d275-aeb3-45b9-a175-3bcc4cee4d07"
+        }
+      ],
+      "id": "bcba9e44-237b-4b43-9a66-11c3cf4ea9b2",
+      "createdAt": "2026-07-28T03:31:26.000Z",
+      "updatedAt": "2026-07-28T03:31:26.000Z",
+      "uid": "35240-bcba9e44-237b-4b43-9a66-11c3cf4ea9b2"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wingspan.app"
+    }
+  ]
+}

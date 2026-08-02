@@ -1,0 +1,1534 @@
+{
+  "info": {
+    "_postman_id": "1403b18d-0720-4cde-afda-c12282b6e556",
+    "name": "Wingspan Payments 1099 Operations Document Signing and Eligibility API",
+    "description": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:31:23.000Z",
+    "updatedAt": "2026-07-28T03:31:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1403b18d-0720-4cde-afda-c12282b6e556"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "collaborator-settings",
+          "item": [
+            {
+              "name": "eligibility-requirement",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Retrieve a Specific Eligibility Requirement",
+                      "id": "f79d9672-2d80-493a-8951-a9e2346dd979",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "eligibility-requirement",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "fea486a0-0422-4a81-ab42-b22b112fb146",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Fetch details for a given eligibility requirement based on its unique identifier."
+                      },
+                      "response": [
+                        {
+                          "id": "4139309f-11c0-411c-85a6-f92af02b49c6",
+                          "name": "List of Eligibility Requirements",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-settings",
+                                "eligibility-requirement",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"clientId\": \"<string>\",\n    \"eligibilityRequirementId\": \"<string>\",\n    \"requirementType\": \"Signature\",\n    \"templateId\": \"<string,null>\",\n    \"validFor\": \"<number,null>\"\n  },\n  {\n    \"clientId\": \"<string>\",\n    \"eligibilityRequirementId\": \"<string>\",\n    \"requirementType\": \"Signature\",\n    \"templateId\": \"<string,null>\",\n    \"validFor\": \"<number,null>\"\n  }\n]",
+                          "createdAt": "2026-07-28T03:31:23.000Z",
+                          "updatedAt": "2026-07-28T03:31:23.000Z",
+                          "uid": "35240-4139309f-11c0-411c-85a6-f92af02b49c6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-f79d9672-2d80-493a-8951-a9e2346dd979"
+                    },
+                    {
+                      "name": "Modify a Specific Eligibility Requirement",
+                      "id": "acf086b9-9ad5-4858-b928-45769e06a5ba",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"requirementType\": \"Signature\",\n  \"templateId\": \"<string,null>\",\n  \"validFor\": \"<number,null>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "eligibility-requirement",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "36a2fc25-8435-4476-847d-3446b32f54a5",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Update specific details or attributes of an existing eligibility requirement."
+                      },
+                      "response": [
+                        {
+                          "id": "3654c900-6d8f-4a9a-ac82-e41011e7401d",
+                          "name": "List of Eligibility Requirements",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"requirementType\": \"Signature\",\n  \"templateId\": \"<string,null>\",\n  \"validFor\": \"<number,null>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-settings",
+                                "eligibility-requirement",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"clientId\": \"<string>\",\n    \"eligibilityRequirementId\": \"<string>\",\n    \"requirementType\": \"Signature\",\n    \"templateId\": \"<string,null>\",\n    \"validFor\": \"<number,null>\"\n  },\n  {\n    \"clientId\": \"<string>\",\n    \"eligibilityRequirementId\": \"<string>\",\n    \"requirementType\": \"Signature\",\n    \"templateId\": \"<string,null>\",\n    \"validFor\": \"<number,null>\"\n  }\n]",
+                          "createdAt": "2026-07-28T03:31:23.000Z",
+                          "updatedAt": "2026-07-28T03:31:23.000Z",
+                          "uid": "35240-3654c900-6d8f-4a9a-ac82-e41011e7401d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-acf086b9-9ad5-4858-b928-45769e06a5ba"
+                    },
+                    {
+                      "name": "Remove a Specific Eligibility Requirement",
+                      "id": "dd77bda2-613a-4988-9395-d5f59e349689",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "eligibility-requirement",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4ea84b52-81c8-4a3e-82b8-9d6de98754a3",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Delete an eligibility requirement from the system based on its unique identifier."
+                      },
+                      "response": [
+                        {
+                          "id": "abcc0983-f0ef-416d-a6a0-6b3864c06ecf",
+                          "name": "List of Eligibility Requirements",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-settings",
+                                "eligibility-requirement",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"clientId\": \"<string>\",\n    \"eligibilityRequirementId\": \"<string>\",\n    \"requirementType\": \"Signature\",\n    \"templateId\": \"<string,null>\",\n    \"validFor\": \"<number,null>\"\n  },\n  {\n    \"clientId\": \"<string>\",\n    \"eligibilityRequirementId\": \"<string>\",\n    \"requirementType\": \"Signature\",\n    \"templateId\": \"<string,null>\",\n    \"validFor\": \"<number,null>\"\n  }\n]",
+                          "createdAt": "2026-07-28T03:31:23.000Z",
+                          "updatedAt": "2026-07-28T03:31:23.000Z",
+                          "uid": "35240-abcc0983-f0ef-416d-a6a0-6b3864c06ecf"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-dd77bda2-613a-4988-9395-d5f59e349689"
+                    }
+                  ],
+                  "id": "a214c3ce-5fa0-4291-a510-158cd98ad3dd",
+                  "createdAt": "2026-07-28T03:31:23.000Z",
+                  "updatedAt": "2026-07-28T03:31:23.000Z",
+                  "uid": "35240-a214c3ce-5fa0-4291-a510-158cd98ad3dd"
+                },
+                {
+                  "name": "Establish a new Eligibility Requirement",
+                  "id": "72c09771-caa5-4a8f-8a5d-4da616401b29",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requirementType\": \"Signature\",\n  \"templateId\": \"<string,null>\",\n  \"validFor\": \"<number,null>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-settings",
+                        "eligibility-requirement"
+                      ]
+                    },
+                    "description": "Define and create a new eligibility requirement for collaborators."
+                  },
+                  "response": [
+                    {
+                      "id": "8675ae6f-fa84-45ce-9104-fb982e3c8f2c",
+                      "name": "Eligibility Requirement",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"requirementType\": \"Signature\",\n  \"templateId\": \"<string,null>\",\n  \"validFor\": \"<number,null>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "eligibility-requirement"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"clientId\": \"<string>\",\n  \"eligibilityRequirementId\": \"<string>\",\n  \"requirementType\": \"Signature\",\n  \"templateId\": \"<string,null>\",\n  \"validFor\": \"<number,null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-8675ae6f-fa84-45ce-9104-fb982e3c8f2c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:23.000Z",
+                  "updatedAt": "2026-07-28T03:31:23.000Z",
+                  "uid": "35240-72c09771-caa5-4a8f-8a5d-4da616401b29"
+                },
+                {
+                  "name": "Retrieve all Eligibility Requirements",
+                  "id": "03d894f7-fae3-4f60-8328-23b7db3c61b6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-settings",
+                        "eligibility-requirement"
+                      ]
+                    },
+                    "description": "List and display all the set eligibility requirements for collaborators."
+                  },
+                  "response": [
+                    {
+                      "id": "54da2095-917e-4cba-90b5-581a15edff22",
+                      "name": "List of Eligibility Requirements",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/eligibility-requirement",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "eligibility-requirement"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"clientId\": \"<string>\",\n    \"eligibilityRequirementId\": \"<string>\",\n    \"requirementType\": \"Signature\",\n    \"templateId\": \"<string,null>\",\n    \"validFor\": \"<number,null>\"\n  },\n  {\n    \"clientId\": \"<string>\",\n    \"eligibilityRequirementId\": \"<string>\",\n    \"requirementType\": \"Signature\",\n    \"templateId\": \"<string,null>\",\n    \"validFor\": \"<number,null>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-54da2095-917e-4cba-90b5-581a15edff22"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:23.000Z",
+                  "updatedAt": "2026-07-28T03:31:23.000Z",
+                  "uid": "35240-03d894f7-fae3-4f60-8328-23b7db3c61b6"
+                }
+              ],
+              "id": "4e74d057-141c-4498-b4d4-e173aba94b6c",
+              "createdAt": "2026-07-28T03:31:23.000Z",
+              "updatedAt": "2026-07-28T03:31:23.000Z",
+              "uid": "35240-4e74d057-141c-4498-b4d4-e173aba94b6c"
+            },
+            {
+              "name": "payment-eligibility",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Retrieve details of a specific Payment Eligibility Requirement",
+                      "id": "4e65ac8f-f9d2-4cb9-8caf-f632d86cd5c5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "payment-eligibility",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "161db6cb-3140-41b4-a52b-a4fcee75ab9c",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Fetch detailed information about a particular payment eligibility requirement using its unique identifier."
+                      },
+                      "response": [
+                        {
+                          "id": "e3f1ced8-9c7e-41bf-8842-dc37662a4cb0",
+                          "name": "See payment eligibility requirements on member",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-settings",
+                                "payment-eligibility",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"field\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:31:23.000Z",
+                          "updatedAt": "2026-07-28T03:31:23.000Z",
+                          "uid": "35240-e3f1ced8-9c7e-41bf-8842-dc37662a4cb0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-4e65ac8f-f9d2-4cb9-8caf-f632d86cd5c5"
+                    },
+                    {
+                      "name": "Modify a specific Payment Eligibility Requirement",
+                      "id": "6743c22e-d256-4943-9a9f-7d9df9df5ac3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"field\": \"<string,null>\",\n  \"value\": \"<null>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "payment-eligibility",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "230792a3-5093-4549-8d5e-b11892bd03cf",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Update attributes or criteria of an existing payment eligibility requirement using its unique identifier."
+                      },
+                      "response": [
+                        {
+                          "id": "e96035e7-c2cc-40dc-86d2-1f135e4a1086",
+                          "name": "See payment eligibility requirements on member",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"field\": \"<string,null>\",\n  \"value\": \"<null>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-settings",
+                                "payment-eligibility",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"field\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:31:23.000Z",
+                          "updatedAt": "2026-07-28T03:31:23.000Z",
+                          "uid": "35240-e96035e7-c2cc-40dc-86d2-1f135e4a1086"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-6743c22e-d256-4943-9a9f-7d9df9df5ac3"
+                    },
+                    {
+                      "name": "Remove a specific Payment Eligibility Requirement",
+                      "id": "45012425-bffc-4191-8c7a-2f893352d100",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "payment-eligibility",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5529b2fc-ad16-4d4d-aa46-5900a5550c1b",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Delete an existing payment eligibility requirement based on its unique identifier, removing associated criteria for a member's payment eligibility."
+                      },
+                      "response": [
+                        {
+                          "id": "d846d923-9225-43c6-831a-33a9e477e5c0",
+                          "name": "See payment eligibility requirements on member",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-settings",
+                                "payment-eligibility",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"field\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:31:23.000Z",
+                          "updatedAt": "2026-07-28T03:31:23.000Z",
+                          "uid": "35240-d846d923-9225-43c6-831a-33a9e477e5c0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-45012425-bffc-4191-8c7a-2f893352d100"
+                    }
+                  ],
+                  "id": "d90cbc4f-9315-43a1-ae9a-8bc48ff5deea",
+                  "createdAt": "2026-07-28T03:31:23.000Z",
+                  "updatedAt": "2026-07-28T03:31:23.000Z",
+                  "uid": "35240-d90cbc4f-9315-43a1-ae9a-8bc48ff5deea"
+                },
+                {
+                  "name": "Add a New Payment Eligibility Requirement",
+                  "id": "db050449-a7e6-415c-bacc-54f4b3bb6336",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"field\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-settings",
+                        "payment-eligibility"
+                      ]
+                    },
+                    "description": "Define a new payment eligibility requirement for collaborators in the system."
+                  },
+                  "response": [
+                    {
+                      "id": "ea9db47e-49ec-4eff-bb67-f37924adb566",
+                      "name": "See payment eligibility requirements on member",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"field\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "payment-eligibility"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"field\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-ea9db47e-49ec-4eff-bb67-f37924adb566"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:23.000Z",
+                  "updatedAt": "2026-07-28T03:31:23.000Z",
+                  "uid": "35240-db050449-a7e6-415c-bacc-54f4b3bb6336"
+                },
+                {
+                  "name": "Retrieve All Payment Eligibility Requirements",
+                  "id": "3d70fe94-b305-4b44-a128-d1778552d1ea",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-settings",
+                        "payment-eligibility"
+                      ]
+                    },
+                    "description": "Obtain a list of all payment eligibility requirements configured for collaborators."
+                  },
+                  "response": [
+                    {
+                      "id": "22cca5f1-8431-49fb-b804-c0dd26e6746d",
+                      "name": "See payment eligibility requirements on member",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/payment-eligibility",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "payment-eligibility"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"field\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"field\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-22cca5f1-8431-49fb-b804-c0dd26e6746d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:23.000Z",
+                  "updatedAt": "2026-07-28T03:31:23.000Z",
+                  "uid": "35240-3d70fe94-b305-4b44-a128-d1778552d1ea"
+                }
+              ],
+              "id": "721afd43-6955-4363-a7a3-b99ce8ea80de",
+              "createdAt": "2026-07-28T03:31:23.000Z",
+              "updatedAt": "2026-07-28T03:31:23.000Z",
+              "uid": "35240-721afd43-6955-4363-a7a3-b99ce8ea80de"
+            }
+          ],
+          "id": "2314797a-abf5-4436-b4c5-3f8ea7fbb6fd",
+          "createdAt": "2026-07-28T03:31:23.000Z",
+          "updatedAt": "2026-07-28T03:31:23.000Z",
+          "uid": "35240-2314797a-abf5-4436-b4c5-3f8ea7fbb6fd"
+        },
+        {
+          "name": "collaborator-group",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "eligibility-requirement",
+                  "item": [
+                    {
+                      "name": "{eligibilityRequirementId}",
+                      "item": [
+                        {
+                          "name": "Remove Eligibility Requirement from Collaborator Group",
+                          "id": "2bbbed77-2059-4a5a-8c4f-01498f5ba027",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-group/:id/eligibility-requirement/:eligibilityRequirementId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-group",
+                                ":id",
+                                "eligibility-requirement",
+                                ":eligibilityRequirementId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "82007cff-0437-461c-92f5-95146846b44f",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier"
+                                },
+                                {
+                                  "id": "ca7b5af8-b65a-47f9-be81-ecc426e08ad6",
+                                  "key": "eligibilityRequirementId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique eligibility Requirement Id"
+                                }
+                              ]
+                            },
+                            "description": "Delete a specific eligibility requirement from the designated collaborator group."
+                          },
+                          "response": [
+                            {
+                              "id": "335dc9ca-da77-4073-a751-d5a94bce48aa",
+                              "name": "Collaborator Configuration Per Group",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/payments/collaborator-group/:id/eligibility-requirement/:eligibilityRequirementId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "payments",
+                                    "collaborator-group",
+                                    ":id",
+                                    "eligibility-requirement",
+                                    ":eligibilityRequirementId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "eligibilityRequirementId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"clientId\": \"<string>\",\n  \"collaboratorGroupId\": \"<string>\",\n  \"defaultGroup\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"collaboratorSettings\": \"<null>\",\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ]\n}",
+                              "createdAt": "2026-07-28T03:31:23.000Z",
+                              "updatedAt": "2026-07-28T03:31:23.000Z",
+                              "uid": "35240-335dc9ca-da77-4073-a751-d5a94bce48aa"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:31:23.000Z",
+                          "updatedAt": "2026-07-28T03:31:23.000Z",
+                          "uid": "35240-2bbbed77-2059-4a5a-8c4f-01498f5ba027"
+                        },
+                        {
+                          "name": "Modify Eligibility Requirement for Collaborator Group",
+                          "id": "02ae5fe6-88a1-48ac-8a40-914f68a11742",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"newEligibilityRequirementId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-group/:id/eligibility-requirement/:eligibilityRequirementId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-group",
+                                ":id",
+                                "eligibility-requirement",
+                                ":eligibilityRequirementId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2e75e473-2abc-4cd3-92d3-768b22215a9e",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier"
+                                },
+                                {
+                                  "id": "742baebe-5122-48b1-b499-984a11911e26",
+                                  "key": "eligibilityRequirementId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique eligibility Requirement Id"
+                                }
+                              ]
+                            },
+                            "description": "Update details or attributes of a specific eligibility requirement linked to a collaborator group."
+                          },
+                          "response": [
+                            {
+                              "id": "f3828d98-8688-47c1-afe3-8442054bc733",
+                              "name": "Collaborator Configuration Per Group",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"newEligibilityRequirementId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/payments/collaborator-group/:id/eligibility-requirement/:eligibilityRequirementId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "payments",
+                                    "collaborator-group",
+                                    ":id",
+                                    "eligibility-requirement",
+                                    ":eligibilityRequirementId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "eligibilityRequirementId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"clientId\": \"<string>\",\n  \"collaboratorGroupId\": \"<string>\",\n  \"defaultGroup\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"collaboratorSettings\": \"<null>\",\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ]\n}",
+                              "createdAt": "2026-07-28T03:31:23.000Z",
+                              "updatedAt": "2026-07-28T03:31:23.000Z",
+                              "uid": "35240-f3828d98-8688-47c1-afe3-8442054bc733"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:31:23.000Z",
+                          "updatedAt": "2026-07-28T03:31:23.000Z",
+                          "uid": "35240-02ae5fe6-88a1-48ac-8a40-914f68a11742"
+                        }
+                      ],
+                      "id": "d96a07d8-e8fb-441b-894f-46ebe5ac802a",
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-d96a07d8-e8fb-441b-894f-46ebe5ac802a"
+                    }
+                  ],
+                  "id": "a004f3b3-b456-40d1-af03-5924ddf2538e",
+                  "createdAt": "2026-07-28T03:31:23.000Z",
+                  "updatedAt": "2026-07-28T03:31:23.000Z",
+                  "uid": "35240-a004f3b3-b456-40d1-af03-5924ddf2538e"
+                },
+                {
+                  "name": "Retrieve Specific Collaborator Group Configuration",
+                  "id": "4a32fc07-7646-41c7-b1bd-3b1d86e0b88a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-group/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-group",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8878a287-78da-4706-829d-22f932d87972",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Fetch detailed configuration and attributes associated with a specific collaborator group."
+                  },
+                  "response": [
+                    {
+                      "id": "5fbbe344-fdc7-458d-b09c-3278a51e1f08",
+                      "name": "Collaborator Configuration Per Group",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-group/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-group",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"clientId\": \"<string>\",\n  \"collaboratorGroupId\": \"<string>\",\n  \"defaultGroup\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"collaboratorSettings\": \"<null>\",\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-5fbbe344-fdc7-458d-b09c-3278a51e1f08"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:23.000Z",
+                  "updatedAt": "2026-07-28T03:31:23.000Z",
+                  "uid": "35240-4a32fc07-7646-41c7-b1bd-3b1d86e0b88a"
+                },
+                {
+                  "name": "Modify Collaborator Group Configuration",
+                  "id": "7350b70b-c44f-4df9-90bc-007f7e777cf0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"collaboratorSettings\": \"<null>\",\n  \"description\": \"<string,null>\",\n  \"eligibilityRequirements\": null,\n  \"name\": \"<string,null>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-group/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-group",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a2ab32fc-dae1-4456-a596-2d9ddca87849",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Update specific attributes or configuration details of an existing collaborator group."
+                  },
+                  "response": [
+                    {
+                      "id": "27bdac8e-867c-4724-bcbb-6712c768f57b",
+                      "name": "Collaborator Configuration Per Group",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"collaboratorSettings\": \"<null>\",\n  \"description\": \"<string,null>\",\n  \"eligibilityRequirements\": null,\n  \"name\": \"<string,null>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-group/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-group",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"clientId\": \"<string>\",\n  \"collaboratorGroupId\": \"<string>\",\n  \"defaultGroup\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"collaboratorSettings\": \"<null>\",\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:31:23.000Z",
+                      "updatedAt": "2026-07-28T03:31:23.000Z",
+                      "uid": "35240-27bdac8e-867c-4724-bcbb-6712c768f57b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:23.000Z",
+                  "updatedAt": "2026-07-28T03:31:23.000Z",
+                  "uid": "35240-7350b70b-c44f-4df9-90bc-007f7e777cf0"
+                }
+              ],
+              "id": "9cb489d2-86d2-4bbb-898f-1db5d43ffb1a",
+              "createdAt": "2026-07-28T03:31:23.000Z",
+              "updatedAt": "2026-07-28T03:31:23.000Z",
+              "uid": "35240-9cb489d2-86d2-4bbb-898f-1db5d43ffb1a"
+            }
+          ],
+          "id": "da491c73-b222-417c-8d9d-ab1c9f0a18d0",
+          "createdAt": "2026-07-28T03:31:23.000Z",
+          "updatedAt": "2026-07-28T03:31:23.000Z",
+          "uid": "35240-da491c73-b222-417c-8d9d-ab1c9f0a18d0"
+        }
+      ],
+      "id": "1b3bd8a3-adc0-40b4-af38-e81438d416cc",
+      "createdAt": "2026-07-28T03:31:23.000Z",
+      "updatedAt": "2026-07-28T03:31:23.000Z",
+      "uid": "35240-1b3bd8a3-adc0-40b4-af38-e81438d416cc"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wingspan.app"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "b0661871-7147-421a-aaba-040dd91c919b",
+    "name": "Wingspan Payments 1099 Operations Service Settings API",
+    "description": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:31:30.000Z",
+    "updatedAt": "2026-07-28T03:31:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b0661871-7147-421a-aaba-040dd91c919b"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "Check Service Status",
+          "id": "abd712b7-1305-4851-923e-17e07133905d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/payments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments"
+              ]
+            },
+            "description": "Use this endpoint to determine the operational status of the payment service by obtaining the current timestamp and service name."
+          },
+          "response": [
+            {
+              "id": "a4c5d7a1-cbef-4933-840e-0839be055598",
+              "name": "timestamp and name of service being pinged",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<number>\",\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:31:30.000Z",
+              "updatedAt": "2026-07-28T03:31:30.000Z",
+              "uid": "35240-a4c5d7a1-cbef-4933-840e-0839be055598"
+            }
+          ],
+          "createdAt": "2026-07-28T03:31:30.000Z",
+          "updatedAt": "2026-07-28T03:31:30.000Z",
+          "uid": "35240-abd712b7-1305-4851-923e-17e07133905d"
+        }
+      ],
+      "id": "3a9f4ed8-1722-4dcf-8fd5-1dcf6c10b809",
+      "createdAt": "2026-07-28T03:31:30.000Z",
+      "updatedAt": "2026-07-28T03:31:30.000Z",
+      "uid": "35240-3a9f4ed8-1722-4dcf-8fd5-1dcf6c10b809"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wingspan.app"
+    }
+  ]
+}

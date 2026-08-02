@@ -1,0 +1,48 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.wingspan.app/docs/get-started-with-the-wingspan-api
+notes: >-
+  Cross-cutting request/response semantics for the Wingspan Payments API,
+  captured from the API guides and derived from the OpenAPI 3.1 spec. No
+  idempotency-key contract is documented or present in the spec, so no
+  Idempotency pointer is emitted.
+authentication:
+  style: bearer-token
+  header: 'Authorization: Bearer <API Token>'
+  docs: https://docs.wingspan.app/docs/get-started-with-the-wingspan-api
+required_headers:
+  - 'Content-Type: application/json'
+  - 'Accept: application/json'
+  - 'Authorization: Bearer <API Token>'
+idempotency:
+  supported: false
+  notes: No idempotency-key header/parameter documented or present in the OpenAPI.
+filtering:
+  style: schema-filter-query-params
+  syntax: "schema.filter('<field>', '<operator>')"
+  operators: ['=', '!=', 'contains', 'in', 'between', '>', '<', '>=', '<=']
+  example_fields: [memberId, clientId, name, company, status, emailTo]
+  docs: https://docs.wingspan.app/docs/use-url-query-parameters-with-wingspan-apis
+pagination:
+  style: query-params
+  notes: >-
+    Standard page/limit query-parameter filtering is supported per the guides;
+    Wingspan's documented parameter surface is the schema.filter() family above.
+error_envelope:
+  shape: '{"error": "string"}'
+  ref: errors/wingspan-error-codes.yml
+rate_limiting:
+  read: 200 requests/second (GET)
+  write: 100 requests/second (POST, PATCH, DELETE)
+  exceeded_status: 429
+  guidance: Retry with jittered exponential backoff; stagger or queue requests.
+  docs: https://docs.wingspan.app/docs/api-rate-limiting
+webhooks:
+  ref: asyncapi/wingspan-webhooks.yml
+  signing: HMAC-SHA256 shared secret
+versioning:
+  ref: lifecycle/wingspan-lifecycle.yml
+authentication_ref: authentication/wingspan-authentication.yml
+custom_fields:
+  supported: true
+  docs: https://docs.wingspan.app/docs/custom-fields-in-wingspan

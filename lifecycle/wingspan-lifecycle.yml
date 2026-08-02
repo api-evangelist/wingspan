@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.wingspan.app/docs/get-started-with-the-wingspan-api
+notes: >-
+  Versioning, environments, status page, and deprecation signals for the
+  Wingspan Payments API. The spec marks 8 operations deprecated (Deprecated
+  tag). No standalone written deprecation-policy / Sunset-header page was found,
+  so no Deprecation pointer is emitted.
+versioning:
+  scheme: readme-doc-versions
+  doc_versions: [v1.0, v2.0, v3.0]
+  api_version: 1.0.0-oas3.1
+  notes: API paths are unversioned (/payments/...); documentation is versioned in ReadMe.
+environments:
+  - name: production
+    api: https://api.wingspan.app
+    frontend: https://my.wingspan.app/
+  - name: staging
+    api: https://stagingapi.wingspan.app
+    frontend: https://staging-my.wingspan.app/
+status_page: https://status.wingspan.app/
+status_page_platform: Atlassian Statuspage
+deprecated_operations:
+  - openapi/wingspan-payments-openapi-original.yml#getInstantPayoutInformation
+  - openapi/wingspan-payments-openapi-original.yml#deleteInstantPayoutInformation
+  - openapi/wingspan-payments-openapi-original.yml#updateInstantPayoutInformation
+  - openapi/wingspan-payments-openapi-original.yml#createCustomDataCollaboratorMember
+  - openapi/wingspan-payments-openapi-original.yml#listCustomDataCollaboratorMembers
+  - openapi/wingspan-payments-openapi-original.yml#getCustomDataCollaboratorMember
+  - openapi/wingspan-payments-openapi-original.yml#updateCustomDataCollaboratorMember
+  - openapi/wingspan-payments-openapi-original.yml#deleteCustomDataCollaboratorMember

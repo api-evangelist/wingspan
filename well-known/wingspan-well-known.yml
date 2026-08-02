@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+host: https://api.wingspan.app
+notes: >-
+  Probed the standard /.well-known/ discovery surface on the API host and the
+  marketing/app hosts. None are published (all 404). Recorded as valid negative
+  data. Wingspan uses Bearer-token auth generated in-app, so no OIDC/OAuth
+  authorization-server discovery documents are expected.
+documents:
+  - path: /.well-known/security.txt
+    host: https://api.wingspan.app
+    status: 404
+  - path: /.well-known/security.txt
+    host: https://www.wingspan.app
+    status: 404
+  - path: /.well-known/openid-configuration
+    host: https://api.wingspan.app
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    host: https://api.wingspan.app
+    status: 404
+  - path: /.well-known/api-catalog
+    host: https://api.wingspan.app
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    host: https://www.wingspan.app
+    status: 404

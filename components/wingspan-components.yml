@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.wingspan.app/docs/embed-wingspan-into-your-app
+notes: >-
+  Wingspan publishes embeddable, pre-built UI experiences ("Embed Wingspan Into
+  Your App") loaded via iframe with an organization member token passed as a
+  query parameter. The embeds emit events to the parent container via
+  window.parent.postMessage (source: ws-embedded). Access to the embeddable
+  application is configured per organization.
+families:
+  - name: Contractor Onboarding
+    kind: iframe-embed
+    description: Pre-built onboarding flow — contractors enter W-9 information, accept
+      electronic 1099 filing, complete signature requirements, and configure payout
+      settings from within your app. Resumes at the last incomplete step.
+    urls:
+      production: https://onboarder.wingspan.app/onboarding?token=<token>
+      staging: https://staging-onboarder.wingspan.app/onboarding?token=<token>
+  - name: Contractor Payout Settings
+    kind: iframe-embed
+    description: Pre-built payout-settings editor so contractors can change their payout
+      method after onboarding is complete.
+    urls:
+      production: https://onboarder.wingspan.app/settings/edit-payouts?token=<token>
+      staging: https://staging-onboarder.wingspan.app/settings/edit-payouts?token=<token>
+  - name: Embedded Dashboard
+    kind: iframe-embed
+    description: Wingspan dashboard embedded with token auth. Single token grants full
+      admin access; dual token (token + requestingToken) enables RBAC-scoped team-member
+      access via authorizations and scope groups (Finances, Documents, Payments).
+    urls:
+      production: https://my.wingspan.app/dashboard?token=<token>
+      team_member: https://my.wingspan.app/dashboard?token=<ACCOUNT_TOKEN>&requestingToken=<TEAM_MEMBER_TOKEN>
+integration:
+  loader: iframe (no loader library; render iframe with embed URL + token query param)
+  events_transport: window.parent.postMessage (message.data.source == "ws-embedded")
+  events:
+    - {name: errorLoadingSession, description: Can occur for multiple reasons; check response data for actionable item.}
+    - {name: sessionLoaded, description: The iframe authenticated with the backend services.}
+    - {name: errorLoadingMemberData, description: One or more requests needed to initialize the app failed.}
+    - {name: onboardingComplete, description: The member completed all steps of onboarding.}

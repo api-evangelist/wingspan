@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Wingspan Payments API
+  version: 1.0.0
+extends: openapi/wingspan-payments-openapi-original.yml
+x-provenance:
+  generated: '2026-07-21'
+  method: generated
+  source: openapi/wingspan-payments-openapi-original.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: true
+      x-apievangelist-provider: wingspan
+      x-apievangelist-category: contractor-payments-payroll
+      x-apievangelist-auth: bearer-token
+      x-apievangelist-rate-limit: "GET 200 req/s, write 100 req/s (429 on exceed)"
+      x-apievangelist-webhooks: "HMAC-SHA256 signed payment/invoice events (Invoice.Paid, Payee.Created)"
+      x-apievangelist-status-page: https://status.wingspan.app/
+      x-apievangelist-compliance: "SOC 2, HIPAA"
+  - target: $.servers
+    update:
+      - url: https://api.wingspan.app
+        description: Production
+      - url: https://stagingapi.wingspan.app
+        description: Staging / test environment

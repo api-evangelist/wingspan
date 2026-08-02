@@ -1,0 +1,2438 @@
+{
+  "info": {
+    "_postman_id": "9a655392-b5df-43cd-b521-df9342e03e5a",
+    "name": "Wingspan Payments 1099 Operations API",
+    "description": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:30:59.000Z",
+    "updatedAt": "2026-07-28T03:30:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9a655392-b5df-43cd-b521-df9342e03e5a"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "collaborator",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "download-1099",
+                  "item": [
+                    {
+                      "name": "{year}",
+                      "item": [
+                        {
+                          "name": "{index}",
+                          "item": [
+                            {
+                              "name": "Retrieve Form 1099 PDF for a Collaborator by Year and Index",
+                              "id": "3b41cefa-0689-4542-9e12-8763f6d7d5df",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/payments/collaborator/:id/download-1099/:year/:index",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "payments",
+                                    "collaborator",
+                                    ":id",
+                                    "download-1099",
+                                    ":year",
+                                    ":index"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "7fec9b1b-8ed7-4f84-80c8-0facede662a1",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier"
+                                    },
+                                    {
+                                      "id": "b669edae-1b59-47b5-a911-41060fc14d4b",
+                                      "key": "year",
+                                      "value": "<string>",
+                                      "description": "(Required) Year"
+                                    },
+                                    {
+                                      "id": "c674a3fc-0296-4d5c-8523-e7dc6a5b743c",
+                                      "key": "index",
+                                      "value": "<string>",
+                                      "description": "(Required) Index"
+                                    }
+                                  ]
+                                },
+                                "description": "Facilitates downloading of the specified 1099 form for a given collaborator, corresponding to the provided year and index."
+                              },
+                              "response": [
+                                {
+                                  "id": "59e38bc7-42f1-4d1a-92ec-f5bf000f3242",
+                                  "name": "Download1099Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/payments/collaborator/:id/download-1099/:year/:index",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "payments",
+                                        "collaborator",
+                                        ":id",
+                                        "download-1099",
+                                        ":year",
+                                        ":index"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "year"
+                                        },
+                                        {
+                                          "key": "index"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-07-28T03:30:59.000Z",
+                                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                                  "uid": "35240-59e38bc7-42f1-4d1a-92ec-f5bf000f3242"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:30:59.000Z",
+                              "updatedAt": "2026-07-28T03:30:59.000Z",
+                              "uid": "35240-3b41cefa-0689-4542-9e12-8763f6d7d5df"
+                            }
+                          ],
+                          "id": "ffb0b262-7724-4e30-bf21-7388d05929f7",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-ffb0b262-7724-4e30-bf21-7388d05929f7"
+                        }
+                      ],
+                      "id": "a5bebf14-e80e-4eed-985f-4d3040ffe1e7",
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-a5bebf14-e80e-4eed-985f-4d3040ffe1e7"
+                    }
+                  ],
+                  "id": "90ff5517-1c1b-46bf-afe4-527e54168db7",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-90ff5517-1c1b-46bf-afe4-527e54168db7"
+                },
+                {
+                  "name": "download-w9",
+                  "item": [
+                    {
+                      "name": "Retrieve Form W9 PDF for a Collaborator",
+                      "id": "8152d7c3-a512-4646-a4ef-cdd8b920b035",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator/:id/download-w9",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator",
+                            ":id",
+                            "download-w9"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9019b5ee-79ff-47b8-8ad9-20a2ad3fbd1b",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Enables the downloading of the W9 form for the specified collaborator, ensuring compliance and streamlined financial procedures."
+                      },
+                      "response": [
+                        {
+                          "id": "3438550a-ef84-4278-9e4c-d86c299320b5",
+                          "name": "A file stream for a W9 PDF download.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator/:id/download-w9",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator",
+                                ":id",
+                                "download-w9"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-3438550a-ef84-4278-9e4c-d86c299320b5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-8152d7c3-a512-4646-a4ef-cdd8b920b035"
+                    }
+                  ],
+                  "id": "3ae29692-ed92-423a-b269-bac252ecc360",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-3ae29692-ed92-423a-b269-bac252ecc360"
+                }
+              ],
+              "id": "0ab73fc8-c4a1-4cb9-8202-445739da9c0b",
+              "createdAt": "2026-07-28T03:30:59.000Z",
+              "updatedAt": "2026-07-28T03:30:59.000Z",
+              "uid": "35240-0ab73fc8-c4a1-4cb9-8202-445739da9c0b"
+            },
+            {
+              "name": "1099",
+              "item": [
+                {
+                  "name": "calculate",
+                  "item": [
+                    {
+                      "name": "Determine 1099 Amounts for Collaborators",
+                      "id": "f012e492-901f-4d18-b420-a9b27a218b28",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"memberClientId\": \"<string>\",\n  \"year\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator/1099/calculate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator",
+                            "1099",
+                            "calculate"
+                          ]
+                        },
+                        "description": "Analyzes and calculates the appropriate 1099 amounts for collaborators based on provided data and relevant financial parameters."
+                      },
+                      "response": [
+                        {
+                          "id": "5666c982-c22e-458e-8284-2672bc63e320",
+                          "name": "Calculate 1099 amounts response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"memberClientId\": \"<string>\",\n  \"year\": \"<number>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator/1099/calculate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator",
+                                "1099",
+                                "calculate"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"memberClient\": {\n    \"achCreditAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"client\": {\n      \"user\": {\n        \"email\": \"<string,null>\",\n        \"phone\": \"<null>\",\n        \"profile\": \"<null>\",\n        \"settings\": \"<null>\",\n        \"status\": null,\n        \"tag\": \"<string,null>\"\n      },\n      \"profile\": \"<null>\"\n    },\n    \"clientData\": {\n      \"autoPayStrategy\": \"None\",\n      \"externalId\": \"<string,null>\",\n      \"verificationStratgy\": null\n    },\n    \"clientId\": \"<string>\",\n    \"clientUserAccountType\": \"enterprise\",\n    \"createdAt\": \"<string>\",\n    \"emailTo\": \"<string>\",\n    \"eventActors\": {\n      \"enim_691\": \"<string>\"\n    },\n    \"events\": {\n      \"activeAt\": \"<string,null>\",\n      \"pendingAt\": \"<string,null>\"\n    },\n    \"externalIds\": {\n      \"bulk\": \"<null>\",\n      \"quickbooks\": \"<null>\",\n      \"stripe\": \"<string,null>\"\n    },\n    \"form1099Balances\": {\n      \"2021\": \"<null>\",\n      \"2022\": \"<null>\"\n    },\n    \"formW9Data\": {\n      \"addressLine1\": \"<string,null>\",\n      \"addressLine2\": \"<string,null>\",\n      \"city\": \"<string,null>\",\n      \"companyStructure\": \"SoleProprietorship\",\n      \"country\": \"<string,null>\",\n      \"dob\": \"<string,null>\",\n      \"ein\": \"<string,null>\",\n      \"firstName\": \"<string,null>\",\n      \"lastName\": \"<string,null>\",\n      \"legalBusinessName\": \"<string,null>\",\n      \"postalCode\": \"<string,null>\",\n      \"ssn\": \"<string,null>\",\n      \"state\": \"<string,null>\"\n    },\n    \"internationalWireAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"labels\": {\n      \"amet859\": \"<string>\",\n      \"incididunt549\": \"<string>\"\n    },\n    \"member\": {\n      \"user\": {\n        \"email\": \"<string,null>\",\n        \"phone\": \"<null>\",\n        \"profile\": \"<null>\",\n        \"settings\": \"<null>\",\n        \"status\": \"Active\",\n        \"tag\": \"<string,null>\"\n      },\n      \"profile\": \"<null>\"\n    },\n    \"memberClientId\": \"<string>\",\n    \"memberData\": {\n      \"autoPayRequirement\": null,\n      \"externalId\": \"<string,null>\",\n      \"shareTaxDocument\": \"Allow\"\n    },\n    \"memberId\": \"<string>\",\n    \"parentMemberClientId\": \"<string>\",\n    \"payerPayeeId\": \"<string>\",\n    \"status\": \"Pending\",\n    \"taxStatus\": \"Failed\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"collaboratorGroupId\": \"<string,null>\",\n    \"collaboratorGroupIds\": null,\n    \"company\": \"<string,null>\",\n    \"eligibilityRequirements\": [\n      \"<null>\",\n      \"<null>\"\n    ],\n    \"emailCC\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"integration\": \"<null>\",\n    \"name\": \"<string,null>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-5666c982-c22e-458e-8284-2672bc63e320"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-f012e492-901f-4d18-b420-a9b27a218b28"
+                    }
+                  ],
+                  "id": "73b22b96-65d8-4a04-83c6-896621de2455",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-73b22b96-65d8-4a04-83c6-896621de2455"
+                },
+                {
+                  "name": "remail",
+                  "item": [
+                    {
+                      "name": "Request a new mailing of the 1099 form for a collaborator",
+                      "id": "0f80b555-f53a-44d9-8fdc-b92be6d7458f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"address\": {\n    \"addressLine1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"addressLine2\": \"<string,null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"year\": \"<number>\",\n  \"documentIndex\": \"<number,null>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator/1099/remail",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator",
+                            "1099",
+                            "remail"
+                          ]
+                        },
+                        "description": "Initiates a process to resend the 1099 form to a collaborator in the event of a previous failed delivery or at the request of the collaborator."
+                      },
+                      "response": [
+                        {
+                          "id": "1f8a6ea6-1125-429d-843d-8c6f7b0bfe8b",
+                          "name": "Remail 1099 response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"address\": {\n    \"addressLine1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"addressLine2\": \"<string,null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"year\": \"<number>\",\n  \"documentIndex\": \"<number,null>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator/1099/remail",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator",
+                                "1099",
+                                "remail"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-1f8a6ea6-1125-429d-843d-8c6f7b0bfe8b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-0f80b555-f53a-44d9-8fdc-b92be6d7458f"
+                    }
+                  ],
+                  "id": "98f8edf6-6153-41da-bf9e-3936e93a7887",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-98f8edf6-6153-41da-bf9e-3936e93a7887"
+                },
+                {
+                  "name": "mark-undelivered",
+                  "item": [
+                    {
+                      "name": "Indicate a collaborator's 1099 form was returned undelivered",
+                      "id": "bfe3d668-1f17-45d9-a8c1-412126113282",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"memberId\": \"<string>\",\n  \"submissionIndex\": \"<number>\",\n  \"year\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator/1099/mark-undelivered",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator",
+                            "1099",
+                            "mark-undelivered"
+                          ]
+                        },
+                        "description": "Mark a specific 1099 submission for a collaborator as undelivered, typically due to mail return or incorrect address details."
+                      },
+                      "response": [
+                        {
+                          "id": "34910eca-71e6-4278-bc29-bb42908dba17",
+                          "name": "Mark 1099 as undelivered response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"memberId\": \"<string>\",\n  \"submissionIndex\": \"<number>\",\n  \"year\": \"<number>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator/1099/mark-undelivered",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator",
+                                "1099",
+                                "mark-undelivered"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-34910eca-71e6-4278-bc29-bb42908dba17"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-bfe3d668-1f17-45d9-a8c1-412126113282"
+                    }
+                  ],
+                  "id": "cc806d17-7943-469d-bf35-0472c4eecf27",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-cc806d17-7943-469d-bf35-0472c4eecf27"
+                }
+              ],
+              "id": "46553eaa-a600-4153-bdd9-a4ab843f9e30",
+              "createdAt": "2026-07-28T03:30:59.000Z",
+              "updatedAt": "2026-07-28T03:30:59.000Z",
+              "uid": "35240-46553eaa-a600-4153-bdd9-a4ab843f9e30"
+            }
+          ],
+          "id": "eb888454-26f4-4ca6-a482-c6def5c566dc",
+          "createdAt": "2026-07-28T03:30:59.000Z",
+          "updatedAt": "2026-07-28T03:30:59.000Z",
+          "uid": "35240-eb888454-26f4-4ca6-a482-c6def5c566dc"
+        },
+        {
+          "name": "bulk",
+          "item": [
+            {
+              "name": "calculation1099",
+              "item": [
+                {
+                  "name": "batch",
+                  "item": [
+                    {
+                      "name": "{batchId}",
+                      "item": [
+                        {
+                          "name": "item",
+                          "item": [
+                            {
+                              "name": "{batchItemId}",
+                              "item": [
+                                {
+                                  "name": "Fetch details of a specific item from a calculation 1099 batch",
+                                  "id": "fcc9a0f3-10b3-4469-b93d-607717a4cef8",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId/item/:batchItemId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "payments",
+                                        "bulk",
+                                        "calculation1099",
+                                        "batch",
+                                        ":batchId",
+                                        "item",
+                                        ":batchItemId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "7703b5ca-83f7-484e-b66c-be9dec80e1fd",
+                                          "key": "batchId",
+                                          "value": "<string>",
+                                          "description": "(Required) Unique identifier for a batch"
+                                        },
+                                        {
+                                          "id": "06f8a10f-d846-419d-885e-d902700f7b5a",
+                                          "key": "batchItemId",
+                                          "value": "<string>",
+                                          "description": "(Required) Unique identifier for an item in a batch"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Gain insights into a particular item's attributes and data stored within a calculation 1099 batch, enhancing data management and verification."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "2a51240b-ec34-4021-9ddc-bef3e42e5621",
+                                      "name": "An item that will be converted into a calculation 1099",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId/item/:batchItemId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "payments",
+                                            "bulk",
+                                            "calculation1099",
+                                            "batch",
+                                            ":batchId",
+                                            "item",
+                                            ":batchItemId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "batchId"
+                                            },
+                                            {
+                                              "key": "batchItemId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"bulkCalculation1099BatchId\": \"<string>\",\n  \"bulkCalculation1099ItemId\": \"<string>\",\n  \"calculationType\": \"Submissions\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"eue\": \"<string>\"\n  },\n  \"labels\": {\n    \"consectetur_3\": \"<string>\",\n    \"fugiatb6_\": \"<string>\",\n    \"incididunt7\": \"<string>\",\n    \"dolored53\": \"<string>\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"year\": \"<number>\",\n  \"metadata\": \"<null>\"\n}",
+                                      "createdAt": "2026-07-28T03:30:59.000Z",
+                                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                                      "uid": "35240-2a51240b-ec34-4021-9ddc-bef3e42e5621"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:30:59.000Z",
+                                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                                  "uid": "35240-fcc9a0f3-10b3-4469-b93d-607717a4cef8"
+                                },
+                                {
+                                  "name": "Revise the attributes of an item in a calculation 1099 batch",
+                                  "id": "b5243707-9e58-4743-b436-834b66450b7e",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"calculationType\": null,\n  \"clientId\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"year\": \"<number,null>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId/item/:batchItemId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "payments",
+                                        "bulk",
+                                        "calculation1099",
+                                        "batch",
+                                        ":batchId",
+                                        "item",
+                                        ":batchItemId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "45d03f0b-3339-4270-a018-b2d12b840fdd",
+                                          "key": "batchId",
+                                          "value": "<string>",
+                                          "description": "(Required) Unique identifier for a batch"
+                                        },
+                                        {
+                                          "id": "128893bf-7f47-40a9-8b0a-7a1287a5d96a",
+                                          "key": "batchItemId",
+                                          "value": "<string>",
+                                          "description": "(Required) Unique identifier for an item in a batch"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Make alterations or updates to a specific item within the calculation 1099 batch, ensuring accurate and up-to-date record-keeping."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "f53d65bd-1382-4557-acea-2058e532a96c",
+                                      "name": "An item that will be converted into a payable",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"calculationType\": null,\n  \"clientId\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"year\": \"<number,null>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId/item/:batchItemId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "payments",
+                                            "bulk",
+                                            "calculation1099",
+                                            "batch",
+                                            ":batchId",
+                                            "item",
+                                            ":batchItemId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "batchId"
+                                            },
+                                            {
+                                              "key": "batchItemId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"amount\": \"<number>\",\n  \"bulkPayableBatchId\": \"<string>\",\n  \"bulkPayableItemId\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"eventActors\": {\n    \"aliqua_582\": \"<string>\"\n  },\n  \"labels\": {\n    \"utca\": \"<string>\",\n    \"elit9\": \"<string>\",\n    \"consectetur4\": \"<string>\"\n  },\n  \"lineItemDescription\": \"<string>\",\n  \"paidDate\": \"<string>\",\n  \"payableStatus\": \"Open\",\n  \"status\": \"Processing\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"attachmentId\": \"<string,null>\",\n  \"bulkPayableItemMergeKey\": \"<string,null>\",\n  \"bulkPayableItemReference\": \"<string,null>\",\n  \"collaboratorEmail\": \"<string,null>\",\n  \"collaboratorExternalId\": \"<string,null>\",\n  \"collaboratorId\": \"<string,null>\",\n  \"integration\": \"<null>\",\n  \"lineItemDetail\": \"<string,null>\",\n  \"metadata\": \"<null>\",\n  \"payableNotes\": \"<string,null>\",\n  \"reimbursableExpense\": \"<boolean,null>\",\n  \"workflowSubStatus\": null\n}",
+                                      "createdAt": "2026-07-28T03:30:59.000Z",
+                                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                                      "uid": "35240-f53d65bd-1382-4557-acea-2058e532a96c"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:30:59.000Z",
+                                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                                  "uid": "35240-b5243707-9e58-4743-b436-834b66450b7e"
+                                }
+                              ],
+                              "id": "6c011e7e-9656-4736-b577-0d5825a293c4",
+                              "createdAt": "2026-07-28T03:30:59.000Z",
+                              "updatedAt": "2026-07-28T03:30:59.000Z",
+                              "uid": "35240-6c011e7e-9656-4736-b577-0d5825a293c4"
+                            },
+                            {
+                              "name": "Retrieve all items from a calculation 1099 batch",
+                              "id": "cd01428b-3316-4566-80e0-5d0e000b2f1f",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId/item",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "payments",
+                                    "bulk",
+                                    "calculation1099",
+                                    "batch",
+                                    ":batchId",
+                                    "item"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ebd65efc-4eef-4d02-aba9-cc90bbc4f351",
+                                      "key": "batchId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier for a batch"
+                                    }
+                                  ]
+                                },
+                                "description": "Access a comprehensive list of items contained within a specified calculation 1099 batch, useful for verifying or inspecting batch contents."
+                              },
+                              "response": [
+                                {
+                                  "id": "5e1d0972-822a-44f8-bf32-b5b807cb2dc9",
+                                  "name": "A list of bulk calculation 1099 items",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId/item",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "payments",
+                                        "bulk",
+                                        "calculation1099",
+                                        "batch",
+                                        ":batchId",
+                                        "item"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "batchId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"bulkCalculation1099BatchId\": \"<string>\",\n    \"bulkCalculation1099ItemId\": \"<string>\",\n    \"calculationType\": \"Balances\",\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"eventActors\": {\n      \"nostrud_08\": \"<string>\",\n      \"nostrud5\": \"<string>\",\n      \"irureb\": \"<string>\",\n      \"laboris__8\": \"<string>\"\n    },\n    \"labels\": {\n      \"essea36\": \"<string>\"\n    },\n    \"status\": \"Complete\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"year\": \"<number>\",\n    \"metadata\": \"<null>\"\n  },\n  {\n    \"bulkCalculation1099BatchId\": \"<string>\",\n    \"bulkCalculation1099ItemId\": \"<string>\",\n    \"calculationType\": \"Submissions\",\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"eventActors\": {\n      \"ut_c06\": \"<string>\"\n    },\n    \"labels\": {\n      \"uta1d\": \"<string>\"\n    },\n    \"status\": \"Complete\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"year\": \"<number>\",\n    \"metadata\": \"<null>\"\n  }\n]",
+                                  "createdAt": "2026-07-28T03:30:59.000Z",
+                                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                                  "uid": "35240-5e1d0972-822a-44f8-bf32-b5b807cb2dc9"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:30:59.000Z",
+                              "updatedAt": "2026-07-28T03:30:59.000Z",
+                              "uid": "35240-cd01428b-3316-4566-80e0-5d0e000b2f1f"
+                            },
+                            {
+                              "name": "Add a new item to a calculation 1099 batch",
+                              "id": "ab979f33-5385-45d0-9007-c4542650be56",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"clientId\": \"<string>\",\n  \"year\": \"<number>\",\n  \"calculationType\": null,\n  \"labels\": \"<null>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId/item",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "payments",
+                                    "bulk",
+                                    "calculation1099",
+                                    "batch",
+                                    ":batchId",
+                                    "item"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "e6c27db4-deb0-4a3e-b968-c047932d6802",
+                                      "key": "batchId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier for a batch"
+                                    }
+                                  ]
+                                },
+                                "description": "Facilitates the incorporation of a new item into the specified calculation 1099 batch, streamlining the process of batch expansion."
+                              },
+                              "response": [
+                                {
+                                  "id": "367509e7-a584-4952-ae90-7535a5687b9a",
+                                  "name": "An item that will be converted into a calculation 1099",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"clientId\": \"<string>\",\n  \"year\": \"<number>\",\n  \"calculationType\": null,\n  \"labels\": \"<null>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId/item",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "payments",
+                                        "bulk",
+                                        "calculation1099",
+                                        "batch",
+                                        ":batchId",
+                                        "item"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "batchId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"bulkCalculation1099BatchId\": \"<string>\",\n  \"bulkCalculation1099ItemId\": \"<string>\",\n  \"calculationType\": \"Submissions\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"eue\": \"<string>\"\n  },\n  \"labels\": {\n    \"consectetur_3\": \"<string>\",\n    \"fugiatb6_\": \"<string>\",\n    \"incididunt7\": \"<string>\",\n    \"dolored53\": \"<string>\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"year\": \"<number>\",\n  \"metadata\": \"<null>\"\n}",
+                                  "createdAt": "2026-07-28T03:30:59.000Z",
+                                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                                  "uid": "35240-367509e7-a584-4952-ae90-7535a5687b9a"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:30:59.000Z",
+                              "updatedAt": "2026-07-28T03:30:59.000Z",
+                              "uid": "35240-ab979f33-5385-45d0-9007-c4542650be56"
+                            }
+                          ],
+                          "id": "777b0faa-8ed6-4992-a182-417a46a182ad",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-777b0faa-8ed6-4992-a182-417a46a182ad"
+                        },
+                        {
+                          "name": "Retrieve specific details of a bulk calculation 1099 batch",
+                          "id": "d43dd298-832f-49bf-ad10-ef1781286496",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "bulk",
+                                "calculation1099",
+                                "batch",
+                                ":batchId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "927020cd-5807-4fd6-a81f-e2607f0e971a",
+                                  "key": "batchId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier for a batch"
+                                }
+                              ]
+                            },
+                            "description": "Fetches detailed information about a specific batch meant for bulk 1099 calculations using its unique batch identifier."
+                          },
+                          "response": [
+                            {
+                              "id": "39dcca56-d4bf-44b1-970e-3c3242e06c93",
+                              "name": "A batch of items for importing as calculation 1099s",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "payments",
+                                    "bulk",
+                                    "calculation1099",
+                                    "batch",
+                                    ":batchId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "batchId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"bulkCalculation1099BatchId\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"exercitation_3\": \"<string>\"\n  },\n  \"labels\": {\n    \"sint_2a6\": \"<string>\",\n    \"sunt_4\": \"<string>\",\n    \"cillum92e\": \"<string>\",\n    \"nulla_b\": \"<string>\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"statistics\": \"<null>\"\n}",
+                              "createdAt": "2026-07-28T03:30:59.000Z",
+                              "updatedAt": "2026-07-28T03:30:59.000Z",
+                              "uid": "35240-39dcca56-d4bf-44b1-970e-3c3242e06c93"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-d43dd298-832f-49bf-ad10-ef1781286496"
+                        },
+                        {
+                          "name": "Modify the details of a specific bulk calculation 1099 batch",
+                          "id": "1a18e40d-aee4-440c-84cb-94161716f16d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"Processing\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "bulk",
+                                "calculation1099",
+                                "batch",
+                                ":batchId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8338c74b-c619-4766-abbd-a3756d74a294",
+                                  "key": "batchId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier for a batch"
+                                }
+                              ]
+                            },
+                            "description": "Provides the ability to update or alter attributes of a given batch for bulk 1099 calculations by using its unique batch identifier."
+                          },
+                          "response": [
+                            {
+                              "id": "99ae4d6f-07a5-4d02-a54d-0a80bad442db",
+                              "name": "A batch of items for importing as calculation 1099s",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"Processing\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch/:batchId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "payments",
+                                    "bulk",
+                                    "calculation1099",
+                                    "batch",
+                                    ":batchId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "batchId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"bulkCalculation1099BatchId\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"exercitation_3\": \"<string>\"\n  },\n  \"labels\": {\n    \"sint_2a6\": \"<string>\",\n    \"sunt_4\": \"<string>\",\n    \"cillum92e\": \"<string>\",\n    \"nulla_b\": \"<string>\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"statistics\": \"<null>\"\n}",
+                              "createdAt": "2026-07-28T03:30:59.000Z",
+                              "updatedAt": "2026-07-28T03:30:59.000Z",
+                              "uid": "35240-99ae4d6f-07a5-4d02-a54d-0a80bad442db"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-1a18e40d-aee4-440c-84cb-94161716f16d"
+                        }
+                      ],
+                      "id": "2c35973a-d561-4db2-8ae2-83352f7ef264",
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-2c35973a-d561-4db2-8ae2-83352f7ef264"
+                    },
+                    {
+                      "name": "Retrieve all bulk calculation 1099 batches",
+                      "id": "7a5d67b9-773a-4812-ada8-f2d505390455",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "bulk",
+                            "calculation1099",
+                            "batch"
+                          ]
+                        },
+                        "description": "Fetches a comprehensive list of all batches created for bulk 1099 calculations."
+                      },
+                      "response": [
+                        {
+                          "id": "4a043599-17f3-4e97-abd2-04c0fb609dee",
+                          "name": "A list of bulk calculation 1099 batches",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "bulk",
+                                "calculation1099",
+                                "batch"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"bulkCalculation1099BatchId\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"eventActors\": {\n      \"id_d35\": \"<string>\",\n      \"Lorem5d\": \"<string>\",\n      \"fugiat_32\": \"<string>\",\n      \"ullamco_6e\": \"<string>\",\n      \"deserunt_b\": \"<string>\"\n    },\n    \"labels\": {\n      \"eu0\": \"<string>\",\n      \"Excepteura70\": \"<string>\"\n    },\n    \"status\": \"Open\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"statistics\": \"<null>\"\n  },\n  {\n    \"bulkCalculation1099BatchId\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"eventActors\": {\n      \"do42\": \"<string>\"\n    },\n    \"labels\": {\n      \"occaecatb\": \"<string>\"\n    },\n    \"status\": \"Pending\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"statistics\": \"<null>\"\n  }\n]",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-4a043599-17f3-4e97-abd2-04c0fb609dee"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-7a5d67b9-773a-4812-ada8-f2d505390455"
+                    },
+                    {
+                      "name": "Initialize a new batch for bulk calculation 1099",
+                      "id": "e815e09a-b8e4-4b7e-a7b4-31d70f26af95",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"labels\": \"<null>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "bulk",
+                            "calculation1099",
+                            "batch"
+                          ]
+                        },
+                        "description": "Allows users to create a new batch for facilitating bulk 1099 calculations by providing necessary batch details."
+                      },
+                      "response": [
+                        {
+                          "id": "0b6a3f7e-1883-483b-a71f-82441ce94918",
+                          "name": "A batch of items for importing as calculation 1099s",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"labels\": \"<null>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/bulk/calculation1099/batch",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "bulk",
+                                "calculation1099",
+                                "batch"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"bulkCalculation1099BatchId\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"exercitation_3\": \"<string>\"\n  },\n  \"labels\": {\n    \"sint_2a6\": \"<string>\",\n    \"sunt_4\": \"<string>\",\n    \"cillum92e\": \"<string>\",\n    \"nulla_b\": \"<string>\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"statistics\": \"<null>\"\n}",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-0b6a3f7e-1883-483b-a71f-82441ce94918"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-e815e09a-b8e4-4b7e-a7b4-31d70f26af95"
+                    }
+                  ],
+                  "id": "b3fd20be-df50-41da-8642-badc35ffd0ee",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-b3fd20be-df50-41da-8642-badc35ffd0ee"
+                }
+              ],
+              "id": "410a4bb2-bd72-4aab-895e-803d35fcbbbe",
+              "createdAt": "2026-07-28T03:30:59.000Z",
+              "updatedAt": "2026-07-28T03:30:59.000Z",
+              "uid": "35240-410a4bb2-bd72-4aab-895e-803d35fcbbbe"
+            }
+          ],
+          "id": "5f258d87-f620-47e6-9c73-b5c6feac1852",
+          "createdAt": "2026-07-28T03:30:59.000Z",
+          "updatedAt": "2026-07-28T03:30:59.000Z",
+          "uid": "35240-5f258d87-f620-47e6-9c73-b5c6feac1852"
+        },
+        {
+          "name": "tax-form",
+          "item": [
+            {
+              "name": "{taxFormId}",
+              "item": [
+                {
+                  "name": "resync",
+                  "item": [
+                    {
+                      "name": "Re-enable recipient sync on a tax form.",
+                      "id": "e4ff8856-3297-4ede-b40a-d1af7917a08c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/tax-form/:taxFormId/resync",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "tax-form",
+                            ":taxFormId",
+                            "resync"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c05ef7fd-f36d-44b9-bbb6-67dd2ce436fa",
+                              "key": "taxFormId",
+                              "value": "<string>",
+                              "description": "(Required) Unique tax Form Id"
+                            }
+                          ]
+                        },
+                        "description": "Re-enables recipient sync for a tax form. Reverts to last provided recipient data and triggers payable calculations. Does nothing if sync is already enabled."
+                      },
+                      "response": [
+                        {
+                          "id": "d8ce7564-7695-42a1-8ac0-6b040d455e46",
+                          "name": "1099 Tax form object",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/tax-form/:taxFormId/resync",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "tax-form",
+                                ":taxFormId",
+                                "resync"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "taxFormId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"activeSubmissionId\": \"<string>\",\n  \"adjustments\": \"<number>\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"data\": {\n    \"adjustments\": \"<number,null>\",\n    \"deliveryMethod\": \"Electronic\",\n    \"filingStateCode\": \"<string,null>\",\n    \"paymentProcessingFees\": \"<number,null>\",\n    \"platformIncome\": \"<number,null>\",\n    \"totalAmount\": \"<number,null>\",\n    \"w9Info\": \"<null>\"\n  },\n  \"deliveryMethod\": \"Mail\",\n  \"deprecatedTaxForm\": {},\n  \"eventActors\": {\n    \"proident__\": \"<string>\",\n    \"cupidatat_11\": \"<string>\",\n    \"deserunt7\": \"<string>\",\n    \"officia_f6\": \"<string>\",\n    \"adipisicing_6\": \"<string>\"\n  },\n  \"eventHistory\": [\n    {\n      \"eventType\": \"FormRejectedByIRS\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": \"Disabled\"\n    },\n    {\n      \"eventType\": \"PayerManuallyUpdatedStatus\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": null\n    }\n  ],\n  \"filingStateCode\": \"<string>\",\n  \"labels\": {\n    \"Excepteur7\": \"<string>\"\n  },\n  \"memberId\": \"<string>\",\n  \"payerPayeeId\": \"<string>\",\n  \"paymentProcessingFees\": \"<number>\",\n  \"platformIncome\": \"<number>\",\n  \"recipientConfirmedW9Info\": \"<boolean>\",\n  \"recipientReadyToSubmitW9\": \"<boolean>\",\n  \"recipientSyncEnabled\": \"<boolean>\",\n  \"status\": \"Excluded\",\n  \"submissions\": [\n    {\n      \"correctionType\": \"None\",\n      \"deliveryMethod\": \"Mail\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"Pending\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    },\n    {\n      \"correctionType\": \"Type2\",\n      \"deliveryMethod\": \"Electronic\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"ReadyToSubmitToIrs\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    }\n  ],\n  \"taxFormId\": \"<string>\",\n  \"type\": \"Form1099Nec\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"year\": \"<number>\",\n  \"correction\": \"<null>\",\n  \"events\": \"<null>\",\n  \"memberEmail\": \"<string,null>\",\n  \"memberExternalId\": \"<string,null>\",\n  \"payee\": \"<null>\",\n  \"payer\": \"<null>\",\n  \"payerConfirmedW9Info\": \"<boolean,null>\",\n  \"payerPayee\": \"<null>\",\n  \"recipientVerification\": \"<null>\",\n  \"tinVerification\": \"<null>\",\n  \"unsyncedRecipientData\": \"<null>\",\n  \"unsyncedUpdateAvailable\": \"<boolean,null>\"\n}",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-d8ce7564-7695-42a1-8ac0-6b040d455e46"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-e4ff8856-3297-4ede-b40a-d1af7917a08c"
+                    }
+                  ],
+                  "id": "ab36927d-a658-4a41-aae6-44011113d01f",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-ab36927d-a658-4a41-aae6-44011113d01f"
+                },
+                {
+                  "name": "verify-identity",
+                  "item": [
+                    {
+                      "name": "Provide Recipient Proof of Identity",
+                      "id": "3b59a933-874e-43de-add5-931c5b7e7886",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/tax-form/:taxFormId/verify-identity",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "tax-form",
+                            ":taxFormId",
+                            "verify-identity"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e5e27a59-152f-48c3-bd29-47f841877e37",
+                              "key": "taxFormId",
+                              "value": "<string>",
+                              "description": "(Required) Unique tax Form Id"
+                            }
+                          ]
+                        },
+                        "description": "Allows recipient of a tax form to verify their identity in order to access a non-redacted tax form."
+                      },
+                      "response": [
+                        {
+                          "id": "c2400382-986b-4d56-8771-b5ee0244aa19",
+                          "name": "1099 Tax form object",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/tax-form/:taxFormId/verify-identity",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "tax-form",
+                                ":taxFormId",
+                                "verify-identity"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "taxFormId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"activeSubmissionId\": \"<string>\",\n  \"adjustments\": \"<number>\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"data\": {\n    \"adjustments\": \"<number,null>\",\n    \"deliveryMethod\": \"Electronic\",\n    \"filingStateCode\": \"<string,null>\",\n    \"paymentProcessingFees\": \"<number,null>\",\n    \"platformIncome\": \"<number,null>\",\n    \"totalAmount\": \"<number,null>\",\n    \"w9Info\": \"<null>\"\n  },\n  \"deliveryMethod\": \"Mail\",\n  \"deprecatedTaxForm\": {},\n  \"eventActors\": {\n    \"proident__\": \"<string>\",\n    \"cupidatat_11\": \"<string>\",\n    \"deserunt7\": \"<string>\",\n    \"officia_f6\": \"<string>\",\n    \"adipisicing_6\": \"<string>\"\n  },\n  \"eventHistory\": [\n    {\n      \"eventType\": \"FormRejectedByIRS\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": \"Disabled\"\n    },\n    {\n      \"eventType\": \"PayerManuallyUpdatedStatus\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": null\n    }\n  ],\n  \"filingStateCode\": \"<string>\",\n  \"labels\": {\n    \"Excepteur7\": \"<string>\"\n  },\n  \"memberId\": \"<string>\",\n  \"payerPayeeId\": \"<string>\",\n  \"paymentProcessingFees\": \"<number>\",\n  \"platformIncome\": \"<number>\",\n  \"recipientConfirmedW9Info\": \"<boolean>\",\n  \"recipientReadyToSubmitW9\": \"<boolean>\",\n  \"recipientSyncEnabled\": \"<boolean>\",\n  \"status\": \"Excluded\",\n  \"submissions\": [\n    {\n      \"correctionType\": \"None\",\n      \"deliveryMethod\": \"Mail\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"Pending\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    },\n    {\n      \"correctionType\": \"Type2\",\n      \"deliveryMethod\": \"Electronic\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"ReadyToSubmitToIrs\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    }\n  ],\n  \"taxFormId\": \"<string>\",\n  \"type\": \"Form1099Nec\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"year\": \"<number>\",\n  \"correction\": \"<null>\",\n  \"events\": \"<null>\",\n  \"memberEmail\": \"<string,null>\",\n  \"memberExternalId\": \"<string,null>\",\n  \"payee\": \"<null>\",\n  \"payer\": \"<null>\",\n  \"payerConfirmedW9Info\": \"<boolean,null>\",\n  \"payerPayee\": \"<null>\",\n  \"recipientVerification\": \"<null>\",\n  \"tinVerification\": \"<null>\",\n  \"unsyncedRecipientData\": \"<null>\",\n  \"unsyncedUpdateAvailable\": \"<boolean,null>\"\n}",
+                          "createdAt": "2026-07-28T03:30:59.000Z",
+                          "updatedAt": "2026-07-28T03:30:59.000Z",
+                          "uid": "35240-c2400382-986b-4d56-8771-b5ee0244aa19"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-3b59a933-874e-43de-add5-931c5b7e7886"
+                    }
+                  ],
+                  "id": "08d42813-2c4b-4eda-bb7c-21ab8a53f958",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-08d42813-2c4b-4eda-bb7c-21ab8a53f958"
+                },
+                {
+                  "name": "Fetch tax form.",
+                  "id": "f5b6d6e5-8e1f-44c0-86a1-b309ce56548e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/tax-form/:taxFormId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "tax-form",
+                        ":taxFormId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0c0fb970-1a8f-40df-ab32-3c3889dfd4c8",
+                          "key": "taxFormId",
+                          "value": "<string>",
+                          "description": "(Required) Unique tax Form Id"
+                        }
+                      ]
+                    },
+                    "description": "Fetches the specified tax form if it exists"
+                  },
+                  "response": [
+                    {
+                      "id": "7242a804-2b73-4237-a604-803887a45cdc",
+                      "name": "1099 Tax form object",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/tax-form/:taxFormId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "tax-form",
+                            ":taxFormId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "taxFormId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"activeSubmissionId\": \"<string>\",\n  \"adjustments\": \"<number>\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"data\": {\n    \"adjustments\": \"<number,null>\",\n    \"deliveryMethod\": \"Electronic\",\n    \"filingStateCode\": \"<string,null>\",\n    \"paymentProcessingFees\": \"<number,null>\",\n    \"platformIncome\": \"<number,null>\",\n    \"totalAmount\": \"<number,null>\",\n    \"w9Info\": \"<null>\"\n  },\n  \"deliveryMethod\": \"Mail\",\n  \"deprecatedTaxForm\": {},\n  \"eventActors\": {\n    \"proident__\": \"<string>\",\n    \"cupidatat_11\": \"<string>\",\n    \"deserunt7\": \"<string>\",\n    \"officia_f6\": \"<string>\",\n    \"adipisicing_6\": \"<string>\"\n  },\n  \"eventHistory\": [\n    {\n      \"eventType\": \"FormRejectedByIRS\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": \"Disabled\"\n    },\n    {\n      \"eventType\": \"PayerManuallyUpdatedStatus\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": null\n    }\n  ],\n  \"filingStateCode\": \"<string>\",\n  \"labels\": {\n    \"Excepteur7\": \"<string>\"\n  },\n  \"memberId\": \"<string>\",\n  \"payerPayeeId\": \"<string>\",\n  \"paymentProcessingFees\": \"<number>\",\n  \"platformIncome\": \"<number>\",\n  \"recipientConfirmedW9Info\": \"<boolean>\",\n  \"recipientReadyToSubmitW9\": \"<boolean>\",\n  \"recipientSyncEnabled\": \"<boolean>\",\n  \"status\": \"Excluded\",\n  \"submissions\": [\n    {\n      \"correctionType\": \"None\",\n      \"deliveryMethod\": \"Mail\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"Pending\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    },\n    {\n      \"correctionType\": \"Type2\",\n      \"deliveryMethod\": \"Electronic\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"ReadyToSubmitToIrs\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    }\n  ],\n  \"taxFormId\": \"<string>\",\n  \"type\": \"Form1099Nec\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"year\": \"<number>\",\n  \"correction\": \"<null>\",\n  \"events\": \"<null>\",\n  \"memberEmail\": \"<string,null>\",\n  \"memberExternalId\": \"<string,null>\",\n  \"payee\": \"<null>\",\n  \"payer\": \"<null>\",\n  \"payerConfirmedW9Info\": \"<boolean,null>\",\n  \"payerPayee\": \"<null>\",\n  \"recipientVerification\": \"<null>\",\n  \"tinVerification\": \"<null>\",\n  \"unsyncedRecipientData\": \"<null>\",\n  \"unsyncedUpdateAvailable\": \"<boolean,null>\"\n}",
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-7242a804-2b73-4237-a604-803887a45cdc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-f5b6d6e5-8e1f-44c0-86a1-b309ce56548e"
+                },
+                {
+                  "name": "Update a tax form.",
+                  "id": "2c150401-0b96-48d0-b05c-1cad8b3be85b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {},\n  \"payerConfirmedW9Info\": \"<boolean,null>\",\n  \"status\": \"ReadyToSubmitToIrs\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/tax-form/:taxFormId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "tax-form",
+                        ":taxFormId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1034e460-0d1b-44c6-acf6-4acde2272c7c",
+                          "key": "taxFormId",
+                          "value": "<string>",
+                          "description": "(Required) Unique tax Form Id"
+                        }
+                      ]
+                    },
+                    "description": "Updates a tax form with provided information."
+                  },
+                  "response": [
+                    {
+                      "id": "c6de5bb7-d456-4126-892f-edc68109ab9a",
+                      "name": "1099 Tax form object",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {},\n  \"payerConfirmedW9Info\": \"<boolean,null>\",\n  \"status\": \"ReadyToSubmitToIrs\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/tax-form/:taxFormId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "tax-form",
+                            ":taxFormId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "taxFormId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"activeSubmissionId\": \"<string>\",\n  \"adjustments\": \"<number>\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"data\": {\n    \"adjustments\": \"<number,null>\",\n    \"deliveryMethod\": \"Electronic\",\n    \"filingStateCode\": \"<string,null>\",\n    \"paymentProcessingFees\": \"<number,null>\",\n    \"platformIncome\": \"<number,null>\",\n    \"totalAmount\": \"<number,null>\",\n    \"w9Info\": \"<null>\"\n  },\n  \"deliveryMethod\": \"Mail\",\n  \"deprecatedTaxForm\": {},\n  \"eventActors\": {\n    \"proident__\": \"<string>\",\n    \"cupidatat_11\": \"<string>\",\n    \"deserunt7\": \"<string>\",\n    \"officia_f6\": \"<string>\",\n    \"adipisicing_6\": \"<string>\"\n  },\n  \"eventHistory\": [\n    {\n      \"eventType\": \"FormRejectedByIRS\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": \"Disabled\"\n    },\n    {\n      \"eventType\": \"PayerManuallyUpdatedStatus\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": null\n    }\n  ],\n  \"filingStateCode\": \"<string>\",\n  \"labels\": {\n    \"Excepteur7\": \"<string>\"\n  },\n  \"memberId\": \"<string>\",\n  \"payerPayeeId\": \"<string>\",\n  \"paymentProcessingFees\": \"<number>\",\n  \"platformIncome\": \"<number>\",\n  \"recipientConfirmedW9Info\": \"<boolean>\",\n  \"recipientReadyToSubmitW9\": \"<boolean>\",\n  \"recipientSyncEnabled\": \"<boolean>\",\n  \"status\": \"Excluded\",\n  \"submissions\": [\n    {\n      \"correctionType\": \"None\",\n      \"deliveryMethod\": \"Mail\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"Pending\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    },\n    {\n      \"correctionType\": \"Type2\",\n      \"deliveryMethod\": \"Electronic\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"ReadyToSubmitToIrs\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    }\n  ],\n  \"taxFormId\": \"<string>\",\n  \"type\": \"Form1099Nec\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"year\": \"<number>\",\n  \"correction\": \"<null>\",\n  \"events\": \"<null>\",\n  \"memberEmail\": \"<string,null>\",\n  \"memberExternalId\": \"<string,null>\",\n  \"payee\": \"<null>\",\n  \"payer\": \"<null>\",\n  \"payerConfirmedW9Info\": \"<boolean,null>\",\n  \"payerPayee\": \"<null>\",\n  \"recipientVerification\": \"<null>\",\n  \"tinVerification\": \"<null>\",\n  \"unsyncedRecipientData\": \"<null>\",\n  \"unsyncedUpdateAvailable\": \"<boolean,null>\"\n}",
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-c6de5bb7-d456-4126-892f-edc68109ab9a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-2c150401-0b96-48d0-b05c-1cad8b3be85b"
+                }
+              ],
+              "id": "fcadebd5-6a77-4e4a-9d3d-28d51555ff5f",
+              "createdAt": "2026-07-28T03:30:59.000Z",
+              "updatedAt": "2026-07-28T03:30:59.000Z",
+              "uid": "35240-fcadebd5-6a77-4e4a-9d3d-28d51555ff5f"
+            },
+            {
+              "name": "submit-w9",
+              "item": [
+                {
+                  "name": "Submit Payee W9 Information.",
+                  "id": "bc6b70e9-1131-4fa6-86d9-1f88aea2c0e6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/tax-form/submit-w9",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "tax-form",
+                        "submit-w9"
+                      ]
+                    },
+                    "description": "Updates 1099 tax forms for the current year with W9 information wherever W9 sharing is enabled."
+                  },
+                  "response": [
+                    {
+                      "id": "b8980143-e270-428d-9e5e-4c2dc8818ed0",
+                      "name": "List of 1099 Tax form objects",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/tax-form/submit-w9",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "tax-form",
+                            "submit-w9"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"activeSubmissionId\": \"<string>\",\n    \"adjustments\": \"<number>\",\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"data\": {\n      \"adjustments\": \"<number,null>\",\n      \"deliveryMethod\": \"Mail\",\n      \"filingStateCode\": \"<string,null>\",\n      \"paymentProcessingFees\": \"<number,null>\",\n      \"platformIncome\": \"<number,null>\",\n      \"totalAmount\": \"<number,null>\",\n      \"w9Info\": \"<null>\"\n    },\n    \"deliveryMethod\": \"Electronic\",\n    \"deprecatedTaxForm\": {},\n    \"eventActors\": {\n      \"et2\": \"<string>\"\n    },\n    \"eventHistory\": [\n      {\n        \"eventType\": \"RecipientUpdatedData\",\n        \"timestamp\": \"<string>\",\n        \"triggeredBy\": \"System\",\n        \"data\": \"<null>\",\n        \"eventActor\": \"<null>\",\n        \"eventActorId\": \"<string,null>\",\n        \"previousData\": \"<null>\",\n        \"recipientSyncToggled\": \"Enabled\"\n      },\n      {\n        \"eventType\": \"CorrectionRequested\",\n        \"timestamp\": \"<string>\",\n        \"triggeredBy\": \"Payee\",\n        \"data\": \"<null>\",\n        \"eventActor\": \"<null>\",\n        \"eventActorId\": \"<string,null>\",\n        \"previousData\": \"<null>\",\n        \"recipientSyncToggled\": null\n      }\n    ],\n    \"filingStateCode\": \"<string>\",\n    \"labels\": {\n      \"laboredb\": \"<string>\",\n      \"ut_ec\": \"<string>\",\n      \"qui_f6\": \"<string>\"\n    },\n    \"memberId\": \"<string>\",\n    \"payerPayeeId\": \"<string>\",\n    \"paymentProcessingFees\": \"<number>\",\n    \"platformIncome\": \"<number>\",\n    \"recipientConfirmedW9Info\": \"<boolean>\",\n    \"recipientReadyToSubmitW9\": \"<boolean>\",\n    \"recipientSyncEnabled\": \"<boolean>\",\n    \"status\": \"SubmittedToIrs\",\n    \"submissions\": [\n      {\n        \"correctionType\": \"Type2\",\n        \"deliveryMethod\": \"Mail\",\n        \"externalDocumentId\": \"<string>\",\n        \"isCorrected\": \"<boolean>\",\n        \"status\": \"RejectedByIrs\",\n        \"submissionData\": {\n          \"adjustments\": \"<number,null>\",\n          \"deliveryMethod\": \"Mail\",\n          \"filingStateCode\": \"<string,null>\",\n          \"paymentProcessingFees\": \"<number,null>\",\n          \"platformIncome\": \"<number,null>\",\n          \"totalAmount\": \"<number,null>\",\n          \"w9Info\": \"<null>\"\n        },\n        \"submissionId\": \"<string>\",\n        \"events\": \"<null>\",\n        \"externalMailingId\": \"<string,null>\",\n        \"previousExternalMailingIds\": \"<null>\"\n      },\n      {\n        \"correctionType\": \"Type1\",\n        \"deliveryMethod\": \"Electronic\",\n        \"externalDocumentId\": \"<string>\",\n        \"isCorrected\": \"<boolean>\",\n        \"status\": \"PendingCorrection\",\n        \"submissionData\": {\n          \"adjustments\": \"<number,null>\",\n          \"deliveryMethod\": \"Mail\",\n          \"filingStateCode\": \"<string,null>\",\n          \"paymentProcessingFees\": \"<number,null>\",\n          \"platformIncome\": \"<number,null>\",\n          \"totalAmount\": \"<number,null>\",\n          \"w9Info\": \"<null>\"\n        },\n        \"submissionId\": \"<string>\",\n        \"events\": \"<null>\",\n        \"externalMailingId\": \"<string,null>\",\n        \"previousExternalMailingIds\": \"<null>\"\n      }\n    ],\n    \"taxFormId\": \"<string>\",\n    \"type\": \"Form1099Nec\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"year\": \"<number>\",\n    \"correction\": \"<null>\",\n    \"events\": \"<null>\",\n    \"memberEmail\": \"<string,null>\",\n    \"memberExternalId\": \"<string,null>\",\n    \"payee\": \"<null>\",\n    \"payer\": \"<null>\",\n    \"payerConfirmedW9Info\": \"<boolean,null>\",\n    \"payerPayee\": \"<null>\",\n    \"recipientVerification\": \"<null>\",\n    \"tinVerification\": \"<null>\",\n    \"unsyncedRecipientData\": \"<null>\",\n    \"unsyncedUpdateAvailable\": \"<boolean,null>\"\n  },\n  {\n    \"activeSubmissionId\": \"<string>\",\n    \"adjustments\": \"<number>\",\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"data\": {\n      \"adjustments\": \"<number,null>\",\n      \"deliveryMethod\": \"Mail\",\n      \"filingStateCode\": \"<string,null>\",\n      \"paymentProcessingFees\": \"<number,null>\",\n      \"platformIncome\": \"<number,null>\",\n      \"totalAmount\": \"<number,null>\",\n      \"w9Info\": \"<null>\"\n    },\n    \"deliveryMethod\": \"Electronic\",\n    \"deprecatedTaxForm\": {},\n    \"eventActors\": {\n      \"amet_1\": \"<string>\",\n      \"qui_5e\": \"<string>\"\n    },\n    \"eventHistory\": [\n      {\n        \"eventType\": \"PayerManuallyUpdatedStatus\",\n        \"timestamp\": \"<string>\",\n        \"triggeredBy\": \"Payer\",\n        \"data\": \"<null>\",\n        \"eventActor\": \"<null>\",\n        \"eventActorId\": \"<string,null>\",\n        \"previousData\": \"<null>\",\n        \"recipientSyncToggled\": \"Disabled\"\n      },\n      {\n        \"eventType\": \"RecipientSharedW9Info\",\n        \"timestamp\": \"<string>\",\n        \"triggeredBy\": \"System\",\n        \"data\": \"<null>\",\n        \"eventActor\": \"<null>\",\n        \"eventActorId\": \"<string,null>\",\n        \"previousData\": \"<null>\",\n        \"recipientSyncToggled\": null\n      }\n    ],\n    \"filingStateCode\": \"<string>\",\n    \"labels\": {\n      \"aute3a\": \"<string>\"\n    },\n    \"memberId\": \"<string>\",\n    \"payerPayeeId\": \"<string>\",\n    \"paymentProcessingFees\": \"<number>\",\n    \"platformIncome\": \"<number>\",\n    \"recipientConfirmedW9Info\": \"<boolean>\",\n    \"recipientReadyToSubmitW9\": \"<boolean>\",\n    \"recipientSyncEnabled\": \"<boolean>\",\n    \"status\": \"Pending\",\n    \"submissions\": [\n      {\n        \"correctionType\": \"Type1\",\n        \"deliveryMethod\": \"Electronic\",\n        \"externalDocumentId\": \"<string>\",\n        \"isCorrected\": \"<boolean>\",\n        \"status\": \"ReadyToSubmitToIrs\",\n        \"submissionData\": {\n          \"adjustments\": \"<number,null>\",\n          \"deliveryMethod\": null,\n          \"filingStateCode\": \"<string,null>\",\n          \"paymentProcessingFees\": \"<number,null>\",\n          \"platformIncome\": \"<number,null>\",\n          \"totalAmount\": \"<number,null>\",\n          \"w9Info\": \"<null>\"\n        },\n        \"submissionId\": \"<string>\",\n        \"events\": \"<null>\",\n        \"externalMailingId\": \"<string,null>\",\n        \"previousExternalMailingIds\": \"<null>\"\n      },\n      {\n        \"correctionType\": \"Type1\",\n        \"deliveryMethod\": \"Mail\",\n        \"externalDocumentId\": \"<string>\",\n        \"isCorrected\": \"<boolean>\",\n        \"status\": \"Excluded\",\n        \"submissionData\": {\n          \"adjustments\": \"<number,null>\",\n          \"deliveryMethod\": \"Electronic\",\n          \"filingStateCode\": \"<string,null>\",\n          \"paymentProcessingFees\": \"<number,null>\",\n          \"platformIncome\": \"<number,null>\",\n          \"totalAmount\": \"<number,null>\",\n          \"w9Info\": \"<null>\"\n        },\n        \"submissionId\": \"<string>\",\n        \"events\": \"<null>\",\n        \"externalMailingId\": \"<string,null>\",\n        \"previousExternalMailingIds\": \"<null>\"\n      }\n    ],\n    \"taxFormId\": \"<string>\",\n    \"type\": \"Form1099Nec\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"year\": \"<number>\",\n    \"correction\": \"<null>\",\n    \"events\": \"<null>\",\n    \"memberEmail\": \"<string,null>\",\n    \"memberExternalId\": \"<string,null>\",\n    \"payee\": \"<null>\",\n    \"payer\": \"<null>\",\n    \"payerConfirmedW9Info\": \"<boolean,null>\",\n    \"payerPayee\": \"<null>\",\n    \"recipientVerification\": \"<null>\",\n    \"tinVerification\": \"<null>\",\n    \"unsyncedRecipientData\": \"<null>\",\n    \"unsyncedUpdateAvailable\": \"<boolean,null>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-b8980143-e270-428d-9e5e-4c2dc8818ed0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-bc6b70e9-1131-4fa6-86d9-1f88aea2c0e6"
+                }
+              ],
+              "id": "b318d596-68ef-405e-b21f-3d07940648e5",
+              "createdAt": "2026-07-28T03:30:59.000Z",
+              "updatedAt": "2026-07-28T03:30:59.000Z",
+              "uid": "35240-b318d596-68ef-405e-b21f-3d07940648e5"
+            },
+            {
+              "name": "verify-tin",
+              "item": [
+                {
+                  "name": "Submit Payee TIN for verification",
+                  "id": "ad839cfc-c336-48a6-81cb-d333ee52f323",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/tax-form/verify-tin",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "tax-form",
+                        "verify-tin"
+                      ]
+                    },
+                    "description": "Asynchronously verifies the TIN on file with the IRS. May return a pending status if waiting on IRS response."
+                  },
+                  "response": [
+                    {
+                      "id": "e0bfd701-78d4-4701-b814-30f9e198c914",
+                      "name": "Status of TIN verification",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/tax-form/verify-tin",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "tax-form",
+                            "verify-tin"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"verificationStatus\": \"Verified\"\n}",
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-e0bfd701-78d4-4701-b814-30f9e198c914"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-ad839cfc-c336-48a6-81cb-d333ee52f323"
+                }
+              ],
+              "id": "c5bc3112-62de-4aca-a3c9-431d506d80a3",
+              "createdAt": "2026-07-28T03:30:59.000Z",
+              "updatedAt": "2026-07-28T03:30:59.000Z",
+              "uid": "35240-c5bc3112-62de-4aca-a3c9-431d506d80a3"
+            },
+            {
+              "name": "resend-invite",
+              "item": [
+                {
+                  "name": "Request a new 1099 invite email.",
+                  "id": "1ec640eb-d7c4-439f-838a-4f4a112c8546",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/tax-form/resend-invite",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "tax-form",
+                        "resend-invite"
+                      ]
+                    },
+                    "description": "Requests a new 1099 invite email to be sent to the recipient. Only sends if the email exists and the user has tax forms."
+                  },
+                  "response": [
+                    {
+                      "id": "ebfaab67-0f40-48ce-a67b-b1f44bd7d49f",
+                      "name": "Basic response indicating success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/tax-form/resend-invite",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "tax-form",
+                            "resend-invite"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": {}\n}",
+                      "createdAt": "2026-07-28T03:30:59.000Z",
+                      "updatedAt": "2026-07-28T03:30:59.000Z",
+                      "uid": "35240-ebfaab67-0f40-48ce-a67b-b1f44bd7d49f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-1ec640eb-d7c4-439f-838a-4f4a112c8546"
+                }
+              ],
+              "id": "57fb8d30-43eb-4a30-ab1b-b78717136c10",
+              "createdAt": "2026-07-28T03:30:59.000Z",
+              "updatedAt": "2026-07-28T03:30:59.000Z",
+              "uid": "35240-57fb8d30-43eb-4a30-ab1b-b78717136c10"
+            },
+            {
+              "name": "Fetch 1099 tax forms.",
+              "id": "33756485-4b2c-44ee-ae95-29fad6ab5fc2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/tax-form",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "tax-form"
+                  ]
+                },
+                "description": "Fetch tax forms for a payee or a payer and specified year."
+              },
+              "response": [
+                {
+                  "id": "d8cb47ea-ddf1-4c4f-91b7-ba39811e98d9",
+                  "name": "List of 1099 Tax form objects",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/tax-form",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "tax-form"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"activeSubmissionId\": \"<string>\",\n    \"adjustments\": \"<number>\",\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"data\": {\n      \"adjustments\": \"<number,null>\",\n      \"deliveryMethod\": \"Mail\",\n      \"filingStateCode\": \"<string,null>\",\n      \"paymentProcessingFees\": \"<number,null>\",\n      \"platformIncome\": \"<number,null>\",\n      \"totalAmount\": \"<number,null>\",\n      \"w9Info\": \"<null>\"\n    },\n    \"deliveryMethod\": \"Electronic\",\n    \"deprecatedTaxForm\": {},\n    \"eventActors\": {\n      \"et2\": \"<string>\"\n    },\n    \"eventHistory\": [\n      {\n        \"eventType\": \"RecipientUpdatedData\",\n        \"timestamp\": \"<string>\",\n        \"triggeredBy\": \"System\",\n        \"data\": \"<null>\",\n        \"eventActor\": \"<null>\",\n        \"eventActorId\": \"<string,null>\",\n        \"previousData\": \"<null>\",\n        \"recipientSyncToggled\": \"Enabled\"\n      },\n      {\n        \"eventType\": \"CorrectionRequested\",\n        \"timestamp\": \"<string>\",\n        \"triggeredBy\": \"Payee\",\n        \"data\": \"<null>\",\n        \"eventActor\": \"<null>\",\n        \"eventActorId\": \"<string,null>\",\n        \"previousData\": \"<null>\",\n        \"recipientSyncToggled\": null\n      }\n    ],\n    \"filingStateCode\": \"<string>\",\n    \"labels\": {\n      \"laboredb\": \"<string>\",\n      \"ut_ec\": \"<string>\",\n      \"qui_f6\": \"<string>\"\n    },\n    \"memberId\": \"<string>\",\n    \"payerPayeeId\": \"<string>\",\n    \"paymentProcessingFees\": \"<number>\",\n    \"platformIncome\": \"<number>\",\n    \"recipientConfirmedW9Info\": \"<boolean>\",\n    \"recipientReadyToSubmitW9\": \"<boolean>\",\n    \"recipientSyncEnabled\": \"<boolean>\",\n    \"status\": \"SubmittedToIrs\",\n    \"submissions\": [\n      {\n        \"correctionType\": \"Type2\",\n        \"deliveryMethod\": \"Mail\",\n        \"externalDocumentId\": \"<string>\",\n        \"isCorrected\": \"<boolean>\",\n        \"status\": \"RejectedByIrs\",\n        \"submissionData\": {\n          \"adjustments\": \"<number,null>\",\n          \"deliveryMethod\": \"Mail\",\n          \"filingStateCode\": \"<string,null>\",\n          \"paymentProcessingFees\": \"<number,null>\",\n          \"platformIncome\": \"<number,null>\",\n          \"totalAmount\": \"<number,null>\",\n          \"w9Info\": \"<null>\"\n        },\n        \"submissionId\": \"<string>\",\n        \"events\": \"<null>\",\n        \"externalMailingId\": \"<string,null>\",\n        \"previousExternalMailingIds\": \"<null>\"\n      },\n      {\n        \"correctionType\": \"Type1\",\n        \"deliveryMethod\": \"Electronic\",\n        \"externalDocumentId\": \"<string>\",\n        \"isCorrected\": \"<boolean>\",\n        \"status\": \"PendingCorrection\",\n        \"submissionData\": {\n          \"adjustments\": \"<number,null>\",\n          \"deliveryMethod\": \"Mail\",\n          \"filingStateCode\": \"<string,null>\",\n          \"paymentProcessingFees\": \"<number,null>\",\n          \"platformIncome\": \"<number,null>\",\n          \"totalAmount\": \"<number,null>\",\n          \"w9Info\": \"<null>\"\n        },\n        \"submissionId\": \"<string>\",\n        \"events\": \"<null>\",\n        \"externalMailingId\": \"<string,null>\",\n        \"previousExternalMailingIds\": \"<null>\"\n      }\n    ],\n    \"taxFormId\": \"<string>\",\n    \"type\": \"Form1099Nec\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"year\": \"<number>\",\n    \"correction\": \"<null>\",\n    \"events\": \"<null>\",\n    \"memberEmail\": \"<string,null>\",\n    \"memberExternalId\": \"<string,null>\",\n    \"payee\": \"<null>\",\n    \"payer\": \"<null>\",\n    \"payerConfirmedW9Info\": \"<boolean,null>\",\n    \"payerPayee\": \"<null>\",\n    \"recipientVerification\": \"<null>\",\n    \"tinVerification\": \"<null>\",\n    \"unsyncedRecipientData\": \"<null>\",\n    \"unsyncedUpdateAvailable\": \"<boolean,null>\"\n  },\n  {\n    \"activeSubmissionId\": \"<string>\",\n    \"adjustments\": \"<number>\",\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"data\": {\n      \"adjustments\": \"<number,null>\",\n      \"deliveryMethod\": \"Mail\",\n      \"filingStateCode\": \"<string,null>\",\n      \"paymentProcessingFees\": \"<number,null>\",\n      \"platformIncome\": \"<number,null>\",\n      \"totalAmount\": \"<number,null>\",\n      \"w9Info\": \"<null>\"\n    },\n    \"deliveryMethod\": \"Electronic\",\n    \"deprecatedTaxForm\": {},\n    \"eventActors\": {\n      \"amet_1\": \"<string>\",\n      \"qui_5e\": \"<string>\"\n    },\n    \"eventHistory\": [\n      {\n        \"eventType\": \"PayerManuallyUpdatedStatus\",\n        \"timestamp\": \"<string>\",\n        \"triggeredBy\": \"Payer\",\n        \"data\": \"<null>\",\n        \"eventActor\": \"<null>\",\n        \"eventActorId\": \"<string,null>\",\n        \"previousData\": \"<null>\",\n        \"recipientSyncToggled\": \"Disabled\"\n      },\n      {\n        \"eventType\": \"RecipientSharedW9Info\",\n        \"timestamp\": \"<string>\",\n        \"triggeredBy\": \"System\",\n        \"data\": \"<null>\",\n        \"eventActor\": \"<null>\",\n        \"eventActorId\": \"<string,null>\",\n        \"previousData\": \"<null>\",\n        \"recipientSyncToggled\": null\n      }\n    ],\n    \"filingStateCode\": \"<string>\",\n    \"labels\": {\n      \"aute3a\": \"<string>\"\n    },\n    \"memberId\": \"<string>\",\n    \"payerPayeeId\": \"<string>\",\n    \"paymentProcessingFees\": \"<number>\",\n    \"platformIncome\": \"<number>\",\n    \"recipientConfirmedW9Info\": \"<boolean>\",\n    \"recipientReadyToSubmitW9\": \"<boolean>\",\n    \"recipientSyncEnabled\": \"<boolean>\",\n    \"status\": \"Pending\",\n    \"submissions\": [\n      {\n        \"correctionType\": \"Type1\",\n        \"deliveryMethod\": \"Electronic\",\n        \"externalDocumentId\": \"<string>\",\n        \"isCorrected\": \"<boolean>\",\n        \"status\": \"ReadyToSubmitToIrs\",\n        \"submissionData\": {\n          \"adjustments\": \"<number,null>\",\n          \"deliveryMethod\": null,\n          \"filingStateCode\": \"<string,null>\",\n          \"paymentProcessingFees\": \"<number,null>\",\n          \"platformIncome\": \"<number,null>\",\n          \"totalAmount\": \"<number,null>\",\n          \"w9Info\": \"<null>\"\n        },\n        \"submissionId\": \"<string>\",\n        \"events\": \"<null>\",\n        \"externalMailingId\": \"<string,null>\",\n        \"previousExternalMailingIds\": \"<null>\"\n      },\n      {\n        \"correctionType\": \"Type1\",\n        \"deliveryMethod\": \"Mail\",\n        \"externalDocumentId\": \"<string>\",\n        \"isCorrected\": \"<boolean>\",\n        \"status\": \"Excluded\",\n        \"submissionData\": {\n          \"adjustments\": \"<number,null>\",\n          \"deliveryMethod\": \"Electronic\",\n          \"filingStateCode\": \"<string,null>\",\n          \"paymentProcessingFees\": \"<number,null>\",\n          \"platformIncome\": \"<number,null>\",\n          \"totalAmount\": \"<number,null>\",\n          \"w9Info\": \"<null>\"\n        },\n        \"submissionId\": \"<string>\",\n        \"events\": \"<null>\",\n        \"externalMailingId\": \"<string,null>\",\n        \"previousExternalMailingIds\": \"<null>\"\n      }\n    ],\n    \"taxFormId\": \"<string>\",\n    \"type\": \"Form1099Nec\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"year\": \"<number>\",\n    \"correction\": \"<null>\",\n    \"events\": \"<null>\",\n    \"memberEmail\": \"<string,null>\",\n    \"memberExternalId\": \"<string,null>\",\n    \"payee\": \"<null>\",\n    \"payer\": \"<null>\",\n    \"payerConfirmedW9Info\": \"<boolean,null>\",\n    \"payerPayee\": \"<null>\",\n    \"recipientVerification\": \"<null>\",\n    \"tinVerification\": \"<null>\",\n    \"unsyncedRecipientData\": \"<null>\",\n    \"unsyncedUpdateAvailable\": \"<boolean,null>\"\n  }\n]",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-d8cb47ea-ddf1-4c4f-91b7-ba39811e98d9"
+                }
+              ],
+              "createdAt": "2026-07-28T03:30:59.000Z",
+              "updatedAt": "2026-07-28T03:30:59.000Z",
+              "uid": "35240-33756485-4b2c-44ee-ae95-29fad6ab5fc2"
+            },
+            {
+              "name": "Create a new tax form.",
+              "id": "e721c208-b09d-48d1-b5fe-cbcbc99453b0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"<string>\",\n  \"data\": {},\n  \"memberId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments/tax-form",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "tax-form"
+                  ]
+                },
+                "description": "Create a tax form for a new recipient"
+              },
+              "response": [
+                {
+                  "id": "61a33585-e403-4dfc-93d8-7a4e93c4c771",
+                  "name": "1099 Tax form object",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clientId\": \"<string>\",\n  \"data\": {},\n  \"memberId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/tax-form",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "tax-form"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"activeSubmissionId\": \"<string>\",\n  \"adjustments\": \"<number>\",\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"data\": {\n    \"adjustments\": \"<number,null>\",\n    \"deliveryMethod\": \"Electronic\",\n    \"filingStateCode\": \"<string,null>\",\n    \"paymentProcessingFees\": \"<number,null>\",\n    \"platformIncome\": \"<number,null>\",\n    \"totalAmount\": \"<number,null>\",\n    \"w9Info\": \"<null>\"\n  },\n  \"deliveryMethod\": \"Mail\",\n  \"deprecatedTaxForm\": {},\n  \"eventActors\": {\n    \"proident__\": \"<string>\",\n    \"cupidatat_11\": \"<string>\",\n    \"deserunt7\": \"<string>\",\n    \"officia_f6\": \"<string>\",\n    \"adipisicing_6\": \"<string>\"\n  },\n  \"eventHistory\": [\n    {\n      \"eventType\": \"FormRejectedByIRS\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": \"Disabled\"\n    },\n    {\n      \"eventType\": \"PayerManuallyUpdatedStatus\",\n      \"timestamp\": \"<string>\",\n      \"triggeredBy\": \"Payer\",\n      \"data\": \"<null>\",\n      \"eventActor\": \"<null>\",\n      \"eventActorId\": \"<string,null>\",\n      \"previousData\": \"<null>\",\n      \"recipientSyncToggled\": null\n    }\n  ],\n  \"filingStateCode\": \"<string>\",\n  \"labels\": {\n    \"Excepteur7\": \"<string>\"\n  },\n  \"memberId\": \"<string>\",\n  \"payerPayeeId\": \"<string>\",\n  \"paymentProcessingFees\": \"<number>\",\n  \"platformIncome\": \"<number>\",\n  \"recipientConfirmedW9Info\": \"<boolean>\",\n  \"recipientReadyToSubmitW9\": \"<boolean>\",\n  \"recipientSyncEnabled\": \"<boolean>\",\n  \"status\": \"Excluded\",\n  \"submissions\": [\n    {\n      \"correctionType\": \"None\",\n      \"deliveryMethod\": \"Mail\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"Pending\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    },\n    {\n      \"correctionType\": \"Type2\",\n      \"deliveryMethod\": \"Electronic\",\n      \"externalDocumentId\": \"<string>\",\n      \"isCorrected\": \"<boolean>\",\n      \"status\": \"ReadyToSubmitToIrs\",\n      \"submissionData\": {\n        \"adjustments\": \"<number,null>\",\n        \"deliveryMethod\": null,\n        \"filingStateCode\": \"<string,null>\",\n        \"paymentProcessingFees\": \"<number,null>\",\n        \"platformIncome\": \"<number,null>\",\n        \"totalAmount\": \"<number,null>\",\n        \"w9Info\": \"<null>\"\n      },\n      \"submissionId\": \"<string>\",\n      \"events\": \"<null>\",\n      \"externalMailingId\": \"<string,null>\",\n      \"previousExternalMailingIds\": \"<null>\"\n    }\n  ],\n  \"taxFormId\": \"<string>\",\n  \"type\": \"Form1099Nec\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"year\": \"<number>\",\n  \"correction\": \"<null>\",\n  \"events\": \"<null>\",\n  \"memberEmail\": \"<string,null>\",\n  \"memberExternalId\": \"<string,null>\",\n  \"payee\": \"<null>\",\n  \"payer\": \"<null>\",\n  \"payerConfirmedW9Info\": \"<boolean,null>\",\n  \"payerPayee\": \"<null>\",\n  \"recipientVerification\": \"<null>\",\n  \"tinVerification\": \"<null>\",\n  \"unsyncedRecipientData\": \"<null>\",\n  \"unsyncedUpdateAvailable\": \"<boolean,null>\"\n}",
+                  "createdAt": "2026-07-28T03:30:59.000Z",
+                  "updatedAt": "2026-07-28T03:30:59.000Z",
+                  "uid": "35240-61a33585-e403-4dfc-93d8-7a4e93c4c771"
+                }
+              ],
+              "createdAt": "2026-07-28T03:30:59.000Z",
+              "updatedAt": "2026-07-28T03:30:59.000Z",
+              "uid": "35240-e721c208-b09d-48d1-b5fe-cbcbc99453b0"
+            }
+          ],
+          "id": "6651216f-55d0-459c-b2dd-73a34884b18e",
+          "createdAt": "2026-07-28T03:30:59.000Z",
+          "updatedAt": "2026-07-28T03:30:59.000Z",
+          "uid": "35240-6651216f-55d0-459c-b2dd-73a34884b18e"
+        }
+      ],
+      "id": "00f17428-773b-4020-b8ed-6ff1806464b0",
+      "createdAt": "2026-07-28T03:30:59.000Z",
+      "updatedAt": "2026-07-28T03:30:59.000Z",
+      "uid": "35240-00f17428-773b-4020-b8ed-6ff1806464b0"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wingspan.app"
+    }
+  ]
+}

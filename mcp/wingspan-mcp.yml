@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/wingspan-payments-openapi-original.yml
+notes: >-
+  No official hosted/remote Wingspan MCP server was found in the docs, the
+  wingspanHQ GitHub org, or the public MCP registries as of 2026-07-21. This is
+  a DERIVED candidate tool surface mapping the marquee Wingspan Payments API
+  operations to MCP tools (one tool per operationId). Not a published server.
+server:
+  name: wingspan
+  transport: http
+  auth: bearer
+  base_url: https://api.wingspan.app
+tools:
+  - name: list_payables
+    description: List all payables associated with a client
+    source_operation: openapi/wingspan-payments-openapi-original.yml#listPayables
+  - name: create_payable
+    description: Create a new payable for a member on behalf of a client
+    source_operation: openapi/wingspan-payments-openapi-original.yml#createPayable
+  - name: get_payable
+    description: Retrieve payable details by payable ID
+    source_operation: openapi/wingspan-payments-openapi-original.yml#getPayable
+  - name: execute_approved_payroll
+    description: Execute all approved payroll transactions
+    source_operation: openapi/wingspan-payments-openapi-original.yml#executeApprovedPayrollTransaction
+  - name: list_member_invoices
+    description: Retrieve all member invoices
+    source_operation: openapi/wingspan-payments-openapi-original.yml#getMemberInvoices
+  - name: create_invoice
+    description: Initiate a new invoice for a member
+    source_operation: openapi/wingspan-payments-openapi-original.yml#createInvoice
+  - name: create_generated_invoice
+    description: Generate a new invoice on behalf of a client
+    source_operation: openapi/wingspan-payments-openapi-original.yml#createGeneratedInvoice
+  - name: pay_client_invoice
+    description: Execute payment for a client-generated invoice
+    source_operation: openapi/wingspan-payments-openapi-original.yml#executeClientInvoicePayment
+  - name: send_invoice_email
+    description: Send an invoice by email
+    source_operation: openapi/wingspan-payments-openapi-original.yml#sendInvoiceEmail
+  - name: create_test_invoice
+    description: Generate a test invoice for a client (staging/testing)
+    source_operation: openapi/wingspan-payments-openapi-original.yml#post_payments-invoice-test-create

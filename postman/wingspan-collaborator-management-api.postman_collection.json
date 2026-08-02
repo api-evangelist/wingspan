@@ -1,0 +1,1753 @@
+{
+  "info": {
+    "_postman_id": "ee285b47-4487-4731-a1aa-5719e787d404",
+    "name": "Wingspan Payments 1099 Operations Collaborator Management API",
+    "description": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:31:04.000Z",
+    "updatedAt": "2026-07-28T03:31:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ee285b47-4487-4731-a1aa-5719e787d404"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "collaborator-deduction",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve Specific Deduction Details",
+                  "id": "c4d9f2ba-47bd-4eff-8372-b74e09deef8f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-deduction/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-deduction",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0be2faf8-f20c-40a1-bf44-ab245fae7051",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Fetch details of a specific deduction entry for a collaborator based on its unique identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "bb67a0df-5e21-4440-8c94-27e5a81f412d",
+                      "name": "A deduction",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-deduction/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-deduction",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"amount\": \"<number>\",\n  \"application\": [\n    {\n      \"amountDeducted\": \"<number>\",\n      \"payableId\": \"<string>\",\n      \"disbursementId\": \"<string,null>\"\n    },\n    {\n      \"amountDeducted\": \"<number>\",\n      \"payableId\": \"<string>\",\n      \"disbursementId\": \"<string,null>\"\n    }\n  ],\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"currency\": \"CAD\",\n  \"deductionId\": \"<string>\",\n  \"eventActors\": {\n    \"non0e\": \"<string>\"\n  },\n  \"labels\": {\n    \"reprehenderite\": \"<string>\",\n    \"nostrud7\": \"<string>\"\n  },\n  \"memberId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startDate\": \"<string>\",\n  \"status\": \"PartiallyApplied\",\n  \"type\": \"PrePayment\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"deductionTemplateId\": \"<string,null>\",\n  \"disbursement\": \"<null>\",\n  \"sourceInvoiceId\": \"<string,null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-bb67a0df-5e21-4440-8c94-27e5a81f412d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-c4d9f2ba-47bd-4eff-8372-b74e09deef8f"
+                },
+                {
+                  "name": "Modify Details of a Specific Deduction",
+                  "id": "22cae595-1acd-431a-9b98-2dd7dbc9e53a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<number,null>\",\n  \"currency\": \"USD\",\n  \"name\": \"<string,null>\",\n  \"priority\": \"<number,null>\",\n  \"sourceInvoiceId\": \"<string,null>\",\n  \"startDate\": \"<string,null>\",\n  \"type\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-deduction/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-deduction",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "14ccb9a1-e056-4852-8ee3-1144a7a69fc6",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Update attributes or data related to an existing deduction entry for a collaborator."
+                  },
+                  "response": [
+                    {
+                      "id": "01b18b4d-3dbc-4638-af3f-03cc1fabde4c",
+                      "name": "A deduction",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": \"<number,null>\",\n  \"currency\": \"USD\",\n  \"name\": \"<string,null>\",\n  \"priority\": \"<number,null>\",\n  \"sourceInvoiceId\": \"<string,null>\",\n  \"startDate\": \"<string,null>\",\n  \"type\": null\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-deduction/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-deduction",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"amount\": \"<number>\",\n  \"application\": [\n    {\n      \"amountDeducted\": \"<number>\",\n      \"payableId\": \"<string>\",\n      \"disbursementId\": \"<string,null>\"\n    },\n    {\n      \"amountDeducted\": \"<number>\",\n      \"payableId\": \"<string>\",\n      \"disbursementId\": \"<string,null>\"\n    }\n  ],\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"currency\": \"CAD\",\n  \"deductionId\": \"<string>\",\n  \"eventActors\": {\n    \"non0e\": \"<string>\"\n  },\n  \"labels\": {\n    \"reprehenderite\": \"<string>\",\n    \"nostrud7\": \"<string>\"\n  },\n  \"memberId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startDate\": \"<string>\",\n  \"status\": \"PartiallyApplied\",\n  \"type\": \"PrePayment\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"deductionTemplateId\": \"<string,null>\",\n  \"disbursement\": \"<null>\",\n  \"sourceInvoiceId\": \"<string,null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-01b18b4d-3dbc-4638-af3f-03cc1fabde4c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-22cae595-1acd-431a-9b98-2dd7dbc9e53a"
+                },
+                {
+                  "name": "Erase a Specific Deduction Entry",
+                  "id": "e284bf86-c012-4925-accf-424639b59142",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-deduction/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-deduction",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f4adbe14-fcb7-4782-980a-47e45adaa58f",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Delete a specific deduction entry, eliminating its record from the system."
+                  },
+                  "response": [
+                    {
+                      "id": "64a7845e-3f0e-4412-ae19-1d130d62744e",
+                      "name": "A deduction",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-deduction/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-deduction",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"amount\": \"<number>\",\n  \"application\": [\n    {\n      \"amountDeducted\": \"<number>\",\n      \"payableId\": \"<string>\",\n      \"disbursementId\": \"<string,null>\"\n    },\n    {\n      \"amountDeducted\": \"<number>\",\n      \"payableId\": \"<string>\",\n      \"disbursementId\": \"<string,null>\"\n    }\n  ],\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"currency\": \"CAD\",\n  \"deductionId\": \"<string>\",\n  \"eventActors\": {\n    \"non0e\": \"<string>\"\n  },\n  \"labels\": {\n    \"reprehenderite\": \"<string>\",\n    \"nostrud7\": \"<string>\"\n  },\n  \"memberId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startDate\": \"<string>\",\n  \"status\": \"PartiallyApplied\",\n  \"type\": \"PrePayment\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"deductionTemplateId\": \"<string,null>\",\n  \"disbursement\": \"<null>\",\n  \"sourceInvoiceId\": \"<string,null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-64a7845e-3f0e-4412-ae19-1d130d62744e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-e284bf86-c012-4925-accf-424639b59142"
+                }
+              ],
+              "id": "4fa40498-a1a2-4b7c-b5c1-6d0bffcbc69c",
+              "createdAt": "2026-07-28T03:31:05.000Z",
+              "updatedAt": "2026-07-28T03:31:05.000Z",
+              "uid": "35240-4fa40498-a1a2-4b7c-b5c1-6d0bffcbc69c"
+            },
+            {
+              "name": "Register a New Deduction for a Collaborator",
+              "id": "d6ed2f31-7ea1-4076-a7d6-42ac84069973",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"clientId\": \"<string>\",\n  \"currency\": \"CAD\",\n  \"memberId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"PrePayment\",\n  \"priority\": \"<number,null>\",\n  \"sourceInvoiceId\": \"<string,null>\",\n  \"startDate\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments/collaborator-deduction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "collaborator-deduction"
+                  ]
+                },
+                "description": "Create and add a new deduction entry for a collaborator based on the provided data."
+              },
+              "response": [
+                {
+                  "id": "b14e6ad0-5e6d-496a-812b-022a23979186",
+                  "name": "A deduction",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<number>\",\n  \"clientId\": \"<string>\",\n  \"currency\": \"CAD\",\n  \"memberId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"PrePayment\",\n  \"priority\": \"<number,null>\",\n  \"sourceInvoiceId\": \"<string,null>\",\n  \"startDate\": \"<string,null>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-deduction",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-deduction"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"amount\": \"<number>\",\n  \"application\": [\n    {\n      \"amountDeducted\": \"<number>\",\n      \"payableId\": \"<string>\",\n      \"disbursementId\": \"<string,null>\"\n    },\n    {\n      \"amountDeducted\": \"<number>\",\n      \"payableId\": \"<string>\",\n      \"disbursementId\": \"<string,null>\"\n    }\n  ],\n  \"clientId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"currency\": \"CAD\",\n  \"deductionId\": \"<string>\",\n  \"eventActors\": {\n    \"non0e\": \"<string>\"\n  },\n  \"labels\": {\n    \"reprehenderite\": \"<string>\",\n    \"nostrud7\": \"<string>\"\n  },\n  \"memberId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startDate\": \"<string>\",\n  \"status\": \"PartiallyApplied\",\n  \"type\": \"PrePayment\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"deductionTemplateId\": \"<string,null>\",\n  \"disbursement\": \"<null>\",\n  \"sourceInvoiceId\": \"<string,null>\"\n}",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-b14e6ad0-5e6d-496a-812b-022a23979186"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:05.000Z",
+              "updatedAt": "2026-07-28T03:31:05.000Z",
+              "uid": "35240-d6ed2f31-7ea1-4076-a7d6-42ac84069973"
+            },
+            {
+              "name": "Retrieve All Deductions for Collaborators",
+              "id": "c7205a52-b91a-47ee-9afd-1c1776a9b3aa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/collaborator-deduction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "collaborator-deduction"
+                  ]
+                },
+                "description": "Fetch a list of all deduction entries currently registered for collaborators."
+              },
+              "response": [
+                {
+                  "id": "6cb9bdd6-453e-4f36-8b63-e1ea61f5e5e6",
+                  "name": "A list of deductions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-deduction",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-deduction"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"amount\": \"<number>\",\n    \"application\": [\n      {\n        \"amountDeducted\": \"<number>\",\n        \"payableId\": \"<string>\",\n        \"disbursementId\": \"<string,null>\"\n      },\n      {\n        \"amountDeducted\": \"<number>\",\n        \"payableId\": \"<string>\",\n        \"disbursementId\": \"<string,null>\"\n      }\n    ],\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"currency\": \"USD\",\n    \"deductionId\": \"<string>\",\n    \"eventActors\": {\n      \"aliquad\": \"<string>\",\n      \"labore64f\": \"<string>\"\n    },\n    \"labels\": {\n      \"ut_5f\": \"<string>\",\n      \"consectetur_30\": \"<string>\",\n      \"ut_7\": \"<string>\",\n      \"dolor69\": \"<string>\",\n      \"est_f8\": \"<string>\"\n    },\n    \"memberId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"priority\": \"<number>\",\n    \"startDate\": \"<string>\",\n    \"status\": \"Pending\",\n    \"type\": \"PostPayment\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"deductionTemplateId\": \"<string,null>\",\n    \"disbursement\": \"<null>\",\n    \"sourceInvoiceId\": \"<string,null>\"\n  },\n  {\n    \"amount\": \"<number>\",\n    \"application\": [\n      {\n        \"amountDeducted\": \"<number>\",\n        \"payableId\": \"<string>\",\n        \"disbursementId\": \"<string,null>\"\n      },\n      {\n        \"amountDeducted\": \"<number>\",\n        \"payableId\": \"<string>\",\n        \"disbursementId\": \"<string,null>\"\n      }\n    ],\n    \"clientId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"currency\": \"CAD\",\n    \"deductionId\": \"<string>\",\n    \"eventActors\": {\n      \"aliqua_70\": \"<string>\"\n    },\n    \"labels\": {\n      \"consequat_29\": \"<string>\"\n    },\n    \"memberId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"priority\": \"<number>\",\n    \"startDate\": \"<string>\",\n    \"status\": \"PartiallyApplied\",\n    \"type\": \"PrePayment\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"deductionTemplateId\": \"<string,null>\",\n    \"disbursement\": \"<null>\",\n    \"sourceInvoiceId\": \"<string,null>\"\n  }\n]",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-6cb9bdd6-453e-4f36-8b63-e1ea61f5e5e6"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:05.000Z",
+              "updatedAt": "2026-07-28T03:31:05.000Z",
+              "uid": "35240-c7205a52-b91a-47ee-9afd-1c1776a9b3aa"
+            }
+          ],
+          "id": "d004e7da-1e15-40e3-9766-65b35510e053",
+          "createdAt": "2026-07-28T03:31:05.000Z",
+          "updatedAt": "2026-07-28T03:31:05.000Z",
+          "uid": "35240-d004e7da-1e15-40e3-9766-65b35510e053"
+        },
+        {
+          "name": "collaborator",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "events",
+                  "item": [
+                    {
+                      "name": "Retrieve Events Associated with a Collaborator",
+                      "id": "2244996b-1432-408d-8471-1aaefec9f034",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator/:id/events",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator",
+                            ":id",
+                            "events"
+                          ],
+                          "variable": [
+                            {
+                              "id": "914b77e9-527d-494c-9f75-3c6b033bdcff",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Fetch a list of all events linked to a collaborator based on the provided collaborator ID."
+                      },
+                      "response": [
+                        {
+                          "id": "e6a4cb14-82af-45d8-b40e-f559c86eaeb3",
+                          "name": "List of events on collaborator",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator/:id/events",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator",
+                                ":id",
+                                "events"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"knowYourCustomerVerifiedAt\": \"<string>\",\n  \"payoutMethodFirstAddedAt\": \"<string>\",\n  \"taxDocumentationVerifiedAt\": \"<string>\",\n  \"signedUpAt\": \"<string,null>\"\n}",
+                          "createdAt": "2026-07-28T03:31:05.000Z",
+                          "updatedAt": "2026-07-28T03:31:05.000Z",
+                          "uid": "35240-e6a4cb14-82af-45d8-b40e-f559c86eaeb3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-2244996b-1432-408d-8471-1aaefec9f034"
+                    }
+                  ],
+                  "id": "ac6dee5c-6f94-46c0-8804-488a3078ee20",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-ac6dee5c-6f94-46c0-8804-488a3078ee20"
+                },
+                {
+                  "name": "add-group",
+                  "item": [
+                    {
+                      "name": "{groupId}",
+                      "item": [
+                        {
+                          "name": "Associate Collaborator with a Specific Group",
+                          "id": "dd2fc615-a9f9-4df2-af18-9dd1421816d8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator/:id/add-group/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator",
+                                ":id",
+                                "add-group",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7eff0f07-fcdc-4261-99aa-5c45adbe4507",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier"
+                                },
+                                {
+                                  "id": "beaf892e-468c-4cb6-84e3-ccc98eda2cdd",
+                                  "key": "groupId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique group Id"
+                                }
+                              ]
+                            },
+                            "description": "Add the specified collaborator to the designated group, allowing group-specific configurations and permissions."
+                          },
+                          "response": [
+                            {
+                              "id": "4b71b402-a673-41cf-9644-7073d4b5906e",
+                              "name": "A collaborator is a contractor that can receive payments",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/payments/collaborator/:id/add-group/:groupId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "payments",
+                                    "collaborator",
+                                    ":id",
+                                    "add-group",
+                                    ":groupId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"in__\": \"<string>\",\n    \"temporf39\": \"<string>\"\n  },\n  \"form1099Balances\": {\n    \"2021\": \"<null>\",\n    \"2022\": \"<null>\"\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"labels\": {\n    \"dolord0\": \"<string>\",\n    \"occaecatb6\": \"<string>\",\n    \"occaecat_f94\": \"<string>\"\n  },\n  \"member\": {\n    \"user\": {\n      \"email\": \"<string,null>\",\n      \"phone\": \"<null>\",\n      \"profile\": \"<null>\",\n      \"settings\": \"<null>\",\n      \"status\": \"Active\",\n      \"tag\": \"<string,null>\"\n    },\n    \"profile\": \"<null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"status\": \"Active\",\n  \"taxStatus\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"clientData\": \"<null>\",\n  \"collaboratorGroupIds\": null,\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+                              "createdAt": "2026-07-28T03:31:05.000Z",
+                              "updatedAt": "2026-07-28T03:31:05.000Z",
+                              "uid": "35240-4b71b402-a673-41cf-9644-7073d4b5906e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:31:05.000Z",
+                          "updatedAt": "2026-07-28T03:31:05.000Z",
+                          "uid": "35240-dd2fc615-a9f9-4df2-af18-9dd1421816d8"
+                        }
+                      ],
+                      "id": "39b33688-a651-405b-bec4-837ea7ab331b",
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-39b33688-a651-405b-bec4-837ea7ab331b"
+                    }
+                  ],
+                  "id": "f7739170-e713-4dd4-a696-3323590dd6d9",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-f7739170-e713-4dd4-a696-3323590dd6d9"
+                },
+                {
+                  "name": "remove-group",
+                  "item": [
+                    {
+                      "name": "{groupId}",
+                      "item": [
+                        {
+                          "name": "Disassociate Collaborator from a Specific Group",
+                          "id": "a1878cb6-dae3-4835-860c-7772380d9110",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator/:id/remove-group/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator",
+                                ":id",
+                                "remove-group",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ddf56783-ba11-47ea-a496-54f2ebd33363",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier"
+                                },
+                                {
+                                  "id": "23281de0-b451-4fd3-8faa-11acee322bb7",
+                                  "key": "groupId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique group Id"
+                                }
+                              ]
+                            },
+                            "description": "Remove the collaborator from the designated group, revoking any group-specific configurations and permissions."
+                          },
+                          "response": [
+                            {
+                              "id": "31f017b5-a4c9-40d8-adab-4979cef48339",
+                              "name": "A collaborator is a contractor that can receive payments",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/payments/collaborator/:id/remove-group/:groupId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "payments",
+                                    "collaborator",
+                                    ":id",
+                                    "remove-group",
+                                    ":groupId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"in__\": \"<string>\",\n    \"temporf39\": \"<string>\"\n  },\n  \"form1099Balances\": {\n    \"2021\": \"<null>\",\n    \"2022\": \"<null>\"\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"labels\": {\n    \"dolord0\": \"<string>\",\n    \"occaecatb6\": \"<string>\",\n    \"occaecat_f94\": \"<string>\"\n  },\n  \"member\": {\n    \"user\": {\n      \"email\": \"<string,null>\",\n      \"phone\": \"<null>\",\n      \"profile\": \"<null>\",\n      \"settings\": \"<null>\",\n      \"status\": \"Active\",\n      \"tag\": \"<string,null>\"\n    },\n    \"profile\": \"<null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"status\": \"Active\",\n  \"taxStatus\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"clientData\": \"<null>\",\n  \"collaboratorGroupIds\": null,\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+                              "createdAt": "2026-07-28T03:31:05.000Z",
+                              "updatedAt": "2026-07-28T03:31:05.000Z",
+                              "uid": "35240-31f017b5-a4c9-40d8-adab-4979cef48339"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:31:05.000Z",
+                          "updatedAt": "2026-07-28T03:31:05.000Z",
+                          "uid": "35240-a1878cb6-dae3-4835-860c-7772380d9110"
+                        }
+                      ],
+                      "id": "1d02dd5e-626d-47c1-bf51-4432f0ca97cd",
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-1d02dd5e-626d-47c1-bf51-4432f0ca97cd"
+                    }
+                  ],
+                  "id": "dbacad78-a839-4b96-9e28-a6643e35d7f3",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-dbacad78-a839-4b96-9e28-a6643e35d7f3"
+                },
+                {
+                  "name": "Retrieve Details of a Specific Collaborator",
+                  "id": "ac74a75a-69a8-4de7-b88d-c9f68b877d0c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9a8d8be4-b3ed-4c5d-8eb2-fe7d7184eee5",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Fetch detailed information about a specific collaborator using its unique identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "ec95ca7d-06ad-452e-a76c-b022b17875c1",
+                      "name": "A collaborator is a contractor that can receive payments",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"in__\": \"<string>\",\n    \"temporf39\": \"<string>\"\n  },\n  \"form1099Balances\": {\n    \"2021\": \"<null>\",\n    \"2022\": \"<null>\"\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"labels\": {\n    \"dolord0\": \"<string>\",\n    \"occaecatb6\": \"<string>\",\n    \"occaecat_f94\": \"<string>\"\n  },\n  \"member\": {\n    \"user\": {\n      \"email\": \"<string,null>\",\n      \"phone\": \"<null>\",\n      \"profile\": \"<null>\",\n      \"settings\": \"<null>\",\n      \"status\": \"Active\",\n      \"tag\": \"<string,null>\"\n    },\n    \"profile\": \"<null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"status\": \"Active\",\n  \"taxStatus\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"clientData\": \"<null>\",\n  \"collaboratorGroupIds\": null,\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-ec95ca7d-06ad-452e-a76c-b022b17875c1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-ac74a75a-69a8-4de7-b88d-c9f68b877d0c"
+                },
+                {
+                  "name": "Modify Collaborator Details",
+                  "id": "f25178a7-c4de-4f61-b9cc-38740b955b0e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clientData\": \"<null>\",\n  \"form1099Balances\": \"<null>\",\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"status\": \"Pending\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3ad8ac39-e9dc-4c29-9a7e-74f37f9b542d",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Update specific details or attributes related to an existing collaborator."
+                  },
+                  "response": [
+                    {
+                      "id": "f9edcb1c-ba19-46f1-825e-053a5a60796c",
+                      "name": "A collaborator is a contractor that can receive payments",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"clientData\": \"<null>\",\n  \"form1099Balances\": \"<null>\",\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"status\": \"Pending\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"in__\": \"<string>\",\n    \"temporf39\": \"<string>\"\n  },\n  \"form1099Balances\": {\n    \"2021\": \"<null>\",\n    \"2022\": \"<null>\"\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"labels\": {\n    \"dolord0\": \"<string>\",\n    \"occaecatb6\": \"<string>\",\n    \"occaecat_f94\": \"<string>\"\n  },\n  \"member\": {\n    \"user\": {\n      \"email\": \"<string,null>\",\n      \"phone\": \"<null>\",\n      \"profile\": \"<null>\",\n      \"settings\": \"<null>\",\n      \"status\": \"Active\",\n      \"tag\": \"<string,null>\"\n    },\n    \"profile\": \"<null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"status\": \"Active\",\n  \"taxStatus\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"clientData\": \"<null>\",\n  \"collaboratorGroupIds\": null,\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-f9edcb1c-ba19-46f1-825e-053a5a60796c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-f25178a7-c4de-4f61-b9cc-38740b955b0e"
+                },
+                {
+                  "name": "Remove a Specific Collaborator Record",
+                  "id": "5cd3d70f-e6ed-489e-b443-99fa2f5fb1cb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a9876765-df3e-455c-b725-c126e8d24f5e",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Permanently delete the record of a specific collaborator from the system."
+                  },
+                  "response": [
+                    {
+                      "id": "70bab8af-ebf4-4cc5-a644-b0b1b1ef8286",
+                      "name": "A collaborator is a contractor that can receive payments",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"in__\": \"<string>\",\n    \"temporf39\": \"<string>\"\n  },\n  \"form1099Balances\": {\n    \"2021\": \"<null>\",\n    \"2022\": \"<null>\"\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"labels\": {\n    \"dolord0\": \"<string>\",\n    \"occaecatb6\": \"<string>\",\n    \"occaecat_f94\": \"<string>\"\n  },\n  \"member\": {\n    \"user\": {\n      \"email\": \"<string,null>\",\n      \"phone\": \"<null>\",\n      \"profile\": \"<null>\",\n      \"settings\": \"<null>\",\n      \"status\": \"Active\",\n      \"tag\": \"<string,null>\"\n    },\n    \"profile\": \"<null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"status\": \"Active\",\n  \"taxStatus\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"clientData\": \"<null>\",\n  \"collaboratorGroupIds\": null,\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-70bab8af-ebf4-4cc5-a644-b0b1b1ef8286"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-5cd3d70f-e6ed-489e-b443-99fa2f5fb1cb"
+                }
+              ],
+              "id": "9ef189f9-7ac0-42b6-bc5e-1d185de1b556",
+              "createdAt": "2026-07-28T03:31:05.000Z",
+              "updatedAt": "2026-07-28T03:31:05.000Z",
+              "uid": "35240-9ef189f9-7ac0-42b6-bc5e-1d185de1b556"
+            },
+            {
+              "name": "Retrieve All Registered Collaborators",
+              "id": "8ee82419-63f3-4756-b4e3-0f25e17c85da",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/collaborator",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "collaborator"
+                  ]
+                },
+                "description": "Fetch a comprehensive list of all collaborators currently registered in the system."
+              },
+              "response": [
+                {
+                  "id": "fdd60974-ec25-4078-9bbc-3b747f1944e4",
+                  "name": " A list of collaborators",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"achCreditAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"clientId\": \"<string>\",\n    \"collaboratorId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"eventActors\": {\n      \"proident_f07\": \"<string>\",\n      \"Loremc9\": \"<string>\"\n    },\n    \"form1099Balances\": {\n      \"2021\": \"<null>\",\n      \"2022\": \"<null>\"\n    },\n    \"internationalWireAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"labels\": {\n      \"sed_be\": \"<string>\",\n      \"et_3\": \"<string>\"\n    },\n    \"member\": {\n      \"user\": {\n        \"email\": \"<string,null>\",\n        \"phone\": \"<null>\",\n        \"profile\": \"<null>\",\n        \"settings\": \"<null>\",\n        \"status\": null,\n        \"tag\": \"<string,null>\"\n      },\n      \"profile\": \"<null>\"\n    },\n    \"memberId\": \"<string>\",\n    \"status\": \"Inactive\",\n    \"taxStatus\": \"Failed\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"clientData\": \"<null>\",\n    \"collaboratorGroupIds\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"eligibilityRequirements\": null,\n    \"formW9Data\": \"<null>\",\n    \"integration\": \"<null>\",\n    \"memberData\": \"<null>\"\n  },\n  {\n    \"achCreditAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"clientId\": \"<string>\",\n    \"collaboratorId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"eventActors\": {\n      \"Ut_9e\": \"<string>\",\n      \"magna532\": \"<string>\"\n    },\n    \"form1099Balances\": {\n      \"2021\": \"<null>\",\n      \"2022\": \"<null>\"\n    },\n    \"internationalWireAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"labels\": {\n      \"eiusmod_55\": \"<string>\",\n      \"minim_6\": \"<string>\",\n      \"culpafd\": \"<string>\"\n    },\n    \"member\": {\n      \"user\": {\n        \"email\": \"<string,null>\",\n        \"phone\": \"<null>\",\n        \"profile\": \"<null>\",\n        \"settings\": \"<null>\",\n        \"status\": \"Active\",\n        \"tag\": \"<string,null>\"\n      },\n      \"profile\": \"<null>\"\n    },\n    \"memberId\": \"<string>\",\n    \"status\": \"Pending\",\n    \"taxStatus\": \"Incomplete\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"clientData\": \"<null>\",\n    \"collaboratorGroupIds\": null,\n    \"eligibilityRequirements\": [\n      \"<null>\",\n      \"<null>\"\n    ],\n    \"formW9Data\": \"<null>\",\n    \"integration\": \"<null>\",\n    \"memberData\": \"<null>\"\n  }\n]",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-fdd60974-ec25-4078-9bbc-3b747f1944e4"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:05.000Z",
+              "updatedAt": "2026-07-28T03:31:05.000Z",
+              "uid": "35240-8ee82419-63f3-4756-b4e3-0f25e17c85da"
+            },
+            {
+              "name": "Register a New Collaborator",
+              "id": "fbb7a552-6c40-4add-83af-140a35b24bd3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"<string>\",\n  \"clientData\": \"<null>\",\n  \"collaboratorGroupId\": \"<string,null>\",\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberCompany\": \"<string,null>\",\n  \"memberEmail\": \"<string,null>\",\n  \"memberId\": \"<string,null>\",\n  \"memberName\": \"<string,null>\",\n  \"status\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments/collaborator",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "collaborator"
+                  ]
+                },
+                "description": "Add a new collaborator to the system, allowing them to be eligible for payments."
+              },
+              "response": [
+                {
+                  "id": "ab507a24-8cd1-462b-8bc8-965747563362",
+                  "name": "A collaborator is a contractor that can receive payments",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clientId\": \"<string>\",\n  \"clientData\": \"<null>\",\n  \"collaboratorGroupId\": \"<string,null>\",\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberCompany\": \"<string,null>\",\n  \"memberEmail\": \"<string,null>\",\n  \"memberId\": \"<string,null>\",\n  \"memberName\": \"<string,null>\",\n  \"status\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaboratorId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"in__\": \"<string>\",\n    \"temporf39\": \"<string>\"\n  },\n  \"form1099Balances\": {\n    \"2021\": \"<null>\",\n    \"2022\": \"<null>\"\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"labels\": {\n    \"dolord0\": \"<string>\",\n    \"occaecatb6\": \"<string>\",\n    \"occaecat_f94\": \"<string>\"\n  },\n  \"member\": {\n    \"user\": {\n      \"email\": \"<string,null>\",\n      \"phone\": \"<null>\",\n      \"profile\": \"<null>\",\n      \"settings\": \"<null>\",\n      \"status\": \"Active\",\n      \"tag\": \"<string,null>\"\n    },\n    \"profile\": \"<null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"status\": \"Active\",\n  \"taxStatus\": \"Pending\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"clientData\": \"<null>\",\n  \"collaboratorGroupIds\": null,\n  \"eligibilityRequirements\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-ab507a24-8cd1-462b-8bc8-965747563362"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:05.000Z",
+              "updatedAt": "2026-07-28T03:31:05.000Z",
+              "uid": "35240-fbb7a552-6c40-4add-83af-140a35b24bd3"
+            }
+          ],
+          "id": "9c0e2f40-2d9b-4b91-83d0-bf5a4301d6f6",
+          "createdAt": "2026-07-28T03:31:05.000Z",
+          "updatedAt": "2026-07-28T03:31:05.000Z",
+          "uid": "35240-9c0e2f40-2d9b-4b91-83d0-bf5a4301d6f6"
+        },
+        {
+          "name": "collaborator-group",
+          "item": [
+            {
+              "name": "Retrieve All Collaborator Groups",
+              "id": "1a853312-4f83-42d1-b9ed-8f74601d6709",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/collaborator-group",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "collaborator-group"
+                  ]
+                },
+                "description": "Fetch a comprehensive list of all collaborator groups created by the client, showcasing configurations and member details."
+              },
+              "response": [
+                {
+                  "id": "48e3f5b9-57f3-4eb8-9959-fce11591b161",
+                  "name": "A list of Collaborator Configurations created by client",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-group",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-group"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"clientId\": \"<string>\",\n    \"collaboratorGroupId\": \"<string>\",\n    \"defaultGroup\": \"<boolean>\",\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"collaboratorSettings\": \"<null>\",\n    \"eligibilityRequirements\": [\n      \"<null>\",\n      \"<null>\"\n    ]\n  },\n  {\n    \"clientId\": \"<string>\",\n    \"collaboratorGroupId\": \"<string>\",\n    \"defaultGroup\": \"<boolean>\",\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"collaboratorSettings\": \"<null>\",\n    \"eligibilityRequirements\": [\n      \"<null>\",\n      \"<null>\"\n    ]\n  }\n]",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-48e3f5b9-57f3-4eb8-9959-fce11591b161"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:05.000Z",
+              "updatedAt": "2026-07-28T03:31:05.000Z",
+              "uid": "35240-1a853312-4f83-42d1-b9ed-8f74601d6709"
+            },
+            {
+              "name": "Generate New Collaborator Group",
+              "id": "27e4736f-0958-406b-bdf6-4a1ce06a7cf6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"collaboratorSettings\": \"<null>\",\n  \"eligibilityRequirements\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments/collaborator-group",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "collaborator-group"
+                  ]
+                },
+                "description": "Create a new collaborator group with specific configurations and permissions as defined by the client."
+              },
+              "response": [
+                {
+                  "id": "12029904-4588-452f-bca1-46ff8871b8c8",
+                  "name": "Collaborator Configuration Per Group",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"collaboratorSettings\": \"<null>\",\n  \"eligibilityRequirements\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-group",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-group"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"clientId\": \"<string>\",\n  \"collaboratorGroupId\": \"<string>\",\n  \"defaultGroup\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"collaboratorSettings\": \"<null>\",\n  \"eligibilityRequirements\": null\n}",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-12029904-4588-452f-bca1-46ff8871b8c8"
+                }
+              ],
+              "createdAt": "2026-07-28T03:31:05.000Z",
+              "updatedAt": "2026-07-28T03:31:05.000Z",
+              "uid": "35240-27e4736f-0958-406b-bdf6-4a1ce06a7cf6"
+            }
+          ],
+          "id": "442c43fd-c3fd-4b88-8346-e8e8ac5e8275",
+          "createdAt": "2026-07-28T03:31:05.000Z",
+          "updatedAt": "2026-07-28T03:31:05.000Z",
+          "uid": "35240-442c43fd-c3fd-4b88-8346-e8e8ac5e8275"
+        },
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "collaborator",
+              "item": [
+                {
+                  "name": "{memberId}",
+                  "item": [
+                    {
+                      "name": "Retrieve Specific Collaborator Details (Version 2)",
+                      "id": "6b133786-8367-443c-8ce8-add724ad5dab",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/v2/collaborator/:memberId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "v2",
+                            "collaborator",
+                            ":memberId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8af4f09c-e409-4e0c-b025-e9dd695e07bb",
+                              "key": "memberId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of a member"
+                            }
+                          ]
+                        },
+                        "description": "Fetches detailed information of a specific collaborator, identified by the memberId, in the V2 format."
+                      },
+                      "response": [
+                        {
+                          "id": "2d08cb92-2be7-4517-b03e-9a860c873864",
+                          "name": "A single V2 Collaborator",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/v2/collaborator/:memberId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "v2",
+                                "collaborator",
+                                ":memberId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "memberId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"clientId\": \"<string>\",\n  \"collaborations\": [\n    {\n      \"collaboratorId\": \"<string>\",\n      \"status\": \"Active\",\n      \"clientData\": \"<null>\",\n      \"collaboratorGroupIds\": [\n        \"<string,null>\",\n        \"<string,null>\"\n      ],\n      \"eligibilityRequirements\": null,\n      \"integration\": \"<null>\"\n    },\n    {\n      \"collaboratorId\": \"<string>\",\n      \"status\": \"Pending\",\n      \"clientData\": \"<null>\",\n      \"collaboratorGroupIds\": null,\n      \"eligibilityRequirements\": [\n        \"<null>\",\n        \"<null>\"\n      ],\n      \"integration\": \"<null>\"\n    }\n  ],\n  \"createdAt\": \"<string>\",\n  \"eventActors\": {\n    \"dolor6\": \"<string>\"\n  },\n  \"firstCollaborationId\": \"<string>\",\n  \"form1099Balances\": {\n    \"2021\": \"<null>\",\n    \"2022\": \"<null>\"\n  },\n  \"formW9Data\": {\n    \"addressLine1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"companyStructure\": \"CorporationC\",\n    \"country\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"addressLine2\": \"<string,null>\",\n    \"dob\": \"<string,null>\",\n    \"ein\": \"<string,null>\",\n    \"firstName\": \"<string,null>\",\n    \"lastName\": \"<string,null>\",\n    \"legalBusinessName\": \"<string,null>\",\n    \"ssnLastFour\": \"<string,null>\"\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"<string>\",\n    \"bankName\": \"<string>\",\n    \"routingNumber\": \"<string,null>\",\n    \"swiftCode\": \"<string,null>\"\n  },\n  \"labels\": {\n    \"nulla_02\": \"<string>\",\n    \"consecteturf5d\": \"<string>\",\n    \"culpa566\": \"<string>\"\n  },\n  \"member\": {\n    \"user\": {\n      \"email\": \"<string,null>\",\n      \"phone\": \"<null>\",\n      \"profile\": \"<null>\",\n      \"settings\": \"<null>\",\n      \"status\": null,\n      \"tag\": \"<string,null>\"\n    },\n    \"profile\": \"<null>\"\n  },\n  \"memberId\": \"<string>\",\n  \"primaryCollaborationId\": \"<string>\",\n  \"status\": \"Active\",\n  \"taxStatus\": \"Failed\",\n  \"updatedAt\": \"<string>\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"viewerIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"clientData\": \"<null>\",\n  \"memberData\": \"<null>\",\n  \"memberEvents\": \"<null>\"\n}",
+                          "createdAt": "2026-07-28T03:31:05.000Z",
+                          "updatedAt": "2026-07-28T03:31:05.000Z",
+                          "uid": "35240-2d08cb92-2be7-4517-b03e-9a860c873864"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-6b133786-8367-443c-8ce8-add724ad5dab"
+                    }
+                  ],
+                  "id": "44b5824a-1e24-4e2f-a1c8-a6a719d491cf",
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-44b5824a-1e24-4e2f-a1c8-a6a719d491cf"
+                },
+                {
+                  "name": "Retrieve All Collaborators (Version 2)",
+                  "id": "c5ba7d4b-9970-453c-bfe6-417ce1f53233",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/v2/collaborator",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "v2",
+                        "collaborator"
+                      ]
+                    },
+                    "description": "Fetches a comprehensive list of collaborators formatted in the V2 standard, providing an overview of all collaborator data."
+                  },
+                  "response": [
+                    {
+                      "id": "2bbdf3cf-7042-47f0-ae46-4e419b330428",
+                      "name": "List of V2 Collaborators",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/v2/collaborator",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "v2",
+                            "collaborator"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"achCreditAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"clientId\": \"<string>\",\n    \"collaborations\": [\n      {\n        \"collaboratorId\": \"<string>\",\n        \"status\": \"Inactive\",\n        \"clientData\": \"<null>\",\n        \"collaboratorGroupIds\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"eligibilityRequirements\": [\n          \"<null>\",\n          \"<null>\"\n        ],\n        \"integration\": \"<null>\"\n      },\n      {\n        \"collaboratorId\": \"<string>\",\n        \"status\": \"Active\",\n        \"clientData\": \"<null>\",\n        \"collaboratorGroupIds\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"eligibilityRequirements\": [\n          \"<null>\",\n          \"<null>\"\n        ],\n        \"integration\": \"<null>\"\n      }\n    ],\n    \"createdAt\": \"<string>\",\n    \"eventActors\": {\n      \"Duis_fa\": \"<string>\"\n    },\n    \"firstCollaborationId\": \"<string>\",\n    \"form1099Balances\": {\n      \"2021\": \"<null>\",\n      \"2022\": \"<null>\"\n    },\n    \"formW9Data\": {\n      \"addressLine1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"companyStructure\": \"CorporationC\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"addressLine2\": \"<string,null>\",\n      \"dob\": \"<string,null>\",\n      \"ein\": \"<string,null>\",\n      \"firstName\": \"<string,null>\",\n      \"lastName\": \"<string,null>\",\n      \"legalBusinessName\": \"<string,null>\",\n      \"ssnLastFour\": \"<string,null>\"\n    },\n    \"internationalWireAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"labels\": {\n      \"do04\": \"<string>\",\n      \"irure_c\": \"<string>\",\n      \"commodo_3\": \"<string>\"\n    },\n    \"member\": {\n      \"user\": {\n        \"email\": \"<string,null>\",\n        \"phone\": \"<null>\",\n        \"profile\": \"<null>\",\n        \"settings\": \"<null>\",\n        \"status\": \"Pending\",\n        \"tag\": \"<string,null>\"\n      },\n      \"profile\": \"<null>\"\n    },\n    \"memberId\": \"<string>\",\n    \"primaryCollaborationId\": \"<string>\",\n    \"status\": \"Inactive\",\n    \"taxStatus\": \"Pending\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"clientData\": \"<null>\",\n    \"memberData\": \"<null>\",\n    \"memberEvents\": \"<null>\"\n  },\n  {\n    \"achCreditAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"clientId\": \"<string>\",\n    \"collaborations\": [\n      {\n        \"collaboratorId\": \"<string>\",\n        \"status\": \"Inactive\",\n        \"clientData\": \"<null>\",\n        \"collaboratorGroupIds\": null,\n        \"eligibilityRequirements\": null,\n        \"integration\": \"<null>\"\n      },\n      {\n        \"collaboratorId\": \"<string>\",\n        \"status\": \"Inactive\",\n        \"clientData\": \"<null>\",\n        \"collaboratorGroupIds\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"eligibilityRequirements\": null,\n        \"integration\": \"<null>\"\n      }\n    ],\n    \"createdAt\": \"<string>\",\n    \"eventActors\": {\n      \"commodo_2\": \"<string>\"\n    },\n    \"firstCollaborationId\": \"<string>\",\n    \"form1099Balances\": {\n      \"2021\": \"<null>\",\n      \"2022\": \"<null>\"\n    },\n    \"formW9Data\": {\n      \"addressLine1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"companyStructure\": \"None\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"addressLine2\": \"<string,null>\",\n      \"dob\": \"<string,null>\",\n      \"ein\": \"<string,null>\",\n      \"firstName\": \"<string,null>\",\n      \"lastName\": \"<string,null>\",\n      \"legalBusinessName\": \"<string,null>\",\n      \"ssnLastFour\": \"<string,null>\"\n    },\n    \"internationalWireAccount\": {\n      \"accountNumber\": \"<string>\",\n      \"bankName\": \"<string>\",\n      \"routingNumber\": \"<string,null>\",\n      \"swiftCode\": \"<string,null>\"\n    },\n    \"labels\": {\n      \"in23c\": \"<string>\",\n      \"ad01\": \"<string>\",\n      \"id_e\": \"<string>\"\n    },\n    \"member\": {\n      \"user\": {\n        \"email\": \"<string,null>\",\n        \"phone\": \"<null>\",\n        \"profile\": \"<null>\",\n        \"settings\": \"<null>\",\n        \"status\": \"Pending\",\n        \"tag\": \"<string,null>\"\n      },\n      \"profile\": \"<null>\"\n    },\n    \"memberId\": \"<string>\",\n    \"primaryCollaborationId\": \"<string>\",\n    \"status\": \"Pending\",\n    \"taxStatus\": \"Pending\",\n    \"updatedAt\": \"<string>\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"viewerIds\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"clientData\": \"<null>\",\n    \"memberData\": \"<null>\",\n    \"memberEvents\": \"<null>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:31:05.000Z",
+                      "updatedAt": "2026-07-28T03:31:05.000Z",
+                      "uid": "35240-2bbdf3cf-7042-47f0-ae46-4e419b330428"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:05.000Z",
+                  "updatedAt": "2026-07-28T03:31:05.000Z",
+                  "uid": "35240-c5ba7d4b-9970-453c-bfe6-417ce1f53233"
+                }
+              ],
+              "id": "12718c71-ea2c-4c65-b548-acafbb8e3806",
+              "createdAt": "2026-07-28T03:31:05.000Z",
+              "updatedAt": "2026-07-28T03:31:05.000Z",
+              "uid": "35240-12718c71-ea2c-4c65-b548-acafbb8e3806"
+            }
+          ],
+          "id": "3c342e5c-8d97-4e6f-a075-d7c5cd3caf9f",
+          "createdAt": "2026-07-28T03:31:05.000Z",
+          "updatedAt": "2026-07-28T03:31:05.000Z",
+          "uid": "35240-3c342e5c-8d97-4e6f-a075-d7c5cd3caf9f"
+        }
+      ],
+      "id": "3fe607bf-50e6-4e1f-bff7-c318146fd9fe",
+      "createdAt": "2026-07-28T03:31:05.000Z",
+      "updatedAt": "2026-07-28T03:31:05.000Z",
+      "uid": "35240-3fe607bf-50e6-4e1f-bff7-c318146fd9fe"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wingspan.app"
+    }
+  ]
+}

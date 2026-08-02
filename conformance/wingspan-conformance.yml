@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.wingspan.app/security
+notes: >-
+  Standards conformance for the Wingspan Payments API. Security/compliance
+  posture (SOC 2, HIPAA, penetration testing, encryption) captured from the
+  published Wingspan security page; protocol conformance derived from the
+  OpenAPI 3.1 spec.
+standards:
+  - id: soc2
+    conforms: true
+    evidence: Wingspan security page states SOC 2 compliance
+    source: https://www.wingspan.app/security
+  - id: hipaa
+    conforms: true
+    evidence: Wingspan security page states HIPAA compliance
+    source: https://www.wingspan.app/security
+  - id: penetration-testing
+    conforms: true
+    evidence: Wingspan security page references regular penetration testing
+    source: https://www.wingspan.app/security
+  - id: oauth2
+    conforms: false
+    evidence: API uses Bearer token auth, not OAuth2 authorization flows
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: error envelope is {"error":"..."} JSON, not application/problem+json
+  - id: rest-json
+    conforms: true
+    evidence: resource-oriented REST API, JSON request/response bodies, standard HTTP verbs
+  - id: openapi-3.1
+    conforms: true
+    evidence: published OpenAPI 3.1.0 specification
+  - id: webhooks-hmac
+    conforms: true
+    evidence: webhook payloads signed with HMAC-SHA256 shared secret
+    source: https://docs.wingspan.app/docs/configure-a-webhook-for-payment-events-in-wingspan

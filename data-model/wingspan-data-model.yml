@@ -1,0 +1,73 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/wingspan-payments-openapi-original.yml
+notes: >-
+  Entity-relationship graph derived from the Wingspan Payments OpenAPI 3.1 spec
+  (310 component schemas) via id-reference fields and resource paths. The domain
+  centers on paying contractors (collaborators/members) on behalf of clients.
+entities:
+  - name: Client
+    description: The business/organization paying contractors.
+    id_field: clientId
+  - name: Collaborator
+    description: A contractor/member being onboarded and paid (a.k.a. Member / Payee).
+    id_field: collaboratorId
+    also_referenced_as: [memberId, memberClientId]
+  - name: CollaboratorGroup
+    description: A named grouping of collaborators.
+    id_field: collaboratorGroupId
+  - name: Payable
+    description: A payment obligation to a collaborator on behalf of a client.
+    id_field: payableId
+  - name: Invoice
+    description: A member invoice.
+    id_field: invoiceId
+  - name: ClientInvoice
+    description: An invoice generated on behalf of a client.
+  - name: InvoiceTemplate
+    description: A reusable invoice template.
+    id_field: invoiceTemplateId
+  - name: BankAccount
+    description: A linked bank account / payment method.
+    id_field: [accountId, paymentMethodId]
+  - name: WingspanWallet
+    description: The Wingspan Wallet balance and banking surface.
+  - name: Form1099
+    description: 1099 tax balances and filing data per collaborator.
+relationships:
+  - from: Payable
+    to: Collaborator
+    type: belongs_to
+    via: memberId
+  - from: Payable
+    to: Client
+    type: belongs_to
+    via: clientId
+  - from: Invoice
+    to: Collaborator
+    type: belongs_to
+    via: memberId
+  - from: ClientInvoice
+    to: Client
+    type: belongs_to
+    via: clientId
+  - from: Invoice
+    to: InvoiceTemplate
+    type: belongs_to
+    via: invoiceTemplateId
+  - from: Collaborator
+    to: CollaboratorGroup
+    type: belongs_to
+    via: collaboratorGroupId
+  - from: Payable
+    to: BankAccount
+    type: references
+    via: paymentMethodId
+  - from: Collaborator
+    to: Form1099
+    type: has_many
+    via: form1099Balances
+  - from: Client
+    to: Collaborator
+    type: has_many
+    via: memberClientId

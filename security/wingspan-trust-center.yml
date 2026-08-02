@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+probe: false
+source: https://www.wingspan.app/security
+url: https://www.wingspan.app/security
+notes: >-
+  The automated trust-center probe (trust.<domain>/security.<domain>) returned
+  no dedicated trust portal, but the public Wingspan security page names its
+  compliance program. Captured here from that page.
+certifications:
+  - SOC 2
+  - HIPAA
+security_practices:
+  - Data encryption
+  - Regular penetration testing
+banking_partner: Lead Bank, Member FDIC
+evidence:
+  - source: https://www.wingspan.app/security
+    keywords: [soc 2, hipaa, penetration testing, encryption]

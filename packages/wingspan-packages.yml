@@ -1,0 +1,58 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/wingspanHQ
+notes: >-
+  First-party, Speakeasy-generated client SDKs published by the wingspanHQ
+  GitHub organization. The SDKs are split per Wingspan service (payments,
+  benefits, bookkeeping, files, users). npm scope confirmed live at
+  registry.npmjs.org (@wingspan/payments 2.1.0). Python packages published as
+  wingspan_<service>; a C# SDK is published from client-sdk-csharp.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@wingspan/payments"
+    url: https://www.npmjs.com/package/@wingspan/payments
+    install: npm add @wingspan/payments
+    repo: https://github.com/wingspanHQ/client-sdk-typescript
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@wingspan/benefits"
+    url: https://www.npmjs.com/package/@wingspan/benefits
+    install: npm add @wingspan/benefits
+    repo: https://github.com/wingspanHQ/client-sdk-typescript
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@wingspan/bookkeeping"
+    url: https://www.npmjs.com/package/@wingspan/bookkeeping
+    install: npm add @wingspan/bookkeeping
+    repo: https://github.com/wingspanHQ/client-sdk-typescript
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@wingspan/files"
+    url: https://www.npmjs.com/package/@wingspan/files
+    install: npm add @wingspan/files
+    repo: https://github.com/wingspanHQ/client-sdk-typescript
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@wingspan/users"
+    url: https://www.npmjs.com/package/@wingspan/users
+    install: npm add @wingspan/users
+    repo: https://github.com/wingspanHQ/client-sdk-typescript
+    official: true
+  - language: python
+    registry: pypi
+    name: wingspan-payments
+    package_id: wingspan_payments
+    install: pip install wingspan-payments
+    repo: https://github.com/wingspanHQ/client-sdk-python
+    official: true
+  - language: csharp
+    registry: nuget
+    name: Wingspan SDK (C#)
+    repo: https://github.com/wingspanHQ/client-sdk-csharp
+    install: dotnet add package
+    official: true

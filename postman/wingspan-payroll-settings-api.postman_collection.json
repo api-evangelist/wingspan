@@ -1,0 +1,265 @@
+{
+  "info": {
+    "_postman_id": "09365e64-08f6-41bc-968b-2e3faaec42b7",
+    "name": "Wingspan Payments 1099 Operations Payroll Settings API",
+    "description": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:31:28.000Z",
+    "updatedAt": "2026-07-28T03:31:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-09365e64-08f6-41bc-968b-2e3faaec42b7"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "payroll-settings",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve Individual Payroll Settings",
+                  "id": "90a8a00e-8c48-40b2-9eb1-5a95ac21ce64",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/payroll-settings/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "payroll-settings",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "559b0cda-ec7d-40e1-845d-2149950a7250",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Fetch the detailed payroll settings associated with the provided unique identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "5171ef69-acba-47a6-8eaa-7b9a595162a5",
+                      "name": "The payroll settings for a member",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/payroll-settings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "payroll-settings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"Cancelled\",\n  \"calculationSettings1099\": \"<null>\",\n  \"enablePlannedPayroll\": \"<boolean,null>\",\n  \"enableProcessDaysBeforeDue\": \"<boolean,null>\",\n  \"frequency\": \"<null>\",\n  \"fundingSource\": \"<null>\",\n  \"internationalPayroll\": \"All\",\n  \"issue1099s\": \"<boolean,null>\",\n  \"processDaysBeforeDue\": \"<number,null>\",\n  \"runsPayroll\": \"<boolean,null>\",\n  \"scheduleDates\": null,\n  \"workflow\": \"DualStage\"\n}",
+                      "createdAt": "2026-07-28T03:31:28.000Z",
+                      "updatedAt": "2026-07-28T03:31:28.000Z",
+                      "uid": "35240-5171ef69-acba-47a6-8eaa-7b9a595162a5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:28.000Z",
+                  "updatedAt": "2026-07-28T03:31:28.000Z",
+                  "uid": "35240-90a8a00e-8c48-40b2-9eb1-5a95ac21ce64"
+                },
+                {
+                  "name": "Modify Existing Payroll Settings",
+                  "id": "01ecbc17-7447-4c80-a297-cb8941e2c446",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"calculationSettings1099\": \"<null>\",\n  \"enablePlannedPayroll\": \"<boolean,null>\",\n  \"enableProcessDaysBeforeDue\": \"<boolean,null>\",\n  \"frequency\": \"<null>\",\n  \"fundingSource\": \"<null>\",\n  \"issue1099s\": \"<boolean,null>\",\n  \"processDaysBeforeDue\": \"<number,null>\",\n  \"scheduleDates\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"status\": \"Expired\",\n  \"workflow\": \"DualStage\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/payroll-settings/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "payroll-settings",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "72c1cdb9-244d-4ae0-bc43-00d29b720743",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Update certain attributes or details of payroll settings associated with the provided identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "d169f011-c2f6-4dd3-b48e-c26b33038e45",
+                      "name": "The payroll settings for a member",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"calculationSettings1099\": \"<null>\",\n  \"enablePlannedPayroll\": \"<boolean,null>\",\n  \"enableProcessDaysBeforeDue\": \"<boolean,null>\",\n  \"frequency\": \"<null>\",\n  \"fundingSource\": \"<null>\",\n  \"issue1099s\": \"<boolean,null>\",\n  \"processDaysBeforeDue\": \"<number,null>\",\n  \"scheduleDates\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"status\": \"Expired\",\n  \"workflow\": \"DualStage\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/payroll-settings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "payroll-settings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"Cancelled\",\n  \"calculationSettings1099\": \"<null>\",\n  \"enablePlannedPayroll\": \"<boolean,null>\",\n  \"enableProcessDaysBeforeDue\": \"<boolean,null>\",\n  \"frequency\": \"<null>\",\n  \"fundingSource\": \"<null>\",\n  \"internationalPayroll\": \"All\",\n  \"issue1099s\": \"<boolean,null>\",\n  \"processDaysBeforeDue\": \"<number,null>\",\n  \"runsPayroll\": \"<boolean,null>\",\n  \"scheduleDates\": null,\n  \"workflow\": \"DualStage\"\n}",
+                      "createdAt": "2026-07-28T03:31:28.000Z",
+                      "updatedAt": "2026-07-28T03:31:28.000Z",
+                      "uid": "35240-d169f011-c2f6-4dd3-b48e-c26b33038e45"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:28.000Z",
+                  "updatedAt": "2026-07-28T03:31:28.000Z",
+                  "uid": "35240-01ecbc17-7447-4c80-a297-cb8941e2c446"
+                }
+              ],
+              "id": "57948713-097c-4557-9d04-231a201bbb89",
+              "createdAt": "2026-07-28T03:31:28.000Z",
+              "updatedAt": "2026-07-28T03:31:28.000Z",
+              "uid": "35240-57948713-097c-4557-9d04-231a201bbb89"
+            }
+          ],
+          "id": "dc04b5da-3fd9-4eef-b748-073435509732",
+          "createdAt": "2026-07-28T03:31:28.000Z",
+          "updatedAt": "2026-07-28T03:31:28.000Z",
+          "uid": "35240-dc04b5da-3fd9-4eef-b748-073435509732"
+        }
+      ],
+      "id": "05e90107-a6b0-4452-bb4e-a519639d54f2",
+      "createdAt": "2026-07-28T03:31:28.000Z",
+      "updatedAt": "2026-07-28T03:31:28.000Z",
+      "uid": "35240-05e90107-a6b0-4452-bb4e-a519639d54f2"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wingspan.app"
+    }
+  ]
+}

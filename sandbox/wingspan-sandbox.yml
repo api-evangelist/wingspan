@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.wingspan.app/docs/get-started-with-the-wingspan-api
+notes: >-
+  Wingspan exposes a full staging deployment for testing alongside production,
+  plus a dedicated test-invoice creation endpoint. There are no published test
+  card numbers or magic values (payments settle via bank/ACH rails through Lead
+  Bank), so none are fabricated here.
+environments:
+  - name: staging
+    api: https://stagingapi.wingspan.app
+    frontend: https://staging-my.wingspan.app/
+    purpose: Testing and validation without live transactions.
+  - name: production
+    api: https://api.wingspan.app
+    frontend: https://my.wingspan.app/
+    purpose: Live transactions.
+auth:
+  model: bearer-token
+  notes: >-
+    Separate API tokens are generated per environment in the web app under
+    Data & Integrations > Developer. Both environments require
+    Authorization: Bearer <API Token>.
+test_tooling:
+  - name: Create test invoice
+    operation: openapi/wingspan-payments-openapi-original.yml#post_payments-invoice-test-create
+    endpoint: POST /payments/invoice/test/create
+    description: Creates a test invoice that mimics a client's real invoice for validation.

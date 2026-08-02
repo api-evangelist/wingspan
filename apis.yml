@@ -1,22 +1,342 @@
 aid: wingspan
 name: Wingspan
-description: Wingspan is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Wingspan is a contractor payments and payroll platform built for the independent
+  workforce, giving enterprises a single system to onboard 1099 contractors, collect W-9 and
+  compliance documents, run approval-based payroll, pay collaborators by ACH or instant payout,
+  and file 1099 tax forms. Its REST Payments API (OpenAPI 3.1) covers payables, invoicing,
+  collaborators and groups, payable/invoice/1099 batches, deductions, eligibility requirements,
+  custom fields, reporting, and webhooks, with embeddable onboarding and payout-settings UIs.
 url: https://raw.githubusercontent.com/api-evangelist/wingspan/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - a16z
-x-tier: stub
-x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.wingspan.app/images/wingspan-logo.svg
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Payments
+- Payroll
+- Contractors
+- Invoicing
+- Taxes
+- Fintech
+- Freelance Economy
+apis:
+- aid: wingspan:wingspan-1099-operations-api
+  name: Wingspan 1099 Operations API
+  description: Includes endpoints for managing 1099 forms.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - 1099 Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-1099-operations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-banking-management-api
+  name: Wingspan Banking Management API
+  description: >-
+    These endpoints cater to fetching, storing, and managing documents related to electronic signatures,
+    including retrieval of signing URLs and saving e-signed documents.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Banking Management
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-banking-management-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-bulk-operations-api
+  name: Wingspan Bulk Operations API
+  description: >-
+    This category includes endpoints for managing bulk operations like bulk payables, bulk invoices, and
+    bulk collaborator management.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Bulk Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-bulk-operations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-client-management-api
+  name: Wingspan Client Management API
+  description: >-
+    Encompasses endpoints for banking-related operations such as managing bank cards, statements, instant
+    payouts, and banking institutions..
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Client Management
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-client-management-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-collaborator-management-api
+  name: Wingspan Collaborator Management API
+  description: >-
+    This category includes endpoints that manage relationships and interactions with collaborators. This
+    includes collaborator settings, and various operations related to collaborators.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Collaborator Management
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-collaborator-management-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-custom-field-management-api
+  name: Wingspan Custom Field Management API
+  description: Focuses on endpoints for managing custom fields related to payments and collaborators.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Custom Field Management
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-custom-field-management-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-deprecated-api
+  name: Wingspan Deprecated API
+  description: Deprecated Endpoints.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Deprecated
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-deprecated-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-document-signing-and-eligibility-api
+  name: Wingspan Document Signing and Eligibility API
+  description: >-
+    Focuses on endpoints for managing eligibility requirements and custom fields related to payments.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Document Signing and Eligibility
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-document-signing-and-eligibility-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-invoice-management-api
+  name: Wingspan Invoice Management API
+  description: >-
+    Covers endpoints related to invoice creation, retrieval, and management. This includes both member
+    and client invoices, along with specific actions like sending invoices by email and managing invoice
+    templates.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Invoice Management
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-invoice-management-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-merchant-category-codes-api
+  name: Wingspan Merchant Category Codes API
+  description: Endpoint that provides a comprehensive list of available Merchant Category Codes.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Merchant Category Codes
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-merchant-category-codes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-payables-management-api
+  name: Wingspan Payables Management API
+  description: >-
+    Endpoints dealing with payables, including creating, listing, updating, and deleting payables. It
+    also includes summary endpoints and immediate payroll payables.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Payables Management
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-payables-management-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-payroll-settings-api
+  name: Wingspan Payroll Settings API
+  description: Covers endpoints that manage payout settings and related configurations.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Payroll Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-payroll-settings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-reporting-and-analytics-api
+  name: Wingspan Reporting and Analytics API
+  description: >-
+    Includes endpoints for generating various reports and analytics, such as payables reports, collaborators
+    reports, and aging reports.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Reporting and Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-reporting-and-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-service-settings-api
+  name: Wingspan Service Settings API
+  description: Covers endpoints that manage service statuses and related configurations.
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Service Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-service-settings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
+- aid: wingspan:wingspan-wingspan-wallet-api
+  name: Wingspan Wingspan Wallet API
+  description: Operations related to Wingspan Wallet
+  humanURL: https://docs.wingspan.app/
+  baseURL: https://api.wingspan.app
+  tags:
+  - Wingspan Wallet
+  properties:
+  - type: OpenAPI
+    url: openapi/wingspan-wingspan-wallet-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wingspan.app/
+  - type: APIReference
+    url: https://docs.wingspan.app/reference
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/wingspan/overview
+- type: DeveloperPortal
+  url: https://docs.wingspan.app/
+- type: Documentation
+  url: https://docs.wingspan.app/
+- type: APIReference
+  url: https://docs.wingspan.app/reference
+- type: GettingStarted
+  url: https://docs.wingspan.app/docs/get-started-with-the-wingspan-api
+- type: Support
+  url: https://www.wingspan.app/support
+- type: HelpCenter
+  url: https://help.wingspan.app/en/
+- type: Blog
+  url: https://www.wingspan.app/blog
+- type: GitHubOrganization
+  url: https://github.com/wingspanHQ
+- type: Pricing
+  url: https://www.wingspan.app/pricing
+- type: Login
+  url: https://my.wingspan.app/
+- type: TermsOfService
+  url: https://www.wingspan.app/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.wingspan.app/privacy-policy
+- type: StatusPage
+  url: https://status.wingspan.app/
+- type: Lifecycle
+  url: lifecycle/wingspan-lifecycle.yml
+- type: Authentication
+  url: authentication/wingspan-authentication.yml
+- type: DomainSecurity
+  url: security/wingspan-domain-security.yml
+- type: TrustCenter
+  url: security/wingspan-trust-center.yml
+- type: Compliance
+  url: https://www.wingspan.app/security
+- type: Conformance
+  url: conformance/wingspan-conformance.yml
+- type: AgenticAccess
+  url: agentic-access/wingspan-agentic-access.yml
+- type: Packages
+  url: packages/wingspan-packages.yml
+- type: SDKs
+  url: packages/wingspan-packages.yml
+- type: MCPServer
+  url: mcp/wingspan-mcp.yml
+- type: LLMsTxt
+  url: llms/wingspan-llms.txt
+- type: ErrorCatalog
+  url: errors/wingspan-error-codes.yml
+- type: Sandbox
+  url: sandbox/wingspan-sandbox.yml
+- type: Conventions
+  url: conventions/wingspan-conventions.yml
+- type: RateLimits
+  url: rate-limits/wingspan-rate-limits.yml
+- type: Webhooks
+  url: asyncapi/wingspan-webhooks.yml
+- type: Components
+  url: components/wingspan-components.yml
+- type: DataModel
+  url: data-model/wingspan-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1

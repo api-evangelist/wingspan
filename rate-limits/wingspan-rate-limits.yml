@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.wingspan.app/docs/api-rate-limiting
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Wingspan
+providerId: wingspan
+created: '2026-07-21'
+modified: '2026-07-21'
+tags:
+  - Rate Limiting
+  - Payments
+  - Payroll
+description: Default production rate limits for the Wingspan API, applied across all API keys
+  and endpoint requests within an account. Exceeding the limit returns a 429; Wingspan
+  recommends jittered exponential backoff, batching with delays, locking, and queueing.
+  Limit increases are requested through an Account Manager or Solutions Engineer.
+sources:
+  - https://docs.wingspan.app/docs/api-rate-limiting
+responseCodes:
+  throttled: 429
+limits:
+  - name: Read requests (GET)
+    scope: account
+    metric: requests_per_second
+    limit: 200
+    timeFrame: second
+  - name: Write requests (POST, PATCH, DELETE)
+    scope: account
+    metric: requests_per_second
+    limit: 100
+    timeFrame: second
+guidance:
+  - Retry with jittered exponential backoff on 429.
+  - Stagger API calls in batches separated by a delay.
+  - Use a locking mechanism to cap initiated threads per second.
+  - Queue system events (and inbound webhooks) for controlled processing.
+  - Request a rate limit increase via your Account Manager or Solutions Engineer.

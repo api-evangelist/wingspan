@@ -1,0 +1,829 @@
+{
+  "info": {
+    "_postman_id": "eb80174c-54d9-44f9-9260-04bd607e9ef7",
+    "name": "Wingspan Payments 1099 Operations Deprecated API",
+    "description": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:31:22.000Z",
+    "updatedAt": "2026-07-28T03:31:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-eb80174c-54d9-44f9-9260-04bd607e9ef7"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "banking",
+          "item": [
+            {
+              "name": "instant-payout",
+              "item": [
+                {
+                  "name": "Deprecated Retrieve Instant Payout Information",
+                  "id": "401285f8-3e10-4a7e-9590-1d8f0bd02c62",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/banking/instant-payout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "banking",
+                        "instant-payout"
+                      ]
+                    },
+                    "description": "Fetch detailed information about the current status and details of instant payouts configured in the system."
+                  },
+                  "response": [
+                    {
+                      "id": "230e4eb3-1882-4e3e-905d-f12f56dfefa8",
+                      "name": "Instant Payout details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/banking/instant-payout",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "banking",
+                            "instant-payout"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"instantPayoutAccount\": {\n    \"country\": \"<string>\",\n    \"currency\": \"USD\",\n    \"holderName\": \"<string>\",\n    \"numbers\": {\n      \"IBAN\": \"<string,null>\",\n      \"accountNumber\": \"<string,null>\",\n      \"accountRouting\": \"<string,null>\",\n      \"brand\": \"<string,null>\",\n      \"expiryMonth\": \"<string,null>\",\n      \"expiryYear\": \"<string,null>\",\n      \"last4\": \"<string,null>\"\n    },\n    \"type\": \"StripeAccount\",\n    \"userId\": \"<string,null>\"\n  },\n  \"instantPayoutAccountId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:31:22.000Z",
+                      "updatedAt": "2026-07-28T03:31:22.000Z",
+                      "uid": "35240-230e4eb3-1882-4e3e-905d-f12f56dfefa8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:22.000Z",
+                  "updatedAt": "2026-07-28T03:31:22.000Z",
+                  "uid": "35240-401285f8-3e10-4a7e-9590-1d8f0bd02c62"
+                },
+                {
+                  "name": "Deprecated Remove Instant Payout Configuration",
+                  "id": "e3154604-75eb-439f-b0d0-05794f7dc795",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/banking/instant-payout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "banking",
+                        "instant-payout"
+                      ]
+                    },
+                    "description": "Delete the existing instant payout configuration, preventing any further instant payouts unless reconfigured."
+                  },
+                  "response": [
+                    {
+                      "id": "7d417f29-f671-470b-bde1-7d199a2dec28",
+                      "name": "Instant Payout details",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/banking/instant-payout",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "banking",
+                            "instant-payout"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"instantPayoutAccount\": {\n    \"country\": \"<string>\",\n    \"currency\": \"USD\",\n    \"holderName\": \"<string>\",\n    \"numbers\": {\n      \"IBAN\": \"<string,null>\",\n      \"accountNumber\": \"<string,null>\",\n      \"accountRouting\": \"<string,null>\",\n      \"brand\": \"<string,null>\",\n      \"expiryMonth\": \"<string,null>\",\n      \"expiryYear\": \"<string,null>\",\n      \"last4\": \"<string,null>\"\n    },\n    \"type\": \"StripeAccount\",\n    \"userId\": \"<string,null>\"\n  },\n  \"instantPayoutAccountId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:31:22.000Z",
+                      "updatedAt": "2026-07-28T03:31:22.000Z",
+                      "uid": "35240-7d417f29-f671-470b-bde1-7d199a2dec28"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:22.000Z",
+                  "updatedAt": "2026-07-28T03:31:22.000Z",
+                  "uid": "35240-e3154604-75eb-439f-b0d0-05794f7dc795"
+                },
+                {
+                  "name": "Deprecated Set Up Instant Payout Configuration",
+                  "id": "f19b5689-e698-4bbd-96a3-905e2afe5d0e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"externalPayoutAccountToken\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/banking/instant-payout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "banking",
+                        "instant-payout"
+                      ]
+                    },
+                    "description": "Configure a new instant payout setting, specifying details like amount, frequency, and destination."
+                  },
+                  "response": [
+                    {
+                      "id": "6c6fca8c-efe6-42be-a00f-698af5e6b7c2",
+                      "name": "Instant Payout details",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"externalPayoutAccountToken\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/banking/instant-payout",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "banking",
+                            "instant-payout"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"instantPayoutAccount\": {\n    \"country\": \"<string>\",\n    \"currency\": \"USD\",\n    \"holderName\": \"<string>\",\n    \"numbers\": {\n      \"IBAN\": \"<string,null>\",\n      \"accountNumber\": \"<string,null>\",\n      \"accountRouting\": \"<string,null>\",\n      \"brand\": \"<string,null>\",\n      \"expiryMonth\": \"<string,null>\",\n      \"expiryYear\": \"<string,null>\",\n      \"last4\": \"<string,null>\"\n    },\n    \"type\": \"StripeAccount\",\n    \"userId\": \"<string,null>\"\n  },\n  \"instantPayoutAccountId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:31:22.000Z",
+                      "updatedAt": "2026-07-28T03:31:22.000Z",
+                      "uid": "35240-6c6fca8c-efe6-42be-a00f-698af5e6b7c2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:22.000Z",
+                  "updatedAt": "2026-07-28T03:31:22.000Z",
+                  "uid": "35240-f19b5689-e698-4bbd-96a3-905e2afe5d0e"
+                }
+              ],
+              "id": "91b91616-d500-4dfe-80d9-423dd4bd997c",
+              "createdAt": "2026-07-28T03:31:22.000Z",
+              "updatedAt": "2026-07-28T03:31:22.000Z",
+              "uid": "35240-91b91616-d500-4dfe-80d9-423dd4bd997c"
+            }
+          ],
+          "id": "96015c75-faff-4eb8-bedc-9a9822992637",
+          "createdAt": "2026-07-28T03:31:22.000Z",
+          "updatedAt": "2026-07-28T03:31:22.000Z",
+          "uid": "35240-96015c75-faff-4eb8-bedc-9a9822992637"
+        },
+        {
+          "name": "collaborator-settings",
+          "item": [
+            {
+              "name": "additional-data",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Retrieve Specific Collaborator Custom Data",
+                      "id": "529fa70d-a28d-43e5-8d53-4d60283b411e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "additional-data",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f2c6c757-0d1b-413a-930b-f0a627af2b99",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Deprecated - use /payments/custom-fields/:id"
+                      },
+                      "response": [
+                        {
+                          "id": "34f89922-0c25-4042-bcb2-20cc8841a197",
+                          "name": "Custom fields that are set on memberClient object to describe collaborator-member",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-settings",
+                                "additional-data",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                          "createdAt": "2026-07-28T03:31:22.000Z",
+                          "updatedAt": "2026-07-28T03:31:22.000Z",
+                          "uid": "35240-34f89922-0c25-4042-bcb2-20cc8841a197"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:22.000Z",
+                      "updatedAt": "2026-07-28T03:31:22.000Z",
+                      "uid": "35240-529fa70d-a28d-43e5-8d53-4d60283b411e"
+                    },
+                    {
+                      "name": "Modify a Specific Collaborator-Member Custom Data",
+                      "id": "8b74bdc9-6ce5-41e5-993b-aa0db1ea9f9c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"required\": \"<boolean,null>\",\n  \"resourceType\": null,\n  \"type\": \"String\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "additional-data",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "bcd96bd3-e386-41ba-ac70-53330494e9c8",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "[Deprecated - use /payments/custom-fields] Update details or attributes of an existing custom data point associated with the relationship between a collaborator and a member."
+                      },
+                      "response": [
+                        {
+                          "id": "a2a57b47-9ea1-4efd-a608-ddd38ddb9922",
+                          "name": "Custom fields that are set on memberClient object to describe collaborator-member",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"key\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"required\": \"<boolean,null>\",\n  \"resourceType\": null,\n  \"type\": \"String\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-settings",
+                                "additional-data",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                          "createdAt": "2026-07-28T03:31:22.000Z",
+                          "updatedAt": "2026-07-28T03:31:22.000Z",
+                          "uid": "35240-a2a57b47-9ea1-4efd-a608-ddd38ddb9922"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:22.000Z",
+                      "updatedAt": "2026-07-28T03:31:22.000Z",
+                      "uid": "35240-8b74bdc9-6ce5-41e5-993b-aa0db1ea9f9c"
+                    },
+                    {
+                      "name": "Erase a Specific Collaborator-Member Custom Data",
+                      "id": "55c91419-c465-45a9-a2d0-91902fcef328",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "additional-data",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6033472f-b6ca-42a9-86fa-93b1b464891d",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "[Deprecated - use /payments/custom-fields] Remove a specific custom data point, eliminating the additional details provided about a collaborator-member relationship."
+                      },
+                      "response": [
+                        {
+                          "id": "34707001-0ab1-4b68-9460-38d4d47fcd80",
+                          "name": "Custom fields that are set on memberClient object to describe collaborator-member",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "collaborator-settings",
+                                "additional-data",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                          "createdAt": "2026-07-28T03:31:22.000Z",
+                          "updatedAt": "2026-07-28T03:31:22.000Z",
+                          "uid": "35240-34707001-0ab1-4b68-9460-38d4d47fcd80"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:31:22.000Z",
+                      "updatedAt": "2026-07-28T03:31:22.000Z",
+                      "uid": "35240-55c91419-c465-45a9-a2d0-91902fcef328"
+                    }
+                  ],
+                  "id": "e8122a14-cd36-4328-881b-d8de7445cb0f",
+                  "createdAt": "2026-07-28T03:31:22.000Z",
+                  "updatedAt": "2026-07-28T03:31:22.000Z",
+                  "uid": "35240-e8122a14-cd36-4328-881b-d8de7445cb0f"
+                },
+                {
+                  "name": "Register New Custom Data for Collaborator-Member Relationship",
+                  "id": "9af4f183-0743-4498-abfc-c201b811d361",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-settings",
+                        "additional-data"
+                      ]
+                    },
+                    "description": "[Deprecated - use /payments/custom-fields] Create custom fields that can be associated with the memberClient object to provide extra details about the relationship between a collaborator and a member."
+                  },
+                  "response": [
+                    {
+                      "id": "ad375438-d13c-4493-b23c-9b2817ecfad5",
+                      "name": "Custom fields that are set on memberClient object to describe collaborator-member",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "additional-data"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"resourceType\": \"LineItem\",\n  \"type\": \"Boolean\"\n}",
+                      "createdAt": "2026-07-28T03:31:22.000Z",
+                      "updatedAt": "2026-07-28T03:31:22.000Z",
+                      "uid": "35240-ad375438-d13c-4493-b23c-9b2817ecfad5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:22.000Z",
+                  "updatedAt": "2026-07-28T03:31:22.000Z",
+                  "uid": "35240-9af4f183-0743-4498-abfc-c201b811d361"
+                },
+                {
+                  "name": "Retrieve All Collaborator-Member Custom Data Points",
+                  "id": "530e42dc-0f81-499a-aa01-769a1eecec9a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "collaborator-settings",
+                        "additional-data"
+                      ]
+                    },
+                    "description": "[Deprecated - use /payments/custom-fields] Fetch all custom data fields that are associated with the memberClient objects, giving insight into additional details between collaborators and members."
+                  },
+                  "response": [
+                    {
+                      "id": "dc3fc52c-9b7d-4527-b73a-45674d0453e9",
+                      "name": "A list of custom data-points",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/collaborator-settings/additional-data",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "collaborator-settings",
+                            "additional-data"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"key\": \"<string>\",\n    \"name\": \"<string>\",\n    \"required\": \"<boolean>\",\n    \"resourceType\": \"LineItem\",\n    \"type\": \"String\"\n  },\n  {\n    \"key\": \"<string>\",\n    \"name\": \"<string>\",\n    \"required\": \"<boolean>\",\n    \"resourceType\": \"LineItem\",\n    \"type\": \"Boolean\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:31:22.000Z",
+                      "updatedAt": "2026-07-28T03:31:22.000Z",
+                      "uid": "35240-dc3fc52c-9b7d-4527-b73a-45674d0453e9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:31:22.000Z",
+                  "updatedAt": "2026-07-28T03:31:22.000Z",
+                  "uid": "35240-530e42dc-0f81-499a-aa01-769a1eecec9a"
+                }
+              ],
+              "id": "a96a3fd0-439b-4f5e-9ceb-69144e4c1ff5",
+              "createdAt": "2026-07-28T03:31:22.000Z",
+              "updatedAt": "2026-07-28T03:31:22.000Z",
+              "uid": "35240-a96a3fd0-439b-4f5e-9ceb-69144e4c1ff5"
+            }
+          ],
+          "id": "1303ab1f-36f5-4c6e-a0c3-0feda8a2f062",
+          "createdAt": "2026-07-28T03:31:22.000Z",
+          "updatedAt": "2026-07-28T03:31:22.000Z",
+          "uid": "35240-1303ab1f-36f5-4c6e-a0c3-0feda8a2f062"
+        }
+      ],
+      "id": "0cb491d7-31fa-4084-bc74-72a1cacf2198",
+      "createdAt": "2026-07-28T03:31:22.000Z",
+      "updatedAt": "2026-07-28T03:31:22.000Z",
+      "uid": "35240-0cb491d7-31fa-4084-bc74-72a1cacf2198"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wingspan.app"
+    }
+  ]
+}

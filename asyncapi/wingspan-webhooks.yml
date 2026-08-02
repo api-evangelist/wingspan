@@ -1,0 +1,73 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.wingspan.app/docs/configure-a-webhook-for-payment-events-in-wingspan
+type: Webhooks
+notes: >-
+  Wingspan documents a webhook surface for payment and invoice events but
+  publishes no AsyncAPI document, so this artifact captures the webhook catalog
+  as documented. Webhooks are configured by POSTing to
+  /integrations/webhooks/preference with a callback URL, a sharedSecret, and
+  subscribedEvents[]; payloads are authenticated client-side via HMAC-SHA256
+  using the shared secret. The authoritative live event list is served by
+  GET /integrations/webhooks/eventnames.
+configuration:
+  endpoint: POST https://api.wingspan.app/integrations/webhooks/preference
+  event_discovery: GET https://api.wingspan.app/integrations/webhooks/eventnames
+  auth: Bearer token (Authorization header)
+  signing: HMAC-SHA256 with user-generated sharedSecret
+  request_body_fields: [url, sharedSecret, subscribedEvents]
+envelope:
+  schema:
+    eventName: string
+    entityName: string
+    objectId: string
+    data: object  # state of the entity the event concerns (Invoice, Payee, Collaborator, ...)
+  examples:
+    - eventName: Invoice.Paid
+      entityName: Invoice
+      data_schema_matches: getInvoice response (docs reference get_payments-invoice-id)
+    - eventName: Payee.Created
+      entityName: Payee
+      data_schema_matches: getPayee response (docs reference get_payments-payee-payeeid)
+events:
+  - {name: Opened, description: Time when the invoice or transaction was opened.}
+  - {name: PaymentInTransit, description: Time when payment is in transit but not yet received.}
+  - {name: Paid, description: Time when payment was successfully completed.}
+  - {name: Cancelled, description: Time when the transaction was canceled.}
+  - {name: Deposited, description: Time when payment was deposited into the account.}
+  - {name: Disputed, description: Time when the payment or invoice was disputed.}
+  - {name: PaymentFailed, description: Time when the initial payment attempt failed.}
+  - {name: PaymentRetried, description: Time when a payment that previously failed was retried.}
+  - {name: EmailReceived, description: Time when an email related to the transaction was received.}
+  - {name: EmailViewed, description: Time when the email related to the transaction was viewed.}
+  - {name: EmailUndeliverable, description: Time when an email related to the transaction couldn't be delivered.}
+  - {name: EmailMarkedAsSpam, description: Time when an email related to the transaction was marked as spam.}
+  - {name: EstimatedDeposit, description: Estimated time for the payment to be deposited.}
+  - {name: InstantPayoutEligible, description: Time when the transaction became eligible for instant payout.}
+  - {name: InstantPayout, description: Time when the instant payout was executed.}
+  - {name: InstantPayoutFailed, description: Time when the instant payout failed.}
+  - {name: PayoutFailed, description: Time when a regular payout failed.}
+  - {name: MarkedPaid, description: Time when the transaction was manually marked as paid.}
+  - {name: Approved, description: Time when the transaction was approved.}
+  - {name: Sent, description: Time when the invoice or transaction details were sent.}
+  - {name: SentRecurringPaymentFailed, description: Time when notification of a failed recurring payment was sent.}
+  - {name: SentManually, description: Time when the transaction details were manually sent.}
+  - {name: SentDue3DaysAgo, description: Time when a 3-day due notice was sent.}
+  - {name: SentDue7DaysAgo, description: Time when a 7-day due notice was sent.}
+  - {name: SentDueToday, description: Time when a due-today notice was sent.}
+  - {name: SentDueIn3Days, description: Time when a 3-day due notice for a future date was sent.}
+  - {name: SentPaymentInTransitReminder, description: Time when a reminder for a payment in transit was sent.}
+  - {name: SentInstantPayoutFailedToMember, description: Time when notice of a failed instant payout was sent to the member.}
+  - {name: SentPaymentConfirmationToMember, description: Time when payment confirmation was sent to the member.}
+  - {name: SentPaymentConfirmationToClient, description: Time when payment confirmation was sent to the client.}
+  - {name: DepositedToPayoutPlatform, description: Time when funds were deposited to the payout platform.}
+  - {name: MemberDisputed, description: Time when the member initiated a dispute.}
+  - {name: ClientResolvedDispute, description: Time when the client resolved a dispute.}
+  - {name: MemberResubmitted, description: Time when the member resubmitted a disputed transaction.}
+  - {name: ClientDeclined, description: Time when the client declined a transaction or dispute.}
+  - {name: MemberAccepted, description: Time when the member accepted the transaction or resolution.}
+  - {name: Document.MemberSigned, description: Time when the member (e.g. a Collaborator) signed a document requirement.}
+  - {name: Document.ClientSigned, description: Time when the client signed a document requirement.}
+  - {name: Document.Completed, description: Time when all document requirements have been met.}
+  - {name: MemberClient.Pending, description: The member has not yet completed all document requirements and is ineligible for payment.}
+  - {name: MemberClient.Active, description: All document requirements are met and the member is eligible for payment.}
