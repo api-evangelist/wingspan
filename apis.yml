@@ -269,6 +269,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/wingspan-payments-overlay.yaml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/wingspan/overview
 - type: DeveloperPortal
