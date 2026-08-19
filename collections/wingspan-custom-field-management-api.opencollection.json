@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Custom Field Management API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Field Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/custom-fields"
+          },
+          "docs": "Obtain a list of all user-defined custom fields associated with payments."
+        },
+        {
+          "info": {
+            "name": "Add a New Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/custom-fields",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Define a new custom field for payments using additional data provided."
+        },
+        {
+          "info": {
+            "name": "Fetch Details of a Specific Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/custom-fields/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information for a custom field based on its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Modify Details of a Specific Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/custom-fields/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update specific attributes or data for an existing custom field."
+        },
+        {
+          "info": {
+            "name": "Remove a Specific Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/custom-fields/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Permanently delete a custom field from the system based on its unique identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Reporting and Analytics API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reporting and Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve detailed information on all collaborators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/reports/collaborators"
+          },
+          "docs": "Fetches comprehensive data on all collaborators, including their activities and current status, as listed in the reports."
+        },
+        {
+          "info": {
+            "name": "Obtain a summarized report of payable amounts for each collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/reports/collaborators/payables-summary"
+          },
+          "docs": "Gathers and presents a concise summary showcasing the payable amounts due to each collaborator, helping in financial planning and payout strategies."
+        },
+        {
+          "info": {
+            "name": "Extract detailed report of payables associated with a particular payroll run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/reports/payroll/:payrollId",
+            "params": [
+              {
+                "name": "payrollId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of a invoice with some constraints like invoice type"
+              }
+            ]
+          },
+          "docs": "Offers a deep dive into the payables connected to a specific payroll run, facilitating better management and reconciliation of payroll-related finances."
+        },
+        {
+          "info": {
+            "name": "Retrieve Aging Report for Payables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/reports/aging/payables"
+          },
+          "docs": "Access a detailed report that showcases the list of payables categorized by age."
+        },
+        {
+          "info": {
+            "name": "Obtain Aging Report for Line Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/reports/aging/line-items"
+          },
+          "docs": "Retrieve a comprehensive report detailing line items that have been open for a set number of days."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

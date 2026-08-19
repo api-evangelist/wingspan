@@ -1,0 +1,475 @@
+{
+  "item": [
+    {
+      "id": "d635f7d1-fac0-46ea-9763-7a1bdb939ec7",
+      "name": "Reporting and Analytics",
+      "description": {
+        "content": "Includes endpoints for generating various reports and analytics, such as payables reports, collaborators reports, and aging reports.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da101ab2-84c2-47e6-9407-b7cd1e83ea13",
+          "name": "Retrieve detailed information on all collaborators",
+          "request": {
+            "name": "Retrieve detailed information on all collaborators",
+            "description": {
+              "content": "Fetches comprehensive data on all collaborators, including their activities and current status, as listed in the reports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "reports",
+                "collaborators"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "201d1dfd-2440-47b1-bada-99be6c2e3acd",
+              "name": "Collaborators list in the report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "reports",
+                    "collaborators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"clientId\": \"string\",\n    \"collaboratorGroups\": [\n      {\n        \"collaboratorGroupId\": \"string\",\n        \"description\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"collaboratorGroupId\": \"string\",\n        \"description\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"createdAt\": \"string\",\n    \"inviteEmail\": \"string\",\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"null\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberClientId\": \"string\",\n    \"memberId\": \"string\",\n    \"servicesStatus\": {\n      \"incomeAndExpenses\": true,\n      \"taxWithholdings\": false\n    },\n    \"status\": \"Active\",\n    \"taxStatus\": \"Pending\",\n    \"updatedAt\": \"string\",\n    \"externalId\": \"string\",\n    \"labels\": null,\n    \"memberEvents\": null,\n    \"taxDocumentStared\": false\n  },\n  {\n    \"clientId\": \"string\",\n    \"collaboratorGroups\": [\n      {\n        \"collaboratorGroupId\": \"string\",\n        \"description\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"collaboratorGroupId\": \"string\",\n        \"description\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"createdAt\": \"string\",\n    \"inviteEmail\": \"string\",\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"null\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberClientId\": \"string\",\n    \"memberId\": \"string\",\n    \"servicesStatus\": {\n      \"incomeAndExpenses\": false,\n      \"taxWithholdings\": false\n    },\n    \"status\": \"Inactive\",\n    \"taxStatus\": \"Pending\",\n    \"updatedAt\": \"string\",\n    \"externalId\": \"string\",\n    \"labels\": null,\n    \"memberEvents\": null,\n    \"taxDocumentStared\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b5a851f-ada9-49b5-a157-8ffc730e9de8",
+          "name": "Obtain a summarized report of payable amounts for each collaborator",
+          "request": {
+            "name": "Obtain a summarized report of payable amounts for each collaborator",
+            "description": {
+              "content": "Gathers and presents a concise summary showcasing the payable amounts due to each collaborator, helping in financial planning and payout strategies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "reports",
+                "collaborators",
+                "payables-summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d46fdae-fb7d-4bce-9b60-eb7762e5083e",
+              "name": "Collaborators payouts summary report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "reports",
+                    "collaborators",
+                    "payables-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"clientId\": \"string\",\n    \"collaboratorGroups\": [\n      {\n        \"collaboratorGroupId\": \"string\",\n        \"description\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"collaboratorGroupId\": \"string\",\n        \"description\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"createdAt\": \"string\",\n    \"inviteEmail\": \"string\",\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Disabled\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberClientId\": \"string\",\n    \"memberId\": \"string\",\n    \"payoutsSummary\": {\n      \"deductionsCount\": 674.5525736762659,\n      \"payablesCount\": 9398.654574760443,\n      \"totalDeducted\": 9735.271143488671,\n      \"totalPaid\": 1682.397697176783,\n      \"firstPaidDate\": \"string\",\n      \"lastPaidDate\": \"string\"\n    },\n    \"servicesStatus\": {\n      \"incomeAndExpenses\": true,\n      \"taxWithholdings\": true\n    },\n    \"status\": \"Pending\",\n    \"taxStatus\": \"Complete\",\n    \"updatedAt\": \"string\",\n    \"externalId\": \"string\",\n    \"labels\": null,\n    \"memberEvents\": null,\n    \"taxDocumentStared\": false\n  },\n  {\n    \"clientId\": \"string\",\n    \"collaboratorGroups\": [\n      {\n        \"collaboratorGroupId\": \"string\",\n        \"description\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"collaboratorGroupId\": \"string\",\n        \"description\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"createdAt\": \"string\",\n    \"inviteEmail\": \"string\",\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"null\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberClientId\": \"string\",\n    \"memberId\": \"string\",\n    \"payoutsSummary\": {\n      \"deductionsCount\": 5911.917118469654,\n      \"payablesCount\": 1116.2753559624905,\n      \"totalDeducted\": 405.8506574654597,\n      \"totalPaid\": 7835.156910856166,\n      \"firstPaidDate\": \"string\",\n      \"lastPaidDate\": \"string\"\n    },\n    \"servicesStatus\": {\n      \"incomeAndExpenses\": true,\n      \"taxWithholdings\": true\n    },\n    \"status\": \"Pending\",\n    \"taxStatus\": \"Pending\",\n    \"updatedAt\": \"string\",\n    \"externalId\": \"string\",\n    \"labels\": null,\n    \"memberEvents\": null,\n    \"taxDocumentStared\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11876c5b-5ed8-4223-8439-4896cb24c45f",
+          "name": "Extract detailed report of payables associated with a particular payroll run",
+          "request": {
+            "name": "Extract detailed report of payables associated with a particular payroll run",
+            "description": {
+              "content": "Offers a deep dive into the payables connected to a specific payroll run, facilitating better management and reconciliation of payroll-related finances.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "reports",
+                "payroll",
+                ":payrollId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payrollId",
+                  "description": "(Required) Unique identifier of a invoice with some constraints like invoice type"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7df994de-df6e-4c4f-857e-63ef1454e207",
+              "name": "Payroll report with line items and payroll summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "reports",
+                    "payroll",
+                    ":payrollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payrollId",
+                      "description": "(Required) Unique identifier of a invoice with some constraints like invoice type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoices\": [\n    {\n      \"amount\": 2085.6012100281673,\n      \"createdAt\": \"string\",\n      \"currency\": \"string\",\n      \"dueDate\": \"string\",\n      \"invoiceId\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoicePdf\": \"string\",\n      \"lineItems\": [\n        {\n          \"costPerUnit\": 9759.565769892624,\n          \"createdAt\": \"string\",\n          \"index\": 2376.2962518190634,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"labelsBak2\": {\n            \"key_0\": \"string\"\n          },\n          \"quantity\": 4787.033673697272,\n          \"reimbursableExpense\": false,\n          \"totalCost\": 5719.611487154681,\n          \"unit\": \"string\",\n          \"updatedAt\": \"string\",\n          \"amount\": 3535.181389241695,\n          \"description\": \"string\",\n          \"detail\": \"string\",\n          \"discount\": null,\n          \"discountTotal\": 1584.0334619885998,\n          \"integration\": null\n        },\n        {\n          \"costPerUnit\": 2853.381598850777,\n          \"createdAt\": \"string\",\n          \"index\": 5076.664912108454,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"labelsBak2\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"quantity\": 198.85371644668749,\n          \"reimbursableExpense\": true,\n          \"totalCost\": 6287.543957464798,\n          \"unit\": \"string\",\n          \"updatedAt\": \"string\",\n          \"amount\": 407.5836512414266,\n          \"description\": \"string\",\n          \"detail\": \"string\",\n          \"discount\": null,\n          \"discountTotal\": 9467.608587003298,\n          \"integration\": null\n        }\n      ],\n      \"member\": {\n        \"user\": {\n          \"email\": \"string\",\n          \"phone\": null,\n          \"profile\": null,\n          \"settings\": null,\n          \"status\": \"Disabled\",\n          \"tag\": \"string\"\n        },\n        \"profile\": null\n      },\n      \"memberClientId\": \"string\",\n      \"memberId\": \"string\",\n      \"receiptPdf\": \"string\",\n      \"status\": \"PaymentInTransit\",\n      \"updatedAt\": \"string\",\n      \"approverName\": \"string\",\n      \"eventActors\": null,\n      \"labels\": null,\n      \"memberExternalId\": 3264.355639784773,\n      \"notes\": \"string\",\n      \"paidDate\": \"string\",\n      \"payoutDestination\": \"string\",\n      \"projectName\": \"string\",\n      \"purchaseOrderNumber\": \"string\",\n      \"sentDate\": \"string\"\n    },\n    {\n      \"amount\": 278.347678737183,\n      \"createdAt\": \"string\",\n      \"currency\": \"string\",\n      \"dueDate\": \"string\",\n      \"invoiceId\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoicePdf\": \"string\",\n      \"lineItems\": [\n        {\n          \"costPerUnit\": 1153.031250095793,\n          \"createdAt\": \"string\",\n          \"index\": 9207.484225888324,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"labelsBak2\": {\n            \"key_0\": \"string\"\n          },\n          \"quantity\": 7400.779104836977,\n          \"reimbursableExpense\": true,\n          \"totalCost\": 138.8261235179955,\n          \"unit\": \"string\",\n          \"updatedAt\": \"string\",\n          \"amount\": 776.9617919013805,\n          \"description\": \"string\",\n          \"detail\": \"string\",\n          \"discount\": null,\n          \"discountTotal\": 7871.9968111863955,\n          \"integration\": null\n        },\n        {\n          \"costPerUnit\": 2576.642582687193,\n          \"createdAt\": \"string\",\n          \"index\": 2988.5419240234987,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"labelsBak2\": {\n            \"key_0\": \"string\"\n          },\n          \"quantity\": 217.1654683468993,\n          \"reimbursableExpense\": false,\n          \"totalCost\": 7261.2498781708355,\n          \"unit\": \"string\",\n          \"updatedAt\": \"string\",\n          \"amount\": 2573.4046828158143,\n          \"description\": \"string\",\n          \"detail\": \"string\",\n          \"discount\": null,\n          \"discountTotal\": 1183.2614523495533,\n          \"integration\": null\n        }\n      ],\n      \"member\": {\n        \"user\": {\n          \"email\": \"string\",\n          \"phone\": null,\n          \"profile\": null,\n          \"settings\": null,\n          \"status\": \"null\",\n          \"tag\": \"string\"\n        },\n        \"profile\": null\n      },\n      \"memberClientId\": \"string\",\n      \"memberId\": \"string\",\n      \"receiptPdf\": \"string\",\n      \"status\": \"Paid\",\n      \"updatedAt\": \"string\",\n      \"approverName\": \"string\",\n      \"eventActors\": null,\n      \"labels\": null,\n      \"memberExternalId\": 4849.39477977159,\n      \"notes\": \"string\",\n      \"paidDate\": \"string\",\n      \"payoutDestination\": \"string\",\n      \"projectName\": \"string\",\n      \"purchaseOrderNumber\": \"string\",\n      \"sentDate\": \"string\"\n    }\n  ],\n  \"parentInvoice\": {\n    \"createdAt\": \"string\",\n    \"dueDate\": \"string\",\n    \"invoiceId\": \"string\",\n    \"invoiceNumber\": \"string\",\n    \"status\": \"Draft\",\n    \"updatedAt\": \"string\",\n    \"depositedDate\": \"string\",\n    \"notes\": \"string\",\n    \"paidDate\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35dbbe66-68b6-4a8a-b45c-c3dc61ad1e4e",
+          "name": "Retrieve Aging Report for Payables",
+          "request": {
+            "name": "Retrieve Aging Report for Payables",
+            "description": {
+              "content": "Access a detailed report that showcases the list of payables categorized by age.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "reports",
+                "aging",
+                "payables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ce5d339-28b4-4282-ab7d-52bda8aa0396",
+              "name": "Payables list grouped by age",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "reports",
+                    "aging",
+                    "payables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ageGroup\": \"string\",\n    \"amount\": 5523.979367208363,\n    \"createdAt\": \"string\",\n    \"currency\": \"string\",\n    \"dueDate\": \"string\",\n    \"invoiceId\": \"string\",\n    \"invoiceNumber\": \"string\",\n    \"invoicePdf\": \"string\",\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Disabled\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberClientId\": \"string\",\n    \"memberId\": \"string\",\n    \"receiptPdf\": \"string\",\n    \"status\": \"Overdue\",\n    \"updatedAt\": \"string\",\n    \"approverName\": \"string\",\n    \"labels\": null,\n    \"memberExternalId\": 5913.4485984985295,\n    \"notes\": \"string\",\n    \"paidDate\": \"string\",\n    \"payoutDestination\": \"string\",\n    \"projectName\": \"string\",\n    \"purchaseOrderNumber\": \"string\",\n    \"sentDate\": \"string\"\n  },\n  {\n    \"ageGroup\": \"string\",\n    \"amount\": 8859.537502435353,\n    \"createdAt\": \"string\",\n    \"currency\": \"string\",\n    \"dueDate\": \"string\",\n    \"invoiceId\": \"string\",\n    \"invoiceNumber\": \"string\",\n    \"invoicePdf\": \"string\",\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Active\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberClientId\": \"string\",\n    \"memberId\": \"string\",\n    \"receiptPdf\": \"string\",\n    \"status\": \"Open\",\n    \"updatedAt\": \"string\",\n    \"approverName\": \"string\",\n    \"labels\": null,\n    \"memberExternalId\": 8983.4683317108,\n    \"notes\": \"string\",\n    \"paidDate\": \"string\",\n    \"payoutDestination\": \"string\",\n    \"projectName\": \"string\",\n    \"purchaseOrderNumber\": \"string\",\n    \"sentDate\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f6483bb-4369-40f2-b14f-2cae889cb4ea",
+          "name": "Obtain Aging Report for Line Items",
+          "request": {
+            "name": "Obtain Aging Report for Line Items",
+            "description": {
+              "content": "Retrieve a comprehensive report detailing line items that have been open for a set number of days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "reports",
+                "aging",
+                "line-items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ae1a802-d754-43e0-9d69-9171eaf6455d",
+              "name": "Line items list grouped by age",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "reports",
+                    "aging",
+                    "line-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ageGroup\": \"string\",\n    \"amount\": 6159.351898941604,\n    \"createdAt\": \"string\",\n    \"currency\": \"string\",\n    \"dueDate\": \"string\",\n    \"invoiceId\": \"string\",\n    \"invoiceNumber\": \"string\",\n    \"invoicePdf\": \"string\",\n    \"lineItems\": [\n      {\n        \"costPerUnit\": 1993.298914731627,\n        \"createdAt\": \"string\",\n        \"index\": 4161.417123402231,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"labelsBak2\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"quantity\": 2528.567992942903,\n        \"reimbursableExpense\": true,\n        \"totalCost\": 6756.750157108039,\n        \"unit\": \"string\",\n        \"updatedAt\": \"string\",\n        \"amount\": 1120.2927258839723,\n        \"description\": \"string\",\n        \"detail\": \"string\",\n        \"discount\": null,\n        \"discountTotal\": 5601.666784538393,\n        \"integration\": null\n      },\n      {\n        \"costPerUnit\": 2065.205499227758,\n        \"createdAt\": \"string\",\n        \"index\": 4547.418810785954,\n        \"labels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"labelsBak2\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"quantity\": 60.44854992556359,\n        \"reimbursableExpense\": true,\n        \"totalCost\": 4475.132495122311,\n        \"unit\": \"string\",\n        \"updatedAt\": \"string\",\n        \"amount\": 4184.302084700629,\n        \"description\": \"string\",\n        \"detail\": \"string\",\n        \"discount\": null,\n        \"discountTotal\": 960.3483509921984,\n        \"integration\": null\n      }\n    ],\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Pending\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberClientId\": \"string\",\n    \"memberId\": \"string\",\n    \"receiptPdf\": \"string\",\n    \"status\": \"Pending\",\n    \"updatedAt\": \"string\",\n    \"approverName\": \"string\",\n    \"labels\": null,\n    \"memberExternalId\": 6368.662414655576,\n    \"notes\": \"string\",\n    \"paidDate\": \"string\",\n    \"payoutDestination\": \"string\",\n    \"projectName\": \"string\",\n    \"purchaseOrderNumber\": \"string\",\n    \"sentDate\": \"string\"\n  },\n  {\n    \"ageGroup\": \"string\",\n    \"amount\": 4415.933229695636,\n    \"createdAt\": \"string\",\n    \"currency\": \"string\",\n    \"dueDate\": \"string\",\n    \"invoiceId\": \"string\",\n    \"invoiceNumber\": \"string\",\n    \"invoicePdf\": \"string\",\n    \"lineItems\": [\n      {\n        \"costPerUnit\": 3951.895755065926,\n        \"createdAt\": \"string\",\n        \"index\": 1867.5044415953867,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"labelsBak2\": {\n          \"key_0\": \"string\"\n        },\n        \"quantity\": 7216.7786681594325,\n        \"reimbursableExpense\": false,\n        \"totalCost\": 9783.092455836617,\n        \"unit\": \"string\",\n        \"updatedAt\": \"string\",\n        \"amount\": 7463.646606048683,\n        \"description\": \"string\",\n        \"detail\": \"string\",\n        \"discount\": null,\n        \"discountTotal\": 3493.818183332007,\n        \"integration\": null\n      },\n      {\n        \"costPerUnit\": 8950.977012057452,\n        \"createdAt\": \"string\",\n        \"index\": 1105.2567566145565,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"labelsBak2\": {\n          \"key_0\": \"string\"\n        },\n        \"quantity\": 4567.87579090387,\n        \"reimbursableExpense\": false,\n        \"totalCost\": 5120.216791207997,\n        \"unit\": \"string\",\n        \"updatedAt\": \"string\",\n        \"amount\": 9868.237079662911,\n        \"description\": \"string\",\n        \"detail\": \"string\",\n        \"discount\": null,\n        \"discountTotal\": 6776.189206424491,\n        \"integration\": null\n      }\n    ],\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"null\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberClientId\": \"string\",\n    \"memberId\": \"string\",\n    \"receiptPdf\": \"string\",\n    \"status\": \"Cancelled\",\n    \"updatedAt\": \"string\",\n    \"approverName\": \"string\",\n    \"labels\": null,\n    \"memberExternalId\": 2616.0359545006686,\n    \"notes\": \"string\",\n    \"paidDate\": \"string\",\n    \"payoutDestination\": \"string\",\n    \"projectName\": \"string\",\n    \"purchaseOrderNumber\": \"string\",\n    \"sentDate\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wingspan.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f077b7f8-a353-42b0-a90e-2190f227ac42",
+    "name": "Wingspan Payments 1099 Operations Reporting and Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+      "type": "text/plain"
+    }
+  }
+}

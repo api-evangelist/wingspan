@@ -1,0 +1,119 @@
+{
+  "item": [
+    {
+      "id": "893ceb08-ef38-4992-b88a-f4eca8cbc4ed",
+      "name": "Service Settings",
+      "description": {
+        "content": "Covers endpoints that manage service statuses and related configurations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64c0f896-e639-4b36-a439-92cc05a49291",
+          "name": "Check Service Status",
+          "request": {
+            "name": "Check Service Status",
+            "description": {
+              "content": "Use this endpoint to determine the operational status of the payment service by obtaining the current timestamp and service name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6a40f87-61c1-4285-a5d4-2cb8a629df79",
+              "name": "timestamp and name of service being pinged",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 198.10627766890798,\n  \"message\": \"string\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wingspan.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f3f34a7d-9f7c-4bb6-9d62-14c421706346",
+    "name": "Wingspan Payments 1099 Operations Service Settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+      "type": "text/plain"
+    }
+  }
+}

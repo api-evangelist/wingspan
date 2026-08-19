@@ -1,0 +1,245 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Banking Management API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Banking Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Bank Statements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/banking/statement"
+          },
+          "docs": "Fetch a comprehensive list of all bank statements available in the system, providing an overview of financial transactions."
+        },
+        {
+          "info": {
+            "name": "Retrieve Specific Bank Statement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/banking/statement/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetch details of a specific bank statement using its unique identifier, providing a detailed view of its transactions."
+        },
+        {
+          "info": {
+            "name": "Download a specific bank statement as a PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/banking/statement/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve and download the specified bank statement in PDF format using the provided unique identifier."
+        },
+        {
+          "info": {
+            "name": "Fetch the application link for setting up a clearing bank account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/service/banking/:memberId/application",
+            "params": [
+              {
+                "name": "memberId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of a member"
+              }
+            ]
+          },
+          "docs": "Get the application link required for a member to initiate the creation of a clearing bank account."
+        },
+        {
+          "info": {
+            "name": "Retrieve banking institution details by its routing number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/banking/institution/:routingNumber",
+            "params": [
+              {
+                "name": "routingNumber",
+                "value": "",
+                "type": "path",
+                "description": "Bank Routing Number"
+              }
+            ]
+          },
+          "docs": "Fetches comprehensive information about a banking institution based on the provided routing number."
+        },
+        {
+          "info": {
+            "name": "Fetch all registered payout debit cards for a member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/payout-settings/:memberId/debit-card",
+            "params": [
+              {
+                "name": "memberId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of a member"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of all debit cards linked to a member's profile for payout purposes."
+        },
+        {
+          "info": {
+            "name": "Register a new payout debit card for a member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/payout-settings/:memberId/debit-card",
+            "params": [
+              {
+                "name": "memberId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of a member"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows the addition of a new debit card to a member's profile for payout transactions."
+        },
+        {
+          "info": {
+            "name": "Retrieve a specific payout debit card linked to a member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/payout-settings/:memberId/debit-card/:id",
+            "params": [
+              {
+                "name": "memberId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of a member"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information of a specific debit card linked to a member's profile for payout purposes."
+        },
+        {
+          "info": {
+            "name": "Unlink and delete a specific payout debit card from a member's profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/payout-settings/:memberId/debit-card/:id",
+            "params": [
+              {
+                "name": "memberId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of a member"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Initiates a process to remove and permanently delete a specific debit card from a member's payout settings."
+        },
+        {
+          "info": {
+            "name": "Retrieve payout settings for a specific member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/payout-settings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetches the payout configuration, including linked debit cards and payout preferences, for a specific member."
+        },
+        {
+          "info": {
+            "name": "Modify and update payout settings for a specific member",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/payout-settings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows adjustments and updates to a member's payout configuration, including changing linked debit cards and adjusting payout preferences."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

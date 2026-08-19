@@ -1,0 +1,294 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Document Signing and Eligibility API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Document Signing and Eligibility",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all Eligibility Requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/eligibility-requirement"
+          },
+          "docs": "List and display all the set eligibility requirements for collaborators."
+        },
+        {
+          "info": {
+            "name": "Establish a new Eligibility Requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/eligibility-requirement",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Define and create a new eligibility requirement for collaborators."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific Eligibility Requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/eligibility-requirement/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetch details for a given eligibility requirement based on its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Modify a Specific Eligibility Requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/eligibility-requirement/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update specific details or attributes of an existing eligibility requirement."
+        },
+        {
+          "info": {
+            "name": "Remove a Specific Eligibility Requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/eligibility-requirement/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete an eligibility requirement from the system based on its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Retrieve All Payment Eligibility Requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/payment-eligibility"
+          },
+          "docs": "Obtain a list of all payment eligibility requirements configured for collaborators."
+        },
+        {
+          "info": {
+            "name": "Add a New Payment Eligibility Requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/payment-eligibility",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Define a new payment eligibility requirement for collaborators in the system."
+        },
+        {
+          "info": {
+            "name": "Retrieve details of a specific Payment Eligibility Requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/payment-eligibility/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetch detailed information about a particular payment eligibility requirement using its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Modify a specific Payment Eligibility Requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/payment-eligibility/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update attributes or criteria of an existing payment eligibility requirement using its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Remove a specific Payment Eligibility Requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/payment-eligibility/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete an existing payment eligibility requirement based on its unique identifier, removing associated criteria for a member's payment eligibility."
+        },
+        {
+          "info": {
+            "name": "Modify Eligibility Requirement for Collaborator Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/collaborator-group/:id/eligibility-requirement/:eligibilityRequirementId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              },
+              {
+                "name": "eligibilityRequirementId",
+                "value": "",
+                "type": "path",
+                "description": "Unique eligibility Requirement Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update details or attributes of a specific eligibility requirement linked to a collaborator group."
+        },
+        {
+          "info": {
+            "name": "Remove Eligibility Requirement from Collaborator Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/collaborator-group/:id/eligibility-requirement/:eligibilityRequirementId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              },
+              {
+                "name": "eligibilityRequirementId",
+                "value": "",
+                "type": "path",
+                "description": "Unique eligibility Requirement Id"
+              }
+            ]
+          },
+          "docs": "Delete a specific eligibility requirement from the designated collaborator group."
+        },
+        {
+          "info": {
+            "name": "Retrieve Specific Collaborator Group Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-group/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetch detailed configuration and attributes associated with a specific collaborator group."
+        },
+        {
+          "info": {
+            "name": "Modify Collaborator Group Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/collaborator-group/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update specific attributes or configuration details of an existing collaborator group."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

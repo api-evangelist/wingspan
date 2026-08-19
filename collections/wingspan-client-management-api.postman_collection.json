@@ -1,0 +1,1215 @@
+{
+  "item": [
+    {
+      "id": "7ae0e753-7c5b-4b4d-a6c6-d3f2add85f6c",
+      "name": "Client Management",
+      "description": {
+        "content": "Encompasses endpoints for banking-related operations such as managing bank cards, statements, instant payouts, and banking institutions..",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "20b31587-5727-44be-a63c-6a5df90ee18e",
+          "name": "Fetch a list of member and client associations",
+          "request": {
+            "name": "Fetch a list of member and client associations",
+            "description": {
+              "content": "Retrieve a detailed list showcasing all the existing associations between members and clients in the system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "memberClient"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7545607a-3d33-4ac3-a78d-4d66970ea9b8",
+              "name": "A list of memberClient objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "memberClient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"achCreditAccount\": {\n      \"accountNumber\": \"string\",\n      \"bankName\": \"string\",\n      \"routingNumber\": \"string\",\n      \"swiftCode\": \"string\"\n    },\n    \"client\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Pending\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"clientId\": \"string\",\n    \"clientUserAccountType\": \"member\",\n    \"createdAt\": \"string\",\n    \"emailTo\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"form1099Balances\": {\n      \"2021\": null,\n      \"2022\": null\n    },\n    \"internationalWireAccount\": {\n      \"accountNumber\": \"string\",\n      \"bankName\": \"string\",\n      \"routingNumber\": \"string\",\n      \"swiftCode\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"memberClientId\": \"string\",\n    \"status\": \"Active\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"collaboratorGroupIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"company\": \"string\",\n    \"eligibilityRequirements\": [\n      null,\n      null\n    ],\n    \"emailCC\": [\n      \"string\",\n      \"string\"\n    ],\n    \"integration\": null,\n    \"name\": \"string\"\n  },\n  {\n    \"achCreditAccount\": {\n      \"accountNumber\": \"string\",\n      \"bankName\": \"string\",\n      \"routingNumber\": \"string\",\n      \"swiftCode\": \"string\"\n    },\n    \"client\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"null\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"clientId\": \"string\",\n    \"clientUserAccountType\": \"enterprise\",\n    \"createdAt\": \"string\",\n    \"emailTo\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"form1099Balances\": {\n      \"2021\": null,\n      \"2022\": null\n    },\n    \"internationalWireAccount\": {\n      \"accountNumber\": \"string\",\n      \"bankName\": \"string\",\n      \"routingNumber\": \"string\",\n      \"swiftCode\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"memberClientId\": \"string\",\n    \"status\": \"Inactive\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"collaboratorGroupIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"company\": \"string\",\n    \"eligibilityRequirements\": [\n      null,\n      null\n    ],\n    \"emailCC\": [\n      \"string\",\n      \"string\"\n    ],\n    \"integration\": null,\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "018821ec-417e-4642-a8c4-aa582d341e67",
+          "name": "Establish a new association between a member and client",
+          "request": {
+            "name": "Establish a new association between a member and client",
+            "description": {
+              "content": "Use this endpoint to create a new linkage between a member and client in the system, allowing for better relationship management.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "memberClient"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientId\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"emailCC\": [\n    \"<string,null>\",\n    \"<string,null>\"\n  ],\n  \"emailTo\": \"<string,null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberData\": \"<null>\",\n  \"memberId\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"status\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80a01f97-231d-4c06-a80a-196d552e138e",
+              "name": "Describes details of member and client",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "memberClient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"emailCC\": [\n    \"<string,null>\",\n    \"<string,null>\"\n  ],\n  \"emailTo\": \"<string,null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberData\": \"<null>\",\n  \"memberId\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"status\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"null\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"clientUserAccountType\": \"member\",\n  \"createdAt\": \"string\",\n  \"emailTo\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\",\n    \"key_4\": \"string\"\n  },\n  \"form1099Balances\": {\n    \"2021\": null,\n    \"2022\": null\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"memberClientId\": \"string\",\n  \"status\": \"Active\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"collaboratorGroupIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"company\": \"string\",\n  \"eligibilityRequirements\": [\n    null,\n    null\n  ],\n  \"emailCC\": [\n    \"string\",\n    \"string\"\n  ],\n  \"integration\": null,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23a1feea-bd25-4d6d-aa9d-857ab276b525",
+          "name": "Retrieve detailed information of a specific member-client relationship",
+          "request": {
+            "name": "Retrieve detailed information of a specific member-client relationship",
+            "description": {
+              "content": "Fetches comprehensive details of the association between a member and a client using the provided unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "memberClient",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "292a3a41-2b1c-4a49-90f6-f0c67e8a259b",
+              "name": "Describes details of member and client",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "memberClient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"null\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"clientUserAccountType\": \"member\",\n  \"createdAt\": \"string\",\n  \"emailTo\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\",\n    \"key_4\": \"string\"\n  },\n  \"form1099Balances\": {\n    \"2021\": null,\n    \"2022\": null\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"memberClientId\": \"string\",\n  \"status\": \"Active\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"collaboratorGroupIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"company\": \"string\",\n  \"eligibilityRequirements\": [\n    null,\n    null\n  ],\n  \"emailCC\": [\n    \"string\",\n    \"string\"\n  ],\n  \"integration\": null,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "210c39e5-6108-4e1b-b060-7f057ca36998",
+          "name": "Update information of a specific member-client relationship",
+          "request": {
+            "name": "Update information of a specific member-client relationship",
+            "description": {
+              "content": "Modifies details of the association between a member and a client based on the provided data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "memberClient",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientData\": \"<null>\",\n  \"clientId\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"emailCC\": [\n    \"<string,null>\",\n    \"<string,null>\"\n  ],\n  \"emailTo\": \"<string,null>\",\n  \"form1099Balances\": \"<null>\",\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberData\": \"<null>\",\n  \"name\": \"<string,null>\",\n  \"status\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5ed4d90e-2ac9-4c9b-b202-542f5f9fbc8e",
+              "name": "Describes details of member and client",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "memberClient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientData\": \"<null>\",\n  \"clientId\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"emailCC\": [\n    \"<string,null>\",\n    \"<string,null>\"\n  ],\n  \"emailTo\": \"<string,null>\",\n  \"form1099Balances\": \"<null>\",\n  \"formW9Data\": \"<null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberData\": \"<null>\",\n  \"name\": \"<string,null>\",\n  \"status\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"null\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"clientUserAccountType\": \"member\",\n  \"createdAt\": \"string\",\n  \"emailTo\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\",\n    \"key_4\": \"string\"\n  },\n  \"form1099Balances\": {\n    \"2021\": null,\n    \"2022\": null\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"memberClientId\": \"string\",\n  \"status\": \"Active\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"collaboratorGroupIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"company\": \"string\",\n  \"eligibilityRequirements\": [\n    null,\n    null\n  ],\n  \"emailCC\": [\n    \"string\",\n    \"string\"\n  ],\n  \"integration\": null,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64fb54a9-1405-4b72-98d4-f2a971f83e05",
+          "name": "Remove a specific member-client relationship from the system",
+          "request": {
+            "name": "Remove a specific member-client relationship from the system",
+            "description": {
+              "content": "Deletes the association between a member and a client using the provided unique identifier. Once deleted, this relationship data can't be recovered.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "memberClient",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94ee568d-0139-421c-aa09-c256e19f250b",
+              "name": "Describes details of member and client",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "memberClient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"null\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"clientUserAccountType\": \"member\",\n  \"createdAt\": \"string\",\n  \"emailTo\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\",\n    \"key_4\": \"string\"\n  },\n  \"form1099Balances\": {\n    \"2021\": null,\n    \"2022\": null\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"memberClientId\": \"string\",\n  \"status\": \"Active\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"collaboratorGroupIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"company\": \"string\",\n  \"eligibilityRequirements\": [\n    null,\n    null\n  ],\n  \"emailCC\": [\n    \"string\",\n    \"string\"\n  ],\n  \"integration\": null,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91a2aee2-b9c9-4815-9c5f-8f7cb4e89330",
+          "name": "Register a New Client Deduction",
+          "request": {
+            "name": "Register a New Client Deduction",
+            "description": {
+              "content": "Allows for the creation of a new client deduction based on the provided details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "client-deduction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"clientId\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"memberId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"priority\": \"<number,null>\",\n  \"sourceInvoiceId\": \"<string,null>\",\n  \"startDate\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0104dd05-fd32-4f7d-ac0a-1393384f60d6",
+              "name": "A deduction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "client-deduction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"clientId\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"memberId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"priority\": \"<number,null>\",\n  \"sourceInvoiceId\": \"<string,null>\",\n  \"startDate\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 1823.40914917824,\n  \"application\": [\n    {\n      \"amountDeducted\": 3325.4003037065704,\n      \"payableId\": \"string\",\n      \"disbursementId\": \"string\"\n    },\n    {\n      \"amountDeducted\": 2938.235175671726,\n      \"payableId\": \"string\",\n      \"disbursementId\": \"string\"\n    }\n  ],\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"currency\": \"CAD\",\n  \"deductionId\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"name\": \"string\",\n  \"priority\": 5832.6373625140495,\n  \"startDate\": \"string\",\n  \"status\": \"Pending\",\n  \"type\": \"PrePayment\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"deductionTemplateId\": \"string\",\n  \"disbursement\": null,\n  \"sourceInvoiceId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c27cc045-ecca-4770-b758-caae5deb89bb",
+          "name": "Retrieve All Client Deductions",
+          "request": {
+            "name": "Retrieve All Client Deductions",
+            "description": {
+              "content": "Fetches a comprehensive list of all client deductions present in the system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "client-deduction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cba8c434-5162-407c-8a7d-87e192ff3ba2",
+              "name": "A list of deductions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "client-deduction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 7063.552786754044,\n    \"application\": [\n      {\n        \"amountDeducted\": 286.88038069789036,\n        \"payableId\": \"string\",\n        \"disbursementId\": \"string\"\n      },\n      {\n        \"amountDeducted\": 1794.498792115915,\n        \"payableId\": \"string\",\n        \"disbursementId\": \"string\"\n      }\n    ],\n    \"clientId\": \"string\",\n    \"createdAt\": \"string\",\n    \"currency\": \"CAD\",\n    \"deductionId\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"memberId\": \"string\",\n    \"name\": \"string\",\n    \"priority\": 1415.1457869038243,\n    \"startDate\": \"string\",\n    \"status\": \"Pending\",\n    \"type\": \"PrePayment\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"deductionTemplateId\": \"string\",\n    \"disbursement\": null,\n    \"sourceInvoiceId\": \"string\"\n  },\n  {\n    \"amount\": 3084.894743394445,\n    \"application\": [\n      {\n        \"amountDeducted\": 3263.1856277119773,\n        \"payableId\": \"string\",\n        \"disbursementId\": \"string\"\n      },\n      {\n        \"amountDeducted\": 6009.6682584998725,\n        \"payableId\": \"string\",\n        \"disbursementId\": \"string\"\n      }\n    ],\n    \"clientId\": \"string\",\n    \"createdAt\": \"string\",\n    \"currency\": \"CAD\",\n    \"deductionId\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"memberId\": \"string\",\n    \"name\": \"string\",\n    \"priority\": 9685.814011312837,\n    \"startDate\": \"string\",\n    \"status\": \"Pending\",\n    \"type\": \"PrePayment\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"deductionTemplateId\": \"string\",\n    \"disbursement\": null,\n    \"sourceInvoiceId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d02940b5-3201-4d1a-a7d9-2e10082cefc7",
+          "name": "Fetch Specific Client Deduction Details",
+          "request": {
+            "name": "Fetch Specific Client Deduction Details",
+            "description": {
+              "content": "Provides detailed information for a client deduction based on its unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "client-deduction",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d576e8c-aa2b-4bc1-b7a2-50df5317d978",
+              "name": "A deduction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "client-deduction",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 1823.40914917824,\n  \"application\": [\n    {\n      \"amountDeducted\": 3325.4003037065704,\n      \"payableId\": \"string\",\n      \"disbursementId\": \"string\"\n    },\n    {\n      \"amountDeducted\": 2938.235175671726,\n      \"payableId\": \"string\",\n      \"disbursementId\": \"string\"\n    }\n  ],\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"currency\": \"CAD\",\n  \"deductionId\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"name\": \"string\",\n  \"priority\": 5832.6373625140495,\n  \"startDate\": \"string\",\n  \"status\": \"Pending\",\n  \"type\": \"PrePayment\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"deductionTemplateId\": \"string\",\n  \"disbursement\": null,\n  \"sourceInvoiceId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60abe657-19b4-4b0e-a1c2-bcb344a9b0f0",
+          "name": "Modify a Client Deduction",
+          "request": {
+            "name": "Modify a Client Deduction",
+            "description": {
+              "content": "Allows for updating specific details or attributes of an existing client deduction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "client-deduction",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number,null>\",\n  \"currency\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"priority\": \"<number,null>\",\n  \"sourceInvoiceId\": \"<string,null>\",\n  \"startDate\": \"<string,null>\",\n  \"type\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ec8054d-610b-451c-80ed-fa5bb48dee12",
+              "name": "A deduction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "client-deduction",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number,null>\",\n  \"currency\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"priority\": \"<number,null>\",\n  \"sourceInvoiceId\": \"<string,null>\",\n  \"startDate\": \"<string,null>\",\n  \"type\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 1823.40914917824,\n  \"application\": [\n    {\n      \"amountDeducted\": 3325.4003037065704,\n      \"payableId\": \"string\",\n      \"disbursementId\": \"string\"\n    },\n    {\n      \"amountDeducted\": 2938.235175671726,\n      \"payableId\": \"string\",\n      \"disbursementId\": \"string\"\n    }\n  ],\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"currency\": \"CAD\",\n  \"deductionId\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"name\": \"string\",\n  \"priority\": 5832.6373625140495,\n  \"startDate\": \"string\",\n  \"status\": \"Pending\",\n  \"type\": \"PrePayment\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"deductionTemplateId\": \"string\",\n  \"disbursement\": null,\n  \"sourceInvoiceId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b9de23d-380c-4910-8e2f-02269c2f867c",
+          "name": "Remove a Client Deduction",
+          "request": {
+            "name": "Remove a Client Deduction",
+            "description": {
+              "content": "Allows for the deletion of a client deduction based on its unique identifier, removing it permanently from the system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "client-deduction",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6834d3c-79f7-44a6-a418-3e6265938fbf",
+              "name": "A deduction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "client-deduction",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 1823.40914917824,\n  \"application\": [\n    {\n      \"amountDeducted\": 3325.4003037065704,\n      \"payableId\": \"string\",\n      \"disbursementId\": \"string\"\n    },\n    {\n      \"amountDeducted\": 2938.235175671726,\n      \"payableId\": \"string\",\n      \"disbursementId\": \"string\"\n    }\n  ],\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"currency\": \"CAD\",\n  \"deductionId\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"name\": \"string\",\n  \"priority\": 5832.6373625140495,\n  \"startDate\": \"string\",\n  \"status\": \"Pending\",\n  \"type\": \"PrePayment\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"deductionTemplateId\": \"string\",\n  \"disbursement\": null,\n  \"sourceInvoiceId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4147af60-e122-4eb3-b4a0-3b3a988d524a",
+          "name": "Retrieve All Clients (Version 2)",
+          "request": {
+            "name": "Retrieve All Clients (Version 2)",
+            "description": {
+              "content": "Fetches a comprehensive list of clients formatted in the V2 standard, providing an overview of all client data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "v2",
+                "client"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08484acd-cb90-4499-98f5-f6f2965839ad",
+              "name": "List of V2 Collaborators",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v2",
+                    "client"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"achCreditAccount\": {\n      \"accountNumber\": \"string\",\n      \"bankName\": \"string\",\n      \"routingNumber\": \"string\",\n      \"swiftCode\": \"string\"\n    },\n    \"clientId\": \"string\",\n    \"collaborations\": [\n      {\n        \"collaboratorId\": \"string\",\n        \"status\": \"Pending\",\n        \"clientData\": null,\n        \"collaboratorGroupIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"eligibilityRequirements\": [\n          null,\n          null\n        ],\n        \"integration\": null\n      },\n      {\n        \"collaboratorId\": \"string\",\n        \"status\": \"Inactive\",\n        \"clientData\": null,\n        \"collaboratorGroupIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"eligibilityRequirements\": [\n          null,\n          null\n        ],\n        \"integration\": null\n      }\n    ],\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"firstCollaborationId\": \"string\",\n    \"form1099Balances\": {\n      \"2021\": null,\n      \"2022\": null\n    },\n    \"formW9Data\": {\n      \"addressLine1\": \"string\",\n      \"city\": \"string\",\n      \"companyStructure\": \"LlcMultiMember\",\n      \"country\": \"string\",\n      \"postalCode\": \"string\",\n      \"state\": \"string\",\n      \"addressLine2\": \"string\",\n      \"dob\": \"string\",\n      \"ein\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"legalBusinessName\": \"string\",\n      \"ssnLastFour\": \"string\"\n    },\n    \"internationalWireAccount\": {\n      \"accountNumber\": \"string\",\n      \"bankName\": \"string\",\n      \"routingNumber\": \"string\",\n      \"swiftCode\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Pending\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberId\": \"string\",\n    \"primaryCollaborationId\": \"string\",\n    \"status\": \"Pending\",\n    \"taxStatus\": \"Complete\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"clientData\": null,\n    \"memberData\": null,\n    \"memberEvents\": null\n  },\n  {\n    \"achCreditAccount\": {\n      \"accountNumber\": \"string\",\n      \"bankName\": \"string\",\n      \"routingNumber\": \"string\",\n      \"swiftCode\": \"string\"\n    },\n    \"clientId\": \"string\",\n    \"collaborations\": [\n      {\n        \"collaboratorId\": \"string\",\n        \"status\": \"Inactive\",\n        \"clientData\": null,\n        \"collaboratorGroupIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"eligibilityRequirements\": [\n          null,\n          null\n        ],\n        \"integration\": null\n      },\n      {\n        \"collaboratorId\": \"string\",\n        \"status\": \"Pending\",\n        \"clientData\": null,\n        \"collaboratorGroupIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"eligibilityRequirements\": [\n          null,\n          null\n        ],\n        \"integration\": null\n      }\n    ],\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"firstCollaborationId\": \"string\",\n    \"form1099Balances\": {\n      \"2021\": null,\n      \"2022\": null\n    },\n    \"formW9Data\": {\n      \"addressLine1\": \"string\",\n      \"city\": \"string\",\n      \"companyStructure\": \"LLCCorporationS\",\n      \"country\": \"string\",\n      \"postalCode\": \"string\",\n      \"state\": \"string\",\n      \"addressLine2\": \"string\",\n      \"dob\": \"string\",\n      \"ein\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"legalBusinessName\": \"string\",\n      \"ssnLastFour\": \"string\"\n    },\n    \"internationalWireAccount\": {\n      \"accountNumber\": \"string\",\n      \"bankName\": \"string\",\n      \"routingNumber\": \"string\",\n      \"swiftCode\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"member\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"null\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"memberId\": \"string\",\n    \"primaryCollaborationId\": \"string\",\n    \"status\": \"Pending\",\n    \"taxStatus\": \"Complete\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"clientData\": null,\n    \"memberData\": null,\n    \"memberEvents\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "321f78f2-69b1-4c71-bcad-989410422d35",
+          "name": "Retrieve Specific Client Details (Version 2)",
+          "request": {
+            "name": "Retrieve Specific Client Details (Version 2)",
+            "description": {
+              "content": "Fetches detailed information of a specific client, identified by the clientId, in the V2 format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "v2",
+                "client",
+                ":clientId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clientId",
+                  "description": "(Required) Unique identifier of a client"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d984705-0e34-4e59-88c8-864b1263e390",
+              "name": "A single V2 Collaborator",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v2",
+                    "client",
+                    ":clientId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clientId",
+                      "description": "(Required) Unique identifier of a client"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"achCreditAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"clientId\": \"string\",\n  \"collaborations\": [\n    {\n      \"collaboratorId\": \"string\",\n      \"status\": \"Pending\",\n      \"clientData\": null,\n      \"collaboratorGroupIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"eligibilityRequirements\": [\n        null,\n        null\n      ],\n      \"integration\": null\n    },\n    {\n      \"collaboratorId\": \"string\",\n      \"status\": \"Inactive\",\n      \"clientData\": null,\n      \"collaboratorGroupIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"eligibilityRequirements\": [\n        null,\n        null\n      ],\n      \"integration\": null\n    }\n  ],\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"firstCollaborationId\": \"string\",\n  \"form1099Balances\": {\n    \"2021\": null,\n    \"2022\": null\n  },\n  \"formW9Data\": {\n    \"addressLine1\": \"string\",\n    \"city\": \"string\",\n    \"companyStructure\": \"None\",\n    \"country\": \"string\",\n    \"postalCode\": \"string\",\n    \"state\": \"string\",\n    \"addressLine2\": \"string\",\n    \"dob\": \"string\",\n    \"ein\": \"string\",\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"legalBusinessName\": \"string\",\n    \"ssnLastFour\": \"string\"\n  },\n  \"internationalWireAccount\": {\n    \"accountNumber\": \"string\",\n    \"bankName\": \"string\",\n    \"routingNumber\": \"string\",\n    \"swiftCode\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"member\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"Disabled\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"memberId\": \"string\",\n  \"primaryCollaborationId\": \"string\",\n  \"status\": \"Inactive\",\n  \"taxStatus\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"clientData\": null,\n  \"memberData\": null,\n  \"memberEvents\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wingspan.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1a5a729f-2776-4837-8091-33061c2daed9",
+    "name": "Wingspan Payments 1099 Operations Client Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+      "type": "text/plain"
+    }
+  }
+}

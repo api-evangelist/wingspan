@@ -1,0 +1,121 @@
+{
+  "item": [
+    {
+      "id": "491dc967-8ae5-415e-bf10-7599e253543b",
+      "name": "Merchant Category Codes",
+      "description": {
+        "content": "Endpoint that provides a comprehensive list of available Merchant Category Codes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e24c8cd3-81d8-4e70-b766-d314bcfe9cc3",
+          "name": "Retrieve Merchant Category Codes (MCC)",
+          "request": {
+            "name": "Retrieve Merchant Category Codes (MCC)",
+            "description": {
+              "content": "This endpoint provides a comprehensive list of available Merchant Category Codes (MCC) which are used to classify businesses by the type of services or goods they provide.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "mcc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a2feb41-d145-4ece-aac1-6ec4db0d9d09",
+              "name": "A list of MCC",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "mcc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": \"string\",\n    \"title\": \"string\"\n  },\n  {\n    \"code\": \"string\",\n    \"title\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wingspan.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a6b847ee-17e2-4e74-a3a0-11840f2e041e",
+    "name": "Wingspan Payments 1099 Operations Merchant Category Codes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+      "type": "text/plain"
+    }
+  }
+}

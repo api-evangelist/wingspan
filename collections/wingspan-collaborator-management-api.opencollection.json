@@ -1,0 +1,323 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Collaborator Management API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Collaborator Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Deductions for Collaborators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-deduction"
+          },
+          "docs": "Fetch a list of all deduction entries currently registered for collaborators."
+        },
+        {
+          "info": {
+            "name": "Register a New Deduction for a Collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/collaborator-deduction",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create and add a new deduction entry for a collaborator based on the provided data."
+        },
+        {
+          "info": {
+            "name": "Retrieve Specific Deduction Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-deduction/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetch details of a specific deduction entry for a collaborator based on its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Modify Details of a Specific Deduction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/collaborator-deduction/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update attributes or data related to an existing deduction entry for a collaborator."
+        },
+        {
+          "info": {
+            "name": "Erase a Specific Deduction Entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/collaborator-deduction/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete a specific deduction entry, eliminating its record from the system."
+        },
+        {
+          "info": {
+            "name": "Retrieve Events Associated with a Collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator/:id/events",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetch a list of all events linked to a collaborator based on the provided collaborator ID."
+        },
+        {
+          "info": {
+            "name": "Retrieve Details of a Specific Collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetch detailed information about a specific collaborator using its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Modify Collaborator Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/collaborator/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update specific details or attributes related to an existing collaborator."
+        },
+        {
+          "info": {
+            "name": "Remove a Specific Collaborator Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/collaborator/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Permanently delete the record of a specific collaborator from the system."
+        },
+        {
+          "info": {
+            "name": "Retrieve All Registered Collaborators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator"
+          },
+          "docs": "Fetch a comprehensive list of all collaborators currently registered in the system."
+        },
+        {
+          "info": {
+            "name": "Register a New Collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/collaborator",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new collaborator to the system, allowing them to be eligible for payments."
+        },
+        {
+          "info": {
+            "name": "Associate Collaborator with a Specific Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/collaborator/:id/add-group/:groupId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Unique group Id"
+              }
+            ]
+          },
+          "docs": "Add the specified collaborator to the designated group, allowing group-specific configurations and permissions."
+        },
+        {
+          "info": {
+            "name": "Disassociate Collaborator from a Specific Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/collaborator/:id/remove-group/:groupId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Unique group Id"
+              }
+            ]
+          },
+          "docs": "Remove the collaborator from the designated group, revoking any group-specific configurations and permissions."
+        },
+        {
+          "info": {
+            "name": "Retrieve All Collaborator Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-group"
+          },
+          "docs": "Fetch a comprehensive list of all collaborator groups created by the client, showcasing configurations and member details."
+        },
+        {
+          "info": {
+            "name": "Generate New Collaborator Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/collaborator-group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new collaborator group with specific configurations and permissions as defined by the client."
+        },
+        {
+          "info": {
+            "name": "Retrieve All Collaborators (Version 2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/v2/collaborator"
+          },
+          "docs": "Fetches a comprehensive list of collaborators formatted in the V2 standard, providing an overview of all collaborator data."
+        },
+        {
+          "info": {
+            "name": "Retrieve Specific Collaborator Details (Version 2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/v2/collaborator/:memberId",
+            "params": [
+              {
+                "name": "memberId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of a member"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information of a specific collaborator, identified by the memberId, in the V2 format."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

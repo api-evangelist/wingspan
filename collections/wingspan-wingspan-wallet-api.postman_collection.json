@@ -1,0 +1,793 @@
+{
+  "item": [
+    {
+      "id": "5e43a5dd-27a3-44f0-835b-61c6b7c9737e",
+      "name": "Wingspan Wallet",
+      "description": {
+        "content": "Operations related to Wingspan Wallet",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eab79812-58ca-4794-859d-59ccc2859c32",
+          "name": "List All Stored Wingspan Wallet Cards",
+          "request": {
+            "name": "List All Stored Wingspan Wallet Cards",
+            "description": {
+              "content": "Retrieve a comprehensive list of all stored  Wingspan Wallet cards within the system. This includes both active and deactivated cards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "card"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b773495f-4619-409e-ad67-0a7385dd20ef",
+              "name": "A list of card summaries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "card"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"brand\": \"string\",\n    \"createdAt\": \"string\",\n    \"expirationDate\": \"string\",\n    \"last4Digits\": \"string\",\n    \"status\": \"Active\",\n    \"type\": \"individualDebitCard\",\n    \"internal\": \"string\"\n  },\n  {\n    \"brand\": \"string\",\n    \"createdAt\": \"string\",\n    \"expirationDate\": \"string\",\n    \"last4Digits\": \"string\",\n    \"status\": \"Stolen\",\n    \"type\": \"individualDebitCard\",\n    \"internal\": 6427\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c414c09e-2880-4ac3-9f2c-eda8a3cbfc38",
+          "name": "Register a New  Wingspan Wallet Card",
+          "request": {
+            "name": "Register a New  Wingspan Wallet Card",
+            "description": {
+              "content": "Add a new  Wingspan Wallet card to the system, allowing it to be used for future transactions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "card"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestPhysicalCard\": \"<boolean,null>\",\n  \"shippingAddress\": \"<null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7dad9253-12dd-43fe-b4cc-18271e119d0d",
+              "name": "A card summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "card"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestPhysicalCard\": \"<boolean,null>\",\n  \"shippingAddress\": \"<null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"brand\": \"string\",\n  \"createdAt\": \"string\",\n  \"expirationDate\": \"string\",\n  \"last4Digits\": \"string\",\n  \"status\": \"Active\",\n  \"type\": \"individualDebitCard\",\n  \"internal\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7910dee2-4e50-478b-b060-4111732cde4e",
+          "name": "Retrieve card details by its unique ID",
+          "request": {
+            "name": "Retrieve card details by its unique ID",
+            "description": {
+              "content": "Fetches detailed information about a Wingspan Wallet card associated with the given unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "card",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7169c698-f664-40e2-b70f-ef68072222b6",
+              "name": "A card summary with additional details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "card",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"addressLine1\": \"string\",\n    \"city\": \"string\",\n    \"postalCode\": \"string\",\n    \"state\": \"string\",\n    \"addressLine2\": \"string\"\n  },\n  \"brand\": \"string\",\n  \"createdAt\": \"string\",\n  \"expirationDate\": \"string\",\n  \"last4Digits\": \"string\",\n  \"name\": \"string\",\n  \"status\": \"Lost\",\n  \"type\": \"individualDebitCard\",\n  \"pinSet\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7880214d-3ae8-4ad9-8e82-9aa989fca3d9",
+          "name": "Modify card details by its unique ID",
+          "request": {
+            "name": "Modify card details by its unique ID",
+            "description": {
+              "content": "Updates specific information about a Wingspan Wallet card using the provided data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "card",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e767e1ba-1772-424c-ba7e-00df5ab49260",
+              "name": "A card summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "card",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"brand\": \"string\",\n  \"createdAt\": \"string\",\n  \"expirationDate\": \"string\",\n  \"last4Digits\": \"string\",\n  \"status\": \"Active\",\n  \"type\": \"individualDebitCard\",\n  \"internal\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4425e222-66ae-483f-b1ae-b452bea08232",
+          "name": "Remove a card using its unique ID",
+          "request": {
+            "name": "Remove a card using its unique ID",
+            "description": {
+              "content": "Deletes a Wingspan Wallet card from the system based on its unique identifier. This action is irreversible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "card",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6146e53c-3b41-4fa3-90e5-12dc8d1d7e67",
+              "name": "A card summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "card",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"brand\": \"string\",\n  \"createdAt\": \"string\",\n  \"expirationDate\": \"string\",\n  \"last4Digits\": \"string\",\n  \"status\": \"Active\",\n  \"type\": \"individualDebitCard\",\n  \"internal\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47b5c09f-181e-4000-bb45-70c986b366d0",
+          "name": "Request a verification code for card authentication",
+          "request": {
+            "name": "Request a verification code for card authentication",
+            "description": {
+              "content": "Sends a verification code to the users registered contact method for additional Wingspan Wallet card authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "card",
+                ":id",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "114760be-6c47-44de-aee7-f023452cd4c1",
+              "name": "A card code response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "card",
+                    ":id",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"phoneNumber\": \"string\",\n  \"verificationToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57e05f05-afde-4d27-8877-99da4bea42be",
+          "name": "Validate verification code to receive a token",
+          "request": {
+            "name": "Validate verification code to receive a token",
+            "description": {
+              "content": "Validates the received verification code and, if correct, returns a token for Wingspan Wallet card operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "card",
+                ":id",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"verificationCode\": \"<string>\",\n  \"verificationToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d0aff476-922d-404a-9965-122d1fe4336f",
+              "name": "A card token response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "card",
+                    ":id",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"verificationCode\": \"<string>\",\n  \"verificationToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cardId\": \"string\",\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wingspan.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "09c13455-38d9-4ee6-afdb-5a5374aad56c",
+    "name": "Wingspan Payments 1099 Operations Wingspan Wallet API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+      "type": "text/plain"
+    }
+  }
+}

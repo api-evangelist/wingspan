@@ -1,0 +1,157 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Wingspan Wallet API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Wingspan Wallet",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Stored Wingspan Wallet Cards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/banking/card"
+          },
+          "docs": "Retrieve a comprehensive list of all stored  Wingspan Wallet cards within the system. This includes both active and deactivated cards."
+        },
+        {
+          "info": {
+            "name": "Register a New  Wingspan Wallet Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/banking/card",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new  Wingspan Wallet card to the system, allowing it to be used for future transactions."
+        },
+        {
+          "info": {
+            "name": "Retrieve card details by its unique ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/banking/card/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information about a Wingspan Wallet card associated with the given unique identifier."
+        },
+        {
+          "info": {
+            "name": "Modify card details by its unique ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/banking/card/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates specific information about a Wingspan Wallet card using the provided data."
+        },
+        {
+          "info": {
+            "name": "Remove a card using its unique ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/banking/card/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Deletes a Wingspan Wallet card from the system based on its unique identifier. This action is irreversible."
+        },
+        {
+          "info": {
+            "name": "Request a verification code for card authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/banking/card/:id/token",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends a verification code to the users registered contact method for additional Wingspan Wallet card authentication."
+        },
+        {
+          "info": {
+            "name": "Validate verification code to receive a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/banking/card/:id/token",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates the received verification code and, if correct, returns a token for Wingspan Wallet card operations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

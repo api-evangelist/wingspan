@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Deprecated API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deprecated",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deprecated Retrieve Instant Payout Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/banking/instant-payout"
+          },
+          "docs": "Fetch detailed information about the current status and details of instant payouts configured in the system."
+        },
+        {
+          "info": {
+            "name": "Deprecated Set Up Instant Payout Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/banking/instant-payout",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Configure a new instant payout setting, specifying details like amount, frequency, and destination."
+        },
+        {
+          "info": {
+            "name": "Deprecated Remove Instant Payout Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/banking/instant-payout"
+          },
+          "docs": "Delete the existing instant payout configuration, preventing any further instant payouts unless reconfigured."
+        },
+        {
+          "info": {
+            "name": "Retrieve All Collaborator-Member Custom Data Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/additional-data"
+          },
+          "docs": "[Deprecated - use /payments/custom-fields] Fetch all custom data fields that are associated with the memberClient objects, giving insight into additional details between collaborators and members."
+        },
+        {
+          "info": {
+            "name": "Register New Custom Data for Collaborator-Member Relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/additional-data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "[Deprecated - use /payments/custom-fields] Create custom fields that can be associated with the memberClient object to provide extra details about the relationship between a collaborator and a member."
+        },
+        {
+          "info": {
+            "name": "Retrieve Specific Collaborator Custom Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/additional-data/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Deprecated - use /payments/custom-fields/:id"
+        },
+        {
+          "info": {
+            "name": "Modify a Specific Collaborator-Member Custom Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/additional-data/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "[Deprecated - use /payments/custom-fields] Update details or attributes of an existing custom data point associated with the relationship between a collaborator and a member."
+        },
+        {
+          "info": {
+            "name": "Erase a Specific Collaborator-Member Custom Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/collaborator-settings/additional-data/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "[Deprecated - use /payments/custom-fields] Remove a specific custom data point, eliminating the additional details provided about a collaborator-member relationship."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

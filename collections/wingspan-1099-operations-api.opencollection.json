@@ -1,0 +1,422 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "1099 Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Form 1099 PDF for a Collaborator by Year and Index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator/:id/download-1099/:year/:index",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year"
+              },
+              {
+                "name": "index",
+                "value": "",
+                "type": "path",
+                "description": "Index"
+              }
+            ]
+          },
+          "docs": "Facilitates downloading of the specified 1099 form for a given collaborator, corresponding to the provided year and index."
+        },
+        {
+          "info": {
+            "name": "Retrieve Form W9 PDF for a Collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/collaborator/:id/download-w9",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Enables the downloading of the W9 form for the specified collaborator, ensuring compliance and streamlined financial procedures."
+        },
+        {
+          "info": {
+            "name": "Determine 1099 Amounts for Collaborators",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/collaborator/1099/calculate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Analyzes and calculates the appropriate 1099 amounts for collaborators based on provided data and relevant financial parameters."
+        },
+        {
+          "info": {
+            "name": "Request a new mailing of the 1099 form for a collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/collaborator/1099/remail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiates a process to resend the 1099 form to a collaborator in the event of a previous failed delivery or at the request of the collaborator."
+        },
+        {
+          "info": {
+            "name": "Indicate a collaborator's 1099 form was returned undelivered",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/collaborator/1099/mark-undelivered",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mark a specific 1099 submission for a collaborator as undelivered, typically due to mail return or incorrect address details."
+        },
+        {
+          "info": {
+            "name": "Retrieve all bulk calculation 1099 batches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/calculation1099/batch"
+          },
+          "docs": "Fetches a comprehensive list of all batches created for bulk 1099 calculations."
+        },
+        {
+          "info": {
+            "name": "Initialize a new batch for bulk calculation 1099",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/calculation1099/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows users to create a new batch for facilitating bulk 1099 calculations by providing necessary batch details."
+        },
+        {
+          "info": {
+            "name": "Retrieve specific details of a bulk calculation 1099 batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/calculation1099/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information about a specific batch meant for bulk 1099 calculations using its unique batch identifier."
+        },
+        {
+          "info": {
+            "name": "Modify the details of a specific bulk calculation 1099 batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/calculation1099/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Provides the ability to update or alter attributes of a given batch for bulk 1099 calculations by using its unique batch identifier."
+        },
+        {
+          "info": {
+            "name": "Retrieve all items from a calculation 1099 batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/calculation1099/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Access a comprehensive list of items contained within a specified calculation 1099 batch, useful for verifying or inspecting batch contents."
+        },
+        {
+          "info": {
+            "name": "Add a new item to a calculation 1099 batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/calculation1099/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Facilitates the incorporation of a new item into the specified calculation 1099 batch, streamlining the process of batch expansion."
+        },
+        {
+          "info": {
+            "name": "Fetch details of a specific item from a calculation 1099 batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/calculation1099/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ]
+          },
+          "docs": "Gain insights into a particular item's attributes and data stored within a calculation 1099 batch, enhancing data management and verification."
+        },
+        {
+          "info": {
+            "name": "Revise the attributes of an item in a calculation 1099 batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/calculation1099/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Make alterations or updates to a specific item within the calculation 1099 batch, ensuring accurate and up-to-date record-keeping."
+        },
+        {
+          "info": {
+            "name": "Fetch 1099 tax forms.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/tax-form"
+          },
+          "docs": "Fetch tax forms for a payee or a payer and specified year."
+        },
+        {
+          "info": {
+            "name": "Create a new tax form.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/tax-form",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a tax form for a new recipient"
+        },
+        {
+          "info": {
+            "name": "Fetch tax form.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/tax-form/:taxFormId",
+            "params": [
+              {
+                "name": "taxFormId",
+                "value": "",
+                "type": "path",
+                "description": "Unique tax Form Id"
+              }
+            ]
+          },
+          "docs": "Fetches the specified tax form if it exists"
+        },
+        {
+          "info": {
+            "name": "Update a tax form.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/tax-form/:taxFormId",
+            "params": [
+              {
+                "name": "taxFormId",
+                "value": "",
+                "type": "path",
+                "description": "Unique tax Form Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a tax form with provided information."
+        },
+        {
+          "info": {
+            "name": "Re-enable recipient sync on a tax form.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/tax-form/:taxFormId/resync",
+            "params": [
+              {
+                "name": "taxFormId",
+                "value": "",
+                "type": "path",
+                "description": "Unique tax Form Id"
+              }
+            ]
+          },
+          "docs": "Re-enables recipient sync for a tax form. Reverts to last provided recipient data and triggers payable calculations. Does nothing if sync is already enabled."
+        },
+        {
+          "info": {
+            "name": "Provide Recipient Proof of Identity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/tax-form/:taxFormId/verify-identity",
+            "params": [
+              {
+                "name": "taxFormId",
+                "value": "",
+                "type": "path",
+                "description": "Unique tax Form Id"
+              }
+            ]
+          },
+          "docs": "Allows recipient of a tax form to verify their identity in order to access a non-redacted tax form."
+        },
+        {
+          "info": {
+            "name": "Submit Payee W9 Information.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/tax-form/submit-w9"
+          },
+          "docs": "Updates 1099 tax forms for the current year with W9 information wherever W9 sharing is enabled."
+        },
+        {
+          "info": {
+            "name": "Submit Payee TIN for verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/tax-form/verify-tin"
+          },
+          "docs": "Asynchronously verifies the TIN on file with the IRS. May return a pending status if waiting on IRS response."
+        },
+        {
+          "info": {
+            "name": "Request a new 1099 invite email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/tax-form/resend-invite"
+          },
+          "docs": "Requests a new 1099 invite email to be sent to the recipient. Only sends if the email exists and the user has tax forms."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

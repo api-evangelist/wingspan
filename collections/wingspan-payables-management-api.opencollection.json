@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Payables Management API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payables Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Summary of All Payables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/summary/payables"
+          },
+          "docs": "This endpoint provides a comprehensive summary of all the payables, offering insights into the current state of pending and completed payments. Ideal for clients and financial departments looking for a snapshot view of their payment obligations."
+        },
+        {
+          "info": {
+            "name": "Retrieve Approved Payables Ready for Immediate Payroll",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/payroll/immediate/payable"
+          },
+          "docs": "Fetches all payables that have been approved and are awaiting immediate payroll processing. This provides a quick view of all payments that are due for immediate payroll execution."
+        },
+        {
+          "info": {
+            "name": "List All Payables Associated with a Client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/payable"
+          },
+          "docs": "Provides an list of all Payables associated with a specific client, facilitating easier management and overview of the client's financial obligations."
+        },
+        {
+          "info": {
+            "name": "Create a New Payable for a Member on Behalf of a Client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/payable",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows for the generation of a new Payables for a specific member on behalf of a client. This ensures streamlined billing and effective financial tracking between clients and members."
+        },
+        {
+          "info": {
+            "name": "Retrieve Payable Details by Payable ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/payable/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "This API endpoint is designed to fetch the detailed Payable information of a member using a unique Payable ID."
+        },
+        {
+          "info": {
+            "name": "Update Client Payable Information by Payable ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/payable/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API endpoint facilitates the updating of existing payable details related to a client using a unique Payable ID."
+        },
+        {
+          "info": {
+            "name": "Delete Client Payable by Payable ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/payable/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "This API endpoint is designed to remove the payable information related to a client using a unique Payable ID."
+        },
+        {
+          "info": {
+            "name": "Execute Approved Payroll Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/pay-approved"
+          },
+          "docs": "Processes all approved payroll transactions, ensuring employees and vendors are compensated as per their respective invoices."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

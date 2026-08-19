@@ -1,0 +1,228 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Client Management API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Client Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch a list of member and client associations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/memberClient"
+          },
+          "docs": "Retrieve a detailed list showcasing all the existing associations between members and clients in the system."
+        },
+        {
+          "info": {
+            "name": "Establish a new association between a member and client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/memberClient",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to create a new linkage between a member and client in the system, allowing for better relationship management."
+        },
+        {
+          "info": {
+            "name": "Retrieve detailed information of a specific member-client relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/memberClient/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Fetches comprehensive details of the association between a member and a client using the provided unique identifier."
+        },
+        {
+          "info": {
+            "name": "Update information of a specific member-client relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/memberClient/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies details of the association between a member and a client based on the provided data."
+        },
+        {
+          "info": {
+            "name": "Remove a specific member-client relationship from the system",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/memberClient/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Deletes the association between a member and a client using the provided unique identifier. Once deleted, this relationship data can't be recovered."
+        },
+        {
+          "info": {
+            "name": "Retrieve All Client Deductions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/client-deduction"
+          },
+          "docs": "Fetches a comprehensive list of all client deductions present in the system."
+        },
+        {
+          "info": {
+            "name": "Register a New Client Deduction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/client-deduction",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows for the creation of a new client deduction based on the provided details."
+        },
+        {
+          "info": {
+            "name": "Fetch Specific Client Deduction Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/client-deduction/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Provides detailed information for a client deduction based on its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Modify a Client Deduction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/client-deduction/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows for updating specific details or attributes of an existing client deduction."
+        },
+        {
+          "info": {
+            "name": "Remove a Client Deduction",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/client-deduction/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier"
+              }
+            ]
+          },
+          "docs": "Allows for the deletion of a client deduction based on its unique identifier, removing it permanently from the system."
+        },
+        {
+          "info": {
+            "name": "Retrieve All Clients (Version 2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/v2/client"
+          },
+          "docs": "Fetches a comprehensive list of clients formatted in the V2 standard, providing an overview of all client data."
+        },
+        {
+          "info": {
+            "name": "Retrieve Specific Client Details (Version 2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/v2/client/:clientId",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of a client"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information of a specific client, identified by the clientId, in the V2 format."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

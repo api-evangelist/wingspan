@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Service Settings API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Service Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check Service Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments"
+          },
+          "docs": "Use this endpoint to determine the operational status of the payment service by obtaining the current timestamp and service name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

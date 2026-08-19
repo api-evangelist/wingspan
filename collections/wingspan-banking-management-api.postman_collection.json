@@ -1,0 +1,1187 @@
+{
+  "item": [
+    {
+      "id": "ffdd7b16-8297-41db-ab61-94e88b69cba1",
+      "name": "Banking Management",
+      "description": {
+        "content": "These endpoints cater to fetching, storing, and managing documents related to electronic signatures, including retrieval of signing URLs and saving e-signed documents.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "80fd5b19-5f20-4747-a5a1-44ad18013983",
+          "name": "Retrieve All Bank Statements",
+          "request": {
+            "name": "Retrieve All Bank Statements",
+            "description": {
+              "content": "Fetch a comprehensive list of all bank statements available in the system, providing an overview of financial transactions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "statement"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0dd314bf-9d89-4038-b961-b7aa45f5d01e",
+              "name": "A list of bank statements",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "statement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"accountId\": \"string\",\n    \"date\": \"string\",\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  {\n    \"accountId\": \"string\",\n    \"date\": \"string\",\n    \"id\": \"string\",\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c313fda0-06cf-44ea-b2cb-5bbd4b35a8a7",
+          "name": "Retrieve Specific Bank Statement",
+          "request": {
+            "name": "Retrieve Specific Bank Statement",
+            "description": {
+              "content": "Fetch details of a specific bank statement using its unique identifier, providing a detailed view of its transactions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "statement",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a5d5e83-3422-484f-aae4-74d0b4a635fe",
+              "name": "A list of bank statements",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "statement",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"accountId\": \"string\",\n    \"date\": \"string\",\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  {\n    \"accountId\": \"string\",\n    \"date\": \"string\",\n    \"id\": \"string\",\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eefef38b-c871-4439-8f75-47264adc0916",
+          "name": "Download a specific bank statement as a PDF",
+          "request": {
+            "name": "Download a specific bank statement as a PDF",
+            "description": {
+              "content": "Retrieve and download the specified bank statement in PDF format using the provided unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "statement",
+                ":id",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e37234af-8279-4c37-a1f9-b8667e36e758",
+              "name": "This is a default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "statement",
+                    ":id",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ff3d91a-a615-42ea-a90a-a44c7a712bcf",
+          "name": "Fetch the application link for setting up a clearing bank account",
+          "request": {
+            "name": "Fetch the application link for setting up a clearing bank account",
+            "description": {
+              "content": "Get the application link required for a member to initiate the creation of a clearing bank account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "service",
+                "banking",
+                ":memberId",
+                "application"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "memberId",
+                  "description": "(Required) Unique identifier of a member"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e07a9758-eb1e-4b00-9ce0-9e35c0196b4f",
+              "name": "A Bank Application form",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "service",
+                    "banking",
+                    ":memberId",
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberId",
+                      "description": "(Required) Unique identifier of a member"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applicationLink\": \"string\",\n  \"memberId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d7dd9ef-e2ab-490a-9589-2d513f0c05c0",
+          "name": "Retrieve banking institution details by its routing number",
+          "request": {
+            "name": "Retrieve banking institution details by its routing number",
+            "description": {
+              "content": "Fetches comprehensive information about a banking institution based on the provided routing number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "banking",
+                "institution",
+                ":routingNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "routingNumber",
+                  "description": "(Required) Bank Routing Number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53703663-6ae5-4ba6-b45d-bb9947c605e3",
+              "name": "Institution Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "banking",
+                    "institution",
+                    ":routingNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routingNumber",
+                      "description": "(Required) Bank Routing Number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"isACHSupported\": true,\n  \"isRTPSupported\": true,\n  \"isWireSupported\": false,\n  \"name\": \"string\",\n  \"routingNumber\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33067720-2496-407d-9d8a-0a12644d7953",
+          "name": "Fetch all registered payout debit cards for a member",
+          "request": {
+            "name": "Fetch all registered payout debit cards for a member",
+            "description": {
+              "content": "Retrieves a list of all debit cards linked to a member's profile for payout purposes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "payout-settings",
+                ":memberId",
+                "debit-card"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "memberId",
+                  "description": "(Required) Unique identifier of a member"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2d2a743-13aa-4e1d-be55-a488f8de25b3",
+              "name": "A list of payout debit cards",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "payout-settings",
+                    ":memberId",
+                    "debit-card"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberId",
+                      "description": "(Required) Unique identifier of a member"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"address\": {\n      \"addressLine1\": \"string\",\n      \"city\": \"string\",\n      \"postalCode\": \"string\",\n      \"state\": \"string\",\n      \"addressLine2\": \"string\"\n    },\n    \"brand\": \"AmericanExpress\",\n    \"cardId\": \"string\",\n    \"expirationMM\": \"string\",\n    \"expirationYYYY\": \"string\",\n    \"last4\": \"string\"\n  },\n  {\n    \"address\": {\n      \"addressLine1\": \"string\",\n      \"city\": \"string\",\n      \"postalCode\": \"string\",\n      \"state\": \"string\",\n      \"addressLine2\": \"string\"\n    },\n    \"brand\": \"DinersClub\",\n    \"cardId\": \"string\",\n    \"expirationMM\": \"string\",\n    \"expirationYYYY\": \"string\",\n    \"last4\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "821142d7-f04d-4452-bd60-d29a37c8d179",
+          "name": "Register a new payout debit card for a member",
+          "request": {
+            "name": "Register a new payout debit card for a member",
+            "description": {
+              "content": "Allows the addition of a new debit card to a member's profile for payout transactions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "payout-settings",
+                ":memberId",
+                "debit-card"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "memberId",
+                  "description": "(Required) Unique identifier of a member"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cardNumber\": \"<string>\",\n  \"expMM\": \"<string>\",\n  \"expYYYY\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address\": \"<null>\",\n  \"cvv\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d042861-21de-4c9f-8f1d-cf42245cace2",
+              "name": "A payout debit card",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "payout-settings",
+                    ":memberId",
+                    "debit-card"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberId",
+                      "description": "(Required) Unique identifier of a member"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cardNumber\": \"<string>\",\n  \"expMM\": \"<string>\",\n  \"expYYYY\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address\": \"<null>\",\n  \"cvv\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"addressLine1\": \"string\",\n    \"city\": \"string\",\n    \"postalCode\": \"string\",\n    \"state\": \"string\",\n    \"addressLine2\": \"string\"\n  },\n  \"brand\": \"Discover\",\n  \"cardId\": \"string\",\n  \"expirationMM\": \"string\",\n  \"expirationYYYY\": \"string\",\n  \"last4\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1456dc5-6b13-4439-9f14-f2e92e4976f8",
+          "name": "Retrieve a specific payout debit card linked to a member",
+          "request": {
+            "name": "Retrieve a specific payout debit card linked to a member",
+            "description": {
+              "content": "Fetches detailed information of a specific debit card linked to a member's profile for payout purposes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "payout-settings",
+                ":memberId",
+                "debit-card",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "memberId",
+                  "description": "(Required) Unique identifier of a member"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3d39880-6de1-4ae1-92f4-8d563f836aba",
+              "name": "A payout debit card",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "payout-settings",
+                    ":memberId",
+                    "debit-card",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberId",
+                      "description": "(Required) Unique identifier of a member"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"addressLine1\": \"string\",\n    \"city\": \"string\",\n    \"postalCode\": \"string\",\n    \"state\": \"string\",\n    \"addressLine2\": \"string\"\n  },\n  \"brand\": \"Discover\",\n  \"cardId\": \"string\",\n  \"expirationMM\": \"string\",\n  \"expirationYYYY\": \"string\",\n  \"last4\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f189a922-16b3-402c-8e48-645a32bb6142",
+          "name": "Unlink and delete a specific payout debit card from a member's profile",
+          "request": {
+            "name": "Unlink and delete a specific payout debit card from a member's profile",
+            "description": {
+              "content": "Initiates a process to remove and permanently delete a specific debit card from a member's payout settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "payout-settings",
+                ":memberId",
+                "debit-card",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "memberId",
+                  "description": "(Required) Unique identifier of a member"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49f1a820-ee66-4d00-af23-ed980e71245b",
+              "name": "A payout debit card",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "payout-settings",
+                    ":memberId",
+                    "debit-card",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberId",
+                      "description": "(Required) Unique identifier of a member"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"addressLine1\": \"string\",\n    \"city\": \"string\",\n    \"postalCode\": \"string\",\n    \"state\": \"string\",\n    \"addressLine2\": \"string\"\n  },\n  \"brand\": \"Discover\",\n  \"cardId\": \"string\",\n  \"expirationMM\": \"string\",\n  \"expirationYYYY\": \"string\",\n  \"last4\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "890b4440-d3e0-4f2f-953f-4ebe25505cff",
+          "name": "Retrieve payout settings for a specific member",
+          "request": {
+            "name": "Retrieve payout settings for a specific member",
+            "description": {
+              "content": "Fetches the payout configuration, including linked debit cards and payout preferences, for a specific member.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "payout-settings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a34a873-e4ba-4d25-a417-efac66e1dce3",
+              "name": "The payout settings for a member",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "payout-settings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payoutDestinations\": [\n    {\n      \"destinationId\": \"string\",\n      \"destinationType\": \"WeGift\",\n      \"name\": \"string\",\n      \"payoutMethod\": \"Instant\",\n      \"percentage\": 1123.4498304496365,\n      \"last4\": \"string\"\n    },\n    {\n      \"destinationId\": \"string\",\n      \"destinationType\": \"WeGift\",\n      \"name\": \"string\",\n      \"payoutMethod\": \"Standard\",\n      \"percentage\": 1795.0599606912076,\n      \"last4\": \"string\"\n    }\n  ],\n  \"payoutPreferences\": \"Expedited\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7baac685-9220-4946-8f90-09e6d316d0a2",
+          "name": "Modify and update payout settings for a specific member",
+          "request": {
+            "name": "Modify and update payout settings for a specific member",
+            "description": {
+              "content": "Allows adjustments and updates to a member's payout configuration, including changing linked debit cards and adjusting payout preferences.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "payout-settings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payoutDestinations\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"payoutPreferences\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f32874ea-092d-4090-a065-1c99529a7ab5",
+              "name": "The payout settings for a member",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "payout-settings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payoutDestinations\": [\n    \"<null>\",\n    \"<null>\"\n  ],\n  \"payoutPreferences\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payoutDestinations\": [\n    {\n      \"destinationId\": \"string\",\n      \"destinationType\": \"WeGift\",\n      \"name\": \"string\",\n      \"payoutMethod\": \"Instant\",\n      \"percentage\": 1123.4498304496365,\n      \"last4\": \"string\"\n    },\n    {\n      \"destinationId\": \"string\",\n      \"destinationType\": \"WeGift\",\n      \"name\": \"string\",\n      \"payoutMethod\": \"Standard\",\n      \"percentage\": 1795.0599606912076,\n      \"last4\": \"string\"\n    }\n  ],\n  \"payoutPreferences\": \"Expedited\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wingspan.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "55c7f2af-f9c9-4bcf-87f9-6c147c20a5f9",
+    "name": "Wingspan Payments 1099 Operations Banking Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,3965 @@
+{
+  "item": [
+    {
+      "id": "81a5db32-2665-46d9-9775-d62cfad8a261",
+      "name": "Bulk Operations",
+      "description": {
+        "content": "This category includes endpoints for managing bulk operations like bulk payables, bulk invoices, and bulk collaborator management.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9684651b-d699-479a-b298-fc7bcb448ef6",
+          "name": "Retrieve All Bulk Payable Batches",
+          "request": {
+            "name": "Retrieve All Bulk Payable Batches",
+            "description": {
+              "content": "Fetches a list of all the batches created for bulk payables, providing an overview of the bulk payment operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0fec5350-0eef-4792-90e3-431a77f522e6",
+              "name": "A list of bulk payable batches",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"bulkPayableBatchId\": \"string\",\n    \"client\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Active\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"clientId\": \"string\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"processingStrategy\": \"Single\",\n    \"status\": \"Processing\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"statistics\": null\n  },\n  {\n    \"bulkPayableBatchId\": \"string\",\n    \"client\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Pending\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"clientId\": \"string\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"processingStrategy\": \"Merge\",\n    \"status\": \"Pending\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"statistics\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0999137e-96b2-49fa-b855-a857785dd242",
+          "name": "Initiate a New Bulk Payable Batch",
+          "request": {
+            "name": "Initiate a New Bulk Payable Batch",
+            "description": {
+              "content": "Creates a new batch for importing multiple payables at once, streamlining the bulk payment operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"processingStrategy\": \"<string>\",\n  \"labels\": \"<null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "463aa097-69ac-41de-893c-7deeb2f36b4f",
+              "name": "A batch of items for importing as payables",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"processingStrategy\": \"<string>\",\n  \"labels\": \"<null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkPayableBatchId\": \"string\",\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"Pending\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"processingStrategy\": \"Single\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51ff727e-d0e5-4e07-81c5-87e75c5946aa",
+          "name": "Retrieve Details of a Specific Bulk Payable Batch",
+          "request": {
+            "name": "Retrieve Details of a Specific Bulk Payable Batch",
+            "description": {
+              "content": "Fetches detailed information of a specific batch created for bulk payables, using the provided batch ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74ac1130-d065-43c7-baa0-b8f0d2fce489",
+              "name": "A batch of items for importing as payables",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkPayableBatchId\": \"string\",\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"Pending\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"processingStrategy\": \"Single\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32f8f03b-064d-455c-b8bf-b622a8748e65",
+          "name": "Modify a Specific Bulk Payable Batch",
+          "request": {
+            "name": "Modify a Specific Bulk Payable Batch",
+            "description": {
+              "content": "Updates the information or items of a specific bulk payable batch, given its unique batch ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2f5f9ac4-e822-4afd-bad3-bbc46ad8b00c",
+              "name": "A batch of items for importing as payables",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkPayableBatchId\": \"string\",\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"Pending\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"processingStrategy\": \"Single\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "872eff1f-d42d-4b61-b10a-3666b871e4d9",
+          "name": "Remove a Specific Bulk Payable Batch",
+          "request": {
+            "name": "Remove a Specific Bulk Payable Batch",
+            "description": {
+              "content": "Deletes a specific batch for bulk payables, using the provided batch ID, preventing any further operations on it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7278e4ff-66fd-4d43-a933-5799d4ba0e52",
+              "name": "A batch of items for importing as payables",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkPayableBatchId\": \"string\",\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"Pending\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"processingStrategy\": \"Single\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79fb1e25-04e5-460b-a44d-f83a1bb64b70",
+          "name": "Retrieve all items from a specific bulk payable batch",
+          "request": {
+            "name": "Retrieve all items from a specific bulk payable batch",
+            "description": {
+              "content": "Fetches and lists all individual payable items associated with a specified bulk payable batch. Useful for tracking and verifying batch details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch",
+                ":batchId",
+                "item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a42ad3c-50fa-4e73-832b-38cb87ee850f",
+              "name": "A list of bulk payable items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch",
+                    ":batchId",
+                    "item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 9191.433933170754,\n    \"bulkPayableBatchId\": \"string\",\n    \"bulkPayableItemId\": \"string\",\n    \"clientId\": \"string\",\n    \"createdAt\": \"string\",\n    \"dueDate\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"lineItemDescription\": \"string\",\n    \"paidDate\": \"string\",\n    \"payableStatus\": \"Paid\",\n    \"status\": \"Open\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"attachmentId\": \"string\",\n    \"bulkPayableItemMergeKey\": \"string\",\n    \"bulkPayableItemReference\": \"string\",\n    \"collaboratorEmail\": \"string\",\n    \"collaboratorExternalId\": \"string\",\n    \"collaboratorId\": \"string\",\n    \"integration\": null,\n    \"lineItemDetail\": \"string\",\n    \"metadata\": null,\n    \"payableNotes\": \"string\",\n    \"reimbursableExpense\": true,\n    \"workflowSubStatus\": \"null\"\n  },\n  {\n    \"amount\": 5113.18904801395,\n    \"bulkPayableBatchId\": \"string\",\n    \"bulkPayableItemId\": \"string\",\n    \"clientId\": \"string\",\n    \"createdAt\": \"string\",\n    \"dueDate\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    },\n    \"lineItemDescription\": \"string\",\n    \"paidDate\": \"string\",\n    \"payableStatus\": \"Draft\",\n    \"status\": \"Complete\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"attachmentId\": \"string\",\n    \"bulkPayableItemMergeKey\": \"string\",\n    \"bulkPayableItemReference\": \"string\",\n    \"collaboratorEmail\": \"string\",\n    \"collaboratorExternalId\": \"string\",\n    \"collaboratorId\": \"string\",\n    \"integration\": null,\n    \"lineItemDetail\": \"string\",\n    \"metadata\": null,\n    \"payableNotes\": \"string\",\n    \"reimbursableExpense\": true,\n    \"workflowSubStatus\": \"Submitted\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37f40499-984e-4aaa-92bd-f5152550b2ff",
+          "name": "Add a new item to a specific bulk payable batch",
+          "request": {
+            "name": "Add a new item to a specific bulk payable batch",
+            "description": {
+              "content": "Allows for the creation and addition of a new individual payable item into an existing bulk payable batch. This enhances batch management and payable tracking.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch",
+                ":batchId",
+                "item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"bulkPayableBatchId\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"lineItemDescription\": \"<string>\",\n  \"payableStatus\": \"<string>\",\n  \"attachmentId\": \"<string,null>\",\n  \"bulkPayableItemMergeKey\": \"<string,null>\",\n  \"bulkPayableItemReference\": \"<string,null>\",\n  \"clientId\": \"<string,null>\",\n  \"collaboratorEmail\": \"<string,null>\",\n  \"collaboratorExternalId\": \"<string,null>\",\n  \"collaboratorId\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lineItemDetail\": \"<string,null>\",\n  \"paidDate\": \"<string,null>\",\n  \"payableNotes\": \"<string,null>\",\n  \"reimbursableExpense\": \"<boolean,null>\",\n  \"workflowSubStatus\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3a619eb5-528b-4ac8-9cb5-da2bec4cd568",
+              "name": "An item that will be converted into a payable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch",
+                    ":batchId",
+                    "item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"bulkPayableBatchId\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"lineItemDescription\": \"<string>\",\n  \"payableStatus\": \"<string>\",\n  \"attachmentId\": \"<string,null>\",\n  \"bulkPayableItemMergeKey\": \"<string,null>\",\n  \"bulkPayableItemReference\": \"<string,null>\",\n  \"clientId\": \"<string,null>\",\n  \"collaboratorEmail\": \"<string,null>\",\n  \"collaboratorExternalId\": \"<string,null>\",\n  \"collaboratorId\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lineItemDetail\": \"<string,null>\",\n  \"paidDate\": \"<string,null>\",\n  \"payableNotes\": \"<string,null>\",\n  \"reimbursableExpense\": \"<boolean,null>\",\n  \"workflowSubStatus\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 2623.2039896208926,\n  \"bulkPayableBatchId\": \"string\",\n  \"bulkPayableItemId\": \"string\",\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"dueDate\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"lineItemDescription\": \"string\",\n  \"paidDate\": \"string\",\n  \"payableStatus\": \"Approved\",\n  \"status\": \"Failed\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"attachmentId\": \"string\",\n  \"bulkPayableItemMergeKey\": \"string\",\n  \"bulkPayableItemReference\": \"string\",\n  \"collaboratorEmail\": \"string\",\n  \"collaboratorExternalId\": \"string\",\n  \"collaboratorId\": \"string\",\n  \"integration\": null,\n  \"lineItemDetail\": \"string\",\n  \"metadata\": null,\n  \"payableNotes\": \"string\",\n  \"reimbursableExpense\": false,\n  \"workflowSubStatus\": \"null\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61e11b9d-bf37-410d-a47d-89cf3d0a5a79",
+          "name": "Fetch the import summary for a specific bulk payable batch",
+          "request": {
+            "name": "Fetch the import summary for a specific bulk payable batch",
+            "description": {
+              "content": "Provides an overview and summary of the import process for a given bulk payable batch, allowing for tracking of imported items, errors, and other relevant batch statistics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch",
+                ":batchId",
+                "import-summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2e8f8c2-8a49-4e63-bb11-7769de7a093a",
+              "name": "Summary of the bulk payable import",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch",
+                    ":batchId",
+                    "import-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deductionCollaboratorsCount\": 9019.02498852259,\n  \"netImportAmount\": 4939.302330097237,\n  \"payableCollaboratorsCount\": 8466.819564752122,\n  \"toBeCreatedDeductionsCount\": 1582.567336488593,\n  \"toBeCreatedPayablesCount\": 7277.797279276197,\n  \"toBeUpdatedDeductionsCount\": 7687.897779864035,\n  \"toBeUpdatedPayablesCount\": 8987.952423693527,\n  \"totalDeductionsAmount\": 4579.146734935973,\n  \"totalPayableItems\": 2073.4321901143294,\n  \"totalPayablesAmount\": 8097.628518640726\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3366de31-1afe-452b-865a-db9d1898fbf3",
+          "name": "Retrieve a Specific Item from a Bulk Payable Batch",
+          "request": {
+            "name": "Retrieve a Specific Item from a Bulk Payable Batch",
+            "description": {
+              "content": "Fetches detailed information of a specific item within a bulk payable batch, using both the batch ID and the item ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch",
+                ":batchId",
+                "item",
+                ":batchItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchItemId",
+                  "description": "(Required) Unique identifier for an item in a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f376bf2a-3e5b-43df-bcae-9a884e376663",
+              "name": "An item that will be converted into a payable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch",
+                    ":batchId",
+                    "item",
+                    ":batchItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchItemId",
+                      "description": "(Required) Unique identifier for an item in a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 2623.2039896208926,\n  \"bulkPayableBatchId\": \"string\",\n  \"bulkPayableItemId\": \"string\",\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"dueDate\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"lineItemDescription\": \"string\",\n  \"paidDate\": \"string\",\n  \"payableStatus\": \"Approved\",\n  \"status\": \"Failed\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"attachmentId\": \"string\",\n  \"bulkPayableItemMergeKey\": \"string\",\n  \"bulkPayableItemReference\": \"string\",\n  \"collaboratorEmail\": \"string\",\n  \"collaboratorExternalId\": \"string\",\n  \"collaboratorId\": \"string\",\n  \"integration\": null,\n  \"lineItemDetail\": \"string\",\n  \"metadata\": null,\n  \"payableNotes\": \"string\",\n  \"reimbursableExpense\": false,\n  \"workflowSubStatus\": \"null\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "605c8b02-8a9a-442a-bf38-497768e3cb41",
+          "name": "Modify a Specific Item in a Bulk Payable Batch",
+          "request": {
+            "name": "Modify a Specific Item in a Bulk Payable Batch",
+            "description": {
+              "content": "Updates the details or status of a specific item within a bulk payable batch, given both the batch ID and the item ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "payable",
+                "batch",
+                ":batchId",
+                "item",
+                ":batchItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchItemId",
+                  "description": "(Required) Unique identifier for an item in a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number,null>\",\n  \"attachmentId\": \"<string,null>\",\n  \"bulkPayableBatchId\": \"<string,null>\",\n  \"bulkPayableItemMergeKey\": \"<string,null>\",\n  \"bulkPayableItemReference\": \"<string,null>\",\n  \"clientId\": \"<string,null>\",\n  \"collaboratorEmail\": \"<string,null>\",\n  \"collaboratorExternalId\": \"<string,null>\",\n  \"collaboratorId\": \"<string,null>\",\n  \"dueDate\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lineItemDescription\": \"<string,null>\",\n  \"lineItemDetail\": \"<string,null>\",\n  \"paidDate\": \"<string,null>\",\n  \"payableNotes\": \"<string,null>\",\n  \"payableStatus\": \"<string,null>\",\n  \"reimbursableExpense\": \"<boolean,null>\",\n  \"workflowSubStatus\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14029339-0c2e-436b-9f83-95b29f4627a3",
+              "name": "An item that will be converted into a payable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "payable",
+                    "batch",
+                    ":batchId",
+                    "item",
+                    ":batchItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchItemId",
+                      "description": "(Required) Unique identifier for an item in a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number,null>\",\n  \"attachmentId\": \"<string,null>\",\n  \"bulkPayableBatchId\": \"<string,null>\",\n  \"bulkPayableItemMergeKey\": \"<string,null>\",\n  \"bulkPayableItemReference\": \"<string,null>\",\n  \"clientId\": \"<string,null>\",\n  \"collaboratorEmail\": \"<string,null>\",\n  \"collaboratorExternalId\": \"<string,null>\",\n  \"collaboratorId\": \"<string,null>\",\n  \"dueDate\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lineItemDescription\": \"<string,null>\",\n  \"lineItemDetail\": \"<string,null>\",\n  \"paidDate\": \"<string,null>\",\n  \"payableNotes\": \"<string,null>\",\n  \"payableStatus\": \"<string,null>\",\n  \"reimbursableExpense\": \"<boolean,null>\",\n  \"workflowSubStatus\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 2623.2039896208926,\n  \"bulkPayableBatchId\": \"string\",\n  \"bulkPayableItemId\": \"string\",\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"dueDate\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"lineItemDescription\": \"string\",\n  \"paidDate\": \"string\",\n  \"payableStatus\": \"Approved\",\n  \"status\": \"Failed\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"attachmentId\": \"string\",\n  \"bulkPayableItemMergeKey\": \"string\",\n  \"bulkPayableItemReference\": \"string\",\n  \"collaboratorEmail\": \"string\",\n  \"collaboratorExternalId\": \"string\",\n  \"collaboratorId\": \"string\",\n  \"integration\": null,\n  \"lineItemDetail\": \"string\",\n  \"metadata\": null,\n  \"payableNotes\": \"string\",\n  \"reimbursableExpense\": false,\n  \"workflowSubStatus\": \"null\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc6cbc9b-bf90-46ec-8c9f-ae7af1069718",
+          "name": "Retrieve All Bulk Invoice Batches",
+          "request": {
+            "name": "Retrieve All Bulk Invoice Batches",
+            "description": {
+              "content": "Fetches a list of all the batches created for bulk invoices, providing an overview of the bulk invoicing operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "invoice",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22bd6978-9ddd-4fd5-8fc6-e4acc9094e53",
+              "name": "A list of bulk invoice batches",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "invoice",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"bulkInvoiceBatchId\": \"string\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"memberId\": \"string\",\n    \"processingStrategy\": \"Single\",\n    \"status\": \"Complete\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"statistics\": null\n  },\n  {\n    \"bulkInvoiceBatchId\": \"string\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"memberId\": \"string\",\n    \"processingStrategy\": \"Single\",\n    \"status\": \"Open\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"statistics\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2baec371-106e-470b-ab7e-d45bcc52aa17",
+          "name": "Initiate a New Bulk Invoice Batch",
+          "request": {
+            "name": "Initiate a New Bulk Invoice Batch",
+            "description": {
+              "content": "Creates a new batch for importing multiple invoices at once, streamlining the bulk invoicing operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "invoice",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"processingStrategy\": \"<string>\",\n  \"labels\": \"<null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "784a5eb0-2dbf-4892-8697-283a874b77a4",
+              "name": "A batch of items for importing as invoices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "invoice",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"processingStrategy\": \"<string>\",\n  \"labels\": \"<null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkInvoiceBatchId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"processingStrategy\": \"Merge\",\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16b5049c-00a7-4e42-9983-e5885d45fa88",
+          "name": "Retrieve details of a specific bulk invoice batch",
+          "request": {
+            "name": "Retrieve details of a specific bulk invoice batch",
+            "description": {
+              "content": "Allows for the retrieval of a specified batch of bulk invoices by providing its unique batch identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "invoice",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "812c2d55-37a2-44fb-9914-d0a016a51528",
+              "name": "A batch of items for importing as invoices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "invoice",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkInvoiceBatchId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"processingStrategy\": \"Merge\",\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91b8d5b6-db8f-4777-9c0f-5f04b17833e1",
+          "name": "Modify the details of a specific bulk invoice batch",
+          "request": {
+            "name": "Modify the details of a specific bulk invoice batch",
+            "description": {
+              "content": "Enables the user to update or modify the attributes of a given batch of bulk invoices by specifying its unique batch identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "invoice",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b82db22-e594-4d0c-88ed-03fbeb504720",
+              "name": "A batch of items for importing as invoices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "invoice",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkInvoiceBatchId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"processingStrategy\": \"Merge\",\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0cbcaf7-9ae3-47a9-b136-71a58bbc6732",
+          "name": "Fetch all items from a specific bulk invoice batch",
+          "request": {
+            "name": "Fetch all items from a specific bulk invoice batch",
+            "description": {
+              "content": "Provides a list of all the items within a specified batch of bulk invoices, identified by its unique batch identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "invoice",
+                "batch",
+                ":batchId",
+                "item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35b00d40-1885-492e-898c-665963bfcfb8",
+              "name": "A list of bulk invoice items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "invoice",
+                    "batch",
+                    ":batchId",
+                    "item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 1153.4040882617235,\n    \"bulkInvoiceBatchId\": \"string\",\n    \"bulkInvoiceItemId\": \"string\",\n    \"createdAt\": \"string\",\n    \"dueDate\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"invoiceStatus\": \"Cancelled\",\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"lineItemDescription\": \"string\",\n    \"memberId\": \"string\",\n    \"paidDate\": \"string\",\n    \"status\": \"Processing\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"acceptedPaymentMethods\": [\n      \"null\",\n      \"Manual\"\n    ],\n    \"bulkInvoiceItemMergeKey\": \"string\",\n    \"bulkInvoiceItemReference\": \"string\",\n    \"clientEmail\": \"string\",\n    \"clientExternalId\": \"string\",\n    \"creditFeeHandling\": null,\n    \"integration\": null,\n    \"invoiceDate\": \"string\",\n    \"invoiceNotes\": \"string\",\n    \"lineItemDetail\": \"string\",\n    \"memberClientId\": \"string\",\n    \"metadata\": null,\n    \"projectName\": \"string\",\n    \"reimbursableExpense\": true,\n    \"sendDate\": \"string\"\n  },\n  {\n    \"amount\": 4459.67477388222,\n    \"bulkInvoiceBatchId\": \"string\",\n    \"bulkInvoiceItemId\": \"string\",\n    \"createdAt\": \"string\",\n    \"dueDate\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"invoiceStatus\": \"Cancelled\",\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"lineItemDescription\": \"string\",\n    \"memberId\": \"string\",\n    \"paidDate\": \"string\",\n    \"status\": \"Open\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"acceptedPaymentMethods\": [\n      \"ACH\",\n      \"Credit\"\n    ],\n    \"bulkInvoiceItemMergeKey\": \"string\",\n    \"bulkInvoiceItemReference\": \"string\",\n    \"clientEmail\": \"string\",\n    \"clientExternalId\": \"string\",\n    \"creditFeeHandling\": null,\n    \"integration\": null,\n    \"invoiceDate\": \"string\",\n    \"invoiceNotes\": \"string\",\n    \"lineItemDetail\": \"string\",\n    \"memberClientId\": \"string\",\n    \"metadata\": null,\n    \"projectName\": \"string\",\n    \"reimbursableExpense\": false,\n    \"sendDate\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "228b553e-906a-40fa-bf4a-698f183abfc1",
+          "name": "Add a new item to a specific bulk invoice batch",
+          "request": {
+            "name": "Add a new item to a specific bulk invoice batch",
+            "description": {
+              "content": "Allows users to append a new item to a given batch of bulk invoices by supplying its unique batch identifier and the details of the new item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "invoice",
+                "batch",
+                ":batchId",
+                "item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"bulkInvoiceBatchId\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"invoiceStatus\": \"<string>\",\n  \"lineItemDescription\": \"<string>\",\n  \"acceptedPaymentMethods\": [\n    \"<string,null>\",\n    \"<string,null>\"\n  ],\n  \"bulkInvoiceItemMergeKey\": \"<string,null>\",\n  \"bulkInvoiceItemReference\": \"<string,null>\",\n  \"clientEmail\": \"<string,null>\",\n  \"clientExternalId\": \"<string,null>\",\n  \"creditFeeHandling\": \"<null>\",\n  \"invoiceNotes\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lineItemDetail\": \"<string,null>\",\n  \"memberClientId\": \"<string,null>\",\n  \"paidDate\": \"<string,null>\",\n  \"projectName\": \"<string,null>\",\n  \"reimbursableExpense\": \"<boolean,null>\",\n  \"sendDate\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ca4ac75e-8f9a-46e2-a943-ddf471258d04",
+              "name": "An item that will be converted into a invoice",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "invoice",
+                    "batch",
+                    ":batchId",
+                    "item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"bulkInvoiceBatchId\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"invoiceStatus\": \"<string>\",\n  \"lineItemDescription\": \"<string>\",\n  \"acceptedPaymentMethods\": [\n    \"<string,null>\",\n    \"<string,null>\"\n  ],\n  \"bulkInvoiceItemMergeKey\": \"<string,null>\",\n  \"bulkInvoiceItemReference\": \"<string,null>\",\n  \"clientEmail\": \"<string,null>\",\n  \"clientExternalId\": \"<string,null>\",\n  \"creditFeeHandling\": \"<null>\",\n  \"invoiceNotes\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lineItemDetail\": \"<string,null>\",\n  \"memberClientId\": \"<string,null>\",\n  \"paidDate\": \"<string,null>\",\n  \"projectName\": \"<string,null>\",\n  \"reimbursableExpense\": \"<boolean,null>\",\n  \"sendDate\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 3457.542729791148,\n  \"bulkInvoiceBatchId\": \"string\",\n  \"bulkInvoiceItemId\": \"string\",\n  \"createdAt\": \"string\",\n  \"dueDate\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"invoiceStatus\": \"Cancelled\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"lineItemDescription\": \"string\",\n  \"memberId\": \"string\",\n  \"paidDate\": \"string\",\n  \"status\": \"Processing\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"acceptedPaymentMethods\": [\n    \"ACH\",\n    \"Credit\"\n  ],\n  \"bulkInvoiceItemMergeKey\": \"string\",\n  \"bulkInvoiceItemReference\": \"string\",\n  \"clientEmail\": \"string\",\n  \"clientExternalId\": \"string\",\n  \"creditFeeHandling\": null,\n  \"integration\": null,\n  \"invoiceDate\": \"string\",\n  \"invoiceNotes\": \"string\",\n  \"lineItemDetail\": \"string\",\n  \"memberClientId\": \"string\",\n  \"metadata\": null,\n  \"projectName\": \"string\",\n  \"reimbursableExpense\": true,\n  \"sendDate\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50b35643-095b-4d33-993f-04fda794667d",
+          "name": "Retrieve a specific item from a bulk invoice batch",
+          "request": {
+            "name": "Retrieve a specific item from a bulk invoice batch",
+            "description": {
+              "content": "Fetches detailed information about a specific item located within a designated bulk invoice batch. Useful for obtaining particular item data without browsing the entire batch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "invoice",
+                "batch",
+                ":batchId",
+                "item",
+                ":batchItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchItemId",
+                  "description": "(Required) Unique identifier for an item in a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49a036e2-503d-4f97-9954-60d7b51e43c5",
+              "name": "An item that will be converted into a invoice",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "invoice",
+                    "batch",
+                    ":batchId",
+                    "item",
+                    ":batchItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchItemId",
+                      "description": "(Required) Unique identifier for an item in a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 3457.542729791148,\n  \"bulkInvoiceBatchId\": \"string\",\n  \"bulkInvoiceItemId\": \"string\",\n  \"createdAt\": \"string\",\n  \"dueDate\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"invoiceStatus\": \"Cancelled\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"lineItemDescription\": \"string\",\n  \"memberId\": \"string\",\n  \"paidDate\": \"string\",\n  \"status\": \"Processing\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"acceptedPaymentMethods\": [\n    \"ACH\",\n    \"Credit\"\n  ],\n  \"bulkInvoiceItemMergeKey\": \"string\",\n  \"bulkInvoiceItemReference\": \"string\",\n  \"clientEmail\": \"string\",\n  \"clientExternalId\": \"string\",\n  \"creditFeeHandling\": null,\n  \"integration\": null,\n  \"invoiceDate\": \"string\",\n  \"invoiceNotes\": \"string\",\n  \"lineItemDetail\": \"string\",\n  \"memberClientId\": \"string\",\n  \"metadata\": null,\n  \"projectName\": \"string\",\n  \"reimbursableExpense\": true,\n  \"sendDate\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ca54c85-da82-4864-99ee-7b8c059aa0be",
+          "name": "Modify a specific item within a bulk invoice batch",
+          "request": {
+            "name": "Modify a specific item within a bulk invoice batch",
+            "description": {
+              "content": "Allows for updates or edits to be made to a specific items details within an existing bulk invoice batch. Enhances the flexibility and management of invoice data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "invoice",
+                "batch",
+                ":batchId",
+                "item",
+                ":batchItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchItemId",
+                  "description": "(Required) Unique identifier for an item in a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"acceptedPaymentMethods\": [\n    \"<string,null>\",\n    \"<string,null>\"\n  ],\n  \"amount\": \"<number,null>\",\n  \"bulkInvoiceBatchId\": \"<string,null>\",\n  \"bulkInvoiceItemMergeKey\": \"<string,null>\",\n  \"bulkInvoiceItemReference\": \"<string,null>\",\n  \"clientEmail\": \"<string,null>\",\n  \"clientExternalId\": \"<string,null>\",\n  \"creditFeeHandling\": \"<null>\",\n  \"dueDate\": \"<string,null>\",\n  \"invoiceNotes\": \"<string,null>\",\n  \"invoiceStatus\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lineItemDescription\": \"<string,null>\",\n  \"lineItemDetail\": \"<string,null>\",\n  \"memberClientId\": \"<string,null>\",\n  \"paidDate\": \"<string,null>\",\n  \"projectName\": \"<string,null>\",\n  \"reimbursableExpense\": \"<boolean,null>\",\n  \"sendDate\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5cc3cc80-a025-46e4-9719-48f219630ef8",
+              "name": "An item that will be converted into a invoice",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "invoice",
+                    "batch",
+                    ":batchId",
+                    "item",
+                    ":batchItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchItemId",
+                      "description": "(Required) Unique identifier for an item in a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acceptedPaymentMethods\": [\n    \"<string,null>\",\n    \"<string,null>\"\n  ],\n  \"amount\": \"<number,null>\",\n  \"bulkInvoiceBatchId\": \"<string,null>\",\n  \"bulkInvoiceItemMergeKey\": \"<string,null>\",\n  \"bulkInvoiceItemReference\": \"<string,null>\",\n  \"clientEmail\": \"<string,null>\",\n  \"clientExternalId\": \"<string,null>\",\n  \"creditFeeHandling\": \"<null>\",\n  \"dueDate\": \"<string,null>\",\n  \"invoiceNotes\": \"<string,null>\",\n  \"invoiceStatus\": \"<string,null>\",\n  \"labels\": \"<null>\",\n  \"lineItemDescription\": \"<string,null>\",\n  \"lineItemDetail\": \"<string,null>\",\n  \"memberClientId\": \"<string,null>\",\n  \"paidDate\": \"<string,null>\",\n  \"projectName\": \"<string,null>\",\n  \"reimbursableExpense\": \"<boolean,null>\",\n  \"sendDate\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 3457.542729791148,\n  \"bulkInvoiceBatchId\": \"string\",\n  \"bulkInvoiceItemId\": \"string\",\n  \"createdAt\": \"string\",\n  \"dueDate\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"invoiceStatus\": \"Cancelled\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"lineItemDescription\": \"string\",\n  \"memberId\": \"string\",\n  \"paidDate\": \"string\",\n  \"status\": \"Processing\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"acceptedPaymentMethods\": [\n    \"ACH\",\n    \"Credit\"\n  ],\n  \"bulkInvoiceItemMergeKey\": \"string\",\n  \"bulkInvoiceItemReference\": \"string\",\n  \"clientEmail\": \"string\",\n  \"clientExternalId\": \"string\",\n  \"creditFeeHandling\": null,\n  \"integration\": null,\n  \"invoiceDate\": \"string\",\n  \"invoiceNotes\": \"string\",\n  \"lineItemDetail\": \"string\",\n  \"memberClientId\": \"string\",\n  \"metadata\": null,\n  \"projectName\": \"string\",\n  \"reimbursableExpense\": true,\n  \"sendDate\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2827bf9-a60f-48d5-b74b-72ee0a6a84ef",
+          "name": "Fetch all bulk collaborator batches",
+          "request": {
+            "name": "Fetch all bulk collaborator batches",
+            "description": {
+              "content": "Provides a list of all existing bulk collaborator batches, allowing users to view and manage batches that have been created for collaboration purposes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "collaborator",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a227e7a0-e94e-47d9-b1fe-b31cd38005e9",
+              "name": "A list of bulk collaborator batches",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "collaborator",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"bulkCollaboratorBatchId\": \"string\",\n    \"client\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Active\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"clientId\": \"string\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"status\": \"Failed\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"statistics\": null\n  },\n  {\n    \"bulkCollaboratorBatchId\": \"string\",\n    \"client\": {\n      \"user\": {\n        \"email\": \"string\",\n        \"phone\": null,\n        \"profile\": null,\n        \"settings\": null,\n        \"status\": \"Pending\",\n        \"tag\": \"string\"\n      },\n      \"profile\": null\n    },\n    \"clientId\": \"string\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"status\": \"Pending\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"statistics\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5332040b-b46b-46b2-bc74-801fd16ee651",
+          "name": "Initiate a new bulk collaborator batch.",
+          "request": {
+            "name": "Initiate a new bulk collaborator batch.",
+            "description": {
+              "content": "Enables the creation of a new bulk collaborator batch, facilitating the bulk management and addition of collaborators for various projects or tasks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "collaborator",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": \"<null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8a95908c-a4c2-4f76-b26d-8419ab629530",
+              "name": "A batch of items for importing as collaborators",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "collaborator",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": \"<null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkCollaboratorBatchId\": \"string\",\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"null\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5cdf9b2-d5b3-4277-9c27-91a506f492ed",
+          "name": "Retrieve Details of a Specific Collaborator Batch",
+          "request": {
+            "name": "Retrieve Details of a Specific Collaborator Batch",
+            "description": {
+              "content": "Fetches detailed information of a specific bulk collaborator batch, using the provided batch ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "collaborator",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6460f893-c1f0-41cd-9d18-90857a991468",
+              "name": "A batch of items for importing as collaborators",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "collaborator",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkCollaboratorBatchId\": \"string\",\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"null\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b53ce4a8-f7fe-4baf-93ea-0749435acc58",
+          "name": "Modify Details of a Bulk Collaborator Batch",
+          "request": {
+            "name": "Modify Details of a Bulk Collaborator Batch",
+            "description": {
+              "content": "Allows for updating or altering the details and items within a specific bulk collaborator batch using the given batch ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "collaborator",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5aea889c-b2be-4823-a750-3aeb007eeb4e",
+              "name": "A batch of items for importing as collaborators",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "collaborator",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkCollaboratorBatchId\": \"string\",\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"null\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "861d7931-6d01-484f-b31c-8fac1236893b",
+          "name": "Remove a Specific Collaborator Batch",
+          "request": {
+            "name": "Remove a Specific Collaborator Batch",
+            "description": {
+              "content": "Deletes a specific bulk collaborator batch using its unique identifier. Once deleted, the batch cannot be recovered.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "collaborator",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4322394f-9531-4389-abef-2419e444415d",
+              "name": "A batch of items for importing as collaborators",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "collaborator",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkCollaboratorBatchId\": \"string\",\n  \"client\": {\n    \"user\": {\n      \"email\": \"string\",\n      \"phone\": null,\n      \"profile\": null,\n      \"settings\": null,\n      \"status\": \"null\",\n      \"tag\": \"string\"\n    },\n    \"profile\": null\n  },\n  \"clientId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af24edce-fe28-4fbd-ab15-eedc0d6cb777",
+          "name": "Retrieve all items from a specific collaborator batch",
+          "request": {
+            "name": "Retrieve all items from a specific collaborator batch",
+            "description": {
+              "content": "Provides a comprehensive list of items present within a specified batch of collaborators, identifiable through its unique batch identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "collaborator",
+                "batch",
+                ":batchId",
+                "item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8440e83f-c024-4408-a8c1-1b27fccc38de",
+              "name": "A list of bulk collaborator items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "collaborator",
+                    "batch",
+                    ":batchId",
+                    "item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"bulkCollaboratorBatchId\": \"string\",\n    \"bulkCollaboratorItemId\": \"string\",\n    \"clientId\": \"string\",\n    \"collaboratorStatus\": \"Inactive\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"status\": \"Failed\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"collaboratorGroupId\": \"string\",\n    \"collaboratorId\": \"string\",\n    \"company\": \"string\",\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"firstLastName\": \"string\",\n    \"formW9Data\": null,\n    \"memberId\": \"string\",\n    \"metadata\": null,\n    \"orgSubAccountId\": \"string\"\n  },\n  {\n    \"bulkCollaboratorBatchId\": \"string\",\n    \"bulkCollaboratorItemId\": \"string\",\n    \"clientId\": \"string\",\n    \"collaboratorStatus\": \"Inactive\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"status\": \"Complete\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"collaboratorGroupId\": \"string\",\n    \"collaboratorId\": \"string\",\n    \"company\": \"string\",\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"firstLastName\": \"string\",\n    \"formW9Data\": null,\n    \"memberId\": \"string\",\n    \"metadata\": null,\n    \"orgSubAccountId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9dac4cdd-42e9-4ce2-89d2-c62c86fa73e2",
+          "name": "Append a new item to a specific collaborator batch",
+          "request": {
+            "name": "Append a new item to a specific collaborator batch",
+            "description": {
+              "content": "Allows for the addition of a new item to an existing batch of collaborators by providing the batchs unique identifier and item details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "collaborator",
+                "batch",
+                ":batchId",
+                "item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collaboratorGroupId\": \"<string,null>\",\n  \"collaboratorId\": \"<string,null>\",\n  \"collaboratorStatus\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"email\": \"<string,null>\",\n  \"externalId\": \"<string,null>\",\n  \"firstLastName\": \"<string,null>\",\n  \"formW9Data\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"orgSubAccountId\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9e65a225-6380-4870-a9aa-42d629205a84",
+              "name": "An item that will be converted into a collaborator",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "collaborator",
+                    "batch",
+                    ":batchId",
+                    "item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collaboratorGroupId\": \"<string,null>\",\n  \"collaboratorId\": \"<string,null>\",\n  \"collaboratorStatus\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"email\": \"<string,null>\",\n  \"externalId\": \"<string,null>\",\n  \"firstLastName\": \"<string,null>\",\n  \"formW9Data\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"orgSubAccountId\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkCollaboratorBatchId\": \"string\",\n  \"bulkCollaboratorItemId\": \"string\",\n  \"clientId\": \"string\",\n  \"collaboratorStatus\": \"Inactive\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"collaboratorGroupId\": \"string\",\n  \"collaboratorId\": \"string\",\n  \"company\": \"string\",\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"firstLastName\": \"string\",\n  \"formW9Data\": null,\n  \"memberId\": \"string\",\n  \"metadata\": null,\n  \"orgSubAccountId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35c1f3df-9519-4aa2-aee3-a6dffdc49ffa",
+          "name": "Retrieve details of a specific item from a collaborator batch",
+          "request": {
+            "name": "Retrieve details of a specific item from a collaborator batch",
+            "description": {
+              "content": "Enables fetching of detailed information about an individual item from a specified batch of collaborators using both the batch and item unique identifiers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "collaborator",
+                "batch",
+                ":batchId",
+                "item",
+                ":batchItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchItemId",
+                  "description": "(Required) Unique identifier for an item in a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e8aceee-651f-46b8-ad77-f39ef082d671",
+              "name": "An item that will be converted into a collaborator",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "collaborator",
+                    "batch",
+                    ":batchId",
+                    "item",
+                    ":batchItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchItemId",
+                      "description": "(Required) Unique identifier for an item in a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkCollaboratorBatchId\": \"string\",\n  \"bulkCollaboratorItemId\": \"string\",\n  \"clientId\": \"string\",\n  \"collaboratorStatus\": \"Inactive\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"collaboratorGroupId\": \"string\",\n  \"collaboratorId\": \"string\",\n  \"company\": \"string\",\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"firstLastName\": \"string\",\n  \"formW9Data\": null,\n  \"memberId\": \"string\",\n  \"metadata\": null,\n  \"orgSubAccountId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39b49095-aa43-4604-8f41-ba341996b3b3",
+          "name": "Modify the details of a specific item within a collaborator batch",
+          "request": {
+            "name": "Modify the details of a specific item within a collaborator batch",
+            "description": {
+              "content": "Provides the functionality to update or alter the attributes of an item present in a given collaborator batch using the unique identifiers for both the batch and the item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "collaborator",
+                "batch",
+                ":batchId",
+                "item",
+                ":batchItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchItemId",
+                  "description": "(Required) Unique identifier for an item in a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collaboratorGroupId\": \"<string,null>\",\n  \"collaboratorId\": \"<string,null>\",\n  \"collaboratorStatus\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"email\": \"<string,null>\",\n  \"externalId\": \"<string,null>\",\n  \"firstLastName\": \"<string,null>\",\n  \"formW9Data\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"orgSubAccountId\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98d673b4-562d-476b-9a82-513262eabb9d",
+              "name": "An item that will be converted into a collaborator",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "collaborator",
+                    "batch",
+                    ":batchId",
+                    "item",
+                    ":batchItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchItemId",
+                      "description": "(Required) Unique identifier for an item in a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collaboratorGroupId\": \"<string,null>\",\n  \"collaboratorId\": \"<string,null>\",\n  \"collaboratorStatus\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"email\": \"<string,null>\",\n  \"externalId\": \"<string,null>\",\n  \"firstLastName\": \"<string,null>\",\n  \"formW9Data\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"orgSubAccountId\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkCollaboratorBatchId\": \"string\",\n  \"bulkCollaboratorItemId\": \"string\",\n  \"clientId\": \"string\",\n  \"collaboratorStatus\": \"Inactive\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"status\": \"Pending\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"collaboratorGroupId\": \"string\",\n  \"collaboratorId\": \"string\",\n  \"company\": \"string\",\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"firstLastName\": \"string\",\n  \"formW9Data\": null,\n  \"memberId\": \"string\",\n  \"metadata\": null,\n  \"orgSubAccountId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "051328ff-18f0-4a17-b6af-cc5b15263536",
+          "name": "Retrieve all bulk client batches",
+          "request": {
+            "name": "Retrieve all bulk client batches",
+            "description": {
+              "content": "Provides an overview of all existing bulk client batches, allowing users to quickly ascertain and manage batches created for the purpose of client onboarding or import.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "client",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a3009c3-2578-4c9b-9465-fb7a5daf5eec",
+              "name": "A list of bulk client batches",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "client",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"bulkClientBatchId\": \"string\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"memberId\": \"string\",\n    \"status\": \"Failed\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"statistics\": null\n  },\n  {\n    \"bulkClientBatchId\": \"string\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"memberId\": \"string\",\n    \"status\": \"Failed\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"statistics\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "084b6f08-1d6b-4be4-b969-3620f81a34e8",
+          "name": "Create a new bulk client batch",
+          "request": {
+            "name": "Create a new bulk client batch",
+            "description": {
+              "content": "Initiates the creation of a fresh bulk client batch, streamlining the process of adding multiple clients in one go.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "client",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": \"<null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1bce0902-1e69-4685-96c9-3aae0f40c870",
+              "name": "A batch of items for importing as clients",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "client",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": \"<null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkClientBatchId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39b3240b-3648-4116-9b02-fea21c5d13a4",
+          "name": "Fetch Details of a Specific Item from a Client Batch",
+          "request": {
+            "name": "Fetch Details of a Specific Item from a Client Batch",
+            "description": {
+              "content": "Retrieves the detailed information of a specific item within the bulk client batch using both batch and item unique identifiers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "client",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "911ed78c-8d68-4c87-9a08-62fadde5f5cc",
+              "name": "A batch of items for importing as clients",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "client",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkClientBatchId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fc392a2-0825-4f89-8320-a37db2aa22bd",
+          "name": "Modify Details of a Specific Item in a Client Batch",
+          "request": {
+            "name": "Modify Details of a Specific Item in a Client Batch",
+            "description": {
+              "content": "Allows modification of the details of a specific item within the bulk client batch, using the provided item and batch identifiers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "client",
+                "batch",
+                ":batchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c3d89a6d-a6e0-48d8-a365-08194eedb981",
+              "name": "A batch of items for importing as clients",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "client",
+                    "batch",
+                    ":batchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": \"<null>\",\n  \"status\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkClientBatchId\": \"string\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"statistics\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1af8eada-5885-45df-bba8-72c4baf90b8a",
+          "name": "Retrieve All Items from a Client Batch",
+          "request": {
+            "name": "Retrieve All Items from a Client Batch",
+            "description": {
+              "content": "Fetches all items present in the specified bulk client batch, providing a comprehensive view of all client data in the batch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "client",
+                "batch",
+                ":batchId",
+                "item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "908040bf-99a1-42ef-9693-f0508312036c",
+              "name": "A list of bulk client items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "client",
+                    "batch",
+                    ":batchId",
+                    "item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"bulkClientBatchId\": \"string\",\n    \"bulkClientItemId\": \"string\",\n    \"clientStatus\": \"Inactive\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"memberId\": \"string\",\n    \"status\": \"Processing\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"company\": \"string\",\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"firstLastName\": \"string\",\n    \"integration\": null,\n    \"memberClientId\": \"string\",\n    \"memberData\": null,\n    \"metadata\": null\n  },\n  {\n    \"bulkClientBatchId\": \"string\",\n    \"bulkClientItemId\": \"string\",\n    \"clientStatus\": \"Pending\",\n    \"createdAt\": \"string\",\n    \"eventActors\": {\n      \"key_0\": \"string\"\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"memberId\": \"string\",\n    \"status\": \"Processing\",\n    \"updatedAt\": \"string\",\n    \"userRoles\": {\n      \"ownerIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"viewerIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"company\": \"string\",\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"firstLastName\": \"string\",\n    \"integration\": null,\n    \"memberClientId\": \"string\",\n    \"memberData\": null,\n    \"metadata\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17e3a3c7-c391-432a-a1d9-ad4fa1f22768",
+          "name": "Add a New Item to a Client Batch",
+          "request": {
+            "name": "Add a New Item to a Client Batch",
+            "description": {
+              "content": "Inserts a new item into the specified bulk client batch, allowing for further expansion of client data within the batch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "client",
+                "batch",
+                ":batchId",
+                "item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientStatus\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"email\": \"<string,null>\",\n  \"externalId\": \"<string,null>\",\n  \"firstLastName\": \"<string,null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ed02fce3-9539-413f-9b03-d41e06e91299",
+              "name": "An item that will be converted into a client",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "client",
+                    "batch",
+                    ":batchId",
+                    "item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientStatus\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"email\": \"<string,null>\",\n  \"externalId\": \"<string,null>\",\n  \"firstLastName\": \"<string,null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkClientBatchId\": \"string\",\n  \"bulkClientItemId\": \"string\",\n  \"clientStatus\": \"Inactive\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"company\": \"string\",\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"firstLastName\": \"string\",\n  \"integration\": null,\n  \"memberClientId\": \"string\",\n  \"memberData\": null,\n  \"metadata\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5041f7f8-1b0b-49d8-b3b9-45246d4d9b22",
+          "name": "Fetch Details of a Specific Item from a Client Batch",
+          "request": {
+            "name": "Fetch Details of a Specific Item from a Client Batch",
+            "description": {
+              "content": "Retrieves the detailed information of a specific item within the bulk client batch using both batch and item unique identifiers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "client",
+                "batch",
+                ":batchId",
+                "item",
+                ":batchItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchItemId",
+                  "description": "(Required) Unique identifier for an item in a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1cd4b56c-cab9-4b26-a01a-70928802cca2",
+              "name": "An item that will be converted into a client",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "client",
+                    "batch",
+                    ":batchId",
+                    "item",
+                    ":batchItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchItemId",
+                      "description": "(Required) Unique identifier for an item in a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkClientBatchId\": \"string\",\n  \"bulkClientItemId\": \"string\",\n  \"clientStatus\": \"Inactive\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"company\": \"string\",\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"firstLastName\": \"string\",\n  \"integration\": null,\n  \"memberClientId\": \"string\",\n  \"memberData\": null,\n  \"metadata\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0c09610-d86c-4527-8002-293e48960a61",
+          "name": "Modify Details of a Specific Item in a Client Batch",
+          "request": {
+            "name": "Modify Details of a Specific Item in a Client Batch",
+            "description": {
+              "content": "Allows modification of the details of a specific item within the bulk client batch, using the provided item and batch identifiers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "bulk",
+                "client",
+                "batch",
+                ":batchId",
+                "item",
+                ":batchItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchId",
+                  "description": "(Required) Unique identifier for a batch"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batchItemId",
+                  "description": "(Required) Unique identifier for an item in a batch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientStatus\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"email\": \"<string,null>\",\n  \"externalId\": \"<string,null>\",\n  \"firstLastName\": \"<string,null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3111ea95-d3e3-42a3-a985-62f7c3f7fde0",
+              "name": "An item that will be converted into a client",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk",
+                    "client",
+                    "batch",
+                    ":batchId",
+                    "item",
+                    ":batchItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchId",
+                      "description": "(Required) Unique identifier for a batch"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batchItemId",
+                      "description": "(Required) Unique identifier for an item in a batch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientStatus\": \"<string,null>\",\n  \"company\": \"<string,null>\",\n  \"email\": \"<string,null>\",\n  \"externalId\": \"<string,null>\",\n  \"firstLastName\": \"<string,null>\",\n  \"integration\": \"<null>\",\n  \"labels\": \"<null>\",\n  \"memberData\": \"<null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulkClientBatchId\": \"string\",\n  \"bulkClientItemId\": \"string\",\n  \"clientStatus\": \"Inactive\",\n  \"createdAt\": \"string\",\n  \"eventActors\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"memberId\": \"string\",\n  \"status\": \"Complete\",\n  \"updatedAt\": \"string\",\n  \"userRoles\": {\n    \"ownerIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"viewerIds\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"company\": \"string\",\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"firstLastName\": \"string\",\n  \"integration\": null,\n  \"memberClientId\": \"string\",\n  \"memberData\": null,\n  \"metadata\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wingspan.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "78992c11-cc2c-471d-977e-04b4f5c09ff4",
+    "name": "Wingspan Payments 1099 Operations Bulk Operations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Payments\n\nContact Support:\n Name: Wingspan API Support\n Email: support@wingspan.app",
+      "type": "text/plain"
+    }
+  }
+}

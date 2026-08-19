@@ -1,0 +1,737 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wingspan Payments 1099 Operations Bulk Operations API",
+    "version": "1.0.0-oas3.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulk Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Bulk Payable Batches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch"
+          },
+          "docs": "Fetches a list of all the batches created for bulk payables, providing an overview of the bulk payment operations."
+        },
+        {
+          "info": {
+            "name": "Initiate a New Bulk Payable Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new batch for importing multiple payables at once, streamlining the bulk payment operations."
+        },
+        {
+          "info": {
+            "name": "Retrieve Details of a Specific Bulk Payable Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information of a specific batch created for bulk payables, using the provided batch ID."
+        },
+        {
+          "info": {
+            "name": "Modify a Specific Bulk Payable Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the information or items of a specific bulk payable batch, given its unique batch ID."
+        },
+        {
+          "info": {
+            "name": "Remove a Specific Bulk Payable Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Deletes a specific batch for bulk payables, using the provided batch ID, preventing any further operations on it."
+        },
+        {
+          "info": {
+            "name": "Retrieve all items from a specific bulk payable batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Fetches and lists all individual payable items associated with a specified bulk payable batch. Useful for tracking and verifying batch details."
+        },
+        {
+          "info": {
+            "name": "Add a new item to a specific bulk payable batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows for the creation and addition of a new individual payable item into an existing bulk payable batch. This enhances batch management and payable tracking."
+        },
+        {
+          "info": {
+            "name": "Fetch the import summary for a specific bulk payable batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch/:batchId/import-summary",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Provides an overview and summary of the import process for a given bulk payable batch, allowing for tracking of imported items, errors, and other relevant batch statistics."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific Item from a Bulk Payable Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information of a specific item within a bulk payable batch, using both the batch ID and the item ID."
+        },
+        {
+          "info": {
+            "name": "Modify a Specific Item in a Bulk Payable Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/payable/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the details or status of a specific item within a bulk payable batch, given both the batch ID and the item ID."
+        },
+        {
+          "info": {
+            "name": "Retrieve All Bulk Invoice Batches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/invoice/batch"
+          },
+          "docs": "Fetches a list of all the batches created for bulk invoices, providing an overview of the bulk invoicing operations."
+        },
+        {
+          "info": {
+            "name": "Initiate a New Bulk Invoice Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/invoice/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new batch for importing multiple invoices at once, streamlining the bulk invoicing operations."
+        },
+        {
+          "info": {
+            "name": "Retrieve details of a specific bulk invoice batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/invoice/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Allows for the retrieval of a specified batch of bulk invoices by providing its unique batch identifier."
+        },
+        {
+          "info": {
+            "name": "Modify the details of a specific bulk invoice batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/invoice/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enables the user to update or modify the attributes of a given batch of bulk invoices by specifying its unique batch identifier."
+        },
+        {
+          "info": {
+            "name": "Fetch all items from a specific bulk invoice batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/invoice/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Provides a list of all the items within a specified batch of bulk invoices, identified by its unique batch identifier."
+        },
+        {
+          "info": {
+            "name": "Add a new item to a specific bulk invoice batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/invoice/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows users to append a new item to a given batch of bulk invoices by supplying its unique batch identifier and the details of the new item."
+        },
+        {
+          "info": {
+            "name": "Retrieve a specific item from a bulk invoice batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/invoice/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information about a specific item located within a designated bulk invoice batch. Useful for obtaining particular item data without browsing the entire batch."
+        },
+        {
+          "info": {
+            "name": "Modify a specific item within a bulk invoice batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/invoice/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows for updates or edits to be made to a specific items details within an existing bulk invoice batch. Enhances the flexibility and management of invoice data."
+        },
+        {
+          "info": {
+            "name": "Fetch all bulk collaborator batches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/collaborator/batch"
+          },
+          "docs": "Provides a list of all existing bulk collaborator batches, allowing users to view and manage batches that have been created for collaboration purposes."
+        },
+        {
+          "info": {
+            "name": "Initiate a new bulk collaborator batch.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/collaborator/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enables the creation of a new bulk collaborator batch, facilitating the bulk management and addition of collaborators for various projects or tasks."
+        },
+        {
+          "info": {
+            "name": "Retrieve Details of a Specific Collaborator Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/collaborator/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information of a specific bulk collaborator batch, using the provided batch ID."
+        },
+        {
+          "info": {
+            "name": "Modify Details of a Bulk Collaborator Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/collaborator/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows for updating or altering the details and items within a specific bulk collaborator batch using the given batch ID."
+        },
+        {
+          "info": {
+            "name": "Remove a Specific Collaborator Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wingspan.app/payments/bulk/collaborator/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Deletes a specific bulk collaborator batch using its unique identifier. Once deleted, the batch cannot be recovered."
+        },
+        {
+          "info": {
+            "name": "Retrieve all items from a specific collaborator batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/collaborator/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Provides a comprehensive list of items present within a specified batch of collaborators, identifiable through its unique batch identifier."
+        },
+        {
+          "info": {
+            "name": "Append a new item to a specific collaborator batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/collaborator/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows for the addition of a new item to an existing batch of collaborators by providing the batchs unique identifier and item details."
+        },
+        {
+          "info": {
+            "name": "Retrieve details of a specific item from a collaborator batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/collaborator/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ]
+          },
+          "docs": "Enables fetching of detailed information about an individual item from a specified batch of collaborators using both the batch and item unique identifiers."
+        },
+        {
+          "info": {
+            "name": "Modify the details of a specific item within a collaborator batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/collaborator/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Provides the functionality to update or alter the attributes of an item present in a given collaborator batch using the unique identifiers for both the batch and the item."
+        },
+        {
+          "info": {
+            "name": "Retrieve all bulk client batches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/client/batch"
+          },
+          "docs": "Provides an overview of all existing bulk client batches, allowing users to quickly ascertain and manage batches created for the purpose of client onboarding or import."
+        },
+        {
+          "info": {
+            "name": "Create a new bulk client batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/client/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiates the creation of a fresh bulk client batch, streamlining the process of adding multiple clients in one go."
+        },
+        {
+          "info": {
+            "name": "Fetch Details of a Specific Item from a Client Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/client/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Retrieves the detailed information of a specific item within the bulk client batch using both batch and item unique identifiers."
+        },
+        {
+          "info": {
+            "name": "Modify Details of a Specific Item in a Client Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/client/batch/:batchId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows modification of the details of a specific item within the bulk client batch, using the provided item and batch identifiers."
+        },
+        {
+          "info": {
+            "name": "Retrieve All Items from a Client Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/client/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ]
+          },
+          "docs": "Fetches all items present in the specified bulk client batch, providing a comprehensive view of all client data in the batch."
+        },
+        {
+          "info": {
+            "name": "Add a New Item to a Client Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wingspan.app/payments/bulk/client/batch/:batchId/item",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a new item into the specified bulk client batch, allowing for further expansion of client data within the batch."
+        },
+        {
+          "info": {
+            "name": "Fetch Details of a Specific Item from a Client Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wingspan.app/payments/bulk/client/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ]
+          },
+          "docs": "Retrieves the detailed information of a specific item within the bulk client batch using both batch and item unique identifiers."
+        },
+        {
+          "info": {
+            "name": "Modify Details of a Specific Item in a Client Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.wingspan.app/payments/bulk/client/batch/:batchId/item/:batchItemId",
+            "params": [
+              {
+                "name": "batchId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a batch"
+              },
+              {
+                "name": "batchItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for an item in a batch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows modification of the details of a specific item within the bulk client batch, using the provided item and batch identifiers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
