@@ -1,11 +1,11 @@
 aid: wingspan
 name: Wingspan
-description: Wingspan is a contractor payments and payroll platform built for the independent
-  workforce, giving enterprises a single system to onboard 1099 contractors, collect W-9 and
-  compliance documents, run approval-based payroll, pay collaborators by ACH or instant payout,
-  and file 1099 tax forms. Its REST Payments API (OpenAPI 3.1) covers payables, invoicing,
-  collaborators and groups, payable/invoice/1099 batches, deductions, eligibility requirements,
-  custom fields, reporting, and webhooks, with embeddable onboarding and payout-settings UIs.
+description: Wingspan is a contractor payments and payroll platform built for the independent workforce,
+  giving enterprises a single system to onboard 1099 contractors, collect W-9 and compliance documents,
+  run approval-based payroll, pay collaborators by ACH or instant payout, and file 1099 tax forms. Its
+  REST Payments API (OpenAPI 3.1) covers payables, invoicing, collaborators and groups, payable/invoice/1099
+  batches, deductions, eligibility requirements, custom fields, reporting, and webhooks, with embeddable
+  onboarding and payout-settings UIs.
 url: https://raw.githubusercontent.com/api-evangelist/wingspan/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -41,7 +41,7 @@ accessModel:
 image: https://www.wingspan.app/images/wingspan-logo.svg
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-09-16'
 tags:
 - Company
 - Payments
@@ -68,9 +68,8 @@ apis:
     url: https://docs.wingspan.app/reference
 - aid: wingspan:wingspan-banking-management-api
   name: Wingspan Banking Management API
-  description: >-
-    These endpoints cater to fetching, storing, and managing documents related to electronic signatures,
-    including retrieval of signing URLs and saving e-signed documents.
+  description: These endpoints cater to fetching, storing, and managing documents related to electronic
+    signatures, including retrieval of signing URLs and saving e-signed documents.
   humanURL: https://docs.wingspan.app/
   baseURL: https://api.wingspan.app
   tags:
@@ -84,9 +83,8 @@ apis:
     url: https://docs.wingspan.app/reference
 - aid: wingspan:wingspan-bulk-operations-api
   name: Wingspan Bulk Operations API
-  description: >-
-    This category includes endpoints for managing bulk operations like bulk payables, bulk invoices, and
-    bulk collaborator management.
+  description: This category includes endpoints for managing bulk operations like bulk payables, bulk
+    invoices, and bulk collaborator management.
   humanURL: https://docs.wingspan.app/
   baseURL: https://api.wingspan.app
   tags:
@@ -100,9 +98,8 @@ apis:
     url: https://docs.wingspan.app/reference
 - aid: wingspan:wingspan-client-management-api
   name: Wingspan Client Management API
-  description: >-
-    Encompasses endpoints for banking-related operations such as managing bank cards, statements, instant
-    payouts, and banking institutions..
+  description: Encompasses endpoints for banking-related operations such as managing bank cards, statements,
+    instant payouts, and banking institutions..
   humanURL: https://docs.wingspan.app/
   baseURL: https://api.wingspan.app
   tags:
@@ -116,9 +113,8 @@ apis:
     url: https://docs.wingspan.app/reference
 - aid: wingspan:wingspan-collaborator-management-api
   name: Wingspan Collaborator Management API
-  description: >-
-    This category includes endpoints that manage relationships and interactions with collaborators. This
-    includes collaborator settings, and various operations related to collaborators.
+  description: This category includes endpoints that manage relationships and interactions with collaborators.
+    This includes collaborator settings, and various operations related to collaborators.
   humanURL: https://docs.wingspan.app/
   baseURL: https://api.wingspan.app
   tags:
@@ -160,8 +156,8 @@ apis:
     url: https://docs.wingspan.app/reference
 - aid: wingspan:wingspan-document-signing-and-eligibility-api
   name: Wingspan Document Signing and Eligibility API
-  description: >-
-    Focuses on endpoints for managing eligibility requirements and custom fields related to payments.
+  description: Focuses on endpoints for managing eligibility requirements and custom fields related to
+    payments.
   humanURL: https://docs.wingspan.app/
   baseURL: https://api.wingspan.app
   tags:
@@ -175,10 +171,9 @@ apis:
     url: https://docs.wingspan.app/reference
 - aid: wingspan:wingspan-invoice-management-api
   name: Wingspan Invoice Management API
-  description: >-
-    Covers endpoints related to invoice creation, retrieval, and management. This includes both member
-    and client invoices, along with specific actions like sending invoices by email and managing invoice
-    templates.
+  description: Covers endpoints related to invoice creation, retrieval, and management. This includes
+    both member and client invoices, along with specific actions like sending invoices by email and managing
+    invoice templates.
   humanURL: https://docs.wingspan.app/
   baseURL: https://api.wingspan.app
   tags:
@@ -206,9 +201,8 @@ apis:
     url: https://docs.wingspan.app/reference
 - aid: wingspan:wingspan-payables-management-api
   name: Wingspan Payables Management API
-  description: >-
-    Endpoints dealing with payables, including creating, listing, updating, and deleting payables. It
-    also includes summary endpoints and immediate payroll payables.
+  description: Endpoints dealing with payables, including creating, listing, updating, and deleting payables.
+    It also includes summary endpoints and immediate payroll payables.
   humanURL: https://docs.wingspan.app/
   baseURL: https://api.wingspan.app
   tags:
@@ -236,9 +230,8 @@ apis:
     url: https://docs.wingspan.app/reference
 - aid: wingspan:wingspan-reporting-and-analytics-api
   name: Wingspan Reporting and Analytics API
-  description: >-
-    Includes endpoints for generating various reports and analytics, such as payables reports, collaborators
-    reports, and aging reports.
+  description: Includes endpoints for generating various reports and analytics, such as payables reports,
+    collaborators reports, and aging reports.
   humanURL: https://docs.wingspan.app/
   baseURL: https://api.wingspan.app
   tags:
@@ -265,7 +258,7 @@ apis:
   - type: APIReference
     url: https://docs.wingspan.app/reference
 - aid: wingspan:wingspan-wingspan-wallet-api
-  name: Wingspan Wingspan Wallet API
+  name: Wingspan Wallet API
   description: Operations related to Wingspan Wallet
   humanURL: https://docs.wingspan.app/
   baseURL: https://api.wingspan.app
@@ -336,7 +329,10 @@ common:
   url: packages/wingspan-packages.yml
 - type: X-MCPServerCandidate
   url: mcp/wingspan-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: LLMsTxt
   url: llms/wingspan-llms.txt
 - type: ErrorCatalog
