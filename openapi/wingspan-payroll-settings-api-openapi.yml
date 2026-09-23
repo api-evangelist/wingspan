@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Wingspan Payments 1099 Operations Payroll Settings API
+  title: Wingspan Payments Payroll Settings API
   description: Payments
   termsOfService: https://www.wingspan.app
   contact:
@@ -74,62 +74,6 @@ paths:
                 $ref: '#/components/schemas/PayrollSettings'
 components:
   schemas:
-    FrequencyUpdate:
-      type: object
-      properties:
-        daily:
-          type:
-          - boolean
-          - 'null'
-        dayInInterval:
-          type:
-          - number
-          - 'null'
-        endDate:
-          type:
-          - string
-          - 'null'
-        every:
-          type:
-          - number
-          - 'null'
-        interval:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Week
-          - Month
-          - null
-        startDate:
-          type:
-          - string
-          - 'null'
-        twicePerMonth:
-          type:
-          - boolean
-          - 'null'
-    ScheduleDateUpdate:
-      type: object
-      properties:
-        date:
-          type:
-          - string
-          - 'null'
-        invoiceTemplateId:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Pending
-          - Completed
-          - Skipped
-          - Modified
-          - null
     PayrollSettingsUpdate:
       type: object
       properties:
@@ -187,30 +131,41 @@ components:
           - SingleStage
           - DualStage
           - null
-    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
-      type: object
-      additionalProperties:
-        type: string
-    FundingSource:
+    FrequencyUpdate:
       type: object
       properties:
-        fundingSourceCurrency:
-          type: string
+        daily:
+          type:
+          - boolean
+          - 'null'
+        dayInInterval:
+          type:
+          - number
+          - 'null'
+        endDate:
+          type:
+          - string
+          - 'null'
+        every:
+          type:
+          - number
+          - 'null'
+        interval:
+          type:
+          - string
+          - 'null'
           enum:
-          - USD
-          - CAD
-        fundingSourceId:
-          type: string
-        fundingSourceType:
-          type: string
-          enum:
-          - InternalAccount
-          - Account
-          - PaymentCard
-      required:
-      - fundingSourceCurrency
-      - fundingSourceId
-      - fundingSourceType
+          - Week
+          - Month
+          - null
+        startDate:
+          type:
+          - string
+          - 'null'
+        twicePerMonth:
+          type:
+          - boolean
+          - 'null'
     PayrollSettings:
       type: object
       properties:
@@ -279,23 +234,10 @@ components:
           - null
       required:
       - status
-    ScheduleDate:
+    ScheduleDateUpdate:
       type: object
       properties:
         date:
-          type: string
-        status:
-          type: string
-          enum:
-          - Pending
-          - Completed
-          - Skipped
-          - Modified
-        cutOffDate:
-          type:
-          - string
-          - 'null'
-        invoiceId:
           type:
           - string
           - 'null'
@@ -303,44 +245,16 @@ components:
           type:
           - string
           - 'null'
-      required:
-      - date
-      - status
-    Frequency:
-      type: object
-      properties:
-        startDate:
-          type: string
-        daily:
-          type:
-          - boolean
-          - 'null'
-        dayInInterval:
-          type:
-          - number
-          - 'null'
-        endDate:
-          type:
-          - string
-          - 'null'
-        every:
-          type:
-          - number
-          - 'null'
-        interval:
+        status:
           type:
           - string
           - 'null'
           enum:
-          - Week
-          - Month
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
           - null
-        twicePerMonth:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - startDate
     CalculationSettings1099:
       type: object
       properties:
@@ -376,6 +290,92 @@ components:
           type:
           - number
           - 'null'
+    Frequency:
+      type: object
+      properties:
+        startDate:
+          type: string
+        daily:
+          type:
+          - boolean
+          - 'null'
+        dayInInterval:
+          type:
+          - number
+          - 'null'
+        endDate:
+          type:
+          - string
+          - 'null'
+        every:
+          type:
+          - number
+          - 'null'
+        interval:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Week
+          - Month
+          - null
+        twicePerMonth:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - startDate
+    FundingSource:
+      type: object
+      properties:
+        fundingSourceCurrency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        fundingSourceId:
+          type: string
+        fundingSourceType:
+          type: string
+          enum:
+          - InternalAccount
+          - Account
+          - PaymentCard
+      required:
+      - fundingSourceCurrency
+      - fundingSourceId
+      - fundingSourceType
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
+    ScheduleDate:
+      type: object
+      properties:
+        date:
+          type: string
+        status:
+          type: string
+          enum:
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
+        cutOffDate:
+          type:
+          - string
+          - 'null'
+        invoiceId:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
+      required:
+      - date
+      - status
   securitySchemes:
     BearerAuth:
       type: http

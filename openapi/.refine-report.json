@@ -1,21 +1,7 @@
 {
   "provider": "wingspan",
   "sources": [
-    "wingspan-1099-operations-api-openapi.yml",
-    "wingspan-banking-management-api-openapi.yml",
-    "wingspan-bulk-operations-api-openapi.yml",
-    "wingspan-client-management-api-openapi.yml",
-    "wingspan-collaborator-management-api-openapi.yml",
-    "wingspan-custom-field-management-api-openapi.yml",
-    "wingspan-deprecated-api-openapi.yml",
-    "wingspan-document-signing-and-eligibility-api-openapi.yml",
-    "wingspan-invoice-management-api-openapi.yml",
-    "wingspan-merchant-category-codes-api-openapi.yml",
-    "wingspan-payables-management-api-openapi.yml",
-    "wingspan-payroll-settings-api-openapi.yml",
-    "wingspan-reporting-and-analytics-api-openapi.yml",
-    "wingspan-service-settings-api-openapi.yml",
-    "wingspan-wingspan-wallet-api-openapi.yml"
+    "_original/wingspan-payments-openapi-original.yml"
   ],
   "outputs": [
     "wingspan-1099-operations-api-openapi.yml",
@@ -37,6 +23,26 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "wingspan-payments-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "wingspan-1099-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-banking-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-bulk-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-client-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-collaborator-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-custom-field-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-deprecated-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-document-signing-and-eligibility-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-invoice-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-merchant-category-codes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-payables-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-payroll-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-reporting-and-analytics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-service-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wingspan-wingspan-wallet-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

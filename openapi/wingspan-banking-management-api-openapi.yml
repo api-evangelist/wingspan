@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Wingspan Payments 1099 Operations Banking Management API
+  title: Wingspan Payments Banking Management API
   description: Payments
   termsOfService: https://www.wingspan.app
   contact:
@@ -282,84 +282,6 @@ paths:
                 $ref: '#/components/schemas/PayoutSettingsResponse'
 components:
   schemas:
-    PayoutSettingsResponse:
-      type: object
-      properties:
-        payoutDestinations:
-          type: array
-          items:
-            $ref: '#/components/schemas/PayoutDestinationResponse'
-        payoutPreferences:
-          type: string
-          enum:
-          - Standard
-          - Instant
-          - Expedited
-          - Check
-          - ECheck
-      required:
-      - payoutDestinations
-      - payoutPreferences
-    InstitutionResponse:
-      type: object
-      properties:
-        address:
-          type: string
-        isACHSupported:
-          type: boolean
-        isRTPSupported:
-          type: boolean
-        isWireSupported:
-          type: boolean
-        name:
-          type: string
-        routingNumber:
-          type: string
-      required:
-      - address
-      - isACHSupported
-      - isRTPSupported
-      - isWireSupported
-      - name
-      - routingNumber
-    BankStatement:
-      type: object
-      properties:
-        accountId:
-          type: string
-        date:
-          type: string
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - accountId
-      - date
-      - id
-      - name
-    PayoutSettingsUpdate:
-      type: object
-      properties:
-        payoutDestinations:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/PayoutDestinationUpdate'
-        payoutPreferences:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Standard
-          - Instant
-          - Expedited
-          - Check
-          - ECheck
-          - null
     Address:
       type: object
       properties:
@@ -413,6 +335,24 @@ components:
       - name
       - payoutMethod
       - percentage
+    PayoutSettingsResponse:
+      type: object
+      properties:
+        payoutDestinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/PayoutDestinationResponse'
+        payoutPreferences:
+          type: string
+          enum:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+      required:
+      - payoutDestinations
+      - payoutPreferences
     BankingApplicationForm:
       type: object
       properties:
@@ -423,6 +363,81 @@ components:
       required:
       - applicationLink
       - memberId
+    CheckbookCard:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+        brand:
+          type: string
+          enum:
+          - AmericanExpress
+          - Visa
+          - Mastercard
+          - Discover
+          - DinersClub
+          - JCB
+        cardId:
+          type: string
+        expirationMM:
+          type: string
+        expirationYYYY:
+          type: string
+        last4:
+          type: string
+      required:
+      - address
+      - brand
+      - cardId
+      - expirationMM
+      - expirationYYYY
+      - last4
+    InstitutionResponse:
+      type: object
+      properties:
+        address:
+          type: string
+        isACHSupported:
+          type: boolean
+        isRTPSupported:
+          type: boolean
+        isWireSupported:
+          type: boolean
+        name:
+          type: string
+        routingNumber:
+          type: string
+      required:
+      - address
+      - isACHSupported
+      - isRTPSupported
+      - isWireSupported
+      - name
+      - routingNumber
+    CheckbookCardCreate:
+      type: object
+      properties:
+        cardNumber:
+          type: string
+        expMM:
+          type: string
+        expYYYY:
+          type: string
+        name:
+          type: string
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        cvv:
+          type:
+          - string
+          - 'null'
+      required:
+      - cardNumber
+      - expMM
+      - expYYYY
+      - name
     PayoutDestinationUpdate:
       type: object
       properties:
@@ -454,59 +469,44 @@ components:
           type:
           - number
           - 'null'
-    CheckbookCardCreate:
+    BankStatement:
       type: object
       properties:
-        cardNumber:
+        accountId:
           type: string
-        expMM:
+        date:
           type: string
-        expYYYY:
+        id:
           type: string
         name:
           type: string
-        address:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Address'
-        cvv:
+      required:
+      - accountId
+      - date
+      - id
+      - name
+    PayoutSettingsUpdate:
+      type: object
+      properties:
+        payoutDestinations:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/PayoutDestinationUpdate'
+        payoutPreferences:
           type:
           - string
           - 'null'
-      required:
-      - cardNumber
-      - expMM
-      - expYYYY
-      - name
-    CheckbookCard:
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/Address'
-        brand:
-          type: string
           enum:
-          - AmericanExpress
-          - Visa
-          - Mastercard
-          - Discover
-          - DinersClub
-          - JCB
-        cardId:
-          type: string
-        expirationMM:
-          type: string
-        expirationYYYY:
-          type: string
-        last4:
-          type: string
-      required:
-      - address
-      - brand
-      - cardId
-      - expirationMM
-      - expirationYYYY
-      - last4
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+          - null
   securitySchemes:
     BearerAuth:
       type: http

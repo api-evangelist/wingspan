@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Wingspan Payments 1099 Operations Custom Field Management API
+  title: Wingspan Payments Custom Field Management API
   description: Payments
   termsOfService: https://www.wingspan.app
   contact:
@@ -131,6 +131,31 @@ paths:
                 $ref: '#/components/schemas/CustomField'
 components:
   schemas:
+    AdditionalData:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        required:
+          type: boolean
+        resourceType:
+          type: string
+          enum:
+          - Collaborator
+          - LineItem
+        type:
+          type: string
+          enum:
+          - Boolean
+          - String
+      required:
+      - key
+      - name
+      - required
+      - resourceType
+      - type
     AdditionalDataUpdateRequest:
       type: object
       properties:
@@ -185,31 +210,6 @@ components:
           - String
       required:
       - id
-      - key
-      - name
-      - required
-      - resourceType
-      - type
-    AdditionalData:
-      type: object
-      properties:
-        key:
-          type: string
-        name:
-          type: string
-        required:
-          type: boolean
-        resourceType:
-          type: string
-          enum:
-          - Collaborator
-          - LineItem
-        type:
-          type: string
-          enum:
-          - Boolean
-          - String
-      required:
       - key
       - name
       - required
