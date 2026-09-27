@@ -74,63 +74,68 @@ paths:
                 $ref: '#/components/schemas/PayrollSettings'
 components:
   schemas:
-    PayrollSettingsUpdate:
+    ScheduleDate:
       type: object
       properties:
-        calculationSettings1099:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/CalculationSettings1099'
-        enablePlannedPayroll:
+        date:
+          type: string
+        status:
+          type: string
+          enum:
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
+        cutOffDate:
+          type:
+          - string
+          - 'null'
+        invoiceId:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
+      required:
+      - date
+      - status
+    Frequency:
+      type: object
+      properties:
+        startDate:
+          type: string
+        daily:
           type:
           - boolean
           - 'null'
-        enableProcessDaysBeforeDue:
-          type:
-          - boolean
-          - 'null'
-        frequency:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/FrequencyUpdate'
-        fundingSource:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/FundingSource'
-        issue1099s:
-          type:
-          - boolean
-          - 'null'
-        processDaysBeforeDue:
+        dayInInterval:
           type:
           - number
           - 'null'
-        scheduleDates:
+        endDate:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/ScheduleDateUpdate'
-        status:
+        every:
+          type:
+          - number
+          - 'null'
+        interval:
           type:
           - string
           - 'null'
           enum:
-          - Active
-          - Draft
-          - Expired
-          - Cancelled
+          - Week
+          - Month
           - null
-        workflow:
+        twicePerMonth:
           type:
-          - string
+          - boolean
           - 'null'
-          enum:
-          - SingleStage
-          - DualStage
-          - null
+      required:
+      - startDate
     FrequencyUpdate:
       type: object
       properties:
@@ -166,6 +171,27 @@ components:
           type:
           - boolean
           - 'null'
+    ScheduleDateUpdate:
+      type: object
+      properties:
+        date:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
+          - null
     PayrollSettings:
       type: object
       properties:
@@ -234,27 +260,6 @@ components:
           - null
       required:
       - status
-    ScheduleDateUpdate:
-      type: object
-      properties:
-        date:
-          type:
-          - string
-          - 'null'
-        invoiceTemplateId:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Pending
-          - Completed
-          - Skipped
-          - Modified
-          - null
     CalculationSettings1099:
       type: object
       properties:
@@ -290,41 +295,6 @@ components:
           type:
           - number
           - 'null'
-    Frequency:
-      type: object
-      properties:
-        startDate:
-          type: string
-        daily:
-          type:
-          - boolean
-          - 'null'
-        dayInInterval:
-          type:
-          - number
-          - 'null'
-        endDate:
-          type:
-          - string
-          - 'null'
-        every:
-          type:
-          - number
-          - 'null'
-        interval:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Week
-          - Month
-          - null
-        twicePerMonth:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - startDate
     FundingSource:
       type: object
       properties:
@@ -349,33 +319,63 @@ components:
       type: object
       additionalProperties:
         type: string
-    ScheduleDate:
+    PayrollSettingsUpdate:
       type: object
       properties:
-        date:
-          type: string
+        calculationSettings1099:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CalculationSettings1099'
+        enablePlannedPayroll:
+          type:
+          - boolean
+          - 'null'
+        enableProcessDaysBeforeDue:
+          type:
+          - boolean
+          - 'null'
+        frequency:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FrequencyUpdate'
+        fundingSource:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FundingSource'
+        issue1099s:
+          type:
+          - boolean
+          - 'null'
+        processDaysBeforeDue:
+          type:
+          - number
+          - 'null'
+        scheduleDates:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/ScheduleDateUpdate'
         status:
-          type: string
+          type:
+          - string
+          - 'null'
           enum:
-          - Pending
-          - Completed
-          - Skipped
-          - Modified
-        cutOffDate:
+          - Active
+          - Draft
+          - Expired
+          - Cancelled
+          - null
+        workflow:
           type:
           - string
           - 'null'
-        invoiceId:
-          type:
-          - string
-          - 'null'
-        invoiceTemplateId:
-          type:
-          - string
-          - 'null'
-      required:
-      - date
-      - status
+          enum:
+          - SingleStage
+          - DualStage
+          - null
   securitySchemes:
     BearerAuth:
       type: http

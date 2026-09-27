@@ -184,38 +184,37 @@ paths:
                 $ref: '#/components/schemas/AdditionalData'
 components:
   schemas:
-    InstantPayoutRequest:
-      type: object
-      properties:
-        externalPayoutAccountToken:
-          type: string
-      required:
-      - externalPayoutAccountToken
-    AdditionalData:
+    AdditionalDataUpdateRequest:
       type: object
       properties:
         key:
-          type: string
+          type:
+          - string
+          - 'null'
         name:
-          type: string
+          type:
+          - string
+          - 'null'
         required:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
         resourceType:
-          type: string
+          type:
+          - string
+          - 'null'
           enum:
           - Collaborator
           - LineItem
+          - null
         type:
-          type: string
+          type:
+          - string
+          - 'null'
           enum:
           - Boolean
           - String
-      required:
-      - key
-      - name
-      - required
-      - resourceType
-      - type
+          - null
     InstantPayoutResponse:
       type: object
       properties:
@@ -226,37 +225,6 @@ components:
       required:
       - instantPayoutAccount
       - instantPayoutAccountId
-    8212ee55b9e13fc32935c9417826f64b3550a203b665a04aacb02c4cac363c1f:
-      type: object
-      properties:
-        IBAN:
-          type:
-          - string
-          - 'null'
-        accountNumber:
-          type:
-          - string
-          - 'null'
-        accountRouting:
-          type:
-          - string
-          - 'null'
-        brand:
-          type:
-          - string
-          - 'null'
-        expiryMonth:
-          type:
-          - string
-          - 'null'
-        expiryYear:
-          type:
-          - string
-          - 'null'
-        last4:
-          type:
-          - string
-          - 'null'
     FundsTransferAccount:
       type: object
       properties:
@@ -289,37 +257,69 @@ components:
       - internal
       - numbers
       - type
-    AdditionalDataUpdateRequest:
+    8212ee55b9e13fc32935c9417826f64b3550a203b665a04aacb02c4cac363c1f:
+      type: object
+      properties:
+        IBAN:
+          type:
+          - string
+          - 'null'
+        accountNumber:
+          type:
+          - string
+          - 'null'
+        accountRouting:
+          type:
+          - string
+          - 'null'
+        brand:
+          type:
+          - string
+          - 'null'
+        expiryMonth:
+          type:
+          - string
+          - 'null'
+        expiryYear:
+          type:
+          - string
+          - 'null'
+        last4:
+          type:
+          - string
+          - 'null'
+    InstantPayoutRequest:
+      type: object
+      properties:
+        externalPayoutAccountToken:
+          type: string
+      required:
+      - externalPayoutAccountToken
+    AdditionalData:
       type: object
       properties:
         key:
-          type:
-          - string
-          - 'null'
+          type: string
         name:
-          type:
-          - string
-          - 'null'
+          type: string
         required:
-          type:
-          - boolean
-          - 'null'
+          type: boolean
         resourceType:
-          type:
-          - string
-          - 'null'
+          type: string
           enum:
           - Collaborator
           - LineItem
-          - null
         type:
-          type:
-          - string
-          - 'null'
+          type: string
           enum:
           - Boolean
           - String
-          - null
+      required:
+      - key
+      - name
+      - required
+      - resourceType
+      - type
   securitySchemes:
     BearerAuth:
       type: http

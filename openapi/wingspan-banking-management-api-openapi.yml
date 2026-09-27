@@ -282,26 +282,22 @@ paths:
                 $ref: '#/components/schemas/PayoutSettingsResponse'
 components:
   schemas:
-    Address:
+    BankStatement:
       type: object
       properties:
-        addressLine1:
+        accountId:
           type: string
-        city:
+        date:
           type: string
-        postalCode:
+        id:
           type: string
-        state:
+        name:
           type: string
-        addressLine2:
-          type:
-          - string
-          - 'null'
       required:
-      - addressLine1
-      - city
-      - postalCode
-      - state
+      - accountId
+      - date
+      - id
+      - name
     PayoutDestinationResponse:
       type: object
       properties:
@@ -335,6 +331,104 @@ components:
       - name
       - payoutMethod
       - percentage
+    PayoutSettingsUpdate:
+      type: object
+      properties:
+        payoutDestinations:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/PayoutDestinationUpdate'
+        payoutPreferences:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+          - null
+    BankingApplicationForm:
+      type: object
+      properties:
+        applicationLink:
+          type: string
+        memberId:
+          type: string
+      required:
+      - applicationLink
+      - memberId
+    InstitutionResponse:
+      type: object
+      properties:
+        address:
+          type: string
+        isACHSupported:
+          type: boolean
+        isRTPSupported:
+          type: boolean
+        isWireSupported:
+          type: boolean
+        name:
+          type: string
+        routingNumber:
+          type: string
+      required:
+      - address
+      - isACHSupported
+      - isRTPSupported
+      - isWireSupported
+      - name
+      - routingNumber
+    Address:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    CheckbookCardCreate:
+      type: object
+      properties:
+        cardNumber:
+          type: string
+        expMM:
+          type: string
+        expYYYY:
+          type: string
+        name:
+          type: string
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        cvv:
+          type:
+          - string
+          - 'null'
+      required:
+      - cardNumber
+      - expMM
+      - expYYYY
+      - name
     PayoutSettingsResponse:
       type: object
       properties:
@@ -353,16 +447,6 @@ components:
       required:
       - payoutDestinations
       - payoutPreferences
-    BankingApplicationForm:
-      type: object
-      properties:
-        applicationLink:
-          type: string
-        memberId:
-          type: string
-      required:
-      - applicationLink
-      - memberId
     CheckbookCard:
       type: object
       properties:
@@ -392,52 +476,6 @@ components:
       - expirationMM
       - expirationYYYY
       - last4
-    InstitutionResponse:
-      type: object
-      properties:
-        address:
-          type: string
-        isACHSupported:
-          type: boolean
-        isRTPSupported:
-          type: boolean
-        isWireSupported:
-          type: boolean
-        name:
-          type: string
-        routingNumber:
-          type: string
-      required:
-      - address
-      - isACHSupported
-      - isRTPSupported
-      - isWireSupported
-      - name
-      - routingNumber
-    CheckbookCardCreate:
-      type: object
-      properties:
-        cardNumber:
-          type: string
-        expMM:
-          type: string
-        expYYYY:
-          type: string
-        name:
-          type: string
-        address:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Address'
-        cvv:
-          type:
-          - string
-          - 'null'
-      required:
-      - cardNumber
-      - expMM
-      - expYYYY
-      - name
     PayoutDestinationUpdate:
       type: object
       properties:
@@ -469,44 +507,6 @@ components:
           type:
           - number
           - 'null'
-    BankStatement:
-      type: object
-      properties:
-        accountId:
-          type: string
-        date:
-          type: string
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - accountId
-      - date
-      - id
-      - name
-    PayoutSettingsUpdate:
-      type: object
-      properties:
-        payoutDestinations:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/PayoutDestinationUpdate'
-        payoutPreferences:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Standard
-          - Instant
-          - Expedited
-          - Check
-          - ECheck
-          - null
   securitySchemes:
     BearerAuth:
       type: http

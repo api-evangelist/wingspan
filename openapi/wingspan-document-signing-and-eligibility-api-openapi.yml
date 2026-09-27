@@ -350,36 +350,6 @@ paths:
                 $ref: '#/components/schemas/CollaboratorGroupResponse'
 components:
   schemas:
-    CollaboratorGroupRequirementUpdate:
-      type: object
-      properties:
-        newEligibilityRequirementId:
-          type: string
-      required:
-      - newEligibilityRequirementId
-    CollaboratorGroupUpdateRequest:
-      type: object
-      properties:
-        collaboratorSettings:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        description:
-          type:
-          - string
-          - 'null'
-        eligibilityRequirements:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/CollaboratorGroupRequirement'
-        name:
-          type:
-          - string
-          - 'null'
     CollaboratorGroupResponse:
       type: object
       properties:
@@ -411,6 +381,51 @@ components:
       - defaultGroup
       - description
       - name
+    PaymentEligibilityUpdateRequest:
+      type: object
+      properties:
+        field:
+          type:
+          - string
+          - 'null'
+        value:
+          oneOf:
+          - type: 'null'
+          - type: object
+    CollaboratorGroupRequirementUpdate:
+      type: object
+      properties:
+        newEligibilityRequirementId:
+          type: string
+      required:
+      - newEligibilityRequirementId
+    CollaboratorGroupUpdateRequest:
+      type: object
+      properties:
+        collaboratorSettings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        description:
+          type:
+          - string
+          - 'null'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CollaboratorGroupRequirement'
+        name:
+          type:
+          - string
+          - 'null'
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
     EligibilityRequirement:
       type: object
       properties:
@@ -434,18 +449,14 @@ components:
       - clientId
       - eligibilityRequirementId
       - requirementType
-    PaymentEligibilityUpdateRequest:
+    CollaboratorGroupRequirement:
       type: object
       properties:
-        field:
+        eligibilityRequirementId:
           type:
           - string
           - 'null'
-        value:
-          oneOf:
-          - type: 'null'
-          - type: object
-    EligibilityRequirementCreateRequest:
+    EligibilityRequirementUpdateRequest:
       type: object
       properties:
         requirementType:
@@ -462,11 +473,7 @@ components:
           - 'null'
       required:
       - requirementType
-    LabelsDictionary:
-      type: object
-      additionalProperties:
-        type: string
-    EligibilityRequirementUpdateRequest:
+    EligibilityRequirementCreateRequest:
       type: object
       properties:
         requirementType:
@@ -493,13 +500,6 @@ components:
       required:
       - field
       - value
-    CollaboratorGroupRequirement:
-      type: object
-      properties:
-        eligibilityRequirementId:
-          type:
-          - string
-          - 'null'
   securitySchemes:
     BearerAuth:
       type: http
