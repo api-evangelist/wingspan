@@ -544,186 +544,9 @@ paths:
                 $ref: '#/components/schemas/ClientInvoice'
 components:
   schemas:
-    MemberOptions:
+    6ad3f4f624fb518510130e879729b00ed8c237d1cebc5477abf34ac340a6424d:
       type: object
       properties:
-        comment:
-          type:
-          - string
-          - 'null'
-        payoutPreferences:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Standard
-          - Instant
-          - Expedited
-          - Check
-          - ECheck
-          - null
-        workflowStatus:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Disputed
-          - Accepted
-          - Resubmitted
-          - null
-        workflowSubStatus:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Submitted
-          - null
-    ClientOptions:
-      type: object
-      properties:
-        comment:
-          type:
-          - string
-          - 'null'
-        payDate:
-          type:
-          - string
-          - 'null'
-        workflowStatus:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Pending
-          - PreApproved
-          - Approved
-          - PaymentInitiated
-          - Funded
-          - Declined
-          - null
-        workflowSubStatus:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Submitted
-          - null
-    MemberClientForm1099Balances:
-      type: object
-      properties:
-        adjustments:
-          type: number
-        deliveryMethod:
-          type: string
-          enum:
-          - Electronic
-          - Mail
-        exclusionReason:
-          type: string
-          enum:
-          - BelowThreshold
-          - CompanyStructure
-          - NonUsEntity
-        form1099Generated:
-          type: boolean
-        paymentProcessingFees:
-          type: number
-        platformIncome:
-          type: number
-        status:
-          type: string
-          enum:
-          - Ready
-          - NeedsActionInfo
-          - NeedsActionDispute
-          - Submitted
-          - Rejected
-          - Accepted
-          - Excluded
-        type:
-          type: string
-          enum:
-          - NEC
-        correction:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Form1099Correction'
-        dispute:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5'
-        events:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Form1099Events'
-        taxForm:
-          oneOf:
-          - type: 'null'
-          - type: object
-        taxFormId:
-          type:
-          - string
-          - 'null'
-      required:
-      - adjustments
-      - deliveryMethod
-      - exclusionReason
-      - form1099Generated
-      - paymentProcessingFees
-      - platformIncome
-      - status
-      - type
-    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
-      type: object
-      properties:
-        address:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Address'
-        company:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Company'
-        logoUrl:
-          type:
-          - string
-          - 'null'
-        ssnLastFour:
-          type:
-          - string
-          - 'null'
-    TestInvoiceCreate:
-      type: object
-      properties:
-        contactName:
-          type: string
-        email:
-          type: string
-      required:
-      - contactName
-      - email
-    LabelsDictionary:
-      type: object
-      additionalProperties:
-        type: string
-    ProcessingFees:
-      type: object
-      properties:
-        creditCardFee:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Fee'
-        instantPayoutFee:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Fee'
-    d86c1fba5267ac3d9ce2954a6e46b70e471c0f91a44abbe94565ae50e6e9e863:
-      type: object
-      properties:
-        customerId:
-          type:
-          - string
-          - 'null'
         expenseAccountId:
           type:
           - string
@@ -732,95 +555,24 @@ components:
           type:
           - string
           - 'null'
-        vendorId:
-          type:
-          - string
-          - 'null'
-    Form1099Events:
+    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
       type: object
       properties:
-        acceptedByCollaboratorAt:
+        number:
           type:
           - string
           - 'null'
-        createdAt:
-          type:
-          - string
-          - 'null'
-        postFilingSuggestionMadeAt:
-          type:
-          - string
-          - 'null'
-        postFilingSuggestionResolvedAt:
-          type:
-          - string
-          - 'null'
-        submittedForCollaboratorReviewAt:
-          type:
-          - string
-          - 'null'
-        suggestionMadeAt:
-          type:
-          - string
-          - 'null'
-        suggestionResolvedAt:
-          type:
-          - string
-          - 'null'
-        updatedAt:
-          type:
-          - string
-          - 'null'
-    InvoiceWithholdings:
+    InvoiceTemplateUpdateRequest:
       type: object
       properties:
-        tax:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/14abbd45a54a2847207e8ddfaeb5d4bc82ffb855d63772d79e0c5fe04e9b9b01'
-    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
-      type: object
-      properties:
-        firstName:
+        accountId:
           type:
           - string
           - 'null'
-        lastName:
+        autoPaymentRequired:
           type:
-          - string
+          - boolean
           - 'null'
-    Address:
-      type: object
-      properties:
-        addressLine1:
-          type: string
-        city:
-          type: string
-        postalCode:
-          type: string
-        state:
-          type: string
-        addressLine2:
-          type:
-          - string
-          - 'null'
-      required:
-      - addressLine1
-      - city
-      - postalCode
-      - state
-    InvoiceTemplateCreateRequest:
-      type: object
-      properties:
-        invoiceData:
-          $ref: '#/components/schemas/InvoiceDataCreateRequest'
-        status:
-          type: string
-          enum:
-          - Active
-          - Draft
-          - Expired
-          - Cancelled
         dueInDays:
           type:
           - number
@@ -828,7 +580,11 @@ components:
         frequency:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/Frequency'
+          - $ref: '#/components/schemas/FrequencyUpdate'
+        invoiceData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/InvoiceUpdateRequest'
         isSchedulingOnly:
           type:
           - boolean
@@ -837,6 +593,10 @@ components:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/LabelsDictionary'
+        paymentMethodId:
+          type:
+          - string
+          - 'null'
         scheduleDates:
           type:
           - array
@@ -844,43 +604,25 @@ components:
           items:
             oneOf:
             - type: 'null'
-            - $ref: '#/components/schemas/ScheduleDate'
+            - $ref: '#/components/schemas/ScheduleDateUpdate'
         sendEmails:
           type:
           - boolean
           - 'null'
-      required:
-      - invoiceData
-      - status
-    InvoiceCollaboratorUpdateRequest:
-      type: object
-      properties:
-        amount:
-          type:
-          - number
-          - 'null'
-        description:
+        status:
           type:
           - string
           - 'null'
-    ClientInvoiceCreateRequest:
+          enum:
+          - Active
+          - Draft
+          - Expired
+          - Cancelled
+          - null
+    36b041d426951ffff76360faf03ef8ae938bed9739e6ad9f51acb982782296a2:
       type: object
       properties:
-        clientEmail:
-          type: string
-        dueDate:
-          type: string
-        lineItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/InvoiceLineItemsCreateRequest'
-        memberId:
-          type: string
-        clientCompany:
-          type:
-          - string
-          - 'null'
-        clientEmailCC:
+        customAttachmentIds:
           type:
           - array
           - 'null'
@@ -888,42 +630,6 @@ components:
             type:
             - string
             - 'null'
-        clientFirstName:
-          type:
-          - string
-          - 'null'
-        clientLastName:
-          type:
-          - string
-          - 'null'
-        creditFeeHandling:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/FeeHandlingConfig'
-        currency:
-          type:
-          - string
-          - 'null'
-          enum:
-          - USD
-          - CAD
-          - null
-      required:
-      - clientEmail
-      - dueDate
-      - lineItems
-      - memberId
-    CompanyPerson:
-      type: object
-      properties:
-        memberId:
-          type: string
-        ownershipPercentage:
-          type:
-          - number
-          - 'null'
-      required:
-      - memberId
     InvoiceUpdateRequest:
       type: object
       properties:
@@ -1021,122 +727,6 @@ components:
           - PaymentInTransit
           - Paid
           - null
-    UserRoles:
-      type: object
-      properties:
-        ownerIds:
-          type: array
-          items:
-            type: string
-        viewerIds:
-          type: array
-          items:
-            type: string
-      required:
-      - ownerIds
-      - viewerIds
-    InvoiceFeeCalculation:
-      type: object
-      properties:
-        creditFeeTotal:
-          type: number
-      required:
-      - creditFeeTotal
-    InvoiceAmountDetails:
-      type: object
-      properties:
-        clientPaid:
-          type: number
-        collaboratorPayments:
-          type: number
-        deductions:
-          type: number
-        memberGross:
-          type: number
-        memberNet:
-          type: number
-        memberTaxWithheld:
-          type: number
-        processingFee:
-          type: number
-        wingspanTopUp:
-          type: number
-        clientRefunded:
-          type:
-          - number
-          - 'null'
-      required:
-      - clientPaid
-      - collaboratorPayments
-      - deductions
-      - memberGross
-      - memberNet
-      - memberTaxWithheld
-      - processingFee
-      - wingspanTopUp
-    InvoiceNotificationPreferences:
-      type: object
-      properties:
-        sendReminders:
-          type: boolean
-        sendInvoice:
-          type:
-          - boolean
-          - 'null'
-        sendReceipt:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - sendReminders
-    ExternalIds:
-      type: object
-      properties:
-        bulk:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/ExternalIdsBulkImport'
-        quickbooks:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/ExternalIdsQuickbooks'
-        stripe:
-          type:
-          - string
-          - 'null'
-    3d33fba3f009de957b3be92fba006d6383af7e39f823cc1fd213506f6205100f:
-      type: object
-      properties:
-        quickbooks:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/d86c1fba5267ac3d9ce2954a6e46b70e471c0f91a44abbe94565ae50e6e9e863'
-    ClientInvoiceTemplateUpdateRequest:
-      type: object
-      properties:
-        clientId:
-          type: string
-        accountId:
-          type:
-          - string
-          - 'null'
-        paymentMethodId:
-          type:
-          - string
-          - 'null'
-      required:
-      - clientId
-    36b041d426951ffff76360faf03ef8ae938bed9739e6ad9f51acb982782296a2:
-      type: object
-      properties:
-        customAttachmentIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
     InvoiceCollaboratorCreateRequest:
       type: object
       properties:
@@ -1156,6 +746,132 @@ components:
       - currency
       - description
       - memberClientId
+    CompanyLinks:
+      type: object
+      properties:
+        instagramUrl:
+          type:
+          - string
+          - 'null'
+        linkedInUrl:
+          type:
+          - string
+          - 'null'
+        otherUrl:
+          type:
+          - string
+          - 'null'
+        twitterUrl:
+          type:
+          - string
+          - 'null'
+        websiteUrl:
+          type:
+          - string
+          - 'null'
+    ClientInvoiceUpdateRequest:
+      type: object
+      properties:
+        creditFeeHandling:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FeeHandlingConfig'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Draft
+          - Open
+          - Overdue
+          - Cancelled
+          - Pending
+          - PaymentInTransit
+          - Paid
+          - null
+    3d33fba3f009de957b3be92fba006d6383af7e39f823cc1fd213506f6205100f:
+      type: object
+      properties:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/d86c1fba5267ac3d9ce2954a6e46b70e471c0f91a44abbe94565ae50e6e9e863'
+    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
+      type: object
+      properties:
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        company:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Company'
+        logoUrl:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+    Form1099Events:
+      type: object
+      properties:
+        acceptedByCollaboratorAt:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type:
+          - string
+          - 'null'
+        postFilingSuggestionMadeAt:
+          type:
+          - string
+          - 'null'
+        postFilingSuggestionResolvedAt:
+          type:
+          - string
+          - 'null'
+        submittedForCollaboratorReviewAt:
+          type:
+          - string
+          - 'null'
+        suggestionMadeAt:
+          type:
+          - string
+          - 'null'
+        suggestionResolvedAt:
+          type:
+          - string
+          - 'null'
+        updatedAt:
+          type:
+          - string
+          - 'null'
+    DocumentEvents:
+      type: object
+      properties:
+        clientSignedAt:
+          type:
+          - string
+          - 'null'
+        memberSignedAt:
+          type:
+          - string
+          - 'null'
     InvoiceDataCreateRequest:
       type: object
       properties:
@@ -1238,6 +954,621 @@ components:
       required:
       - lineItems
       - memberClientId
+    Address:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    Fees:
+      type: object
+      properties:
+        lateFee:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Fee'
+        processingFee:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Fee'
+    InvoiceCollaborator:
+      type: object
+      properties:
+        amount:
+          type: number
+        currency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        description:
+          type: string
+        memberClientId:
+          type: string
+        invoiceId:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - currency
+      - description
+      - memberClientId
+    InvoicePayment:
+      type: object
+      properties:
+        amount:
+          type: number
+        createdAt:
+          type: string
+        events:
+          $ref: '#/components/schemas/fdde61b278ad2b0bef3e1f411d3749ff7bc345ae633a85eb25e5990d251fb3a9'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        paymentId:
+          type: string
+        sourceId:
+          type: string
+        sourceMetadata:
+          $ref: '#/components/schemas/fa804b4efa97e487035ead1834462b69564f5e4ebbbd376106a1847d1c1aa4f4'
+        sourceType:
+          type: string
+          enum:
+          - Account
+          - Card
+          - InternalAccount
+        status:
+          type: string
+          enum:
+          - Created
+          - Failed
+          - Pending
+          - Sent
+          - Cleared
+          - Returned
+        updatedAt:
+          type: string
+        statusReason:
+          type:
+          - string
+          - 'null'
+          enum:
+          - InsufficientFunds
+          - AccountNotFound
+          - Unauthorized
+          - GenericBankError
+          - GenericCardError
+          - CardCurrencyNotSupported
+          - CardExpired
+          - CardInputInvalid
+          - null
+      required:
+      - amount
+      - createdAt
+      - events
+      - labels
+      - paymentId
+      - sourceId
+      - sourceMetadata
+      - sourceType
+      - status
+      - updatedAt
+    DocumentResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        documentId:
+          type: string
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Required
+          - Approved
+          - Invalid
+          - ReceivedFront
+          - ReceivedBack
+          - PendingReview
+        templateId:
+          type: string
+        title:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        events:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentEvents'
+        files:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentFiles'
+      required:
+      - clientId
+      - documentId
+      - memberId
+      - status
+      - templateId
+      - title
+      - userRoles
+    PaymentInfo:
+      type: object
+      properties:
+        meansType:
+          type: string
+          enum:
+          - Card
+          - Account
+          - InternalAccount
+        brandImageUrl:
+          type:
+          - string
+          - 'null'
+        cardBrand:
+          type:
+          - string
+          - 'null'
+        meansDescription:
+          type:
+          - string
+          - 'null'
+        meansLast4:
+          type:
+          - string
+          - 'null'
+      required:
+      - meansType
+    TestInvoiceCreate:
+      type: object
+      properties:
+        contactName:
+          type: string
+        email:
+          type: string
+      required:
+      - contactName
+      - email
+    InvoiceRefundRequest:
+      type: object
+      properties:
+        amount:
+          type: number
+        description:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+    InvoiceMetadata:
+      type: object
+      properties:
+        depositNote:
+          type:
+          - string
+          - 'null'
+        invoiceDate:
+          type:
+          - string
+          - 'null'
+        payoutPendingReason:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Admin
+          - PaymentNotClearedCard
+          - PaymentNotCleared
+          - PaymentNotClearedCollaborator
+          - PaymentNotClearedFuture
+          - PlatformErrorCard
+          - PlatformErrorGeneric
+          - PayoutNotEligibleYet
+          - PayoutMethodNotSelected
+          - PayoutMethodError
+          - PlatformErrorGiftCard
+          - PayoutGiftCardLinkPending
+          - InstantPayoutMethodNotSelected
+          - PlatformErrorInstantPayout
+          - InstantPayoutNotEligibleYet
+          - PlatformErrorCurrencyCloud
+          - null
+        pendingStatusReason:
+          type:
+          - string
+          - 'null'
+          enum:
+          - CollaboratorMissingCustomEligibilityRequirement
+          - CollaboratorMissingEligibilityRequirement
+          - MemberPayoutMethodNotSelected
+          - MemberTaxDocumentationNotVerified
+          - null
+        purchaseOrderNumber:
+          type:
+          - string
+          - 'null'
+    InvoiceCreateRequest:
+      type: object
+      properties:
+        creditFeeHandling:
+          $ref: '#/components/schemas/FeeHandlingConfig'
+        dueDate:
+          type: string
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvoiceLineItemsCreateRequest'
+        memberClientId:
+          type: string
+        acceptedPaymentMethods:
+          type:
+          - array
+          - 'null'
+          items:
+            enum:
+            - Credit
+            - ACH
+            - Manual
+            - null
+            type:
+            - string
+            - 'null'
+        attachments:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/36b041d426951ffff76360faf03ef8ae938bed9739e6ad9f51acb982782296a2'
+        client:
+          oneOf:
+          - type: 'null'
+          - type: object
+        collaborators:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/InvoiceCollaboratorCreateRequest'
+        currency:
+          type:
+          - string
+          - 'null'
+          enum:
+          - USD
+          - CAD
+          - null
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/3190685832a4970525ea5b0803efff0b36a0202062e1fd8a0bc187acbe156461'
+        invoiceNotes:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        lateFeeHandling:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LateFeeConfigUpdate'
+        member:
+          oneOf:
+          - type: 'null'
+          - type: object
+        metadata:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/InvoiceMetadata'
+        notificationPreferences:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/InvoiceNotificationPreferences'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Draft
+          - Open
+          - Overdue
+          - Cancelled
+          - Pending
+          - PaymentInTransit
+          - Paid
+          - null
+      required:
+      - creditFeeHandling
+      - dueDate
+      - lineItems
+      - memberClientId
+    InvoiceAmountDetails:
+      type: object
+      properties:
+        clientPaid:
+          type: number
+        collaboratorPayments:
+          type: number
+        deductions:
+          type: number
+        memberGross:
+          type: number
+        memberNet:
+          type: number
+        memberTaxWithheld:
+          type: number
+        processingFee:
+          type: number
+        wingspanTopUp:
+          type: number
+        clientRefunded:
+          type:
+          - number
+          - 'null'
+      required:
+      - clientPaid
+      - collaboratorPayments
+      - deductions
+      - memberGross
+      - memberNet
+      - memberTaxWithheld
+      - processingFee
+      - wingspanTopUp
+    ClientInvoiceTemplate:
+      type: object
+      properties:
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        invoiceData:
+          $ref: '#/components/schemas/ClientInvoice'
+        invoiceTemplateId:
+          type: string
+        memberId:
+          type: string
+        nextInvoiceDate:
+          type: string
+        scheduleDates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleDate'
+        status:
+          type: string
+          enum:
+          - Active
+          - Draft
+          - Expired
+          - Cancelled
+        updatedAt:
+          type: string
+        accountId:
+          type:
+          - string
+          - 'null'
+        createdInvoiceId:
+          type:
+          - string
+          - 'null'
+        dueInDays:
+          type:
+          - number
+          - 'null'
+        frequency:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Frequency'
+        paymentMethodId:
+          type:
+          - string
+          - 'null'
+      required:
+      - clientId
+      - createdAt
+      - invoiceData
+      - invoiceTemplateId
+      - memberId
+      - nextInvoiceDate
+      - scheduleDates
+      - status
+      - updatedAt
+    InvoiceCollaboratorUpdateRequest:
+      type: object
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+    ExternalIdsBulkImport:
+      type: object
+      properties:
+        bulkItemMergeKey:
+          type:
+          - string
+          - 'null'
+    6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11:
+      type: object
+      properties:
+        billClassId:
+          type:
+          - string
+          - 'null'
+        billCustomerId:
+          type:
+          - string
+          - 'null'
+        expenseAccountId:
+          type:
+          - string
+          - 'null'
+        invoiceClassId:
+          type:
+          - string
+          - 'null'
+        itemId:
+          type:
+          - string
+          - 'null'
+    ExternalIdsQuickbooks:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/ExternalIdsQuickbooksData'
+    MemberClientEvents:
+      type: object
+      properties:
+        activeAt:
+          type:
+          - string
+          - 'null'
+        pendingAt:
+          type:
+          - string
+          - 'null'
+    FeeHandlingConfig:
+      type: object
+      properties:
+        clientAbsolutePercentage:
+          type:
+          - number
+          - 'null'
+        clientPays:
+          type:
+          - number
+          - 'null'
+        memberPays:
+          type:
+          - number
+          - 'null'
+    ClientOptions:
+      type: object
+      properties:
+        comment:
+          type:
+          - string
+          - 'null'
+        payDate:
+          type:
+          - string
+          - 'null'
+        workflowStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Pending
+          - PreApproved
+          - Approved
+          - PaymentInitiated
+          - Funded
+          - Declined
+          - null
+        workflowSubStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Submitted
+          - null
+    MemberClientForm1099Balances:
+      type: object
+      properties:
+        adjustments:
+          type: number
+        deliveryMethod:
+          type: string
+          enum:
+          - Electronic
+          - Mail
+        exclusionReason:
+          type: string
+          enum:
+          - BelowThreshold
+          - CompanyStructure
+          - NonUsEntity
+        form1099Generated:
+          type: boolean
+        paymentProcessingFees:
+          type: number
+        platformIncome:
+          type: number
+        status:
+          type: string
+          enum:
+          - Ready
+          - NeedsActionInfo
+          - NeedsActionDispute
+          - Submitted
+          - Rejected
+          - Accepted
+          - Excluded
+        type:
+          type: string
+          enum:
+          - NEC
+        correction:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Form1099Correction'
+        dispute:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5'
+        events:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Form1099Events'
+        taxForm:
+          oneOf:
+          - type: 'null'
+          - type: object
+        taxFormId:
+          type:
+          - string
+          - 'null'
+      required:
+      - adjustments
+      - deliveryMethod
+      - exclusionReason
+      - form1099Generated
+      - paymentProcessingFees
+      - platformIncome
+      - status
+      - type
+    ExternalIds:
+      type: object
+      properties:
+        bulk:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ExternalIdsBulkImport'
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ExternalIdsQuickbooks'
+        stripe:
+          type:
+          - string
+          - 'null'
     ExternalIdsQuickbooksData:
       type: object
       properties:
@@ -1264,376 +1595,40 @@ components:
       required:
       - id
       - syncToken
-    RedactedUser:
+    FrequencyUpdate:
       type: object
       properties:
-        email:
-          type:
-          - string
-          - 'null'
-        phone:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
-        profile:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
-        settings:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Pending
-          - Active
-          - Disabled
-          - null
-        tag:
-          type:
-          - string
-          - 'null'
-    InvoiceLineItemsCreateRequest:
-      type: object
-      properties:
-        costPerUnit:
-          type:
-          - number
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        detail:
-          type:
-          - string
-          - 'null'
-        discount:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/facb8048736dba546c4c76242d9f8c7111011a7a7483528f37d80226698a1f2b'
-        integration:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/3190685832a4970525ea5b0803efff0b36a0202062e1fd8a0bc187acbe156461'
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        quantity:
-          type:
-          - number
-          - 'null'
-        reimbursableExpense:
+        daily:
           type:
           - boolean
           - 'null'
-        totalCost:
+        dayInInterval:
           type:
           - number
           - 'null'
-        unit:
+        endDate:
           type:
           - string
           - 'null'
-    3190685832a4970525ea5b0803efff0b36a0202062e1fd8a0bc187acbe156461:
-      type: object
-      properties:
-        quickbooks:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/6ad3f4f624fb518510130e879729b00ed8c237d1cebc5477abf34ac340a6424d'
-    facb8048736dba546c4c76242d9f8c7111011a7a7483528f37d80226698a1f2b:
-      type: object
-      properties:
-        amount:
+        every:
           type:
           - number
           - 'null'
-        description:
+        interval:
           type:
           - string
           - 'null'
-        percentage:
-          type:
-          - number
-          - 'null'
-    InvoiceEvents:
-      type: object
-      properties:
-        approvedAt:
-          type:
-          - string
-          - 'null'
-        cancelledAt:
-          type:
-          - string
-          - 'null'
-        clientDeclinedAt:
-          type:
-          - string
-          - 'null'
-        clientResolvedDisputeAt:
-          type:
-          - string
-          - 'null'
-        depositedAt:
-          type:
-          - string
-          - 'null'
-        depositedToPayoutPlatformAt:
-          type:
-          - string
-          - 'null'
-        disputedAt:
-          type:
-          - string
-          - 'null'
-        emailMarkedAsSpamAt:
-          type:
-          - string
-          - 'null'
-        emailReceivedAt:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        emailUndeliverableAt:
-          type:
-          - string
-          - 'null'
-        emailViewedAt:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        estimatedDepositAt:
-          type:
-          - string
-          - 'null'
-        instantPayoutAt:
-          type:
-          - string
-          - 'null'
-        instantPayoutEligibleAt:
-          type:
-          - string
-          - 'null'
-        instantPayoutFailedAt:
-          type:
-          - string
-          - 'null'
-        markedPaidAt:
-          type:
-          - string
-          - 'null'
-        memberAcceptedAt:
-          type:
-          - string
-          - 'null'
-        memberDisputedAt:
-          type:
-          - string
-          - 'null'
-        memberResubmittedAt:
-          type:
-          - string
-          - 'null'
-        openedAt:
-          type:
-          - string
-          - 'null'
-        paidAt:
-          type:
-          - string
-          - 'null'
-        payAfterAccountVerified:
-          type:
-          - string
-          - 'null'
-        paymentFailedAt:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        paymentInTransitAt:
-          type:
-          - string
-          - 'null'
-        paymentRetriedAt:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        payoutFailedAt:
-          type:
-          - string
-          - 'null'
-        preApprovedAt:
-          type:
-          - string
-          - 'null'
-        refundedAt:
-          type:
-          - string
-          - 'null'
-        sentAt:
-          type:
-          - string
-          - 'null'
-        sentDue3DaysAgoAt:
-          type:
-          - string
-          - 'null'
-        sentDue7DaysAgoAt:
-          type:
-          - string
-          - 'null'
-        sentDueIn3DaysAt:
-          type:
-          - string
-          - 'null'
-        sentDueTodayAt:
-          type:
-          - string
-          - 'null'
-        sentInstantPayoutFailedToMember:
-          type:
-          - string
-          - 'null'
-        sentManuallyAt:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        sentPaymentConfirmationToClient:
-          type:
-          - string
-          - 'null'
-        sentPaymentConfirmationToMember:
-          type:
-          - string
-          - 'null'
-        sentPaymentInTransitReminderAt:
-          type:
-          - string
-          - 'null'
-        sentPayoutMightBeDelayedToClient:
-          type:
-          - string
-          - 'null'
-        sentRecurringPaymentFailedAt:
-          type:
-          - string
-          - 'null'
-    Fees:
-      type: object
-      properties:
-        lateFee:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Fee'
-        processingFee:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Fee'
-    InvoiceRefundRequest:
-      type: object
-      properties:
-        amount:
-          type: number
-        description:
-          type:
-          - string
-          - 'null'
-      required:
-      - amount
-    InvoicePayoutDestination:
-      type: object
-      properties:
-        amount:
-          type: number
-        description:
-          type: string
-        destinationType:
-          type: string
           enum:
-          - Account
-          - Card
-          - InternalAccount
-          - PaperCheck
-          - WeGift
-        payoutMethod:
-          type: string
-          enum:
-          - Standard
-          - Instant
-          - Expedited
-          - Check
-          - ECheck
-        percentage:
-          type: number
-        transferId:
-          type: string
-        brand:
+          - Week
+          - Month
+          - null
+        startDate:
           type:
           - string
           - 'null'
-        destinationId:
+        twicePerMonth:
           type:
-          - string
-          - 'null'
-        last4:
-          type:
-          - string
-          - 'null'
-      required:
-      - amount
-      - description
-      - destinationType
-      - payoutMethod
-      - percentage
-      - transferId
-    fdde61b278ad2b0bef3e1f411d3749ff7bc345ae633a85eb25e5990d251fb3a9:
-      type: object
-      properties:
-        clearedAt:
-          type:
-          - string
-          - 'null'
-        failedAt:
-          type:
-          - string
-          - 'null'
-        pendingAt:
-          type:
-          - string
-          - 'null'
-        returnedAt:
-          type:
-          - string
-          - 'null'
-        sentAt:
-          type:
-          - string
+          - boolean
           - 'null'
     Invoice:
       type: object
@@ -1847,117 +1842,62 @@ components:
       - status
       - updatedAt
       - userRoles
-    ExternalIdsBulkImport:
+    d86c1fba5267ac3d9ce2954a6e46b70e471c0f91a44abbe94565ae50e6e9e863:
       type: object
       properties:
-        bulkItemMergeKey:
+        customerId:
           type:
           - string
           - 'null'
-    InvoiceRefundEvents:
+        expenseAccountId:
+          type:
+          - string
+          - 'null'
+        itemId:
+          type:
+          - string
+          - 'null'
+        vendorId:
+          type:
+          - string
+          - 'null'
+    3190685832a4970525ea5b0803efff0b36a0202062e1fd8a0bc187acbe156461:
       type: object
       properties:
-        refundFailedAt:
-          type:
-          - string
-          - 'null'
-        refundStartedAt:
-          type:
-          - string
-          - 'null'
-        refundSuccessfulAt:
-          type:
-          - string
-          - 'null'
-    8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/6ad3f4f624fb518510130e879729b00ed8c237d1cebc5477abf34ac340a6424d'
+    LateFeeConfig:
       type: object
       properties:
-        amount:
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        lateFeeAmount:
           type:
           - number
           - 'null'
-        comment:
+        lateFeePercentage:
           type:
-          - string
-          - 'null'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Open
-          - Accepted
-          - Rejected
-          - null
-    BankAccount:
-      type: object
-      properties:
-        accountNumber:
-          type: string
-        bankName:
-          type: string
-        routingNumber:
-          type:
-          - string
-          - 'null'
-        swiftCode:
-          type:
-          - string
+          - number
           - 'null'
       required:
-      - accountNumber
-      - bankName
-    ClientData:
+      - frequency
+    MemberClientFormW9Info:
       type: object
       properties:
-        autoPayStrategy:
+        addressLine1:
           type:
           - string
           - 'null'
-          enum:
-          - All
-          - None
-          - null
-        externalId:
+        addressLine2:
           type:
           - string
           - 'null'
-        verificationStratgy:
+        city:
           type:
           - string
           - 'null'
-          enum:
-          - None
-          - All
-          - null
-    14abbd45a54a2847207e8ddfaeb5d4bc82ffb855d63772d79e0c5fe04e9b9b01:
-      type: object
-      properties:
-        amountWithheld:
-          type: number
-        rate:
-          type: number
-      required:
-      - amountWithheld
-      - rate
-    b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c:
-      type: object
-      properties:
-        '2021':
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/MemberClientForm1099Balances'
-        '2022':
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/MemberClientForm1099Balances'
-    Form1099Correction:
-      type: object
-      properties:
-        address:
-          oneOf:
-          - type: 'null'
-          - type: object
         companyStructure:
           type:
           - string
@@ -1974,6 +1914,14 @@ components:
           - CorporationC
           - Partnership
           - null
+        country:
+          type:
+          - string
+          - 'null'
+        dob:
+          type:
+          - string
+          - 'null'
         ein:
           type:
           - string
@@ -1990,604 +1938,55 @@ components:
           type:
           - string
           - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
         ssn:
           type:
           - string
           - 'null'
-        totalAmount:
-          type:
-          - number
-          - 'null'
-    Fee:
-      type: object
-      properties:
-        amount:
-          type: number
-        calculatedAt:
+        state:
           type:
           - string
           - 'null'
-      required:
-      - amount
-    RedactedMember:
+    RedactedUser:
       type: object
       properties:
-        user:
-          $ref: '#/components/schemas/RedactedUser'
+        email:
+          type:
+          - string
+          - 'null'
+        phone:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
         profile:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
-      required:
-      - user
-    InvoiceAttachments:
-      type: object
-      properties:
-        customAttachmentIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        customAttachmentInfo:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/InvoiceAttachmentFile'
-        invoiceLink:
-          type:
-          - string
-          - 'null'
-        invoicePdf:
-          type:
-          - string
-          - 'null'
-        receiptPdf:
-          type:
-          - string
-          - 'null'
-    fa804b4efa97e487035ead1834462b69564f5e4ebbbd376106a1847d1c1aa4f4:
-      type: object
-      properties:
-        institution:
-          type:
-          - string
-          - 'null'
-        mask:
-          type:
-          - string
-          - 'null'
-    FeeHandlingConfig:
-      type: object
-      properties:
-        clientAbsolutePercentage:
-          type:
-          - number
-          - 'null'
-        clientPays:
-          type:
-          - number
-          - 'null'
-        memberPays:
-          type:
-          - number
-          - 'null'
-    PayRequest:
-      type: object
-      properties:
-        accountId:
-          type:
-          - string
-          - 'null'
-        paymentMethodId:
-          type:
-          - string
-          - 'null'
-        plaidPublicToken:
-          type:
-          - string
-          - 'null'
-    InvoiceLineItem:
-      type: object
-      properties:
-        costPerUnit:
-          type: number
-        createdAt:
-          type: string
-        labels:
-          $ref: '#/components/schemas/LabelsDictionary'
-        labelsBak2:
-          $ref: '#/components/schemas/LabelsDictionary'
-        quantity:
-          type: number
-        reimbursableExpense:
-          type: boolean
-        totalCost:
-          type: number
-        unit:
-          type: string
-        updatedAt:
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-        detail:
-          type:
-          - string
-          - 'null'
-        discount:
+          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
+        settings:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/facb8048736dba546c4c76242d9f8c7111011a7a7483528f37d80226698a1f2b'
-        integration:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/InvoiceIntegrations'
-      required:
-      - costPerUnit
-      - createdAt
-      - labels
-      - labelsBak2
-      - quantity
-      - reimbursableExpense
-      - totalCost
-      - unit
-      - updatedAt
-    LateFeeConfig:
-      type: object
-      properties:
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        lateFeeAmount:
-          type:
-          - number
-          - 'null'
-        lateFeePercentage:
-          type:
-          - number
-          - 'null'
-      required:
-      - frequency
-    ScheduleDate:
-      type: object
-      properties:
-        date:
-          type: string
+          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
         status:
-          type: string
+          type:
+          - string
+          - 'null'
           enum:
           - Pending
-          - Completed
-          - Skipped
-          - Modified
-        cutOffDate:
-          type:
-          - string
-          - 'null'
-        invoiceId:
-          type:
-          - string
-          - 'null'
-        invoiceTemplateId:
-          type:
-          - string
-          - 'null'
-      required:
-      - date
-      - status
-    DocumentEvents:
-      type: object
-      properties:
-        clientSignedAt:
-          type:
-          - string
-          - 'null'
-        memberSignedAt:
-          type:
-          - string
-          - 'null'
-    InvoiceAppliedDeductions:
-      type: object
-      properties:
-        amount:
-          type: number
-        deductionId:
-          type: string
-        name:
-          type: string
-        transferId:
-          type:
-          - string
-          - 'null'
-      required:
-      - amount
-      - deductionId
-      - name
-    MemberClient:
-      type: object
-      properties:
-        achCreditAccount:
-          $ref: '#/components/schemas/MemberClientWireAccount'
-        client:
-          $ref: '#/components/schemas/RedactedMember'
-        clientData:
-          $ref: '#/components/schemas/ClientData'
-        clientId:
-          type: string
-        clientUserAccountType:
-          type: string
-          enum:
-          - member
-          - enterprise
-        createdAt:
-          type: string
-        emailTo:
-          type: string
-        eventActors:
-          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
-        events:
-          $ref: '#/components/schemas/MemberClientEvents'
-        externalIds:
-          $ref: '#/components/schemas/ExternalIds'
-        form1099Balances:
-          $ref: '#/components/schemas/b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c'
-        formW9Data:
-          $ref: '#/components/schemas/MemberClientFormW9Info'
-        internationalWireAccount:
-          $ref: '#/components/schemas/MemberClientWireAccount'
-        labels:
-          $ref: '#/components/schemas/LabelsDictionary'
-        member:
-          $ref: '#/components/schemas/RedactedMember'
-        memberClientId:
-          type: string
-        memberData:
-          $ref: '#/components/schemas/MemberData'
-        memberId:
-          type: string
-        parentMemberClientId:
-          type: string
-        payerPayeeId:
-          type: string
-        status:
-          type: string
-          enum:
           - Active
-          - Inactive
-          - Pending
-        taxStatus:
-          type: string
-          enum:
-          - Complete
-          - Failed
-          - Pending
-          - Incomplete
-        updatedAt:
-          type: string
-        userRoles:
-          $ref: '#/components/schemas/UserRoles'
-        collaboratorGroupId:
-          type:
-          - string
-          - 'null'
-        collaboratorGroupIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        company:
-          type:
-          - string
-          - 'null'
-        eligibilityRequirements:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/MemberClientRequirementResponse'
-        emailCC:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        integration:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/3d33fba3f009de957b3be92fba006d6383af7e39f823cc1fd213506f6205100f'
-        name:
-          type:
-          - string
-          - 'null'
-      required:
-      - achCreditAccount
-      - client
-      - clientData
-      - clientId
-      - clientUserAccountType
-      - createdAt
-      - emailTo
-      - eventActors
-      - events
-      - externalIds
-      - form1099Balances
-      - formW9Data
-      - internal
-      - internationalWireAccount
-      - labels
-      - member
-      - memberClientId
-      - memberData
-      - memberId
-      - parentMemberClientId
-      - payerPayeeId
-      - status
-      - taxStatus
-      - updatedAt
-      - userRoles
-    DocumentResponse:
-      type: object
-      properties:
-        clientId:
-          type: string
-        documentId:
-          type: string
-        memberId:
-          type: string
-        status:
-          type: string
-          enum:
-          - Required
-          - Approved
-          - Invalid
-          - ReceivedFront
-          - ReceivedBack
-          - PendingReview
-        templateId:
-          type: string
-        title:
-          type: string
-        userRoles:
-          $ref: '#/components/schemas/UserRoles'
-        events:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/DocumentEvents'
-        files:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/DocumentFiles'
-      required:
-      - clientId
-      - documentId
-      - memberId
-      - status
-      - templateId
-      - title
-      - userRoles
-    LateFeeConfigUpdate:
-      type: object
-      properties:
-        frequency:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/FrequencyUpdate'
-        lateFeeAmount:
-          type:
-          - number
-          - 'null'
-        lateFeePercentage:
-          type:
-          - number
-          - 'null'
-    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
-      type: object
-      properties:
-        number:
-          type:
-          - string
-          - 'null'
-    DocumentFiles:
-      type: object
-      properties:
-        client:
-          type:
-          - string
-          - 'null'
-        member:
-          type:
-          - string
-          - 'null'
-    Company:
-      type: object
-      properties:
-        banking:
-          type:
-          - boolean
-          - 'null'
-        companyOwners:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/CompanyPerson'
-        description:
-          type:
-          - string
-          - 'null'
-        disregardedEntityName:
-          type:
-          - string
-          - 'null'
-        legalBusinessName:
-          type:
-          - string
-          - 'null'
-        links:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/CompanyLinks'
-        name:
-          type:
-          - string
-          - 'null'
-        stateOfIncorporation:
-          type:
-          - string
-          - 'null'
-        structure:
-          type:
-          - string
-          - 'null'
-          enum:
-          - None
-          - SoleProprietorship
-          - LlcSingleMember
-          - LlcMultiMember
-          - CorporationS
-          - LLCCorporationS
-          - LLCCorporationC
-          - LLCPartnership
-          - CorporationC
-          - Partnership
+          - Disabled
           - null
-        supportEmail:
+        tag:
           type:
           - string
           - 'null'
-        taxId:
-          type:
-          - string
-          - 'null'
-        website:
-          type:
-          - string
-          - 'null'
-        yearOfIncorporation:
-          type:
-          - string
-          - 'null'
-    InvoiceTemplate:
+    Frequency:
       type: object
       properties:
-        createdAt:
+        startDate:
           type: string
-        eventActors:
-          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
-        invoiceData:
-          $ref: '#/components/schemas/Invoice'
-        invoiceTemplateId:
-          type: string
-        labels:
-          $ref: '#/components/schemas/LabelsDictionary'
-        memberId:
-          type: string
-        status:
-          type: string
-          enum:
-          - Active
-          - Draft
-          - Expired
-          - Cancelled
-        updatedAt:
-          type: string
-        userRoles:
-          $ref: '#/components/schemas/UserRoles'
-        accountId:
-          type:
-          - string
-          - 'null'
-        autoPaymentRequired:
-          type:
-          - boolean
-          - 'null'
-        createdInvoiceId:
-          type:
-          - string
-          - 'null'
-        dueInDays:
-          type:
-          - number
-          - 'null'
-        frequency:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Frequency'
-        isSchedulingOnly:
-          type:
-          - boolean
-          - 'null'
-        lastInvoiceDate:
-          type:
-          - string
-          - 'null'
-        nextInvoiceDate:
-          type:
-          - string
-          - 'null'
-        paymentMethodId:
-          type:
-          - string
-          - 'null'
-        scheduleDates:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/ScheduleDate'
-      required:
-      - createdAt
-      - eventActors
-      - invoiceData
-      - invoiceTemplateId
-      - labels
-      - memberId
-      - status
-      - updatedAt
-      - userRoles
-    MemberData:
-      type: object
-      properties:
-        autoPayRequirement:
-          type:
-          - string
-          - 'null'
-          enum:
-          - All
-          - None
-          - null
-        externalId:
-          type:
-          - string
-          - 'null'
-        shareTaxDocument:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Allow
-          - Decline
-          - null
-    FrequencyUpdate:
-      type: object
-      properties:
         daily:
           type:
           - boolean
@@ -2612,35 +2011,66 @@ components:
           - Week
           - Month
           - null
-        startDate:
-          type:
-          - string
-          - 'null'
         twicePerMonth:
           type:
           - boolean
           - 'null'
-    MemberClientEvents:
+      required:
+      - startDate
+    ClientInvoiceTemplateUpdateRequest:
       type: object
       properties:
-        activeAt:
-          type:
-          - string
-          - 'null'
-        pendingAt:
-          type:
-          - string
-          - 'null'
-    InvoiceTemplateUpdateRequest:
-      type: object
-      properties:
+        clientId:
+          type: string
         accountId:
           type:
           - string
           - 'null'
-        autoPaymentRequired:
+        paymentMethodId:
           type:
-          - boolean
+          - string
+          - 'null'
+      required:
+      - clientId
+    ClientInvoiceTemplateCreateRequest:
+      type: object
+      properties:
+        clientEmail:
+          type: string
+        invoiceData:
+          $ref: '#/components/schemas/ClientInvoiceDataCreateRequest'
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Draft
+          - Expired
+          - Cancelled
+        accountId:
+          type:
+          - string
+          - 'null'
+        clientCompany:
+          type:
+          - string
+          - 'null'
+        clientEmailCC:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        clientFirstName:
+          type:
+          - string
+          - 'null'
+        clientLastName:
+          type:
+          - string
           - 'null'
         dueInDays:
           type:
@@ -2649,19 +2079,7 @@ components:
         frequency:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/FrequencyUpdate'
-        invoiceData:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/InvoiceUpdateRequest'
-        isSchedulingOnly:
-          type:
-          - boolean
-          - 'null'
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
+          - $ref: '#/components/schemas/Frequency'
         paymentMethodId:
           type:
           - string
@@ -2673,102 +2091,338 @@ components:
           items:
             oneOf:
             - type: 'null'
-            - $ref: '#/components/schemas/ScheduleDateUpdate'
-        sendEmails:
+            - $ref: '#/components/schemas/ScheduleDate'
+      required:
+      - clientEmail
+      - invoiceData
+      - memberId
+      - status
+    InvoiceEvents:
+      type: object
+      properties:
+        approvedAt:
           type:
-          - boolean
+          - string
+          - 'null'
+        cancelledAt:
+          type:
+          - string
+          - 'null'
+        clientDeclinedAt:
+          type:
+          - string
+          - 'null'
+        clientResolvedDisputeAt:
+          type:
+          - string
+          - 'null'
+        depositedAt:
+          type:
+          - string
+          - 'null'
+        depositedToPayoutPlatformAt:
+          type:
+          - string
+          - 'null'
+        disputedAt:
+          type:
+          - string
+          - 'null'
+        emailMarkedAsSpamAt:
+          type:
+          - string
+          - 'null'
+        emailReceivedAt:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        emailUndeliverableAt:
+          type:
+          - string
+          - 'null'
+        emailViewedAt:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        estimatedDepositAt:
+          type:
+          - string
+          - 'null'
+        instantPayoutAt:
+          type:
+          - string
+          - 'null'
+        instantPayoutEligibleAt:
+          type:
+          - string
+          - 'null'
+        instantPayoutFailedAt:
+          type:
+          - string
+          - 'null'
+        markedPaidAt:
+          type:
+          - string
+          - 'null'
+        memberAcceptedAt:
+          type:
+          - string
+          - 'null'
+        memberDisputedAt:
+          type:
+          - string
+          - 'null'
+        memberResubmittedAt:
+          type:
+          - string
+          - 'null'
+        openedAt:
+          type:
+          - string
+          - 'null'
+        paidAt:
+          type:
+          - string
+          - 'null'
+        payAfterAccountVerified:
+          type:
+          - string
+          - 'null'
+        paymentFailedAt:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        paymentInTransitAt:
+          type:
+          - string
+          - 'null'
+        paymentRetriedAt:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        payoutFailedAt:
+          type:
+          - string
+          - 'null'
+        preApprovedAt:
+          type:
+          - string
+          - 'null'
+        refundedAt:
+          type:
+          - string
+          - 'null'
+        sentAt:
+          type:
+          - string
+          - 'null'
+        sentDue3DaysAgoAt:
+          type:
+          - string
+          - 'null'
+        sentDue7DaysAgoAt:
+          type:
+          - string
+          - 'null'
+        sentDueIn3DaysAt:
+          type:
+          - string
+          - 'null'
+        sentDueTodayAt:
+          type:
+          - string
+          - 'null'
+        sentInstantPayoutFailedToMember:
+          type:
+          - string
+          - 'null'
+        sentManuallyAt:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        sentPaymentConfirmationToClient:
+          type:
+          - string
+          - 'null'
+        sentPaymentConfirmationToMember:
+          type:
+          - string
+          - 'null'
+        sentPaymentInTransitReminderAt:
+          type:
+          - string
+          - 'null'
+        sentPayoutMightBeDelayedToClient:
+          type:
+          - string
+          - 'null'
+        sentRecurringPaymentFailedAt:
+          type:
+          - string
+          - 'null'
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
+    InvoiceRefundEvents:
+      type: object
+      properties:
+        refundFailedAt:
+          type:
+          - string
+          - 'null'
+        refundStartedAt:
+          type:
+          - string
+          - 'null'
+        refundSuccessfulAt:
+          type:
+          - string
+          - 'null'
+    ClientInvoiceCreateRequest:
+      type: object
+      properties:
+        clientEmail:
+          type: string
+        dueDate:
+          type: string
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvoiceLineItemsCreateRequest'
+        memberId:
+          type: string
+        clientCompany:
+          type:
+          - string
+          - 'null'
+        clientEmailCC:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        clientFirstName:
+          type:
+          - string
+          - 'null'
+        clientLastName:
+          type:
+          - string
+          - 'null'
+        creditFeeHandling:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FeeHandlingConfig'
+        currency:
+          type:
+          - string
+          - 'null'
+          enum:
+          - USD
+          - CAD
+          - null
+      required:
+      - clientEmail
+      - dueDate
+      - lineItems
+      - memberId
+    facb8048736dba546c4c76242d9f8c7111011a7a7483528f37d80226698a1f2b:
+      type: object
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        percentage:
+          type:
+          - number
+          - 'null'
+    MemberClientRequirementResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        collaboratorGroupId:
+          type: string
+        eligibilityRequirementId:
+          type: string
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        document:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentResponse'
+        documentId:
+          type:
+          - string
           - 'null'
         status:
           type:
           - string
           - 'null'
           enum:
-          - Active
-          - Draft
-          - Expired
-          - Cancelled
+          - New
+          - Sent
+          - Pending
+          - Complete
           - null
-    InvoiceIntegrations:
-      type: object
-      properties:
-        quickbooks:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11'
-    PaymentInfo:
-      type: object
-      properties:
-        meansType:
-          type: string
-          enum:
-          - Card
-          - Account
-          - InternalAccount
-        brandImageUrl:
+        templateId:
           type:
           - string
           - 'null'
-        cardBrand:
+        validFor:
           type:
-          - string
-          - 'null'
-        meansDescription:
-          type:
-          - string
-          - 'null'
-        meansLast4:
-          type:
-          - string
+          - number
           - 'null'
       required:
-      - meansType
-    InvoiceMetadata:
+      - clientId
+      - collaboratorGroupId
+      - eligibilityRequirementId
+      - requirementType
+    b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c:
       type: object
       properties:
-        depositNote:
-          type:
-          - string
-          - 'null'
-        invoiceDate:
-          type:
-          - string
-          - 'null'
-        payoutPendingReason:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Admin
-          - PaymentNotClearedCard
-          - PaymentNotCleared
-          - PaymentNotClearedCollaborator
-          - PaymentNotClearedFuture
-          - PlatformErrorCard
-          - PlatformErrorGeneric
-          - PayoutNotEligibleYet
-          - PayoutMethodNotSelected
-          - PayoutMethodError
-          - PlatformErrorGiftCard
-          - PayoutGiftCardLinkPending
-          - InstantPayoutMethodNotSelected
-          - PlatformErrorInstantPayout
-          - InstantPayoutNotEligibleYet
-          - PlatformErrorCurrencyCloud
-          - null
-        pendingStatusReason:
-          type:
-          - string
-          - 'null'
-          enum:
-          - CollaboratorMissingCustomEligibilityRequirement
-          - CollaboratorMissingEligibilityRequirement
-          - MemberPayoutMethodNotSelected
-          - MemberTaxDocumentationNotVerified
-          - null
-        purchaseOrderNumber:
-          type:
-          - string
-          - 'null'
+        '2021':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientForm1099Balances'
+        '2022':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientForm1099Balances'
     ClientInvoice:
       type: object
       properties:
@@ -2938,112 +2592,13 @@ components:
       - projectName
       - status
       - updatedAt
-    Frequency:
+    InvoiceIntegrations:
       type: object
       properties:
-        startDate:
-          type: string
-        daily:
-          type:
-          - boolean
-          - 'null'
-        dayInInterval:
-          type:
-          - number
-          - 'null'
-        endDate:
-          type:
-          - string
-          - 'null'
-        every:
-          type:
-          - number
-          - 'null'
-        interval:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Week
-          - Month
-          - null
-        twicePerMonth:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - startDate
-    ExternalIdsQuickbooks:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/ExternalIdsQuickbooksData'
-    MemberClientFormW9Info:
-      type: object
-      properties:
-        addressLine1:
-          type:
-          - string
-          - 'null'
-        addressLine2:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        companyStructure:
-          type:
-          - string
-          - 'null'
-          enum:
-          - None
-          - SoleProprietorship
-          - LlcSingleMember
-          - LlcMultiMember
-          - CorporationS
-          - LLCCorporationS
-          - LLCCorporationC
-          - LLCPartnership
-          - CorporationC
-          - Partnership
-          - null
-        country:
-          type:
-          - string
-          - 'null'
-        dob:
-          type:
-          - string
-          - 'null'
-        ein:
-          type:
-          - string
-          - 'null'
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-        legalBusinessName:
-          type:
-          - string
-          - 'null'
-        postalCode:
-          type:
-          - string
-          - 'null'
-        ssn:
-          type:
-          - string
-          - 'null'
-        state:
-          type:
-          - string
-          - 'null'
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11'
     InvoicePdfGenerationResponse:
       type: object
       properties:
@@ -3054,362 +2609,165 @@ components:
       required:
       - attachments
       - invoiceId
-    ClientInvoiceTemplate:
+    ClientData:
       type: object
       properties:
-        clientId:
-          type: string
-        createdAt:
-          type: string
-        invoiceData:
-          $ref: '#/components/schemas/ClientInvoice'
-        invoiceTemplateId:
-          type: string
-        memberId:
-          type: string
-        nextInvoiceDate:
-          type: string
-        scheduleDates:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScheduleDate'
-        status:
-          type: string
+        autoPayStrategy:
+          type:
+          - string
+          - 'null'
           enum:
-          - Active
-          - Draft
-          - Expired
-          - Cancelled
-        updatedAt:
-          type: string
-        accountId:
+          - All
+          - None
+          - null
+        externalId:
           type:
           - string
           - 'null'
-        createdInvoiceId:
+        verificationStratgy:
           type:
           - string
           - 'null'
-        dueInDays:
-          type:
-          - number
-          - 'null'
-        frequency:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Frequency'
-        paymentMethodId:
-          type:
-          - string
-          - 'null'
-      required:
-      - clientId
-      - createdAt
-      - invoiceData
-      - invoiceTemplateId
-      - memberId
-      - nextInvoiceDate
-      - scheduleDates
-      - status
-      - updatedAt
-    MemberClientWireAccount:
-      type: object
-      properties:
-        accountNumber:
-          type: string
-        bankName:
-          type: string
-        routingNumber:
-          type:
-          - string
-          - 'null'
-        swiftCode:
-          type:
-          - string
-          - 'null'
-      required:
-      - accountNumber
-      - bankName
-    ClientInvoiceTemplateCreateRequest:
-      type: object
-      properties:
-        clientEmail:
-          type: string
-        invoiceData:
-          $ref: '#/components/schemas/ClientInvoiceDataCreateRequest'
-        memberId:
-          type: string
-        status:
-          type: string
           enum:
-          - Active
-          - Draft
-          - Expired
-          - Cancelled
-        accountId:
-          type:
-          - string
-          - 'null'
-        clientCompany:
-          type:
-          - string
-          - 'null'
-        clientEmailCC:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        clientFirstName:
-          type:
-          - string
-          - 'null'
-        clientLastName:
-          type:
-          - string
-          - 'null'
-        dueInDays:
-          type:
-          - number
-          - 'null'
-        frequency:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Frequency'
-        paymentMethodId:
-          type:
-          - string
-          - 'null'
-        scheduleDates:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/ScheduleDate'
-      required:
-      - clientEmail
-      - invoiceData
-      - memberId
-      - status
-    6ad3f4f624fb518510130e879729b00ed8c237d1cebc5477abf34ac340a6424d:
+          - None
+          - All
+          - null
+    MemberData:
       type: object
       properties:
-        expenseAccountId:
+        autoPayRequirement:
           type:
           - string
           - 'null'
-        itemId:
+          enum:
+          - All
+          - None
+          - null
+        externalId:
           type:
           - string
           - 'null'
-    InvoicePayment:
+        shareTaxDocument:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Allow
+          - Decline
+          - null
+    InvoicePayoutDestination:
       type: object
       properties:
         amount:
           type: number
-        createdAt:
+        description:
           type: string
-        events:
-          $ref: '#/components/schemas/fdde61b278ad2b0bef3e1f411d3749ff7bc345ae633a85eb25e5990d251fb3a9'
-        labels:
-          $ref: '#/components/schemas/LabelsDictionary'
-        paymentId:
-          type: string
-        sourceId:
-          type: string
-        sourceMetadata:
-          $ref: '#/components/schemas/fa804b4efa97e487035ead1834462b69564f5e4ebbbd376106a1847d1c1aa4f4'
-        sourceType:
+        destinationType:
           type: string
           enum:
           - Account
           - Card
           - InternalAccount
-        status:
+          - PaperCheck
+          - WeGift
+        payoutMethod:
           type: string
           enum:
-          - Created
-          - Failed
-          - Pending
-          - Sent
-          - Cleared
-          - Returned
-        updatedAt:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+        percentage:
+          type: number
+        transferId:
           type: string
-        statusReason:
+        brand:
           type:
           - string
           - 'null'
-          enum:
-          - InsufficientFunds
-          - AccountNotFound
-          - Unauthorized
-          - GenericBankError
-          - GenericCardError
-          - CardCurrencyNotSupported
-          - CardExpired
-          - CardInputInvalid
-          - null
+        destinationId:
+          type:
+          - string
+          - 'null'
+        last4:
+          type:
+          - string
+          - 'null'
       required:
       - amount
-      - createdAt
-      - events
-      - labels
-      - paymentId
-      - sourceId
-      - sourceMetadata
-      - sourceType
-      - status
-      - updatedAt
-    ClientInvoiceDataCreateRequest:
+      - description
+      - destinationType
+      - payoutMethod
+      - percentage
+      - transferId
+    DocumentFiles:
       type: object
       properties:
-        lineItems:
+        client:
+          type:
+          - string
+          - 'null'
+        member:
+          type:
+          - string
+          - 'null'
+    fa804b4efa97e487035ead1834462b69564f5e4ebbbd376106a1847d1c1aa4f4:
+      type: object
+      properties:
+        institution:
+          type:
+          - string
+          - 'null'
+        mask:
+          type:
+          - string
+          - 'null'
+    UserRoles:
+      type: object
+      properties:
+        ownerIds:
           type: array
           items:
-            $ref: '#/components/schemas/InvoiceLineItemsCreateRequest'
-        creditFeeHandling:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/FeeHandlingConfig'
-        currency:
-          type:
-          - string
-          - 'null'
-          enum:
-          - USD
-          - CAD
-          - null
-        dueDate:
+            type: string
+        viewerIds:
+          type: array
+          items:
+            type: string
+      required:
+      - ownerIds
+      - viewerIds
+    Fee:
+      type: object
+      properties:
+        amount:
+          type: number
+        calculatedAt:
           type:
           - string
           - 'null'
       required:
-      - lineItems
-    InvoiceAttachmentFile:
+      - amount
+    8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5:
       type: object
       properties:
-        fileName:
-          type: string
-        fileUrl:
-          type: string
-      required:
-      - fileName
-      - fileUrl
-    MemberClientRequirementResponse:
-      type: object
-      properties:
-        clientId:
-          type: string
-        collaboratorGroupId:
-          type: string
-        eligibilityRequirementId:
-          type: string
-        requirementType:
-          type: string
-          enum:
-          - Signature
-        document:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/DocumentResponse'
-        documentId:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - New
-          - Sent
-          - Pending
-          - Complete
-          - null
-        templateId:
-          type:
-          - string
-          - 'null'
-        validFor:
+        amount:
           type:
           - number
           - 'null'
-      required:
-      - clientId
-      - collaboratorGroupId
-      - eligibilityRequirementId
-      - requirementType
-    ClientInvoiceUpdateRequest:
-      type: object
-      properties:
-        creditFeeHandling:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/FeeHandlingConfig'
+        comment:
+          type:
+          - string
+          - 'null'
         status:
           type:
           - string
           - 'null'
           enum:
-          - Draft
           - Open
-          - Overdue
-          - Cancelled
-          - Pending
-          - PaymentInTransit
-          - Paid
+          - Accepted
+          - Rejected
           - null
-    CompanyLinks:
-      type: object
-      properties:
-        instagramUrl:
-          type:
-          - string
-          - 'null'
-        linkedInUrl:
-          type:
-          - string
-          - 'null'
-        otherUrl:
-          type:
-          - string
-          - 'null'
-        twitterUrl:
-          type:
-          - string
-          - 'null'
-        websiteUrl:
-          type:
-          - string
-          - 'null'
-    6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11:
-      type: object
-      properties:
-        billClassId:
-          type:
-          - string
-          - 'null'
-        billCustomerId:
-          type:
-          - string
-          - 'null'
-        expenseAccountId:
-          type:
-          - string
-          - 'null'
-        invoiceClassId:
-          type:
-          - string
-          - 'null'
-        itemId:
-          type:
-          - string
-          - 'null'
     InvoiceRefundDestination:
       type: object
       properties:
@@ -3462,6 +2820,42 @@ components:
       - labels
       - refundType
       - updatedAt
+    PayRequest:
+      type: object
+      properties:
+        accountId:
+          type:
+          - string
+          - 'null'
+        paymentMethodId:
+          type:
+          - string
+          - 'null'
+        plaidPublicToken:
+          type:
+          - string
+          - 'null'
+    RedactedMember:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/RedactedUser'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
+      required:
+      - user
+    14abbd45a54a2847207e8ddfaeb5d4bc82ffb855d63772d79e0c5fe04e9b9b01:
+      type: object
+      properties:
+        amountWithheld:
+          type: number
+        rate:
+          type: number
+      required:
+      - amountWithheld
+      - rate
     ScheduleDateUpdate:
       type: object
       properties:
@@ -3483,102 +2877,302 @@ components:
           - Skipped
           - Modified
           - null
-    InvoiceCreateRequest:
+    InvoiceTemplateCreateRequest:
       type: object
       properties:
-        creditFeeHandling:
-          $ref: '#/components/schemas/FeeHandlingConfig'
-        dueDate:
+        invoiceData:
+          $ref: '#/components/schemas/InvoiceDataCreateRequest'
+        status:
           type: string
-        lineItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/InvoiceLineItemsCreateRequest'
-        memberClientId:
-          type: string
-        acceptedPaymentMethods:
+          enum:
+          - Active
+          - Draft
+          - Expired
+          - Cancelled
+        dueInDays:
           type:
-          - array
+          - number
           - 'null'
-          items:
-            enum:
-            - Credit
-            - ACH
-            - Manual
-            - null
-            type:
-            - string
-            - 'null'
-        attachments:
+        frequency:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/36b041d426951ffff76360faf03ef8ae938bed9739e6ad9f51acb982782296a2'
-        client:
+          - $ref: '#/components/schemas/Frequency'
+        isSchedulingOnly:
+          type:
+          - boolean
+          - 'null'
+        labels:
           oneOf:
           - type: 'null'
-          - type: object
-        collaborators:
+          - $ref: '#/components/schemas/LabelsDictionary'
+        scheduleDates:
           type:
           - array
           - 'null'
           items:
             oneOf:
             - type: 'null'
-            - $ref: '#/components/schemas/InvoiceCollaboratorCreateRequest'
-        currency:
+            - $ref: '#/components/schemas/ScheduleDate'
+        sendEmails:
           type:
-          - string
+          - boolean
           - 'null'
-          enum:
-          - USD
-          - CAD
-          - null
-        integration:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/3190685832a4970525ea5b0803efff0b36a0202062e1fd8a0bc187acbe156461'
-        invoiceNotes:
-          type:
-          - string
-          - 'null'
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        lateFeeHandling:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LateFeeConfigUpdate'
-        member:
-          oneOf:
-          - type: 'null'
-          - type: object
-        metadata:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/InvoiceMetadata'
-        notificationPreferences:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/InvoiceNotificationPreferences'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Draft
-          - Open
-          - Overdue
-          - Cancelled
-          - Pending
-          - PaymentInTransit
-          - Paid
-          - null
       required:
-      - creditFeeHandling
-      - dueDate
-      - lineItems
-      - memberClientId
+      - invoiceData
+      - status
+    InvoiceTemplate:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        invoiceData:
+          $ref: '#/components/schemas/Invoice'
+        invoiceTemplateId:
+          type: string
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Draft
+          - Expired
+          - Cancelled
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        accountId:
+          type:
+          - string
+          - 'null'
+        autoPaymentRequired:
+          type:
+          - boolean
+          - 'null'
+        createdInvoiceId:
+          type:
+          - string
+          - 'null'
+        dueInDays:
+          type:
+          - number
+          - 'null'
+        frequency:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Frequency'
+        isSchedulingOnly:
+          type:
+          - boolean
+          - 'null'
+        lastInvoiceDate:
+          type:
+          - string
+          - 'null'
+        nextInvoiceDate:
+          type:
+          - string
+          - 'null'
+        paymentMethodId:
+          type:
+          - string
+          - 'null'
+        scheduleDates:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/ScheduleDate'
+      required:
+      - createdAt
+      - eventActors
+      - invoiceData
+      - invoiceTemplateId
+      - labels
+      - memberId
+      - status
+      - updatedAt
+      - userRoles
+    InvoiceWithholdings:
+      type: object
+      properties:
+        tax:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/14abbd45a54a2847207e8ddfaeb5d4bc82ffb855d63772d79e0c5fe04e9b9b01'
+    InvoiceFeeCalculation:
+      type: object
+      properties:
+        creditFeeTotal:
+          type: number
+      required:
+      - creditFeeTotal
+    Company:
+      type: object
+      properties:
+        banking:
+          type:
+          - boolean
+          - 'null'
+        companyOwners:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CompanyPerson'
+        description:
+          type:
+          - string
+          - 'null'
+        disregardedEntityName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        links:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CompanyLinks'
+        name:
+          type:
+          - string
+          - 'null'
+        stateOfIncorporation:
+          type:
+          - string
+          - 'null'
+        structure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        supportEmail:
+          type:
+          - string
+          - 'null'
+        taxId:
+          type:
+          - string
+          - 'null'
+        website:
+          type:
+          - string
+          - 'null'
+        yearOfIncorporation:
+          type:
+          - string
+          - 'null'
+    ScheduleDate:
+      type: object
+      properties:
+        date:
+          type: string
+        status:
+          type: string
+          enum:
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
+        cutOffDate:
+          type:
+          - string
+          - 'null'
+        invoiceId:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
+      required:
+      - date
+      - status
+    LateFeeConfigUpdate:
+      type: object
+      properties:
+        frequency:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FrequencyUpdate'
+        lateFeeAmount:
+          type:
+          - number
+          - 'null'
+        lateFeePercentage:
+          type:
+          - number
+          - 'null'
+    BankAccount:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        bankName:
+          type: string
+        routingNumber:
+          type:
+          - string
+          - 'null'
+        swiftCode:
+          type:
+          - string
+          - 'null'
+      required:
+      - accountNumber
+      - bankName
+    InvoiceAppliedDeductions:
+      type: object
+      properties:
+        amount:
+          type: number
+        deductionId:
+          type: string
+        name:
+          type: string
+        transferId:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - deductionId
+      - name
+    ProcessingFees:
+      type: object
+      properties:
+        creditCardFee:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Fee'
+        instantPayoutFee:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Fee'
     9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b:
       type: object
       properties:
@@ -3590,33 +3184,439 @@ components:
           - member
           - enterprise
           - null
-    InvoiceCollaborator:
+    ClientInvoiceDataCreateRequest:
       type: object
       properties:
-        amount:
-          type: number
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvoiceLineItemsCreateRequest'
+        creditFeeHandling:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FeeHandlingConfig'
         currency:
-          type: string
+          type:
+          - string
+          - 'null'
           enum:
           - USD
           - CAD
-        description:
-          type: string
-        memberClientId:
-          type: string
-        invoiceId:
+          - null
+        dueDate:
           type:
           - string
           - 'null'
       required:
-      - amount
-      - currency
-      - description
-      - memberClientId
-    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      - lineItems
+    InvoiceLineItemsCreateRequest:
       type: object
-      additionalProperties:
-        type: string
+      properties:
+        costPerUnit:
+          type:
+          - number
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        detail:
+          type:
+          - string
+          - 'null'
+        discount:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/facb8048736dba546c4c76242d9f8c7111011a7a7483528f37d80226698a1f2b'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/3190685832a4970525ea5b0803efff0b36a0202062e1fd8a0bc187acbe156461'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        quantity:
+          type:
+          - number
+          - 'null'
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        totalCost:
+          type:
+          - number
+          - 'null'
+        unit:
+          type:
+          - string
+          - 'null'
+    MemberClientWireAccount:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        bankName:
+          type: string
+        routingNumber:
+          type:
+          - string
+          - 'null'
+        swiftCode:
+          type:
+          - string
+          - 'null'
+      required:
+      - accountNumber
+      - bankName
+    InvoiceLineItem:
+      type: object
+      properties:
+        costPerUnit:
+          type: number
+        createdAt:
+          type: string
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        labelsBak2:
+          $ref: '#/components/schemas/LabelsDictionary'
+        quantity:
+          type: number
+        reimbursableExpense:
+          type: boolean
+        totalCost:
+          type: number
+        unit:
+          type: string
+        updatedAt:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        detail:
+          type:
+          - string
+          - 'null'
+        discount:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/facb8048736dba546c4c76242d9f8c7111011a7a7483528f37d80226698a1f2b'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/InvoiceIntegrations'
+      required:
+      - costPerUnit
+      - createdAt
+      - labels
+      - labelsBak2
+      - quantity
+      - reimbursableExpense
+      - totalCost
+      - unit
+      - updatedAt
+    InvoiceAttachmentFile:
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileUrl:
+          type: string
+      required:
+      - fileName
+      - fileUrl
+    MemberOptions:
+      type: object
+      properties:
+        comment:
+          type:
+          - string
+          - 'null'
+        payoutPreferences:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+          - null
+        workflowStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Disputed
+          - Accepted
+          - Resubmitted
+          - null
+        workflowSubStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Submitted
+          - null
+    fdde61b278ad2b0bef3e1f411d3749ff7bc345ae633a85eb25e5990d251fb3a9:
+      type: object
+      properties:
+        clearedAt:
+          type:
+          - string
+          - 'null'
+        failedAt:
+          type:
+          - string
+          - 'null'
+        pendingAt:
+          type:
+          - string
+          - 'null'
+        returnedAt:
+          type:
+          - string
+          - 'null'
+        sentAt:
+          type:
+          - string
+          - 'null'
+    Form1099Correction:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - type: object
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        totalAmount:
+          type:
+          - number
+          - 'null'
+    CompanyPerson:
+      type: object
+      properties:
+        memberId:
+          type: string
+        ownershipPercentage:
+          type:
+          - number
+          - 'null'
+      required:
+      - memberId
+    MemberClient:
+      type: object
+      properties:
+        achCreditAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        client:
+          $ref: '#/components/schemas/RedactedMember'
+        clientData:
+          $ref: '#/components/schemas/ClientData'
+        clientId:
+          type: string
+        clientUserAccountType:
+          type: string
+          enum:
+          - member
+          - enterprise
+        createdAt:
+          type: string
+        emailTo:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        events:
+          $ref: '#/components/schemas/MemberClientEvents'
+        externalIds:
+          $ref: '#/components/schemas/ExternalIds'
+        form1099Balances:
+          $ref: '#/components/schemas/b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c'
+        formW9Data:
+          $ref: '#/components/schemas/MemberClientFormW9Info'
+        internationalWireAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberClientId:
+          type: string
+        memberData:
+          $ref: '#/components/schemas/MemberData'
+        memberId:
+          type: string
+        parentMemberClientId:
+          type: string
+        payerPayeeId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        taxStatus:
+          type: string
+          enum:
+          - Complete
+          - Failed
+          - Pending
+          - Incomplete
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        collaboratorGroupId:
+          type:
+          - string
+          - 'null'
+        collaboratorGroupIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        company:
+          type:
+          - string
+          - 'null'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/MemberClientRequirementResponse'
+        emailCC:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/3d33fba3f009de957b3be92fba006d6383af7e39f823cc1fd213506f6205100f'
+        name:
+          type:
+          - string
+          - 'null'
+      required:
+      - achCreditAccount
+      - client
+      - clientData
+      - clientId
+      - clientUserAccountType
+      - createdAt
+      - emailTo
+      - eventActors
+      - events
+      - externalIds
+      - form1099Balances
+      - formW9Data
+      - internal
+      - internationalWireAccount
+      - labels
+      - member
+      - memberClientId
+      - memberData
+      - memberId
+      - parentMemberClientId
+      - payerPayeeId
+      - status
+      - taxStatus
+      - updatedAt
+      - userRoles
+    InvoiceNotificationPreferences:
+      type: object
+      properties:
+        sendReminders:
+          type: boolean
+        sendInvoice:
+          type:
+          - boolean
+          - 'null'
+        sendReceipt:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - sendReminders
+    InvoiceAttachments:
+      type: object
+      properties:
+        customAttachmentIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+        customAttachmentInfo:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/InvoiceAttachmentFile'
+        invoiceLink:
+          type:
+          - string
+          - 'null'
+        invoicePdf:
+          type:
+          - string
+          - 'null'
+        receiptPdf:
+          type:
+          - string
+          - 'null'
   securitySchemes:
     BearerAuth:
       type: http

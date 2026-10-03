@@ -298,6 +298,57 @@ components:
       - date
       - id
       - name
+    Address:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    PayoutDestinationUpdate:
+      type: object
+      properties:
+        destinationId:
+          type:
+          - string
+          - 'null'
+        destinationType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Account
+          - Card
+          - WeGift
+          - null
+        payoutMethod:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+          - null
+        percentage:
+          type:
+          - number
+          - 'null'
     PayoutDestinationResponse:
       type: object
       properties:
@@ -331,122 +382,6 @@ components:
       - name
       - payoutMethod
       - percentage
-    PayoutSettingsUpdate:
-      type: object
-      properties:
-        payoutDestinations:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/PayoutDestinationUpdate'
-        payoutPreferences:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Standard
-          - Instant
-          - Expedited
-          - Check
-          - ECheck
-          - null
-    BankingApplicationForm:
-      type: object
-      properties:
-        applicationLink:
-          type: string
-        memberId:
-          type: string
-      required:
-      - applicationLink
-      - memberId
-    InstitutionResponse:
-      type: object
-      properties:
-        address:
-          type: string
-        isACHSupported:
-          type: boolean
-        isRTPSupported:
-          type: boolean
-        isWireSupported:
-          type: boolean
-        name:
-          type: string
-        routingNumber:
-          type: string
-      required:
-      - address
-      - isACHSupported
-      - isRTPSupported
-      - isWireSupported
-      - name
-      - routingNumber
-    Address:
-      type: object
-      properties:
-        addressLine1:
-          type: string
-        city:
-          type: string
-        postalCode:
-          type: string
-        state:
-          type: string
-        addressLine2:
-          type:
-          - string
-          - 'null'
-      required:
-      - addressLine1
-      - city
-      - postalCode
-      - state
-    CheckbookCardCreate:
-      type: object
-      properties:
-        cardNumber:
-          type: string
-        expMM:
-          type: string
-        expYYYY:
-          type: string
-        name:
-          type: string
-        address:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Address'
-        cvv:
-          type:
-          - string
-          - 'null'
-      required:
-      - cardNumber
-      - expMM
-      - expYYYY
-      - name
-    PayoutSettingsResponse:
-      type: object
-      properties:
-        payoutDestinations:
-          type: array
-          items:
-            $ref: '#/components/schemas/PayoutDestinationResponse'
-        payoutPreferences:
-          type: string
-          enum:
-          - Standard
-          - Instant
-          - Expedited
-          - Check
-          - ECheck
-      required:
-      - payoutDestinations
-      - payoutPreferences
     CheckbookCard:
       type: object
       properties:
@@ -476,23 +411,46 @@ components:
       - expirationMM
       - expirationYYYY
       - last4
-    PayoutDestinationUpdate:
+    BankingApplicationForm:
       type: object
       properties:
-        destinationId:
-          type:
-          - string
-          - 'null'
-        destinationType:
-          type:
-          - string
-          - 'null'
+        applicationLink:
+          type: string
+        memberId:
+          type: string
+      required:
+      - applicationLink
+      - memberId
+    PayoutSettingsResponse:
+      type: object
+      properties:
+        payoutDestinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/PayoutDestinationResponse'
+        payoutPreferences:
+          type: string
           enum:
-          - Account
-          - Card
-          - WeGift
-          - null
-        payoutMethod:
+          - Standard
+          - Instant
+          - Expedited
+          - Check
+          - ECheck
+      required:
+      - payoutDestinations
+      - payoutPreferences
+    PayoutSettingsUpdate:
+      type: object
+      properties:
+        payoutDestinations:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/PayoutDestinationUpdate'
+        payoutPreferences:
           type:
           - string
           - 'null'
@@ -503,10 +461,52 @@ components:
           - Check
           - ECheck
           - null
-        percentage:
+    InstitutionResponse:
+      type: object
+      properties:
+        address:
+          type: string
+        isACHSupported:
+          type: boolean
+        isRTPSupported:
+          type: boolean
+        isWireSupported:
+          type: boolean
+        name:
+          type: string
+        routingNumber:
+          type: string
+      required:
+      - address
+      - isACHSupported
+      - isRTPSupported
+      - isWireSupported
+      - name
+      - routingNumber
+    CheckbookCardCreate:
+      type: object
+      properties:
+        cardNumber:
+          type: string
+        expMM:
+          type: string
+        expYYYY:
+          type: string
+        name:
+          type: string
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        cvv:
           type:
-          - number
+          - string
           - 'null'
+      required:
+      - cardNumber
+      - expMM
+      - expYYYY
+      - name
   securitySchemes:
     BearerAuth:
       type: http

@@ -184,16 +184,13 @@ paths:
                 $ref: '#/components/schemas/CardTokenResponse'
 components:
   schemas:
-    CardCodeResponse:
+    CardCodeRequest:
       type: object
       properties:
-        phoneNumber:
-          type: string
-        verificationToken:
+        channel:
           type: string
       required:
-      - phoneNumber
-      - verificationToken
+      - channel
     Card:
       type: object
       properties:
@@ -230,41 +227,6 @@ components:
       - last4Digits
       - status
       - type
-    CardCreateRequest:
-      type: object
-      properties:
-        requestPhysicalCard:
-          type:
-          - boolean
-          - 'null'
-        shippingAddress:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Address'
-    CardTokenRequest:
-      type: object
-      properties:
-        verificationCode:
-          type: string
-        verificationToken:
-          type: string
-      required:
-      - verificationCode
-      - verificationToken
-    CardUpdateRequest:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - Active
-          - Inactive
-          - Stolen
-          - Lost
-          - Frozen
-          - ClosedByCustomer
-      required:
-      - status
     Address:
       type: object
       properties:
@@ -285,23 +247,16 @@ components:
       - city
       - postalCode
       - state
-    CardCodeRequest:
+    CardTokenRequest:
       type: object
       properties:
-        channel:
+        verificationCode:
+          type: string
+        verificationToken:
           type: string
       required:
-      - channel
-    CardTokenResponse:
-      type: object
-      properties:
-        cardId:
-          type: string
-        token:
-          type: string
-      required:
-      - cardId
-      - token
+      - verificationCode
+      - verificationToken
     CardDetails:
       type: object
       properties:
@@ -348,6 +303,51 @@ components:
       - name
       - status
       - type
+    CardCreateRequest:
+      type: object
+      properties:
+        requestPhysicalCard:
+          type:
+          - boolean
+          - 'null'
+        shippingAddress:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+    CardUpdateRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Stolen
+          - Lost
+          - Frozen
+          - ClosedByCustomer
+      required:
+      - status
+    CardTokenResponse:
+      type: object
+      properties:
+        cardId:
+          type: string
+        token:
+          type: string
+      required:
+      - cardId
+      - token
+    CardCodeResponse:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+        verificationToken:
+          type: string
+      required:
+      - phoneNumber
+      - verificationToken
   securitySchemes:
     BearerAuth:
       type: http

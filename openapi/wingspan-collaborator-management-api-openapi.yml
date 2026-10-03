@@ -389,142 +389,46 @@ paths:
                 $ref: '#/components/schemas/CollaboratorV2'
 components:
   schemas:
-    RedactedMember:
+    PostPaymentDeductionDisbursement:
       type: object
       properties:
-        user:
-          $ref: '#/components/schemas/RedactedUser'
-        profile:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
-      required:
-      - user
-    MemberClientFormW9Info:
-      type: object
-      properties:
-        addressLine1:
-          type:
-          - string
-          - 'null'
-        addressLine2:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        companyStructure:
-          type:
-          - string
-          - 'null'
-          enum:
-          - None
-          - SoleProprietorship
-          - LlcSingleMember
-          - LlcMultiMember
-          - CorporationS
-          - LLCCorporationS
-          - LLCCorporationC
-          - LLCPartnership
-          - CorporationC
-          - Partnership
-          - null
-        country:
-          type:
-          - string
-          - 'null'
-        dob:
-          type:
-          - string
-          - 'null'
-        ein:
-          type:
-          - string
-          - 'null'
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-        legalBusinessName:
-          type:
-          - string
-          - 'null'
-        postalCode:
-          type:
-          - string
-          - 'null'
-        ssn:
-          type:
-          - string
-          - 'null'
-        state:
-          type:
-          - string
-          - 'null'
-    CollaboratorForm1099BalancesUpdateRequest:
-      type: object
-      properties:
-        adjustments:
-          type:
-          - number
-          - 'null'
-        correction:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/ce853dbef33b2b91880690c84bc5314340c1301fd7b3503dd6ce79c844e2a481'
-        deliveryMethod:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Electronic
-          - Mail
-          - Both
-          - null
-        dispute:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5'
-        events:
-          oneOf:
-          - type: 'null'
-          - type: object
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Ready
-          - NeedsActionInfo
-          - NeedsActionDispute
-          - Submitted
-          - Rejected
-          - Accepted
-          - Excluded
-          - null
-    CollaboratorCreateRequest:
-      type: object
-      properties:
-        clientId:
+        inputs:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        strategy:
           type: string
+      required:
+      - inputs
+      - strategy
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
+    CollaboratorUpdateRequest:
+      type: object
+      properties:
         clientData:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/ClientData'
-        collaboratorGroupId:
-          type:
-          - string
-          - 'null'
+        form1099Balances:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/90f96495b02c2509fff131505484d46479a91b7d23ed2b0f438ca117d0bccad7'
         formW9Data:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/MemberClientFormW9Info'
+          - type: object
         integration:
           oneOf:
           - type: 'null'
@@ -533,22 +437,6 @@ components:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/LabelsDictionary'
-        memberCompany:
-          type:
-          - string
-          - 'null'
-        memberEmail:
-          type:
-          - string
-          - 'null'
-        memberId:
-          type:
-          - string
-          - 'null'
-        memberName:
-          type:
-          - string
-          - 'null'
         status:
           type:
           - string
@@ -558,84 +446,92 @@ components:
           - Inactive
           - Pending
           - null
-      required:
-      - clientId
-    26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4:
+    CollaboratorGroupResponse:
       type: object
       properties:
-        quickbooks:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/6a65bb5a9fe6d1135b7182baff68e9bc6612ee2c1ab942926fe2804c58663cf4'
-    MemberClientWireAccount:
-      type: object
-      properties:
-        accountNumber:
-          type: string
-        bankName:
-          type: string
-        routingNumber:
-          type:
-          - string
-          - 'null'
-        swiftCode:
-          type:
-          - string
-          - 'null'
-      required:
-      - accountNumber
-      - bankName
-    6a65bb5a9fe6d1135b7182baff68e9bc6612ee2c1ab942926fe2804c58663cf4:
-      type: object
-      properties:
-        expenseAccountId:
-          type:
-          - string
-          - 'null'
-        vendorId:
-          type:
-          - string
-          - 'null'
-    DeductionCreateRequest:
-      type: object
-      properties:
-        amount:
-          type: number
         clientId:
           type: string
-        currency:
+        collaboratorGroupId:
           type: string
-          enum:
-          - USD
-          - CAD
-        memberId:
+        defaultGroup:
+          type: boolean
+        description:
           type: string
         name:
           type: string
-        type:
+        collaboratorSettings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/EligibilityRequirement'
+      required:
+      - clientId
+      - collaboratorGroupId
+      - defaultGroup
+      - description
+      - name
+    MemberClientRequirementResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        collaboratorGroupId:
+          type: string
+        eligibilityRequirementId:
+          type: string
+        requirementType:
           type: string
           enum:
-          - PrePayment
-          - PostPayment
-        priority:
+          - Signature
+        document:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentResponse'
+        documentId:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - New
+          - Sent
+          - Pending
+          - Complete
+          - null
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
           type:
           - number
           - 'null'
-        sourceInvoiceId:
-          type:
-          - string
-          - 'null'
-        startDate:
-          type:
-          - string
-          - 'null'
       required:
-      - amount
       - clientId
-      - currency
-      - memberId
-      - name
-      - type
+      - collaboratorGroupId
+      - eligibilityRequirementId
+      - requirementType
+    b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c:
+      type: object
+      properties:
+        '2021':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientForm1099Balances'
+        '2022':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientForm1099Balances'
     MemberClientForm1099Balances:
       type: object
       properties:
@@ -701,42 +597,36 @@ components:
       - platformIncome
       - status
       - type
-    RedactedUser:
+    CollaboratorV2:
       type: object
       properties:
-        email:
-          type:
-          - string
-          - 'null'
-        phone:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
-        profile:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
-        settings:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Pending
-          - Active
-          - Disabled
-          - null
-        tag:
-          type:
-          - string
-          - 'null'
-    Collaboration:
-      type: object
-      properties:
-        collaboratorId:
+        achCreditAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        clientId:
+          type: string
+        collaborations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collaboration'
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        firstCollaborationId:
+          type: string
+        form1099Balances:
+          $ref: '#/components/schemas/b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c'
+        formW9Data:
+          $ref: '#/components/schemas/CollaboratorV2FormW9Info'
+        internationalWireAccount:
+          $ref: '#/components/schemas/MemberClientWireAccount'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        member:
+          $ref: '#/components/schemas/RedactedMember'
+        memberId:
+          type: string
+        primaryCollaborationId:
           type: string
         status:
           type: string
@@ -744,168 +634,89 @@ components:
           - Active
           - Inactive
           - Pending
+        taxStatus:
+          type: string
+          enum:
+          - Complete
+          - Failed
+          - Pending
+          - Incomplete
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
         clientData:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/ClientData'
-        collaboratorGroupIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-        eligibilityRequirements:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/MemberClientRequirementResponse'
-        integration:
+        memberData:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4'
+          - $ref: '#/components/schemas/MemberData'
+        memberEvents:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CollaboratorEvents'
       required:
-      - collaboratorId
+      - achCreditAccount
+      - clientId
+      - collaborations
+      - createdAt
+      - eventActors
+      - firstCollaborationId
+      - form1099Balances
+      - formW9Data
+      - internal
+      - internationalWireAccount
+      - labels
+      - member
+      - memberId
+      - primaryCollaborationId
       - status
-    90f96495b02c2509fff131505484d46479a91b7d23ed2b0f438ca117d0bccad7:
+      - taxStatus
+      - updatedAt
+      - userRoles
+    CollaboratorForm1099BalancesUpdateRequest:
       type: object
       properties:
-        '2021':
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/CollaboratorForm1099BalancesUpdateRequest'
-        '2022':
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/CollaboratorForm1099BalancesUpdateRequest'
-    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
-      type: object
-      properties:
-        address:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Address'
-        company:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Company'
-        logoUrl:
-          type:
-          - string
-          - 'null'
-        ssnLastFour:
-          type:
-          - string
-          - 'null'
-    DeductionUpdateRequest:
-      type: object
-      properties:
-        amount:
+        adjustments:
           type:
           - number
           - 'null'
-        currency:
+        correction:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/ce853dbef33b2b91880690c84bc5314340c1301fd7b3503dd6ce79c844e2a481'
+        deliveryMethod:
           type:
           - string
           - 'null'
           enum:
-          - USD
-          - CAD
+          - Electronic
+          - Mail
+          - Both
           - null
-        name:
-          type:
-          - string
-          - 'null'
-        priority:
-          type:
-          - number
-          - 'null'
-        sourceInvoiceId:
-          type:
-          - string
-          - 'null'
-        startDate:
-          type:
-          - string
-          - 'null'
-        type:
-          type:
-          - string
-          - 'null'
-          enum:
-          - PrePayment
-          - PostPayment
-          - null
-    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
-      type: object
-      additionalProperties:
-        type: string
-    DocumentEvents:
-      type: object
-      properties:
-        clientSignedAt:
-          type:
-          - string
-          - 'null'
-        memberSignedAt:
-          type:
-          - string
-          - 'null'
-    LabelsDictionary:
-      type: object
-      additionalProperties:
-        type: string
-    DocumentResponse:
-      type: object
-      properties:
-        clientId:
-          type: string
-        documentId:
-          type: string
-        memberId:
-          type: string
-        status:
-          type: string
-          enum:
-          - Required
-          - Approved
-          - Invalid
-          - ReceivedFront
-          - ReceivedBack
-          - PendingReview
-        templateId:
-          type: string
-        title:
-          type: string
-        userRoles:
-          $ref: '#/components/schemas/UserRoles'
+        dispute:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5'
         events:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/DocumentEvents'
-        files:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/DocumentFiles'
-      required:
-      - clientId
-      - documentId
-      - memberId
-      - status
-      - templateId
-      - title
-      - userRoles
-    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
-      type: object
-      properties:
-        number:
+          - type: object
+        status:
           type:
           - string
           - 'null'
+          enum:
+          - Ready
+          - NeedsActionInfo
+          - NeedsActionDispute
+          - Submitted
+          - Rejected
+          - Accepted
+          - Excluded
+          - null
     CollaboratorGroupRequirement:
       type: object
       properties:
@@ -913,97 +724,6 @@ components:
           type:
           - string
           - 'null'
-    DeductionApplication:
-      type: object
-      properties:
-        amountDeducted:
-          type: number
-        payableId:
-          type: string
-        disbursementId:
-          type:
-          - string
-          - 'null'
-      required:
-      - amountDeducted
-      - payableId
-    Form1099Events:
-      type: object
-      properties:
-        acceptedByCollaboratorAt:
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type:
-          - string
-          - 'null'
-        postFilingSuggestionMadeAt:
-          type:
-          - string
-          - 'null'
-        postFilingSuggestionResolvedAt:
-          type:
-          - string
-          - 'null'
-        submittedForCollaboratorReviewAt:
-          type:
-          - string
-          - 'null'
-        suggestionMadeAt:
-          type:
-          - string
-          - 'null'
-        suggestionResolvedAt:
-          type:
-          - string
-          - 'null'
-        updatedAt:
-          type:
-          - string
-          - 'null'
-    DocumentFiles:
-      type: object
-      properties:
-        client:
-          type:
-          - string
-          - 'null'
-        member:
-          type:
-          - string
-          - 'null'
-    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
-      type: object
-      properties:
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-    Address:
-      type: object
-      properties:
-        addressLine1:
-          type: string
-        city:
-          type: string
-        postalCode:
-          type: string
-        state:
-          type: string
-        addressLine2:
-          type:
-          - string
-          - 'null'
-      required:
-      - addressLine1
-      - city
-      - postalCode
-      - state
     Company:
       type: object
       properties:
@@ -1075,24 +795,55 @@ components:
           type:
           - string
           - 'null'
-    MemberClientRequirementResponse:
+    6a65bb5a9fe6d1135b7182baff68e9bc6612ee2c1ab942926fe2804c58663cf4:
+      type: object
+      properties:
+        expenseAccountId:
+          type:
+          - string
+          - 'null'
+        vendorId:
+          type:
+          - string
+          - 'null'
+    CollaboratorCreateRequest:
       type: object
       properties:
         clientId:
           type: string
-        collaboratorGroupId:
-          type: string
-        eligibilityRequirementId:
-          type: string
-        requirementType:
-          type: string
-          enum:
-          - Signature
-        document:
+        clientData:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/DocumentResponse'
-        documentId:
+          - $ref: '#/components/schemas/ClientData'
+        collaboratorGroupId:
+          type:
+          - string
+          - 'null'
+        formW9Data:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientFormW9Info'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        memberCompany:
+          type:
+          - string
+          - 'null'
+        memberEmail:
+          type:
+          - string
+          - 'null'
+        memberId:
+          type:
+          - string
+          - 'null'
+        memberName:
           type:
           - string
           - 'null'
@@ -1101,11 +852,23 @@ components:
           - string
           - 'null'
           enum:
-          - New
-          - Sent
+          - Active
+          - Inactive
           - Pending
-          - Complete
           - null
+      required:
+      - clientId
+    EligibilityRequirement:
+      type: object
+      properties:
+        clientId:
+          type: string
+        eligibilityRequirementId:
+          type: string
+        requirementType:
+          type: string
+          enum:
+          - Signature
         templateId:
           type:
           - string
@@ -1116,43 +879,89 @@ components:
           - 'null'
       required:
       - clientId
-      - collaboratorGroupId
       - eligibilityRequirementId
       - requirementType
-    MemberData:
+    ce853dbef33b2b91880690c84bc5314340c1301fd7b3503dd6ce79c844e2a481:
       type: object
       properties:
-        autoPayRequirement:
+        address:
+          oneOf:
+          - type: 'null'
+          - type: object
+        companyStructure:
           type:
           - string
           - 'null'
           enum:
-          - All
           - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
           - null
-        externalId:
+        ein:
           type:
           - string
           - 'null'
-        shareTaxDocument:
+        firstName:
           type:
           - string
           - 'null'
-          enum:
-          - Allow
-          - Decline
-          - null
-    CompanyPerson:
-      type: object
-      properties:
-        memberId:
-          type: string
-        ownershipPercentage:
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        totalAmount:
           type:
           - number
           - 'null'
-      required:
-      - memberId
+    CompanyLinks:
+      type: object
+      properties:
+        instagramUrl:
+          type:
+          - string
+          - 'null'
+        linkedInUrl:
+          type:
+          - string
+          - 'null'
+        otherUrl:
+          type:
+          - string
+          - 'null'
+        twitterUrl:
+          type:
+          - string
+          - 'null'
+        websiteUrl:
+          type:
+          - string
+          - 'null'
+    9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b:
+      type: object
+      properties:
+        userAccountType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - member
+          - enterprise
+          - null
     CollaboratorV2FormW9Info:
       type: object
       properties:
@@ -1214,6 +1023,371 @@ components:
       - country
       - postalCode
       - state
+    DeductionCreateRequest:
+      type: object
+      properties:
+        amount:
+          type: number
+        clientId:
+          type: string
+        currency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        memberId:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - PrePayment
+          - PostPayment
+        priority:
+          type:
+          - number
+          - 'null'
+        sourceInvoiceId:
+          type:
+          - string
+          - 'null'
+        startDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - clientId
+      - currency
+      - memberId
+      - name
+      - type
+    DeductionResponse:
+      type: object
+      properties:
+        amount:
+          type: number
+        application:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeductionApplication'
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        currency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        deductionId:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        memberId:
+          type: string
+        name:
+          type: string
+        priority:
+          type: number
+        startDate:
+          type: string
+        status:
+          type: string
+          enum:
+          - Pending
+          - PartiallyApplied
+          - Complete
+        type:
+          type: string
+          enum:
+          - PrePayment
+          - PostPayment
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        deductionTemplateId:
+          type:
+          - string
+          - 'null'
+        disbursement:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/PostPaymentDeductionDisbursement'
+        sourceInvoiceId:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - application
+      - clientId
+      - createdAt
+      - currency
+      - deductionId
+      - eventActors
+      - labels
+      - memberId
+      - name
+      - priority
+      - startDate
+      - status
+      - type
+      - updatedAt
+      - userRoles
+    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
+      type: object
+      properties:
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        company:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Company'
+        logoUrl:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+    ClientData:
+      type: object
+      properties:
+        autoPayStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - All
+          - None
+          - null
+        externalId:
+          type:
+          - string
+          - 'null'
+        verificationStratgy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - All
+          - null
+    MemberClientWireAccount:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        bankName:
+          type: string
+        routingNumber:
+          type:
+          - string
+          - 'null'
+        swiftCode:
+          type:
+          - string
+          - 'null'
+      required:
+      - accountNumber
+      - bankName
+    DeductionApplication:
+      type: object
+      properties:
+        amountDeducted:
+          type: number
+        payableId:
+          type: string
+        disbursementId:
+          type:
+          - string
+          - 'null'
+      required:
+      - amountDeducted
+      - payableId
+    MemberData:
+      type: object
+      properties:
+        autoPayRequirement:
+          type:
+          - string
+          - 'null'
+          enum:
+          - All
+          - None
+          - null
+        externalId:
+          type:
+          - string
+          - 'null'
+        shareTaxDocument:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Allow
+          - Decline
+          - null
+    Form1099Events:
+      type: object
+      properties:
+        acceptedByCollaboratorAt:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type:
+          - string
+          - 'null'
+        postFilingSuggestionMadeAt:
+          type:
+          - string
+          - 'null'
+        postFilingSuggestionResolvedAt:
+          type:
+          - string
+          - 'null'
+        submittedForCollaboratorReviewAt:
+          type:
+          - string
+          - 'null'
+        suggestionMadeAt:
+          type:
+          - string
+          - 'null'
+        suggestionResolvedAt:
+          type:
+          - string
+          - 'null'
+        updatedAt:
+          type:
+          - string
+          - 'null'
+    DocumentFiles:
+      type: object
+      properties:
+        client:
+          type:
+          - string
+          - 'null'
+        member:
+          type:
+          - string
+          - 'null'
+    CollaboratorEvents:
+      type: object
+      properties:
+        knowYourCustomerVerifiedAt:
+          type: string
+        payoutMethodFirstAddedAt:
+          type: string
+        taxDocumentationVerifiedAt:
+          type: string
+        signedUpAt:
+          type:
+          - string
+          - 'null'
+      required:
+      - knowYourCustomerVerifiedAt
+      - payoutMethodFirstAddedAt
+      - taxDocumentationVerifiedAt
+    DocumentEvents:
+      type: object
+      properties:
+        clientSignedAt:
+          type:
+          - string
+          - 'null'
+        memberSignedAt:
+          type:
+          - string
+          - 'null'
+    MemberClientFormW9Info:
+      type: object
+      properties:
+        addressLine1:
+          type:
+          - string
+          - 'null'
+        addressLine2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        country:
+          type:
+          - string
+          - 'null'
+        dob:
+          type:
+          - string
+          - 'null'
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
     UserRoles:
       type: object
       properties:
@@ -1228,23 +1402,29 @@ components:
       required:
       - ownerIds
       - viewerIds
-    CollaboratorGroupResponse:
+    Collaboration:
       type: object
       properties:
-        clientId:
+        collaboratorId:
           type: string
-        collaboratorGroupId:
+        status:
           type: string
-        defaultGroup:
-          type: boolean
-        description:
-          type: string
-        name:
-          type: string
-        collaboratorSettings:
+          enum:
+          - Active
+          - Inactive
+          - Pending
+        clientData:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
+          - $ref: '#/components/schemas/ClientData'
+        collaboratorGroupIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
         eligibilityRequirements:
           type:
           - array
@@ -1252,46 +1432,46 @@ components:
           items:
             oneOf:
             - type: 'null'
-            - $ref: '#/components/schemas/EligibilityRequirement'
+            - $ref: '#/components/schemas/MemberClientRequirementResponse'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4'
       required:
-      - clientId
-      - collaboratorGroupId
-      - defaultGroup
-      - description
-      - name
-    CompanyLinks:
+      - collaboratorId
+      - status
+    RedactedUser:
       type: object
       properties:
-        instagramUrl:
+        email:
           type:
           - string
           - 'null'
-        linkedInUrl:
+        phone:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
+        settings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
+        status:
           type:
           - string
           - 'null'
-        otherUrl:
+          enum:
+          - Pending
+          - Active
+          - Disabled
+          - null
+        tag:
           type:
           - string
           - 'null'
-        twitterUrl:
-          type:
-          - string
-          - 'null'
-        websiteUrl:
-          type:
-          - string
-          - 'null'
-    PostPaymentDeductionDisbursement:
-      type: object
-      properties:
-        inputs:
-          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
-        strategy:
-          type: string
-      required:
-      - inputs
-      - strategy
     CollaboratorSchema:
       type: object
       properties:
@@ -1379,82 +1559,26 @@ components:
       - taxStatus
       - updatedAt
       - userRoles
-    DeductionResponse:
+    Address:
       type: object
       properties:
-        amount:
-          type: number
-        application:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeductionApplication'
-        clientId:
+        addressLine1:
           type: string
-        createdAt:
+        city:
           type: string
-        currency:
+        postalCode:
           type: string
-          enum:
-          - USD
-          - CAD
-        deductionId:
+        state:
           type: string
-        eventActors:
-          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
-        labels:
-          $ref: '#/components/schemas/LabelsDictionary'
-        memberId:
-          type: string
-        name:
-          type: string
-        priority:
-          type: number
-        startDate:
-          type: string
-        status:
-          type: string
-          enum:
-          - Pending
-          - PartiallyApplied
-          - Complete
-        type:
-          type: string
-          enum:
-          - PrePayment
-          - PostPayment
-        updatedAt:
-          type: string
-        userRoles:
-          $ref: '#/components/schemas/UserRoles'
-        deductionTemplateId:
-          type:
-          - string
-          - 'null'
-        disbursement:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/PostPaymentDeductionDisbursement'
-        sourceInvoiceId:
+        addressLine2:
           type:
           - string
           - 'null'
       required:
-      - amount
-      - application
-      - clientId
-      - createdAt
-      - currency
-      - deductionId
-      - eventActors
-      - labels
-      - memberId
-      - name
-      - priority
-      - startDate
-      - status
-      - type
-      - updatedAt
-      - userRoles
+      - addressLine1
+      - city
+      - postalCode
+      - state
     8a9c6cb49482a98cdd603ff09858cdc3e5ef6ad9807c876c4161d925a96694a5:
       type: object
       properties:
@@ -1475,151 +1599,6 @@ components:
           - Accepted
           - Rejected
           - null
-    CollaboratorV2:
-      type: object
-      properties:
-        achCreditAccount:
-          $ref: '#/components/schemas/MemberClientWireAccount'
-        clientId:
-          type: string
-        collaborations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Collaboration'
-        createdAt:
-          type: string
-        eventActors:
-          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
-        firstCollaborationId:
-          type: string
-        form1099Balances:
-          $ref: '#/components/schemas/b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c'
-        formW9Data:
-          $ref: '#/components/schemas/CollaboratorV2FormW9Info'
-        internationalWireAccount:
-          $ref: '#/components/schemas/MemberClientWireAccount'
-        labels:
-          $ref: '#/components/schemas/LabelsDictionary'
-        member:
-          $ref: '#/components/schemas/RedactedMember'
-        memberId:
-          type: string
-        primaryCollaborationId:
-          type: string
-        status:
-          type: string
-          enum:
-          - Active
-          - Inactive
-          - Pending
-        taxStatus:
-          type: string
-          enum:
-          - Complete
-          - Failed
-          - Pending
-          - Incomplete
-        updatedAt:
-          type: string
-        userRoles:
-          $ref: '#/components/schemas/UserRoles'
-        clientData:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/ClientData'
-        memberData:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/MemberData'
-        memberEvents:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/CollaboratorEvents'
-      required:
-      - achCreditAccount
-      - clientId
-      - collaborations
-      - createdAt
-      - eventActors
-      - firstCollaborationId
-      - form1099Balances
-      - formW9Data
-      - internal
-      - internationalWireAccount
-      - labels
-      - member
-      - memberId
-      - primaryCollaborationId
-      - status
-      - taxStatus
-      - updatedAt
-      - userRoles
-    ClientData:
-      type: object
-      properties:
-        autoPayStrategy:
-          type:
-          - string
-          - 'null'
-          enum:
-          - All
-          - None
-          - null
-        externalId:
-          type:
-          - string
-          - 'null'
-        verificationStratgy:
-          type:
-          - string
-          - 'null'
-          enum:
-          - None
-          - All
-          - null
-    CollaboratorUpdateRequest:
-      type: object
-      properties:
-        clientData:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/ClientData'
-        form1099Balances:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/90f96495b02c2509fff131505484d46479a91b7d23ed2b0f438ca117d0bccad7'
-        formW9Data:
-          oneOf:
-          - type: 'null'
-          - type: object
-        integration:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4'
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Active
-          - Inactive
-          - Pending
-          - null
-    b9789f45f8c8070ff38a64d80c2e4a8732ddaf329e46546474400d26f84c0f1c:
-      type: object
-      properties:
-        '2021':
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/MemberClientForm1099Balances'
-        '2022':
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/MemberClientForm1099Balances'
     Form1099Correction:
       type: object
       properties:
@@ -1667,6 +1646,118 @@ components:
           type:
           - number
           - 'null'
+    DocumentResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        documentId:
+          type: string
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Required
+          - Approved
+          - Invalid
+          - ReceivedFront
+          - ReceivedBack
+          - PendingReview
+        templateId:
+          type: string
+        title:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        events:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentEvents'
+        files:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/DocumentFiles'
+      required:
+      - clientId
+      - documentId
+      - memberId
+      - status
+      - templateId
+      - title
+      - userRoles
+    CompanyPerson:
+      type: object
+      properties:
+        memberId:
+          type: string
+        ownershipPercentage:
+          type:
+          - number
+          - 'null'
+      required:
+      - memberId
+    90f96495b02c2509fff131505484d46479a91b7d23ed2b0f438ca117d0bccad7:
+      type: object
+      properties:
+        '2021':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CollaboratorForm1099BalancesUpdateRequest'
+        '2022':
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CollaboratorForm1099BalancesUpdateRequest'
+    DeductionUpdateRequest:
+      type: object
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        currency:
+          type:
+          - string
+          - 'null'
+          enum:
+          - USD
+          - CAD
+          - null
+        name:
+          type:
+          - string
+          - 'null'
+        priority:
+          type:
+          - number
+          - 'null'
+        sourceInvoiceId:
+          type:
+          - string
+          - 'null'
+        startDate:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+          enum:
+          - PrePayment
+          - PostPayment
+          - null
+    RedactedMember:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/RedactedUser'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
+      required:
+      - user
     CollaboratorGroupCreateRequest:
       type: object
       properties:
@@ -1689,104 +1780,13 @@ components:
       required:
       - description
       - name
-    9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b:
+    26e8ea23ccb1e007e7d6560175c7e75c768dac34727b7fe1d834ca24b8221ef4:
       type: object
       properties:
-        userAccountType:
-          type:
-          - string
-          - 'null'
-          enum:
-          - member
-          - enterprise
-          - null
-    CollaboratorEvents:
-      type: object
-      properties:
-        knowYourCustomerVerifiedAt:
-          type: string
-        payoutMethodFirstAddedAt:
-          type: string
-        taxDocumentationVerifiedAt:
-          type: string
-        signedUpAt:
-          type:
-          - string
-          - 'null'
-      required:
-      - knowYourCustomerVerifiedAt
-      - payoutMethodFirstAddedAt
-      - taxDocumentationVerifiedAt
-    EligibilityRequirement:
-      type: object
-      properties:
-        clientId:
-          type: string
-        eligibilityRequirementId:
-          type: string
-        requirementType:
-          type: string
-          enum:
-          - Signature
-        templateId:
-          type:
-          - string
-          - 'null'
-        validFor:
-          type:
-          - number
-          - 'null'
-      required:
-      - clientId
-      - eligibilityRequirementId
-      - requirementType
-    ce853dbef33b2b91880690c84bc5314340c1301fd7b3503dd6ce79c844e2a481:
-      type: object
-      properties:
-        address:
+        quickbooks:
           oneOf:
           - type: 'null'
-          - type: object
-        companyStructure:
-          type:
-          - string
-          - 'null'
-          enum:
-          - None
-          - SoleProprietorship
-          - LlcSingleMember
-          - LlcMultiMember
-          - CorporationS
-          - LLCCorporationS
-          - LLCCorporationC
-          - LLCPartnership
-          - CorporationC
-          - Partnership
-          - null
-        ein:
-          type:
-          - string
-          - 'null'
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-        legalBusinessName:
-          type:
-          - string
-          - 'null'
-        ssn:
-          type:
-          - string
-          - 'null'
-        totalAmount:
-          type:
-          - number
-          - 'null'
+          - $ref: '#/components/schemas/6a65bb5a9fe6d1135b7182baff68e9bc6612ee2c1ab942926fe2804c58663cf4'
   securitySchemes:
     BearerAuth:
       type: http

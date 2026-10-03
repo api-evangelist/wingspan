@@ -350,6 +350,114 @@ paths:
                 $ref: '#/components/schemas/CollaboratorGroupResponse'
 components:
   schemas:
+    CollaboratorGroupUpdateRequest:
+      type: object
+      properties:
+        collaboratorSettings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        description:
+          type:
+          - string
+          - 'null'
+        eligibilityRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CollaboratorGroupRequirement'
+        name:
+          type:
+          - string
+          - 'null'
+    EligibilityRequirementUpdateRequest:
+      type: object
+      properties:
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - requirementType
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    EligibilityRequirementCreateRequest:
+      type: object
+      properties:
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - requirementType
+    CollaboratorGroupRequirement:
+      type: object
+      properties:
+        eligibilityRequirementId:
+          type:
+          - string
+          - 'null'
+    CollaboratorGroupRequirementUpdate:
+      type: object
+      properties:
+        newEligibilityRequirementId:
+          type: string
+      required:
+      - newEligibilityRequirementId
+    EligibilityRequirement:
+      type: object
+      properties:
+        clientId:
+          type: string
+        eligibilityRequirementId:
+          type: string
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - clientId
+      - eligibilityRequirementId
+      - requirementType
+    PaymentEligibility:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: string
+      required:
+      - field
+      - value
     CollaboratorGroupResponse:
       type: object
       properties:
@@ -392,114 +500,6 @@ components:
           oneOf:
           - type: 'null'
           - type: object
-    CollaboratorGroupRequirementUpdate:
-      type: object
-      properties:
-        newEligibilityRequirementId:
-          type: string
-      required:
-      - newEligibilityRequirementId
-    CollaboratorGroupUpdateRequest:
-      type: object
-      properties:
-        collaboratorSettings:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        description:
-          type:
-          - string
-          - 'null'
-        eligibilityRequirements:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/CollaboratorGroupRequirement'
-        name:
-          type:
-          - string
-          - 'null'
-    LabelsDictionary:
-      type: object
-      additionalProperties:
-        type: string
-    EligibilityRequirement:
-      type: object
-      properties:
-        clientId:
-          type: string
-        eligibilityRequirementId:
-          type: string
-        requirementType:
-          type: string
-          enum:
-          - Signature
-        templateId:
-          type:
-          - string
-          - 'null'
-        validFor:
-          type:
-          - number
-          - 'null'
-      required:
-      - clientId
-      - eligibilityRequirementId
-      - requirementType
-    CollaboratorGroupRequirement:
-      type: object
-      properties:
-        eligibilityRequirementId:
-          type:
-          - string
-          - 'null'
-    EligibilityRequirementUpdateRequest:
-      type: object
-      properties:
-        requirementType:
-          type: string
-          enum:
-          - Signature
-        templateId:
-          type:
-          - string
-          - 'null'
-        validFor:
-          type:
-          - number
-          - 'null'
-      required:
-      - requirementType
-    EligibilityRequirementCreateRequest:
-      type: object
-      properties:
-        requirementType:
-          type: string
-          enum:
-          - Signature
-        templateId:
-          type:
-          - string
-          - 'null'
-        validFor:
-          type:
-          - number
-          - 'null'
-      required:
-      - requirementType
-    PaymentEligibility:
-      type: object
-      properties:
-        field:
-          type: string
-        value:
-          type: string
-      required:
-      - field
-      - value
   securitySchemes:
     BearerAuth:
       type: http

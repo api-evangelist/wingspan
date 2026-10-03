@@ -866,19 +866,37 @@ paths:
                 $ref: '#/components/schemas/BulkClientItem'
 components:
   schemas:
-    BulkClientBatch:
+    BulkPayableItem:
       type: object
       properties:
-        bulkClientBatchId:
+        amount:
+          type: number
+        bulkPayableBatchId:
+          type: string
+        bulkPayableItemId:
+          type: string
+        clientId:
           type: string
         createdAt:
+          type: string
+        dueDate:
           type: string
         eventActors:
           $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
         labels:
           $ref: '#/components/schemas/LabelsDictionary'
-        memberId:
+        lineItemDescription:
           type: string
+        paidDate:
+          type: string
+        payableStatus:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
         status:
           type: string
           enum:
@@ -891,328 +909,7 @@ components:
           type: string
         userRoles:
           $ref: '#/components/schemas/UserRoles'
-        statistics:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
-      required:
-      - bulkClientBatchId
-      - createdAt
-      - eventActors
-      - labels
-      - memberId
-      - status
-      - updatedAt
-      - userRoles
-    ff870c34e17f41323279d1c2fe8e2d03accac4d93d8aa050ddce7dbba094dbcb:
-      type: object
-      properties:
-        deductionId:
-          type:
-          - string
-          - 'null'
-        errorMessage:
-          type:
-          - string
-          - 'null'
-        payableId:
-          type:
-          - string
-          - 'null'
-        resolvedClientId:
-          type:
-          - string
-          - 'null'
-        resolvedCollaboratorId:
-          type:
-          - string
-          - 'null'
-    BulkInvoiceBatchCreate:
-      type: object
-      properties:
-        processingStrategy:
-          type: string
-          enum:
-          - Merge
-          - Single
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-      required:
-      - processingStrategy
-    RedactedMember:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/RedactedUser'
-        profile:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
-      required:
-      - user
-    MemberClientFormW9Info:
-      type: object
-      properties:
-        addressLine1:
-          type:
-          - string
-          - 'null'
-        addressLine2:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        companyStructure:
-          type:
-          - string
-          - 'null'
-          enum:
-          - None
-          - SoleProprietorship
-          - LlcSingleMember
-          - LlcMultiMember
-          - CorporationS
-          - LLCCorporationS
-          - LLCCorporationC
-          - LLCPartnership
-          - CorporationC
-          - Partnership
-          - null
-        country:
-          type:
-          - string
-          - 'null'
-        dob:
-          type:
-          - string
-          - 'null'
-        ein:
-          type:
-          - string
-          - 'null'
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-        legalBusinessName:
-          type:
-          - string
-          - 'null'
-        postalCode:
-          type:
-          - string
-          - 'null'
-        ssn:
-          type:
-          - string
-          - 'null'
-        state:
-          type:
-          - string
-          - 'null'
-    BulkPayableImportSummary:
-      type: object
-      properties:
-        deductionCollaboratorsCount:
-          type: number
-        netImportAmount:
-          type: number
-        payableCollaboratorsCount:
-          type: number
-        toBeCreatedDeductionsCount:
-          type: number
-        toBeCreatedPayablesCount:
-          type: number
-        toBeUpdatedDeductionsCount:
-          type: number
-        toBeUpdatedPayablesCount:
-          type: number
-        totalDeductionsAmount:
-          type: number
-        totalPayableItems:
-          type: number
-        totalPayablesAmount:
-          type: number
-      required:
-      - deductionCollaboratorsCount
-      - netImportAmount
-      - payableCollaboratorsCount
-      - toBeCreatedDeductionsCount
-      - toBeCreatedPayablesCount
-      - toBeUpdatedDeductionsCount
-      - toBeUpdatedPayablesCount
-      - totalDeductionsAmount
-      - totalPayableItems
-      - totalPayablesAmount
-    64846136a354aa510825c1f23c3a978f4c816d8d4184311e7294a570f73727dc:
-      type: object
-      properties:
-        customerId:
-          type:
-          - string
-          - 'null'
-        itemId:
-          type:
-          - string
-          - 'null'
-    FeeHandlingConfig:
-      type: object
-      properties:
-        clientAbsolutePercentage:
-          type:
-          - number
-          - 'null'
-        clientPays:
-          type:
-          - number
-          - 'null'
-        memberPays:
-          type:
-          - number
-          - 'null'
-    BulkInvoiceItemCreate:
-      type: object
-      properties:
-        amount:
-          type: number
-        bulkInvoiceBatchId:
-          type: string
-        dueDate:
-          type: string
-        invoiceStatus:
-          type: string
-          enum:
-          - Draft
-          - Open
-          - Approved
-          - Paid
-          - Cancelled
-        lineItemDescription:
-          type: string
-        acceptedPaymentMethods:
-          type:
-          - array
-          - 'null'
-          items:
-            enum:
-            - Credit
-            - ACH
-            - Manual
-            - null
-            type:
-            - string
-            - 'null'
-        bulkInvoiceItemMergeKey:
-          type:
-          - string
-          - 'null'
-        bulkInvoiceItemReference:
-          type:
-          - string
-          - 'null'
-        clientEmail:
-          type:
-          - string
-          - 'null'
-        clientExternalId:
-          type:
-          - string
-          - 'null'
-        creditFeeHandling:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/FeeHandlingConfig'
-        invoiceNotes:
-          type:
-          - string
-          - 'null'
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        lineItemDetail:
-          type:
-          - string
-          - 'null'
-        memberClientId:
-          type:
-          - string
-          - 'null'
-        paidDate:
-          type:
-          - string
-          - 'null'
-        projectName:
-          type:
-          - string
-          - 'null'
-        reimbursableExpense:
-          type:
-          - boolean
-          - 'null'
-        sendDate:
-          type:
-          - string
-          - 'null'
-      required:
-      - amount
-      - bulkInvoiceBatchId
-      - dueDate
-      - invoiceStatus
-      - lineItemDescription
-    RedactedUser:
-      type: object
-      properties:
-        email:
-          type:
-          - string
-          - 'null'
-        phone:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
-        profile:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
-        settings:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Pending
-          - Active
-          - Disabled
-          - null
-        tag:
-          type:
-          - string
-          - 'null'
-    BulkPayableItemUpdate:
-      type: object
-      properties:
-        amount:
-          type:
-          - number
-          - 'null'
         attachmentId:
-          type:
-          - string
-          - 'null'
-        bulkPayableBatchId:
           type:
           - string
           - 'null'
@@ -1221,10 +918,6 @@ components:
           - string
           - 'null'
         bulkPayableItemReference:
-          type:
-          - string
-          - 'null'
-        clientId:
           type:
           - string
           - 'null'
@@ -1240,185 +933,18 @@ components:
           type:
           - string
           - 'null'
-        dueDate:
-          type:
-          - string
-          - 'null'
-        labels:
+        integration:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        lineItemDescription:
-          type:
-          - string
-          - 'null'
+          - $ref: '#/components/schemas/InvoiceIntegrations'
         lineItemDetail:
           type:
           - string
           - 'null'
-        paidDate:
-          type:
-          - string
-          - 'null'
-        payableNotes:
-          type:
-          - string
-          - 'null'
-        payableStatus:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Draft
-          - Open
-          - Approved
-          - Paid
-          - Cancelled
-          - null
-        reimbursableExpense:
-          type:
-          - boolean
-          - 'null'
-        workflowSubStatus:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Submitted
-          - null
-    BulkCollaboratorItemCreate:
-      type: object
-      properties:
-        collaboratorGroupId:
-          type:
-          - string
-          - 'null'
-        collaboratorId:
-          type:
-          - string
-          - 'null'
-        collaboratorStatus:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Active
-          - Inactive
-          - Pending
-          - null
-        company:
-          type:
-          - string
-          - 'null'
-        email:
-          type:
-          - string
-          - 'null'
-        externalId:
-          type:
-          - string
-          - 'null'
-        firstLastName:
-          type:
-          - string
-          - 'null'
-        formW9Data:
+        metadata:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/MemberClientFormW9Info'
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        orgSubAccountId:
-          type:
-          - string
-          - 'null'
-    d750b2d9403b5bcbdb3c96c89f1cc713df563d587f16e5f39f5ab546c08a20a0:
-      type: object
-      properties:
-        quickbooks:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/64846136a354aa510825c1f23c3a978f4c816d8d4184311e7294a570f73727dc'
-    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
-      type: object
-      properties:
-        address:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Address'
-        company:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/Company'
-        logoUrl:
-          type:
-          - string
-          - 'null'
-        ssnLastFour:
-          type:
-          - string
-          - 'null'
-    BulkPayableItemCreate:
-      type: object
-      properties:
-        amount:
-          type: number
-        bulkPayableBatchId:
-          type: string
-        dueDate:
-          type: string
-        lineItemDescription:
-          type: string
-        payableStatus:
-          type: string
-          enum:
-          - Draft
-          - Open
-          - Approved
-          - Paid
-          - Cancelled
-        attachmentId:
-          type:
-          - string
-          - 'null'
-        bulkPayableItemMergeKey:
-          type:
-          - string
-          - 'null'
-        bulkPayableItemReference:
-          type:
-          - string
-          - 'null'
-        clientId:
-          type:
-          - string
-          - 'null'
-        collaboratorEmail:
-          type:
-          - string
-          - 'null'
-        collaboratorExternalId:
-          type:
-          - string
-          - 'null'
-        collaboratorId:
-          type:
-          - string
-          - 'null'
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        lineItemDetail:
-          type:
-          - string
-          - 'null'
-        paidDate:
-          type:
-          - string
-          - 'null'
+          - $ref: '#/components/schemas/ff870c34e17f41323279d1c2fe8e2d03accac4d93d8aa050ddce7dbba094dbcb'
         payableNotes:
           type:
           - string
@@ -1437,9 +963,25 @@ components:
       required:
       - amount
       - bulkPayableBatchId
+      - bulkPayableItemId
+      - clientId
+      - createdAt
       - dueDate
+      - eventActors
+      - labels
       - lineItemDescription
+      - paidDate
       - payableStatus
+      - status
+      - updatedAt
+      - userRoles
+    d750b2d9403b5bcbdb3c96c89f1cc713df563d587f16e5f39f5ab546c08a20a0:
+      type: object
+      properties:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/64846136a354aa510825c1f23c3a978f4c816d8d4184311e7294a570f73727dc'
     BulkInvoiceItemUpdate:
       type: object
       properties:
@@ -1535,6 +1077,169 @@ components:
           type:
           - string
           - 'null'
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+    757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2:
+      type: object
+      properties:
+        itemsFailed:
+          type: number
+        itemsProcessed:
+          type: number
+        itemsTotal:
+          type: number
+      required:
+      - itemsFailed
+      - itemsProcessed
+      - itemsTotal
+    6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11:
+      type: object
+      properties:
+        billClassId:
+          type:
+          - string
+          - 'null'
+        billCustomerId:
+          type:
+          - string
+          - 'null'
+        expenseAccountId:
+          type:
+          - string
+          - 'null'
+        invoiceClassId:
+          type:
+          - string
+          - 'null'
+        itemId:
+          type:
+          - string
+          - 'null'
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
+    ff870c34e17f41323279d1c2fe8e2d03accac4d93d8aa050ddce7dbba094dbcb:
+      type: object
+      properties:
+        deductionId:
+          type:
+          - string
+          - 'null'
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        payableId:
+          type:
+          - string
+          - 'null'
+        resolvedClientId:
+          type:
+          - string
+          - 'null'
+        resolvedCollaboratorId:
+          type:
+          - string
+          - 'null'
+    BulkBatchUpdate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+          - null
+    BulkClientBatch:
+      type: object
+      properties:
+        bulkClientBatchId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        memberId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        statistics:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
+      required:
+      - bulkClientBatchId
+      - createdAt
+      - eventActors
+      - labels
+      - memberId
+      - status
+      - updatedAt
+      - userRoles
+    FeeHandlingConfig:
+      type: object
+      properties:
+        clientAbsolutePercentage:
+          type:
+          - number
+          - 'null'
+        clientPays:
+          type:
+          - number
+          - 'null'
+        memberPays:
+          type:
+          - number
+          - 'null'
+    BulkInvoiceBatchUpdate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+          - null
     BulkInvoiceItem:
       type: object
       properties:
@@ -1662,6 +1367,303 @@ components:
       - status
       - updatedAt
       - userRoles
+    BulkClientItemUpdate:
+      type: object
+      properties:
+        clientStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Inactive
+          - Pending
+          - null
+        company:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        externalId:
+          type:
+          - string
+          - 'null'
+        firstLastName:
+          type:
+          - string
+          - 'null'
+        integration:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/d750b2d9403b5bcbdb3c96c89f1cc713df563d587f16e5f39f5ab546c08a20a0'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        memberData:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberData'
+    BulkCollaboratorItemUpdate:
+      type: object
+      properties:
+        collaboratorGroupId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
+        collaboratorStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Inactive
+          - Pending
+          - null
+        company:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        externalId:
+          type:
+          - string
+          - 'null'
+        firstLastName:
+          type:
+          - string
+          - 'null'
+        formW9Data:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/MemberClientFormW9Info'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        orgSubAccountId:
+          type:
+          - string
+          - 'null'
+    Company:
+      type: object
+      properties:
+        banking:
+          type:
+          - boolean
+          - 'null'
+        companyOwners:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/CompanyPerson'
+        description:
+          type:
+          - string
+          - 'null'
+        disregardedEntityName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        links:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CompanyLinks'
+        name:
+          type:
+          - string
+          - 'null'
+        stateOfIncorporation:
+          type:
+          - string
+          - 'null'
+        structure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        supportEmail:
+          type:
+          - string
+          - 'null'
+        taxId:
+          type:
+          - string
+          - 'null'
+        website:
+          type:
+          - string
+          - 'null'
+        yearOfIncorporation:
+          type:
+          - string
+          - 'null'
+    CompanyLinks:
+      type: object
+      properties:
+        instagramUrl:
+          type:
+          - string
+          - 'null'
+        linkedInUrl:
+          type:
+          - string
+          - 'null'
+        otherUrl:
+          type:
+          - string
+          - 'null'
+        twitterUrl:
+          type:
+          - string
+          - 'null'
+        websiteUrl:
+          type:
+          - string
+          - 'null'
+    BulkInvoiceItemCreate:
+      type: object
+      properties:
+        amount:
+          type: number
+        bulkInvoiceBatchId:
+          type: string
+        dueDate:
+          type: string
+        invoiceStatus:
+          type: string
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+        lineItemDescription:
+          type: string
+        acceptedPaymentMethods:
+          type:
+          - array
+          - 'null'
+          items:
+            enum:
+            - Credit
+            - ACH
+            - Manual
+            - null
+            type:
+            - string
+            - 'null'
+        bulkInvoiceItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkInvoiceItemReference:
+          type:
+          - string
+          - 'null'
+        clientEmail:
+          type:
+          - string
+          - 'null'
+        clientExternalId:
+          type:
+          - string
+          - 'null'
+        creditFeeHandling:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FeeHandlingConfig'
+        invoiceNotes:
+          type:
+          - string
+          - 'null'
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        memberClientId:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        projectName:
+          type:
+          - string
+          - 'null'
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        sendDate:
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - bulkInvoiceBatchId
+      - dueDate
+      - invoiceStatus
+      - lineItemDescription
+    BulkInvoiceBatchCreate:
+      type: object
+      properties:
+        processingStrategy:
+          type: string
+          enum:
+          - Merge
+          - Single
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+      required:
+      - processingStrategy
+    9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b:
+      type: object
+      properties:
+        userAccountType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - member
+          - enterprise
+          - null
     BulkPayableBatch:
       type: object
       properties:
@@ -1709,14 +1711,255 @@ components:
       - status
       - updatedAt
       - userRoles
-    LabelsDictionary:
-      type: object
-      additionalProperties:
-        type: string
-    7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051:
+    8cf19a7bc90727398c2780566a4070199559f4723ec14c01c448dc0356efffa1:
       type: object
       properties:
-        number:
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        resolvedCollaboratorId:
+          type:
+          - string
+          - 'null'
+    BulkPayableImportSummary:
+      type: object
+      properties:
+        deductionCollaboratorsCount:
+          type: number
+        netImportAmount:
+          type: number
+        payableCollaboratorsCount:
+          type: number
+        toBeCreatedDeductionsCount:
+          type: number
+        toBeCreatedPayablesCount:
+          type: number
+        toBeUpdatedDeductionsCount:
+          type: number
+        toBeUpdatedPayablesCount:
+          type: number
+        totalDeductionsAmount:
+          type: number
+        totalPayableItems:
+          type: number
+        totalPayablesAmount:
+          type: number
+      required:
+      - deductionCollaboratorsCount
+      - netImportAmount
+      - payableCollaboratorsCount
+      - toBeCreatedDeductionsCount
+      - toBeCreatedPayablesCount
+      - toBeUpdatedDeductionsCount
+      - toBeUpdatedPayablesCount
+      - totalDeductionsAmount
+      - totalPayableItems
+      - totalPayablesAmount
+    InvoiceIntegrations:
+      type: object
+      properties:
+        quickbooks:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11'
+    BulkPayableBatchCreate:
+      type: object
+      properties:
+        processingStrategy:
+          type: string
+          enum:
+          - Merge
+          - Single
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+      required:
+      - processingStrategy
+    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
+      type: object
+      properties:
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb:
+      type: object
+      properties:
+        address:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Address'
+        company:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Company'
+        logoUrl:
+          type:
+          - string
+          - 'null'
+        ssnLastFour:
+          type:
+          - string
+          - 'null'
+    BulkInvoiceBatch:
+      type: object
+      properties:
+        bulkInvoiceBatchId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        memberId:
+          type: string
+        processingStrategy:
+          type: string
+          enum:
+          - Merge
+          - Single
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        statistics:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
+      required:
+      - bulkInvoiceBatchId
+      - createdAt
+      - eventActors
+      - labels
+      - memberId
+      - processingStrategy
+      - status
+      - updatedAt
+      - userRoles
+    BulkPayableBatchUpdate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+          - null
+    MemberData:
+      type: object
+      properties:
+        autoPayRequirement:
+          type:
+          - string
+          - 'null'
+          enum:
+          - All
+          - None
+          - null
+        externalId:
+          type:
+          - string
+          - 'null'
+        shareTaxDocument:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Allow
+          - Decline
+          - null
+    BulkCollaboratorBatch:
+      type: object
+      properties:
+        bulkCollaboratorBatchId:
+          type: string
+        client:
+          $ref: '#/components/schemas/RedactedMember'
+        clientId:
+          type: string
+        createdAt:
+          type: string
+        eventActors:
+          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        labels:
+          $ref: '#/components/schemas/LabelsDictionary'
+        status:
+          type: string
+          enum:
+          - Open
+          - Pending
+          - Processing
+          - Complete
+          - Failed
+        updatedAt:
+          type: string
+        userRoles:
+          $ref: '#/components/schemas/UserRoles'
+        statistics:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
+      required:
+      - bulkCollaboratorBatchId
+      - client
+      - clientId
+      - createdAt
+      - eventActors
+      - labels
+      - status
+      - updatedAt
+      - userRoles
+    BulkBatchCreate:
+      type: object
+      properties:
+        labels:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/LabelsDictionary'
+    c1b9877fd1d35a4292006c3c09941c1c5c21bbe2e0e87488661804eebf2a3e4a:
+      type: object
+      properties:
+        deductionId:
+          type:
+          - string
+          - 'null'
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        invoiceId:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
+        resolvedMemberClientId:
           type:
           - string
           - 'null'
@@ -1804,371 +2047,6 @@ components:
       - status
       - updatedAt
       - userRoles
-    BulkBatchCreate:
-      type: object
-      properties:
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-    f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef:
-      type: object
-      properties:
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-    BulkCollaboratorItemUpdate:
-      type: object
-      properties:
-        collaboratorGroupId:
-          type:
-          - string
-          - 'null'
-        collaboratorId:
-          type:
-          - string
-          - 'null'
-        collaboratorStatus:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Active
-          - Inactive
-          - Pending
-          - null
-        company:
-          type:
-          - string
-          - 'null'
-        email:
-          type:
-          - string
-          - 'null'
-        externalId:
-          type:
-          - string
-          - 'null'
-        firstLastName:
-          type:
-          - string
-          - 'null'
-        formW9Data:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/MemberClientFormW9Info'
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        orgSubAccountId:
-          type:
-          - string
-          - 'null'
-    Address:
-      type: object
-      properties:
-        addressLine1:
-          type: string
-        city:
-          type: string
-        postalCode:
-          type: string
-        state:
-          type: string
-        addressLine2:
-          type:
-          - string
-          - 'null'
-      required:
-      - addressLine1
-      - city
-      - postalCode
-      - state
-    Company:
-      type: object
-      properties:
-        banking:
-          type:
-          - boolean
-          - 'null'
-        companyOwners:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/CompanyPerson'
-        description:
-          type:
-          - string
-          - 'null'
-        disregardedEntityName:
-          type:
-          - string
-          - 'null'
-        legalBusinessName:
-          type:
-          - string
-          - 'null'
-        links:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/CompanyLinks'
-        name:
-          type:
-          - string
-          - 'null'
-        stateOfIncorporation:
-          type:
-          - string
-          - 'null'
-        structure:
-          type:
-          - string
-          - 'null'
-          enum:
-          - None
-          - SoleProprietorship
-          - LlcSingleMember
-          - LlcMultiMember
-          - CorporationS
-          - LLCCorporationS
-          - LLCCorporationC
-          - LLCPartnership
-          - CorporationC
-          - Partnership
-          - null
-        supportEmail:
-          type:
-          - string
-          - 'null'
-        taxId:
-          type:
-          - string
-          - 'null'
-        website:
-          type:
-          - string
-          - 'null'
-        yearOfIncorporation:
-          type:
-          - string
-          - 'null'
-    BulkCollaboratorBatch:
-      type: object
-      properties:
-        bulkCollaboratorBatchId:
-          type: string
-        client:
-          $ref: '#/components/schemas/RedactedMember'
-        clientId:
-          type: string
-        createdAt:
-          type: string
-        eventActors:
-          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
-        labels:
-          $ref: '#/components/schemas/LabelsDictionary'
-        status:
-          type: string
-          enum:
-          - Open
-          - Pending
-          - Processing
-          - Complete
-          - Failed
-        updatedAt:
-          type: string
-        userRoles:
-          $ref: '#/components/schemas/UserRoles'
-        statistics:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
-      required:
-      - bulkCollaboratorBatchId
-      - client
-      - clientId
-      - createdAt
-      - eventActors
-      - labels
-      - status
-      - updatedAt
-      - userRoles
-    BulkPayableBatchUpdate:
-      type: object
-      properties:
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Open
-          - Pending
-          - Processing
-          - Complete
-          - Failed
-          - null
-    MemberData:
-      type: object
-      properties:
-        autoPayRequirement:
-          type:
-          - string
-          - 'null'
-          enum:
-          - All
-          - None
-          - null
-        externalId:
-          type:
-          - string
-          - 'null'
-        shareTaxDocument:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Allow
-          - Decline
-          - null
-    4091c2911630f24a45153ca60a204edf3efba15902cef686d412c191e0c18cac:
-      type: object
-      properties:
-        errorMessage:
-          type:
-          - string
-          - 'null'
-        resolvedMemberClientId:
-          type:
-          - string
-          - 'null'
-    CompanyPerson:
-      type: object
-      properties:
-        memberId:
-          type: string
-        ownershipPercentage:
-          type:
-          - number
-          - 'null'
-      required:
-      - memberId
-    BulkInvoiceBatch:
-      type: object
-      properties:
-        bulkInvoiceBatchId:
-          type: string
-        createdAt:
-          type: string
-        eventActors:
-          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
-        labels:
-          $ref: '#/components/schemas/LabelsDictionary'
-        memberId:
-          type: string
-        processingStrategy:
-          type: string
-          enum:
-          - Merge
-          - Single
-        status:
-          type: string
-          enum:
-          - Open
-          - Pending
-          - Processing
-          - Complete
-          - Failed
-        updatedAt:
-          type: string
-        userRoles:
-          $ref: '#/components/schemas/UserRoles'
-        statistics:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2'
-      required:
-      - bulkInvoiceBatchId
-      - createdAt
-      - eventActors
-      - labels
-      - memberId
-      - processingStrategy
-      - status
-      - updatedAt
-      - userRoles
-    c1b9877fd1d35a4292006c3c09941c1c5c21bbe2e0e87488661804eebf2a3e4a:
-      type: object
-      properties:
-        deductionId:
-          type:
-          - string
-          - 'null'
-        errorMessage:
-          type:
-          - string
-          - 'null'
-        invoiceId:
-          type:
-          - string
-          - 'null'
-        invoiceTemplateId:
-          type:
-          - string
-          - 'null'
-        resolvedMemberClientId:
-          type:
-          - string
-          - 'null'
-    UserRoles:
-      type: object
-      properties:
-        ownerIds:
-          type: array
-          items:
-            type: string
-        viewerIds:
-          type: array
-          items:
-            type: string
-      required:
-      - ownerIds
-      - viewerIds
-    CompanyLinks:
-      type: object
-      properties:
-        instagramUrl:
-          type:
-          - string
-          - 'null'
-        linkedInUrl:
-          type:
-          - string
-          - 'null'
-        otherUrl:
-          type:
-          - string
-          - 'null'
-        twitterUrl:
-          type:
-          - string
-          - 'null'
-        websiteUrl:
-          type:
-          - string
-          - 'null'
     BulkClientItem:
       type: object
       properties:
@@ -2245,80 +2123,216 @@ components:
       - status
       - updatedAt
       - userRoles
-    BulkBatchUpdate:
+    MemberClientFormW9Info:
       type: object
       properties:
+        addressLine1:
+          type:
+          - string
+          - 'null'
+        addressLine2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        companyStructure:
+          type:
+          - string
+          - 'null'
+          enum:
+          - None
+          - SoleProprietorship
+          - LlcSingleMember
+          - LlcMultiMember
+          - CorporationS
+          - LLCCorporationS
+          - LLCCorporationC
+          - LLCPartnership
+          - CorporationC
+          - Partnership
+          - null
+        country:
+          type:
+          - string
+          - 'null'
+        dob:
+          type:
+          - string
+          - 'null'
+        ein:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        legalBusinessName:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        ssn:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+    BulkPayableItemUpdate:
+      type: object
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        attachmentId:
+          type:
+          - string
+          - 'null'
+        bulkPayableBatchId:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemReference:
+          type:
+          - string
+          - 'null'
+        clientId:
+          type:
+          - string
+          - 'null'
+        collaboratorEmail:
+          type:
+          - string
+          - 'null'
+        collaboratorExternalId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
+        dueDate:
+          type:
+          - string
+          - 'null'
         labels:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/LabelsDictionary'
+        lineItemDescription:
+          type:
+          - string
+          - 'null'
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        payableNotes:
+          type:
+          - string
+          - 'null'
+        payableStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+          - null
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        workflowSubStatus:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Submitted
+          - null
+    UserRoles:
+      type: object
+      properties:
+        ownerIds:
+          type: array
+          items:
+            type: string
+        viewerIds:
+          type: array
+          items:
+            type: string
+      required:
+      - ownerIds
+      - viewerIds
+    RedactedUser:
+      type: object
+      properties:
+        email:
+          type:
+          - string
+          - 'null'
+        phone:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/7996a6815c717c0e93865680b5cd47dec90314e97e4e7282bed7fc2f367bc051'
+        profile:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/f6f2bd1a2fc7bad4e0d8f22345fc5f6699d096b7797b93575869c544a4fc5cef'
+        settings:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b'
         status:
           type:
           - string
           - 'null'
           enum:
-          - Open
           - Pending
-          - Processing
-          - Complete
-          - Failed
+          - Active
+          - Disabled
           - null
-    BulkInvoiceBatchUpdate:
+        tag:
+          type:
+          - string
+          - 'null'
+    BulkCollaboratorItemCreate:
       type: object
       properties:
-        labels:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/LabelsDictionary'
-        status:
+        collaboratorGroupId:
           type:
           - string
           - 'null'
-          enum:
-          - Open
-          - Pending
-          - Processing
-          - Complete
-          - Failed
-          - null
-    6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11:
-      type: object
-      properties:
-        billClassId:
+        collaboratorId:
           type:
           - string
           - 'null'
-        billCustomerId:
-          type:
-          - string
-          - 'null'
-        expenseAccountId:
-          type:
-          - string
-          - 'null'
-        invoiceClassId:
-          type:
-          - string
-          - 'null'
-        itemId:
-          type:
-          - string
-          - 'null'
-    8cf19a7bc90727398c2780566a4070199559f4723ec14c01c448dc0356efffa1:
-      type: object
-      properties:
-        errorMessage:
-          type:
-          - string
-          - 'null'
-        resolvedCollaboratorId:
-          type:
-          - string
-          - 'null'
-    BulkClientItemUpdate:
-      type: object
-      properties:
-        clientStatus:
+        collaboratorStatus:
           type:
           - string
           - 'null'
@@ -2343,63 +2357,162 @@ components:
           type:
           - string
           - 'null'
-        integration:
+        formW9Data:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/d750b2d9403b5bcbdb3c96c89f1cc713df563d587f16e5f39f5ab546c08a20a0'
+          - $ref: '#/components/schemas/MemberClientFormW9Info'
         labels:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/LabelsDictionary'
-        memberData:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/MemberData'
-    BulkPayableBatchCreate:
+        orgSubAccountId:
+          type:
+          - string
+          - 'null'
+    Address:
       type: object
       properties:
-        processingStrategy:
+        addressLine1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        state:
+          type: string
+        addressLine2:
+          type:
+          - string
+          - 'null'
+      required:
+      - addressLine1
+      - city
+      - postalCode
+      - state
+    BulkPayableItemCreate:
+      type: object
+      properties:
+        amount:
+          type: number
+        bulkPayableBatchId:
+          type: string
+        dueDate:
+          type: string
+        lineItemDescription:
+          type: string
+        payableStatus:
           type: string
           enum:
-          - Merge
-          - Single
+          - Draft
+          - Open
+          - Approved
+          - Paid
+          - Cancelled
+        attachmentId:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemMergeKey:
+          type:
+          - string
+          - 'null'
+        bulkPayableItemReference:
+          type:
+          - string
+          - 'null'
+        clientId:
+          type:
+          - string
+          - 'null'
+        collaboratorEmail:
+          type:
+          - string
+          - 'null'
+        collaboratorExternalId:
+          type:
+          - string
+          - 'null'
+        collaboratorId:
+          type:
+          - string
+          - 'null'
         labels:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/LabelsDictionary'
-      required:
-      - processingStrategy
-    9e97e63e736df301658ebeeab7f4fe84f3aeaa73800d3e4863801a3eb026df4b:
-      type: object
-      properties:
-        userAccountType:
+        lineItemDetail:
+          type:
+          - string
+          - 'null'
+        paidDate:
+          type:
+          - string
+          - 'null'
+        payableNotes:
+          type:
+          - string
+          - 'null'
+        reimbursableExpense:
+          type:
+          - boolean
+          - 'null'
+        workflowSubStatus:
           type:
           - string
           - 'null'
           enum:
-          - member
-          - enterprise
+          - Submitted
           - null
-    757f4961b94334fd41cedc27262be7b14583377703cda6490b996969bd4e66c2:
-      type: object
-      properties:
-        itemsFailed:
-          type: number
-        itemsProcessed:
-          type: number
-        itemsTotal:
-          type: number
       required:
-      - itemsFailed
-      - itemsProcessed
-      - itemsTotal
-    InvoiceIntegrations:
+      - amount
+      - bulkPayableBatchId
+      - dueDate
+      - lineItemDescription
+      - payableStatus
+    CompanyPerson:
       type: object
       properties:
-        quickbooks:
+        memberId:
+          type: string
+        ownershipPercentage:
+          type:
+          - number
+          - 'null'
+      required:
+      - memberId
+    4091c2911630f24a45153ca60a204edf3efba15902cef686d412c191e0c18cac:
+      type: object
+      properties:
+        errorMessage:
+          type:
+          - string
+          - 'null'
+        resolvedMemberClientId:
+          type:
+          - string
+          - 'null'
+    RedactedMember:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/RedactedUser'
+        profile:
           oneOf:
           - type: 'null'
-          - $ref: '#/components/schemas/6d0791223791444911cf73db8aa3782fc7b1c0b614b1873468fbf7182f9f9a11'
+          - $ref: '#/components/schemas/23d776fc12e56286a20f36065e4f942c43a28218a62eb2f211116c130deb74eb'
+      required:
+      - user
+    64846136a354aa510825c1f23c3a978f4c816d8d4184311e7294a570f73727dc:
+      type: object
+      properties:
+        customerId:
+          type:
+          - string
+          - 'null'
+        itemId:
+          type:
+          - string
+          - 'null'
     BulkClientItemCreate:
       type: object
       properties:
@@ -2440,119 +2553,6 @@ components:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/MemberData'
-    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
-      type: object
-      additionalProperties:
-        type: string
-    BulkPayableItem:
-      type: object
-      properties:
-        amount:
-          type: number
-        bulkPayableBatchId:
-          type: string
-        bulkPayableItemId:
-          type: string
-        clientId:
-          type: string
-        createdAt:
-          type: string
-        dueDate:
-          type: string
-        eventActors:
-          $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
-        labels:
-          $ref: '#/components/schemas/LabelsDictionary'
-        lineItemDescription:
-          type: string
-        paidDate:
-          type: string
-        payableStatus:
-          type: string
-          enum:
-          - Draft
-          - Open
-          - Approved
-          - Paid
-          - Cancelled
-        status:
-          type: string
-          enum:
-          - Open
-          - Pending
-          - Processing
-          - Complete
-          - Failed
-        updatedAt:
-          type: string
-        userRoles:
-          $ref: '#/components/schemas/UserRoles'
-        attachmentId:
-          type:
-          - string
-          - 'null'
-        bulkPayableItemMergeKey:
-          type:
-          - string
-          - 'null'
-        bulkPayableItemReference:
-          type:
-          - string
-          - 'null'
-        collaboratorEmail:
-          type:
-          - string
-          - 'null'
-        collaboratorExternalId:
-          type:
-          - string
-          - 'null'
-        collaboratorId:
-          type:
-          - string
-          - 'null'
-        integration:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/InvoiceIntegrations'
-        lineItemDetail:
-          type:
-          - string
-          - 'null'
-        metadata:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/ff870c34e17f41323279d1c2fe8e2d03accac4d93d8aa050ddce7dbba094dbcb'
-        payableNotes:
-          type:
-          - string
-          - 'null'
-        reimbursableExpense:
-          type:
-          - boolean
-          - 'null'
-        workflowSubStatus:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Submitted
-          - null
-      required:
-      - amount
-      - bulkPayableBatchId
-      - bulkPayableItemId
-      - clientId
-      - createdAt
-      - dueDate
-      - eventActors
-      - labels
-      - lineItemDescription
-      - paidDate
-      - payableStatus
-      - status
-      - updatedAt
-      - userRoles
   securitySchemes:
     BearerAuth:
       type: http
