@@ -74,6 +74,118 @@ paths:
                 $ref: '#/components/schemas/PayrollSettings'
 components:
   schemas:
+    FundingSource:
+      type: object
+      properties:
+        fundingSourceCurrency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        fundingSourceId:
+          type: string
+        fundingSourceType:
+          type: string
+          enum:
+          - InternalAccount
+          - Account
+          - PaymentCard
+      required:
+      - fundingSourceCurrency
+      - fundingSourceId
+      - fundingSourceType
+    PayrollSettingsUpdate:
+      type: object
+      properties:
+        calculationSettings1099:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/CalculationSettings1099'
+        enablePlannedPayroll:
+          type:
+          - boolean
+          - 'null'
+        enableProcessDaysBeforeDue:
+          type:
+          - boolean
+          - 'null'
+        frequency:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FrequencyUpdate'
+        fundingSource:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/FundingSource'
+        issue1099s:
+          type:
+          - boolean
+          - 'null'
+        processDaysBeforeDue:
+          type:
+          - number
+          - 'null'
+        scheduleDates:
+          type:
+          - array
+          - 'null'
+          items:
+            oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/ScheduleDateUpdate'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Active
+          - Draft
+          - Expired
+          - Cancelled
+          - null
+        workflow:
+          type:
+          - string
+          - 'null'
+          enum:
+          - SingleStage
+          - DualStage
+          - null
+    FrequencyUpdate:
+      type: object
+      properties:
+        daily:
+          type:
+          - boolean
+          - 'null'
+        dayInInterval:
+          type:
+          - number
+          - 'null'
+        endDate:
+          type:
+          - string
+          - 'null'
+        every:
+          type:
+          - number
+          - 'null'
+        interval:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Week
+          - Month
+          - null
+        startDate:
+          type:
+          - string
+          - 'null'
+        twicePerMonth:
+          type:
+          - boolean
+          - 'null'
     Frequency:
       type: object
       properties:
@@ -177,150 +289,6 @@ components:
           - null
       required:
       - status
-    PayrollSettingsUpdate:
-      type: object
-      properties:
-        calculationSettings1099:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/CalculationSettings1099'
-        enablePlannedPayroll:
-          type:
-          - boolean
-          - 'null'
-        enableProcessDaysBeforeDue:
-          type:
-          - boolean
-          - 'null'
-        frequency:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/FrequencyUpdate'
-        fundingSource:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/FundingSource'
-        issue1099s:
-          type:
-          - boolean
-          - 'null'
-        processDaysBeforeDue:
-          type:
-          - number
-          - 'null'
-        scheduleDates:
-          type:
-          - array
-          - 'null'
-          items:
-            oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/ScheduleDateUpdate'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Active
-          - Draft
-          - Expired
-          - Cancelled
-          - null
-        workflow:
-          type:
-          - string
-          - 'null'
-          enum:
-          - SingleStage
-          - DualStage
-          - null
-    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
-      type: object
-      additionalProperties:
-        type: string
-    ScheduleDate:
-      type: object
-      properties:
-        date:
-          type: string
-        status:
-          type: string
-          enum:
-          - Pending
-          - Completed
-          - Skipped
-          - Modified
-        cutOffDate:
-          type:
-          - string
-          - 'null'
-        invoiceId:
-          type:
-          - string
-          - 'null'
-        invoiceTemplateId:
-          type:
-          - string
-          - 'null'
-      required:
-      - date
-      - status
-    FrequencyUpdate:
-      type: object
-      properties:
-        daily:
-          type:
-          - boolean
-          - 'null'
-        dayInInterval:
-          type:
-          - number
-          - 'null'
-        endDate:
-          type:
-          - string
-          - 'null'
-        every:
-          type:
-          - number
-          - 'null'
-        interval:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Week
-          - Month
-          - null
-        startDate:
-          type:
-          - string
-          - 'null'
-        twicePerMonth:
-          type:
-          - boolean
-          - 'null'
-    ScheduleDateUpdate:
-      type: object
-      properties:
-        date:
-          type:
-          - string
-          - 'null'
-        invoiceTemplateId:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Pending
-          - Completed
-          - Skipped
-          - Modified
-          - null
     CalculationSettings1099:
       type: object
       properties:
@@ -356,26 +324,58 @@ components:
           type:
           - number
           - 'null'
-    FundingSource:
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
+    ScheduleDateUpdate:
       type: object
       properties:
-        fundingSourceCurrency:
+        date:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
+          - null
+    ScheduleDate:
+      type: object
+      properties:
+        date:
+          type: string
+        status:
           type: string
           enum:
-          - USD
-          - CAD
-        fundingSourceId:
-          type: string
-        fundingSourceType:
-          type: string
-          enum:
-          - InternalAccount
-          - Account
-          - PaymentCard
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
+        cutOffDate:
+          type:
+          - string
+          - 'null'
+        invoiceId:
+          type:
+          - string
+          - 'null'
+        invoiceTemplateId:
+          type:
+          - string
+          - 'null'
       required:
-      - fundingSourceCurrency
-      - fundingSourceId
-      - fundingSourceType
+      - date
+      - status
   securitySchemes:
     BearerAuth:
       type: http
