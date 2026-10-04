@@ -1,0 +1,47 @@
+slug: wingspan
+provider: Wingspan
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: 1099 Operations
+  spec_file: wingspan-1099-operations-api-openapi.yml
+  capability_id: BC-220.40
+  capability_id_l1: BC-220
+  capability_name: Tax Reporting & Compliance
+  confidence: 0.8
+  evidence: GET /payments/collaborator/{id}/download-1099/{year}/{index} 'Retrieve Form 1099 PDF for a
+    Collaborator'; POST /payments/collaborator/1099/calculate 'Determine 1099 Amounts for Collaborators';
+    schemas TaxFormSubmission, TaxFormW9Info
+  reason: Operations calculate, file, mail and re-mail IRS Form 1099 and expose W-9 forms, i.e. statutory
+    tax information-return reporting and compliance for contractor payments.
+- tag: Payables Management
+  spec_file: wingspan-payables-management-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.8
+  evidence: '"Create a New Payable for a Member on Behalf of a Client"; "Retrieve Approved Payables Ready
+    for Immediate Payroll"; "Execute Approved Payroll Transactions"'
+  reason: Full lifecycle of payables owed to contractors plus approval-based disbursement execution is
+    squarely invoice/payable processing and payment to payees, i.e. Accounts Payable Management.
+- tag: Payroll Settings
+  spec_file: wingspan-payroll-settings-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: '"Retrieve Individual Payroll Settings"; "Modify Existing Payroll Settings"; schemas "PayrollSettings",
+    "CalculationSettings1099", "FundingSource", "Frequency"'
+  reason: Configures payroll run frequency, schedule dates, funding source and 1099 calculation rules
+    — payroll administration, which sits under HR Operations Management. Confidence moderated because
+    the payees are 1099 contractors rather than employees, so an AP reading is also arguable.

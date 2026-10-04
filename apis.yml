@@ -286,6 +286,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/wingspan-capability-edges.yml
+  name: Wingspan Business Capability Map
 - type: Website
   url: https://www.wingspan.app/
 - type: Overlay
