@@ -131,6 +131,34 @@ paths:
                 $ref: '#/components/schemas/CustomField'
 components:
   schemas:
+    CustomField:
+      type: object
+      properties:
+        id:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        required:
+          type: boolean
+        resourceType:
+          type: string
+          enum:
+          - Collaborator
+          - LineItem
+        type:
+          type: string
+          enum:
+          - Boolean
+          - String
+      required:
+      - id
+      - key
+      - name
+      - required
+      - resourceType
+      - type
     AdditionalDataUpdateRequest:
       type: object
       properties:
@@ -182,34 +210,6 @@ components:
           - Boolean
           - String
       required:
-      - key
-      - name
-      - required
-      - resourceType
-      - type
-    CustomField:
-      type: object
-      properties:
-        id:
-          type: string
-        key:
-          type: string
-        name:
-          type: string
-        required:
-          type: boolean
-        resourceType:
-          type: string
-          enum:
-          - Collaborator
-          - LineItem
-        type:
-          type: string
-          enum:
-          - Boolean
-          - String
-      required:
-      - id
       - key
       - name
       - required

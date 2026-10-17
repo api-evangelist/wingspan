@@ -204,66 +204,6 @@ components:
       required:
       - verificationCode
       - verificationToken
-    CardCodeResponse:
-      type: object
-      properties:
-        phoneNumber:
-          type: string
-        verificationToken:
-          type: string
-      required:
-      - phoneNumber
-      - verificationToken
-    CardUpdateRequest:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - Active
-          - Inactive
-          - Stolen
-          - Lost
-          - Frozen
-          - ClosedByCustomer
-      required:
-      - status
-    Card:
-      type: object
-      properties:
-        brand:
-          type: string
-        createdAt:
-          type: string
-        expirationDate:
-          type: string
-        last4Digits:
-          type: string
-        status:
-          type: string
-          enum:
-          - Active
-          - Inactive
-          - Stolen
-          - Lost
-          - Frozen
-          - ClosedByCustomer
-          - SuspectedFraud
-        type:
-          type: string
-          enum:
-          - individualDebitCard
-          - businessDebitCard
-          - individualVirtualDebitCard
-          - businessVirtualDebitCard
-      required:
-      - brand
-      - createdAt
-      - expirationDate
-      - internal
-      - last4Digits
-      - status
-      - type
     Address:
       type: object
       properties:
@@ -284,6 +224,20 @@ components:
       - city
       - postalCode
       - state
+    CardUpdateRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Stolen
+          - Lost
+          - Frozen
+          - ClosedByCustomer
+      required:
+      - status
     CardCreateRequest:
       type: object
       properties:
@@ -295,6 +249,16 @@ components:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/Address'
+    CardCodeResponse:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+        verificationToken:
+          type: string
+      required:
+      - phoneNumber
+      - verificationToken
     CardDetails:
       type: object
       properties:
@@ -339,6 +303,42 @@ components:
       - internal
       - last4Digits
       - name
+      - status
+      - type
+    Card:
+      type: object
+      properties:
+        brand:
+          type: string
+        createdAt:
+          type: string
+        expirationDate:
+          type: string
+        last4Digits:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Stolen
+          - Lost
+          - Frozen
+          - ClosedByCustomer
+          - SuspectedFraud
+        type:
+          type: string
+          enum:
+          - individualDebitCard
+          - businessDebitCard
+          - individualVirtualDebitCard
+          - businessVirtualDebitCard
+      required:
+      - brand
+      - createdAt
+      - expirationDate
+      - internal
+      - last4Digits
       - status
       - type
     CardCodeRequest:

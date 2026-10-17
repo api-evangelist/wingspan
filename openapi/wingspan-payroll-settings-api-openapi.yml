@@ -74,26 +74,6 @@ paths:
                 $ref: '#/components/schemas/PayrollSettings'
 components:
   schemas:
-    FundingSource:
-      type: object
-      properties:
-        fundingSourceCurrency:
-          type: string
-          enum:
-          - USD
-          - CAD
-        fundingSourceId:
-          type: string
-        fundingSourceType:
-          type: string
-          enum:
-          - InternalAccount
-          - Account
-          - PaymentCard
-      required:
-      - fundingSourceCurrency
-      - fundingSourceId
-      - fundingSourceType
     PayrollSettingsUpdate:
       type: object
       properties:
@@ -151,41 +131,27 @@ components:
           - SingleStage
           - DualStage
           - null
-    FrequencyUpdate:
+    ScheduleDateUpdate:
       type: object
       properties:
-        daily:
-          type:
-          - boolean
-          - 'null'
-        dayInInterval:
-          type:
-          - number
-          - 'null'
-        endDate:
+        date:
           type:
           - string
           - 'null'
-        every:
+        invoiceTemplateId:
           type:
-          - number
+          - string
           - 'null'
-        interval:
+        status:
           type:
           - string
           - 'null'
           enum:
-          - Week
-          - Month
+          - Pending
+          - Completed
+          - Skipped
+          - Modified
           - null
-        startDate:
-          type:
-          - string
-          - 'null'
-        twicePerMonth:
-          type:
-          - boolean
-          - 'null'
     Frequency:
       type: object
       properties:
@@ -221,6 +187,76 @@ components:
           - 'null'
       required:
       - startDate
+    FrequencyUpdate:
+      type: object
+      properties:
+        daily:
+          type:
+          - boolean
+          - 'null'
+        dayInInterval:
+          type:
+          - number
+          - 'null'
+        endDate:
+          type:
+          - string
+          - 'null'
+        every:
+          type:
+          - number
+          - 'null'
+        interval:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Week
+          - Month
+          - null
+        startDate:
+          type:
+          - string
+          - 'null'
+        twicePerMonth:
+          type:
+          - boolean
+          - 'null'
+    CalculationSettings1099:
+      type: object
+      properties:
+        cardProcessingFees:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Include
+          - Exclude
+          - null
+        offPlatformPayments:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Include
+          - Exclude
+          - null
+        reimbursableExpenses:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Include
+          - Exclude
+          - null
+        stateTaxId:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
+        thresholdAmount:
+          type:
+          - number
+          - 'null'
     PayrollSettings:
       type: object
       properties:
@@ -289,66 +325,6 @@ components:
           - null
       required:
       - status
-    CalculationSettings1099:
-      type: object
-      properties:
-        cardProcessingFees:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Include
-          - Exclude
-          - null
-        offPlatformPayments:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Include
-          - Exclude
-          - null
-        reimbursableExpenses:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Include
-          - Exclude
-          - null
-        stateTaxId:
-          oneOf:
-          - type: 'null'
-          - $ref: '#/components/schemas/87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a'
-        thresholdAmount:
-          type:
-          - number
-          - 'null'
-    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
-      type: object
-      additionalProperties:
-        type: string
-    ScheduleDateUpdate:
-      type: object
-      properties:
-        date:
-          type:
-          - string
-          - 'null'
-        invoiceTemplateId:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Pending
-          - Completed
-          - Skipped
-          - Modified
-          - null
     ScheduleDate:
       type: object
       properties:
@@ -376,6 +352,30 @@ components:
       required:
       - date
       - status
+    FundingSource:
+      type: object
+      properties:
+        fundingSourceCurrency:
+          type: string
+          enum:
+          - USD
+          - CAD
+        fundingSourceId:
+          type: string
+        fundingSourceType:
+          type: string
+          enum:
+          - InternalAccount
+          - Account
+          - PaymentCard
+      required:
+      - fundingSourceCurrency
+      - fundingSourceId
+      - fundingSourceType
+    87539cb97aa7616e350fc0d23c5a49177ea4c4a8bd00ec2a2cfd2a9a5c4e648a:
+      type: object
+      additionalProperties:
+        type: string
   securitySchemes:
     BearerAuth:
       type: http

@@ -215,48 +215,6 @@ components:
           - Boolean
           - String
           - null
-    InstantPayoutResponse:
-      type: object
-      properties:
-        instantPayoutAccount:
-          $ref: '#/components/schemas/FundsTransferAccount'
-        instantPayoutAccountId:
-          type: string
-      required:
-      - instantPayoutAccount
-      - instantPayoutAccountId
-    InstantPayoutRequest:
-      type: object
-      properties:
-        externalPayoutAccountToken:
-          type: string
-      required:
-      - externalPayoutAccountToken
-    AdditionalData:
-      type: object
-      properties:
-        key:
-          type: string
-        name:
-          type: string
-        required:
-          type: boolean
-        resourceType:
-          type: string
-          enum:
-          - Collaborator
-          - LineItem
-        type:
-          type: string
-          enum:
-          - Boolean
-          - String
-      required:
-      - key
-      - name
-      - required
-      - resourceType
-      - type
     FundsTransferAccount:
       type: object
       properties:
@@ -289,6 +247,16 @@ components:
       - internal
       - numbers
       - type
+    InstantPayoutResponse:
+      type: object
+      properties:
+        instantPayoutAccount:
+          $ref: '#/components/schemas/FundsTransferAccount'
+        instantPayoutAccountId:
+          type: string
+      required:
+      - instantPayoutAccount
+      - instantPayoutAccountId
     8212ee55b9e13fc32935c9417826f64b3550a203b665a04aacb02c4cac363c1f:
       type: object
       properties:
@@ -320,6 +288,38 @@ components:
           type:
           - string
           - 'null'
+    InstantPayoutRequest:
+      type: object
+      properties:
+        externalPayoutAccountToken:
+          type: string
+      required:
+      - externalPayoutAccountToken
+    AdditionalData:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        required:
+          type: boolean
+        resourceType:
+          type: string
+          enum:
+          - Collaborator
+          - LineItem
+        type:
+          type: string
+          enum:
+          - Boolean
+          - String
+      required:
+      - key
+      - name
+      - required
+      - resourceType
+      - type
   securitySchemes:
     BearerAuth:
       type: http

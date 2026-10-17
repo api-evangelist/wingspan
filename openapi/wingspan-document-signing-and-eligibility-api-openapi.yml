@@ -350,30 +350,6 @@ paths:
                 $ref: '#/components/schemas/CollaboratorGroupResponse'
 components:
   schemas:
-    EligibilityRequirementUpdateRequest:
-      type: object
-      properties:
-        requirementType:
-          type: string
-          enum:
-          - Signature
-        templateId:
-          type:
-          - string
-          - 'null'
-        validFor:
-          type:
-          - number
-          - 'null'
-      required:
-      - requirementType
-    CollaboratorGroupRequirementUpdate:
-      type: object
-      properties:
-        newEligibilityRequirementId:
-          type: string
-      required:
-      - newEligibilityRequirementId
     EligibilityRequirement:
       type: object
       properties:
@@ -397,44 +373,6 @@ components:
       - clientId
       - eligibilityRequirementId
       - requirementType
-    PaymentEligibility:
-      type: object
-      properties:
-        field:
-          type: string
-        value:
-          type: string
-      required:
-      - field
-      - value
-    EligibilityRequirementCreateRequest:
-      type: object
-      properties:
-        requirementType:
-          type: string
-          enum:
-          - Signature
-        templateId:
-          type:
-          - string
-          - 'null'
-        validFor:
-          type:
-          - number
-          - 'null'
-      required:
-      - requirementType
-    PaymentEligibilityUpdateRequest:
-      type: object
-      properties:
-        field:
-          type:
-          - string
-          - 'null'
-        value:
-          oneOf:
-          - type: 'null'
-          - type: object
     CollaboratorGroupResponse:
       type: object
       properties:
@@ -466,10 +404,16 @@ components:
       - defaultGroup
       - description
       - name
-    LabelsDictionary:
+    PaymentEligibility:
       type: object
-      additionalProperties:
-        type: string
+      properties:
+        field:
+          type: string
+        value:
+          type: string
+      required:
+      - field
+      - value
     CollaboratorGroupUpdateRequest:
       type: object
       properties:
@@ -500,6 +444,62 @@ components:
           type:
           - string
           - 'null'
+    LabelsDictionary:
+      type: object
+      additionalProperties:
+        type: string
+    EligibilityRequirementUpdateRequest:
+      type: object
+      properties:
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - requirementType
+    PaymentEligibilityUpdateRequest:
+      type: object
+      properties:
+        field:
+          type:
+          - string
+          - 'null'
+        value:
+          oneOf:
+          - type: 'null'
+          - type: object
+    CollaboratorGroupRequirementUpdate:
+      type: object
+      properties:
+        newEligibilityRequirementId:
+          type: string
+      required:
+      - newEligibilityRequirementId
+    EligibilityRequirementCreateRequest:
+      type: object
+      properties:
+        requirementType:
+          type: string
+          enum:
+          - Signature
+        templateId:
+          type:
+          - string
+          - 'null'
+        validFor:
+          type:
+          - number
+          - 'null'
+      required:
+      - requirementType
   securitySchemes:
     BearerAuth:
       type: http
